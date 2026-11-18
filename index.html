@@ -3,1411 +3,1982 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admission Update ২০২৬-২৭ | মানবিক ও বাণিজ্য বিভাগ ভর্তি সহায়িকা</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <title>Admission Update ২০২৬-২৭ | বিশ্ববিদ্যালয় ভর্তি তথ্য ও সহায়িকা</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap" rel="stylesheet" />
   <style>
-    :root, [data-theme="blue"] {
-      --bg-color: #f1f5f9;
-      --card-bg: #ffffff;
+    :root,
+    [data-theme="blue"] {
+      --bg: #f1f5f9;
+      --card: #ffffff;
       --card-sub: #f8fafc;
       --header-bg: linear-gradient(135deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
       --primary: #1e40af;
       --primary-soft: #dbeafe;
       --accent: #0f766e;
       --accent-soft: #ccfbf1;
-      --text-main: #0f172a;
-      --text-muted: #475569;
+      --text: #0f172a;
+      --muted: #475569;
       --border: #e2e8f0;
       --success-bg: #dcfce7;
       --success-text: #166534;
+      --warn-bg: #fef3c7;
+      --warn-text: #92400e;
       --danger-bg: #fee2e2;
       --danger-text: #991b1b;
-      --shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.06);
-      --shadow-hover: 0 10px 25px -5px rgba(30, 64, 175, 0.12);
+      --shadow: 0 3px 12px rgba(15, 23, 42, 0.06);
+    }
+
+    [data-theme="green"] {
+      --bg: #f2f7f4;
+      --card: #ffffff;
+      --card-sub: #f6faf7;
+      --header-bg: linear-gradient(135deg, #064e3b 0%, #065f46 55%, #0d9488 100%);
+      --primary: #065f46;
+      --primary-soft: #d1fae5;
+      --accent: #047857;
+      --accent-soft: #ecfdf5;
+      --text: #1c2e26;
+      --muted: #527062;
+      --border: #d5e5dc;
+      --success-bg: #dcfce7;
+      --success-text: #14532d;
+      --warn-bg: #fef3c7;
+      --warn-text: #92400e;
+      --danger-bg: #fee2e2;
+      --danger-text: #991b1b;
+      --shadow: 0 3px 12px rgba(6, 95, 70, 0.06);
     }
 
     [data-theme="dark"] {
-      --bg-color: #0b1120;
-      --card-bg: #1e293b;
-      --card-sub: #0f172a;
-      --header-bg: linear-gradient(135deg, #020617 0%, #0f172a 55%, #1e293b 100%);
+      --bg: #0b1120;
+      --card: #1e293b;
+      --card-sub: #131c2e;
+      --header-bg: linear-gradient(135deg, #020617 0%, #0f172a 55%, #1e3a8a 100%);
       --primary: #60a5fa;
-      --primary-soft: #1e3a8a;
+      --primary-soft: rgba(59, 130, 246, 0.16);
       --accent: #2dd4bf;
-      --accent-soft: #134e4a;
-      --text-main: #f8fafc;
-      --text-muted: #94a3b8;
+      --accent-soft: rgba(45, 212, 191, 0.14);
+      --text: #f1f5f9;
+      --muted: #94a3b8;
       --border: #334155;
-      --success-bg: #064e3b;
-      --success-text: #6ee7b7;
-      --danger-bg: #7f1d1d;
+      --success-bg: rgba(34, 197, 94, 0.18);
+      --success-text: #86efac;
+      --warn-bg: rgba(245, 158, 11, 0.18);
+      --warn-text: #fcd34d;
+      --danger-bg: rgba(239, 68, 68, 0.18);
       --danger-text: #fca5a5;
-      --shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
-      --shadow-hover: 0 10px 25px rgba(0, 0, 0, 0.5);
+      --shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
     }
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Hind Siliguri', sans-serif; }
-    html { scroll-behavior: smooth; }
-    body { background: var(--bg-color); color: var(--text-main); line-height: 1.6; transition: background 0.3s ease, color 0.3s ease; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; scroll-padding-top: 130px; }
 
-    /* Premium Hero & Glassmorphism */
-    header {
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.55;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      transition: background-color 0.2s ease, color 0.2s ease;
+    }
+
+    /* Pinned Sticky Header + Horizontal Section Bar */
+    .sticky-header-wrapper {
+      position: sticky;
+      top: 0;
+      z-index: 100;
       background: var(--header-bg);
       color: #ffffff;
-      padding: 24px 16px 32px;
-      border-bottom-left-radius: 28px;
-      border-bottom-right-radius: 28px;
-      box-shadow: 0 10px 30px rgba(15, 23, 42, 0.18);
-      position: relative;
-      overflow: hidden;
+      box-shadow: 0 4px 18px rgba(15, 23, 42, 0.2);
     }
-    header::before {
-      content: "";
-      position: absolute;
-      top: -60px; right: -40px;
-      width: 220px; height: 220px;
-      background: radial-gradient(circle, rgba(255,255,255,0.14) 0%, transparent 70%);
-      border-radius: 50%;
-      pointer-events: none;
+
+    .header-top {
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 12px 16px 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
     }
-    .header-inner { max-width: 960px; margin: 0 auto; position: relative; z-index: 2; }
-    .top-bar { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
-    .session-pill {
-      background: rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(10px);
-      -webkit-backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
-      padding: 4px 14px;
-      border-radius: 999px;
-      font-size: 13px;
-      font-weight: 600;
-    }
+
+    .brand-title h1 { font-size: 1.32rem; font-weight: 700; line-height: 1.2; }
+    .brand-title p { font-size: 0.8rem; opacity: 0.88; }
+
+    .theme-bar { display: flex; gap: 5px; flex-shrink: 0; }
     .theme-btn {
-      background: rgba(255, 255, 255, 0.16);
-      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.14);
+      color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.28);
-      color: #fff;
-      padding: 6px 14px;
-      border-radius: 999px;
-      font-size: 13px;
+      padding: 3px 9px;
+      border-radius: 20px;
+      font-family: inherit;
+      font-size: 0.74rem;
       font-weight: 600;
       cursor: pointer;
-      transition: all 0.25s ease;
     }
-    .theme-btn:hover { background: rgba(255, 255, 255, 0.28); transform: translateY(-1px); }
+    .theme-btn.active { background: #ffffff; color: #0f172a; border-color: #ffffff; }
 
-    header h1 { font-size: 28px; font-weight: 700; letter-spacing: -0.3px; margin-bottom: 4px; }
-    header p { font-size: 15px; opacity: 0.9; margin-bottom: 18px; }
-
-    .glass-nav {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
+    /* Horizontal Section Bar */
+    .horizontal-nav {
+      background: rgba(0, 0, 0, 0.18);
+      backdrop-filter: blur(8px);
+      border-top: 1px solid rgba(255, 255, 255, 0.14);
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: none;
     }
-    .glass-nav a {
-      text-decoration: none;
-      color: #ffffff;
-      background: rgba(255, 255, 255, 0.14);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.25);
+    .horizontal-nav::-webkit-scrollbar { display: none; }
+    .horizontal-nav-inner {
+      max-width: 860px;
+      margin: 0 auto;
       padding: 8px 16px;
-      border-radius: 12px;
-      font-size: 14px;
-      font-weight: 600;
-      transition: all 0.25s ease;
-    }
-    .glass-nav a:hover {
-      background: #ffffff;
-      color: #1e3a8a;
-      transform: translateY(-2px);
-    }
-
-    .container { max-width: 960px; margin: 0 auto; padding: 20px 16px 50px; }
-
-    /* Search & Filter */
-    .search-box {
-      position: relative;
-      margin-bottom: 14px;
-    }
-    .search-box input {
-      width: 100%;
-      padding: 13px 16px 13px 42px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      color: var(--text-main);
-      font-size: 15px;
-      box-shadow: var(--shadow);
-      outline: none;
-      transition: border-color 0.25s ease;
-    }
-    .search-box input:focus { border-color: var(--primary); }
-    .search-icon {
-      position: absolute;
-      left: 14px;
-      top: 50%;
-      transform: translateY(-50%);
-      font-size: 16px;
-      opacity: 0.6;
-    }
-
-    .filter-row {
       display: flex;
       gap: 8px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-bottom: 20px;
     }
-    .filter-chip {
-      padding: 7px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: var(--card-bg);
-      color: var(--text-main);
-      font-size: 13.5px;
+    .h-nav-link {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 0.84rem;
       font-weight: 600;
-      cursor: pointer;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.2);
       transition: all 0.2s ease;
     }
-    .filter-chip.active {
-      background: var(--primary);
-      color: #ffffff;
-      border-color: var(--primary);
-    }
-    .compare-trigger-btn {
-      margin-left: auto;
-      padding: 7px 15px;
-      border-radius: 999px;
-      border: 1px solid var(--accent);
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 13.5px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.25s ease;
-    }
-    .compare-trigger-btn:hover { background: var(--accent); color: #ffffff; }
+    .h-nav-link:hover { background: #ffffff; color: #1e3a8a; }
 
-    /* Clean University Card with 2-Column Unit Grid & Micro-Animations */
-    .uni-card {
-      background: var(--card-bg);
+    .container { width: 100%; max-width: 860px; margin: 0 auto; padding: 16px; flex: 1; }
+
+    .panel {
+      background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 18px;
+      border-radius: 16px;
+      padding: 16px;
       margin-bottom: 18px;
       box-shadow: var(--shadow);
-      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
-      animation: fadeUp 0.4s ease both;
     }
-    .uni-card:hover {
-      transform: translateY(-3px);
-      box-shadow: var(--shadow-hover);
+
+    .section-header {
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px dashed var(--border);
     }
+    .section-header h2 { font-size: 1.15rem; font-weight: 700; color: var(--primary); }
+    .section-header p { font-size: 0.85rem; color: var(--muted); }
+
+    /* Search & 4 Status Filters */
+    .search-box {
+      width: 100%;
+      padding: 10px 14px;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      border-radius: 11px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      margin-bottom: 10px;
+      box-shadow: var(--shadow);
+    }
+    .search-box:focus { outline: none; border-color: var(--primary); }
+
+    .status-filters {
+      display: flex;
+      gap: 7px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      margin-bottom: 14px;
+      scrollbar-width: none;
+    }
+    .status-filters::-webkit-scrollbar { display: none; }
+    .status-filter-btn {
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 600;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: all 0.15s ease;
+    }
+    .status-filter-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    [data-theme="dark"] .status-filter-btn.active { color: #0f172a; }
+
+    /* Clean University Cards (Opens Details in New Tab/Window) */
+    .uni-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .uni-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 15px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      gap: 10px;
+      text-decoration: none;
+      color: inherit;
+      box-shadow: var(--shadow);
+      transition: transform 0.2s ease, border-color 0.2s ease;
+      animation: fadeUp 0.3s ease both;
+    }
+    .uni-card:hover { border-color: var(--primary); transform: translateY(-2px); }
+
     @keyframes fadeUp {
-      from { opacity: 0; transform: translateY(12px); }
+      from { opacity: 0; transform: translateY(8px); }
       to { opacity: 1; transform: translateY(0); }
     }
 
-    .uni-header {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 14px;
-      padding-bottom: 12px;
-      border-bottom: 1px solid var(--border);
-    }
-    .uni-badge {
-      width: 46px;
-      height: 46px;
-      border-radius: 14px;
-      background: var(--primary-soft);
-      color: var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: 700;
-      font-size: 16px;
-      flex-shrink: 0;
-    }
-    .uni-title-wrap { flex: 1; }
-    .uni-title-wrap h3 { font-size: 18px; font-weight: 700; line-height: 1.3; }
-    .uni-meta { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 4px; }
-    .status-dot {
-      font-size: 12px;
-      font-weight: 600;
-      padding: 2px 9px;
-      border-radius: 999px;
-    }
-    .status-open { background: var(--success-bg); color: var(--success-text); }
-    .status-soon { background: var(--primary-soft); color: var(--primary); }
-    .status-2nd { background: var(--card-sub); color: var(--text-muted); border: 1px solid var(--border); }
+    .uni-card-title h3 { font-size: 1.08rem; font-weight: 700; color: var(--primary); line-height: 1.3; }
+    .uni-card-title p { font-size: 0.83rem; color: var(--muted); margin-top: 3px; }
 
-    /* Clean 2-Column Unit Grid */
-    .units-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 10px;
+    .uni-card-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 8px;
+      border-top: 1px dashed var(--border);
+      font-size: 0.8rem;
     }
-    @media (max-width: 540px) {
-      .units-grid { grid-template-columns: 1fr; }
+
+    .uni-badges { display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+    .badge {
+      padding: 3px 9px;
+      border-radius: 999px;
+      font-size: 0.76rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
-    .unit-chip {
+    .badge-open { background: var(--success-bg); color: var(--success-text); }
+    .badge-soon { background: var(--warn-bg); color: var(--warn-text); }
+    .badge-2nd { background: var(--card-sub); color: var(--muted); border: 1px solid var(--border); }
+
+    /* Live Pulse Animation */
+    .live-pulse {
+      width: 8px;
+      height: 8px;
+      background-color: #16a34a;
+      border-radius: 50%;
+      display: inline-block;
+      position: relative;
+    }
+    .live-pulse::after {
+      content: "";
+      position: absolute;
+      inset: -3px;
+      border-radius: 50%;
+      background-color: rgba(22, 163, 74, 0.55);
+      animation: pulseRing 1.5s infinite ease-out;
+    }
+    @keyframes pulseRing {
+      0% { transform: scale(0.8); opacity: 0.9; }
+      70% { transform: scale(2.1); opacity: 0; }
+      100% { transform: scale(2.1); opacity: 0; }
+    }
+
+    .details-cta { color: var(--primary); font-weight: 700; white-space: nowrap; }
+
+    /* Roadmap 3 Tabs */
+    .roadmap-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-bottom: 14px; }
+    .roadmap-tab-btn {
+      padding: 8px 6px;
+      border-radius: 9px;
+      border: 1.5px solid var(--border);
+      background: var(--card-sub);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .roadmap-tab-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    [data-theme="dark"] .roadmap-tab-btn.active { color: #0f172a; }
+
+    .roadmap-list { display: flex; flex-direction: column; gap: 9px; }
+    .roadmap-card {
       background: var(--card-sub);
       border: 1px solid var(--border);
-      border-radius: 14px;
+      border-radius: 11px;
       padding: 11px 14px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      cursor: pointer;
-      transition: all 0.22s ease;
+      gap: 10px;
     }
-    .unit-chip:hover {
-      border-color: var(--primary);
-      background: var(--primary-soft);
-      transform: scale(1.015);
+    .roadmap-card h4 { font-size: 0.96rem; font-weight: 700; }
+    .roadmap-card p { font-size: 0.83rem; color: var(--muted); }
+    .clash-card {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+      border: 1px solid currentColor;
+      border-radius: 11px;
+      padding: 12px 14px;
+      font-size: 0.88rem;
     }
-    .unit-chip-name { font-size: 14.5px; font-weight: 600; }
-    .unit-chip-sub { font-size: 12px; color: var(--text-muted); display: block; }
-    .unit-chip-arrow { color: var(--primary); font-weight: 700; font-size: 15px; }
 
-    /* Section Titles */
-    .section-box {
-      background: var(--card-bg);
+    /* Calculator */
+    .group-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 12px; }
+    .group-btn {
+      padding: 7px 4px;
+      min-height: 46px;
+      border: 1.5px solid var(--border);
+      background: var(--card-sub);
+      color: var(--text);
+      border-radius: 9px;
+      font-family: inherit;
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      line-height: 1.2;
+    }
+    .group-btn .main-label { font-size: 0.92rem; font-weight: 700; }
+    .group-btn .sub-label { font-size: 0.7rem; opacity: 0.85; margin-top: 2px; }
+    .group-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    [data-theme="dark"] .group-btn.active { color: #0f172a; }
+
+    .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
+    .calc-row input {
+      width: 100%;
+      padding: 9px 11px;
+      border: 1.5px solid var(--border);
+      background: var(--card-sub);
+      color: var(--text);
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+    .calc-actions { display: flex; gap: 8px; }
+    .btn-calc {
+      flex: 1;
+      padding: 9px 14px;
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 0.94rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    [data-theme="dark"] .btn-calc { color: #0f172a; }
+    .btn-reset {
+      padding: 9px 14px;
+      background: var(--card-sub);
+      color: var(--text);
       border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 20px;
-      margin-top: 24px;
+      border-radius: 9px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .inline-feedback { margin-top: 10px; padding: 10px 12px; border-radius: 9px; font-size: 0.88rem; display: none; }
+    .inline-feedback.error { display: block; background: var(--danger-bg); color: var(--danger-text); }
+    .inline-feedback.success { display: block; background: var(--success-bg); color: var(--success-text); }
+
+    /* Details Page View (Opened in New Window/Tab) */
+    .hidden { display: none !important; }
+    .top-nav-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .btn-back, .btn-copy {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      color: var(--primary);
+      padding: 7px 12px;
+      border-radius: 8px;
+      font-family: inherit;
+      font-size: 0.88rem;
+      font-weight: 700;
+      cursor: pointer;
+      text-decoration: none;
+    }
+
+    .unit-tabs { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 14px; }
+    .unit-tab-btn {
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1.5px solid var(--border);
+      background: var(--card);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.84rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    .unit-tab-btn.active { background: var(--accent); color: #ffffff; border-color: var(--accent); }
+    [data-theme="dark"] .unit-tab-btn.active { color: #0f172a; }
+
+    .detail-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
       box-shadow: var(--shadow);
     }
-    .section-box h2 { font-size: 20px; font-weight: 700; margin-bottom: 4px; }
-    .section-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 16px; }
+    .detail-header {
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .detail-header h2 { font-size: 1.32rem; font-weight: 700; color: var(--primary); }
+    .detail-header span { display: block; font-size: 0.92rem; color: var(--muted); }
 
-    /* Roadmap */
-    .roadmap-item {
+    .quick-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-bottom: 14px; }
+    .stat-pill { background: var(--primary-soft); border-radius: 10px; padding: 10px 8px; text-align: center; }
+    .stat-pill .stat-label { font-size: 0.76rem; color: var(--muted); font-weight: 600; display: block; }
+    .stat-pill .stat-value { font-size: 0.95rem; font-weight: 700; color: var(--primary); margin-top: 2px; display: block; }
+
+    .detail-sections { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 12px; }
+    .info-box { background: var(--card-sub); border: 1px solid var(--border); border-radius: 10px; padding: 14px; }
+    .info-box h3 { font-size: 0.96rem; font-weight: 700; color: var(--primary); margin-bottom: 8px; padding-bottom: 5px; border-bottom: 1px solid var(--border); }
+    .info-row { display: flex; justify-content: space-between; gap: 8px; font-size: 0.9rem; padding: 4px 0; border-bottom: 1px dashed var(--border); }
+    .info-row:last-child { border-bottom: none; }
+    .info-row strong { color: var(--muted); font-weight: 600; flex-shrink: 0; }
+    .info-row span { text-align: right; font-weight: 600; color: var(--text); }
+
+    .gpa-chips { display: grid; grid-template-columns: repeat(3, 1fr); gap: 6px; margin-bottom: 8px; }
+    .gpa-chip { background: var(--card); border: 1px solid var(--border); border-radius: 8px; padding: 6px 4px; text-align: center; }
+    .gpa-chip small { display: block; font-size: 0.74rem; color: var(--muted); }
+    .gpa-chip b { font-size: 0.95rem; color: var(--primary); }
+
+    .subject-list { list-style: none; padding: 0; }
+    .subject-list li { font-size: 0.9rem; padding: 5px 0 5px 16px; position: relative; border-bottom: 1px dashed var(--border); }
+    .subject-list li:last-child { border-bottom: none; }
+    .subject-list li::before { content: "•"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+
+    .source-footer {
+      margin-top: 16px;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border);
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 12px 14px;
-      background: var(--card-sub);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      margin-bottom: 10px;
-      gap: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.88rem;
     }
-    .roadmap-item h4 { font-size: 15.5px; font-weight: 700; }
-    .roadmap-item p { font-size: 13px; color: var(--text-muted); }
-    .days-pill {
-      padding: 5px 11px;
-      border-radius: 999px;
-      font-size: 12.5px;
-      font-weight: 700;
-      white-space: nowrap;
-      background: var(--primary-soft);
-      color: var(--primary);
-    }
+    .source-link { color: var(--primary); font-weight: 700; text-decoration: none; }
 
-    /* Calculators with In-Line Result Display */
-    .calc-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
-    @media (max-width: 680px) { .calc-grid { grid-template-columns: 1fr; } }
-    .form-group { margin-bottom: 12px; }
-    .form-group label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 4px; }
-    .form-group input, .form-group select {
-      width: 100%;
-      padding: 10px 12px;
-      border-radius: 12px;
-      border: 1px solid var(--border);
-      background: var(--card-sub);
-      color: var(--text-main);
-      font-size: 14.5px;
+    .empty-state { grid-column: 1 / -1; text-align: center; padding: 24px 16px; background: var(--card); border: 1px dashed var(--border); border-radius: 12px; color: var(--muted); }
+
+    /* Footer */
+    footer {
+      margin-top: 28px;
+      padding: 18px 16px;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      background: var(--card);
+      font-size: 0.88rem;
+      color: var(--text);
     }
-    .action-btn {
-      width: 100%;
-      padding: 11px;
-      border: none;
-      border-radius: 12px;
+    .footer-feedback { margin-bottom: 10px; font-weight: 500; display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 8px; }
+    .msg-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
       background: var(--primary);
       color: #ffffff;
-      font-size: 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: opacity 0.2s ease, transform 0.2s ease;
-    }
-    .action-btn:hover { opacity: 0.92; transform: translateY(-1px); }
-
-    .inline-result {
-      margin-top: 14px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      font-size: 14px;
-      display: none;
-      animation: fadeUp 0.3s ease;
-    }
-    .inline-result.success { display: block; background: var(--success-bg); color: var(--success-text); border: 1px solid currentColor; }
-    .inline-result.error { display: block; background: var(--danger-bg); color: var(--danger-text); border: 1px solid currentColor; }
-
-    /* Modal & Compare Modal */
-    .modal-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15, 23, 42, 0.65);
-      backdrop-filter: blur(4px);
-      display: none;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      z-index: 1000;
-    }
-    .modal-overlay.open { display: flex; animation: fadeIn 0.22s ease; }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-    .modal-card {
-      background: var(--card-bg);
-      color: var(--text-main);
-      width: 100%;
-      max-width: 600px;
-      max-height: 88vh;
-      overflow-y: auto;
-      border-radius: 22px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-      animation: scaleUp 0.25s cubic-bezier(0.22, 1, 0.36, 1);
-    }
-    @keyframes scaleUp { from { transform: scale(0.94); opacity: 0; } to { transform: scale(1); opacity: 1; } }
-
-    .modal-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
-    .close-btn {
-      width: 34px; height: 34px;
-      border-radius: 50%;
-      border: 1px solid var(--border);
-      background: var(--card-sub);
-      color: var(--text-main);
-      font-size: 18px;
-      cursor: pointer;
-    }
-    .info-block {
-      background: var(--card-sub);
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 12px 14px;
-      margin-bottom: 10px;
-    }
-    .info-block h4 { font-size: 13px; color: var(--text-muted); margin-bottom: 2px; }
-    .info-block p { font-size: 15px; font-weight: 600; }
-
-    /* Compare Table */
-    .compare-selectors { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 14px; }
-    .compare-table { width: 100%; border-collapse: collapse; font-size: 13.5px; }
-    .compare-table th, .compare-table td {
-      border: 1px solid var(--border);
-      padding: 9px 10px;
-      text-align: left;
-      vertical-align: top;
-    }
-    .compare-table th { background: var(--card-sub); font-weight: 700; width: 28%; }
-
-    footer {
-      text-align: center;
-      font-size: 13px;
-      color: var(--text-muted);
-      margin-top: 36px;
-      padding-top: 20px;
-      border-top: 1px solid var(--border);
-      line-height: 1.8;
-    }
-    footer a {
-      color: var(--primary);
-      font-weight: 700;
       text-decoration: none;
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 0.82rem;
+      font-weight: 700;
     }
-    footer a:hover {
-      text-decoration: underline;
-    }
+    [data-theme="dark"] .msg-btn { color: #0f172a; }
+    .footer-disclaimer { max-width: 640px; margin: 0 auto 10px auto; font-size: 0.8rem; color: var(--muted); line-height: 1.45; }
+    .footer-dev { font-size: 0.85rem; color: var(--muted); font-weight: 600; }
+    .footer-dev a { color: var(--primary); font-weight: 700; text-decoration: none; }
+    .footer-dev a:hover { text-decoration: underline; }
   </style>
 </head>
 <body>
 
-<header>
-  <div class="header-inner">
-    <div class="top-bar">
-      <span class="session-pill">সেশন ২০২৬-২৭ • ভর্তি সহায়িকা</span>
-      <button class="theme-btn" id="themeToggle" onclick="toggleTheme()">🌙 ডার্ক মোড</button>
+  <!-- Pinned Sticky Header + Horizontal Section Bar -->
+  <header class="sticky-header-wrapper">
+    <div class="header-top">
+      <div class="brand-title">
+        <h1>Admission Update</h1>
+        <p>সেশন ২০২৬-২৭ • মানবিক ও বিভাগ পরিবর্তন</p>
+      </div>
+      <div class="theme-bar" aria-label="থিম পরিবর্তন">
+        <button class="theme-btn active" data-theme-val="blue">নীল</button>
+        <button class="theme-btn" data-theme-val="green">সবুজ</button>
+        <button class="theme-btn" data-theme-val="dark">ডার্ক</button>
+      </div>
     </div>
-    <h1>Admission Update</h1>
-    <p>মানবিক ও বাণিজ্য বিভাগের পূর্ণাঙ্গ বিশ্ববিদ্যালয় ভর্তি তথ্য ও ক্যালকুলেটর</p>
-    <nav class="glass-nav">
-      <a href="#universitiesSection">বিশ্ববিদ্যালয়সমূহ</a>
-      <a href="#roadmapSection">ভর্তি রোডম্যাপ</a>
-      <a href="#calculatorSection">যোগ্যতা ও জিপিএ ক্যালকুলেটর</a>
+    <nav class="horizontal-nav" id="horizontalNavBar" aria-label="সেকশন নেভিগেশন">
+      <div class="horizontal-nav-inner">
+        <a href="#universitiesSec" class="h-nav-link">🏛️ বিশ্ববিদ্যালয়সমূহ</a>
+        <a href="#roadmapSec" class="h-nav-link">📅 ভর্তি রোডম্যাপ</a>
+        <a href="#calculatorSec" class="h-nav-link">🧮 যোগ্যতা ক্যালকুলেটর</a>
+        <a href="#gpaMarksSec" class="h-nav-link">📊 জিপিএ নম্বর হিসাব</a>
+      </div>
     </nav>
-  </div>
-</header>
+  </header>
 
-<div class="container">
-  <!-- Search & Filter -->
-  <div id="universitiesSection">
-    <div class="search-box">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="searchInput" placeholder="বিশ্ববিদ্যালয় বা ইউনিট খুঁজুন... যেমন: BUP, খুলনা, চবি B1, জাবি IBA" oninput="renderUniversities()">
+  <main class="container">
+
+    <!-- হোম পেইজ ভিউ -->
+    <div id="homeView">
+
+      <!-- বিশ্ববিদ্যালয় তালিকা সেকশন -->
+      <section id="universitiesSec">
+        <input type="text" id="searchInput" class="search-box" placeholder="বিশ্ববিদ্যালয় খুঁজুন (যেমন: ঢাবি, রাবি, চবি, জাবি, গুচ্ছ, BUP)..." />
+
+        <!-- ৪টি ফিল্টার অপশন -->
+        <div class="status-filters">
+          <button class="status-filter-btn active" data-sfilter="all">সব</button>
+          <button class="status-filter-btn" data-sfilter="secondTime">সেকেন্ড টাইম চলমান</button>
+          <button class="status-filter-btn" data-sfilter="open">আবেদন চলমান</button>
+          <button class="status-filter-btn" data-sfilter="upcoming">আবেদন আসন্ন</button>
+        </div>
+
+        <div class="uni-grid" id="uniGrid"></div>
+      </section>
+
+      <!-- ভর্তি রোডম্যাপ সেকশন (৩টি ট্যাবসহ) -->
+      <section class="panel" id="roadmapSec">
+        <div class="section-header">
+          <h2>ভর্তি রোডম্যাপ ও সময়সূচি</h2>
+          <p>আবেদন, পরীক্ষার তারিখ এবং একই দিনে একাধিক পরীক্ষার সতর্কতা</p>
+        </div>
+
+        <div class="roadmap-tabs">
+          <button class="roadmap-tab-btn active" data-rtab="apply">আবেদন টাইমলাইন</button>
+          <button class="roadmap-tab-btn" data-rtab="exam">পরীক্ষা টাইমলাইন</button>
+          <button class="roadmap-tab-btn" data-rtab="clash">একই দিনে পরীক্ষা</button>
+        </div>
+
+        <div class="roadmap-list" id="roadmapContent"></div>
+      </section>
+
+      <!-- যোগ্যতা ক্যালকুলেটর সেকশন -->
+      <section class="panel" id="calculatorSec">
+        <div class="section-header">
+          <h2>এডমিশন যোগ্যতা ক্যালকুলেটর</h2>
+          <p>তোমার বিভাগ ও জিপিএ দিয়ে কোন কোন বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারবে যাচাই করো</p>
+        </div>
+
+        <div class="group-tabs">
+          <button class="group-btn active" data-group="humanities">
+            <span class="main-label">মানবিক</span>
+          </button>
+          <button class="group-btn" data-group="science">
+            <span class="main-label">বিজ্ঞান</span>
+            <span class="sub-label">(বিভাগ পরিবর্তন)</span>
+          </button>
+          <button class="group-btn" data-group="commerce">
+            <span class="main-label">বাণিজ্য</span>
+            <span class="sub-label">(বিভাগ পরিবর্তন)</span>
+          </button>
+        </div>
+
+        <div class="calc-row">
+          <input type="number" id="sscInput" step="0.01" min="1" max="5" placeholder="SSC GPA (যেমন: 4.50)" />
+          <input type="number" id="hscInput" step="0.01" min="1" max="5" placeholder="HSC GPA (যেমন: 4.75)" />
+        </div>
+        <div class="calc-actions">
+          <button class="btn-calc" id="checkBtn">যোগ্যতা যাচাই করুন</button>
+          <button class="btn-reset" id="resetBtn">রিসেট</button>
+        </div>
+        <div class="inline-feedback" id="calcFeedback"></div>
+      </section>
+
+      <!-- জিপিএ নম্বর হিসাব ক্যালকুলেটর -->
+      <section class="panel" id="gpaMarksSec">
+        <div class="section-header">
+          <h2>জিপিএ নম্বর হিসাব ক্যালকুলেটর</h2>
+          <p>যেসব বিশ্ববিদ্যালয়ে মূল পরীক্ষার সাথে SSC ও HSC জিপিএ নম্বর যোগ হয়</p>
+        </div>
+
+        <div class="calc-row">
+          <input type="number" id="marksSscInput" step="0.01" min="1" max="5" placeholder="SSC GPA (যেমন: 4.50)" />
+          <input type="number" id="marksHscInput" step="0.01" min="1" max="5" placeholder="HSC GPA (যেমন: 4.75)" />
+        </div>
+        <div class="calc-actions">
+          <button class="btn-calc" id="calcMarksBtn">জিপিএ নম্বর হিসাব করুন</button>
+        </div>
+        <div class="inline-feedback" id="marksFeedback"></div>
+      </section>
+
     </div>
 
-    <div class="filter-row">
-      <button class="filter-chip active" onclick="setFilter('all', this)">সব বিশ্ববিদ্যালয়</button>
-      <button class="filter-chip" onclick="setFilter('secondTime', this)">সেকেন্ড টাইম আছে</button>
-      <button class="filter-chip" onclick="setFilter('open', this)">আবেদন চলমান</button>
-      <button class="compare-trigger-btn" onclick="openCompareModal()">⚖️ ইউনিট তুলনা করুন</button>
+    <!-- দ্বিতীয় পেইজ (নতুন উইন্ডো/ট্যাবে ওপেন হওয়া ডিটেইলস ভিউ) -->
+    <div id="detailView" class="hidden">
+      <div class="top-nav-bar">
+        <a href="?" class="btn-back" id="backHomeLink">← মূল পাতায় ফিরে যান</a>
+        <button class="btn-copy" id="copyBtn">তথ্য কপি করুন</button>
+      </div>
+
+      <section class="panel" style="padding: 10px 14px;">
+        <div class="group-tabs" style="margin-bottom: 0;">
+          <button class="group-btn active" data-group="humanities">
+            <span class="main-label">মানবিক</span>
+          </button>
+          <button class="group-btn" data-group="science">
+            <span class="main-label">বিজ্ঞান</span>
+            <span class="sub-label">(বিভাগ পরিবর্তন)</span>
+          </button>
+          <button class="group-btn" data-group="commerce">
+            <span class="main-label">বাণিজ্য</span>
+            <span class="sub-label">(বিভাগ পরিবর্তন)</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- নির্বাচিত বিশ্ববিদ্যালয়ের সব ইউনিট ও উপ-ইউনিটের ট্যাব -->
+      <div class="unit-tabs" id="unitTabsContainer"></div>
+
+      <article class="detail-card" id="detailContent"></article>
     </div>
 
-    <div id="uniListContainer"></div>
-  </div>
-
-  <!-- Roadmap Section -->
-  <div class="section-box" id="roadmapSection">
-    <h2>ভর্তি রোডম্যাপ ও সম্ভাব্য সময়সূচি</h2>
-    <p class="section-desc">অফিসিয়াল বিজ্ঞপ্তি অনুযায়ী আবেদন ও পরীক্ষার গুরুত্বপূর্ণ তারিখসমূহ</p>
-    <div id="roadmapContainer"></div>
-  </div>
-
-  <!-- Calculators Section -->
-  <div class="calc-grid" id="calculatorSection">
-    <!-- Eligibility Calculator -->
-    <div class="section-box">
-      <h2>এডমিশন যোগ্যতা ক্যালকুলেটর</h2>
-      <p class="section-desc">পাসের সাল ও জিপিএ দিয়ে কোন ইউনিটে আবেদন করতে পারবেন তা দেখুন</p>
-      <div class="form-group">
-        <label>HSC পাসের সাল</label>
-        <select id="passYear">
-          <option value="2026">২০২৬ (ফার্স্ট টাইম)</option>
-          <option value="2025">২০২৫ (সেকেন্ড টাইম)</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>HSC বিভাগ</label>
-        <select id="hscGroup">
-          <option value="humanities">মানবিক</option>
-          <option value="commerce">ব্যবসায় শিক্ষা</option>
-          <option value="science">বিজ্ঞান</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label>SSC / দাখিল GPA (৪র্থ বিষয়সহ)</label>
-        <input type="number" step="0.01" id="sscGpa" placeholder="যেমন: 4.50">
-      </div>
-      <div class="form-group">
-        <label>HSC / আলিম GPA (৪র্থ বিষয়সহ)</label>
-        <input type="number" step="0.01" id="hscGpa" placeholder="যেমন: 4.75">
-      </div>
-      <button class="action-btn" onclick="checkEligibility()">যোগ্যতা যাচাই করুন</button>
-      <div id="eligibilityResult" class="inline-result"></div>
-    </div>
-
-    <!-- GPA Marks Calculator -->
-    <div class="section-box">
-      <h2>জিপিএ নম্বর হিসাব ক্যালকুলেটর</h2>
-      <p class="section-desc">জাবি (JU), চবি ও গুচ্ছ/অন্যান্য বিশ্ববিদ্যালয়ে জিপিএ থেকে প্রাপ্ত নম্বর</p>
-      <div class="form-group">
-        <label>SSC / দাখিল GPA</label>
-        <input type="number" step="0.01" id="calcSsc" placeholder="যেমন: 4.50">
-      </div>
-      <div class="form-group">
-        <label>HSC / আলিম GPA</label>
-        <input type="number" step="0.01" id="calcHsc" placeholder="যেমন: 4.75">
-      </div>
-      <button class="action-btn" onclick="calculateGpaMarks()">জিপিএ নম্বর হিসাব করুন</button>
-      <div id="gpaMarksResult" class="inline-result"></div>
-    </div>
-  </div>
+  </main>
 
   <footer>
-    <strong>সতর্কতা:</strong> এই ওয়েবসাইটের তথ্যগুলো এআই (AI) ও বিভিন্ন অফিশিয়াল সূত্রের সহায়তায় সংকলিত। চূড়ান্ত আবেদন ও ফি প্রদানের পূর্বে সংশ্লিষ্ট বিশ্ববিদ্যালয়ের অফিশিয়াল ওয়েবসাইট থেকে সর্বশেষ ভর্তি বিজ্ঞপ্তি যাচাই করে নেওয়ার জন্য অনুরোধ করা হলো。<br>
-    © ২০২৬-২৭ Admission Update • মানবিক ও বাণিজ্য সহায়িকা<br>
-    Developed by <a href="https://instagram.com/your_username" target="_blank" rel="noopener noreferrer">Mujahidul Islam</a>
+    <div class="footer-feedback">
+      <span>তথ্যে কোনো অসঙ্গতি থাকলে বা কোনো পরামর্শ থাকলে আমাদের জানান</span>
+      <a class="msg-btn" href="https://ig.me/m/mujahid.zh" target="_blank" rel="noopener noreferrer">মেসেজ পাঠান</a>
+    </div>
+    <p class="footer-disclaimer">
+      বি.দ্র.: এই ওয়েবসাইটের তথ্যগুলো এআই (AI) ব্যবহার করে সংকলিত, যা আমরা ব্যক্তিগতভাবে যাচাই করিনি। চূড়ান্ত ও নির্ভুল তথ্যের জন্য অবশ্যই সংশ্লিষ্ট বিশ্ববিদ্যালয়ের অফিশিয়াল ওয়েবসাইট দেখুন।
+    </p>
+    <p class="footer-dev">
+      Developed By <a href="https://www.instagram.com/mujahid.zh?srtk=MTI5ZHVtbzVvZDhmbA==" target="_blank" rel="noopener noreferrer">Mujahidul Islam</a>
+    </p>
   </footer>
-</div>
 
-<!-- Unit Detail Modal -->
-<div class="modal-overlay" id="unitModal" onclick="if(event.target===this) closeModal('unitModal')">
-  <div class="modal-card">
-    <div class="modal-top">
-      <div>
-        <span id="modalUniName" style="font-size:13px; color:var(--primary); font-weight:700;"></span>
-        <h3 id="modalUnitTitle" style="font-size:20px; font-weight:700;"></h3>
-      </div>
-      <button class="close-btn" onclick="closeModal('unitModal')">✕</button>
-    </div>
-    <div id="modalBody"></div>
-  </div>
-</div>
+  <script>
+    const admissionData = [
+      {
+        id: "du",
+        shortName: "ঢাবি",
+        fullName: "ঢাকা বিশ্ববিদ্যালয় (DU)",
+        summaryText: "খ, ক (বিভাগ পরিবর্তন), গ, চ ও IBA ইউনিট",
+        appStatus: "open",
+        secondTime: false,
+        applyTimeline: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৭ দিন)",
+        examTimeline: "৫ ডিসেম্বর – ২৬ ডিসেম্বর ২০২৬",
+        examNote: "চ ইউনিট ৫ ডিসে, ক ১২ ডিসে, খ ১৯ ডিসে, গ ২৬ ডিসে",
+        website: "https://admission.eis.du.ac.bd/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "খ ইউনিট (কলা ও সামাজিক বিজ্ঞান)",
+            unitName: "খ ইউনিট (কলা, আইন ও সামাজিক বিজ্ঞান)",
+            totalSeats: "২,৯৩৪টি",
+            negMark: "০.২৫",
+            examDate: "১৯ ডিসেম্বর ২০২৬",
+            seats: { humanities: "১,৭৪৪টি", science: "৯০৮টি", commerce: "২৮২টি" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "৪র্থ বিষয়সহ আলাদা ৩.০০ এবং মোট ৭.৫০ (শুধু ২০২৬ ব্যাচ)" },
+              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "৪র্থ বিষয়সহ আলাদা ৩.৫০ এবং মোট ৮.০০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "৪র্থ বিষয়সহ আলাদা ৩.০০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (পরীক্ষা ১০০ + GPA ২০)",
+              mcq: "৬০ নম্বর (সময়: ৪৫ মিনিট)",
+              written: "৪০ নম্বর (সময়: ৪৫ মিনিট)",
+              negative: "প্রতি ভুল MCQ-তে ০.২৫ কাটা যাবে",
+              pass: "MCQ-তে ২৪ (বাংলা ৫, ইংরেজি ৫, জিকে ১০) ও লিখিতে ১১; মোট ৪০"
+            },
+            subjects: [
+              "বাংলা (MCQ ১৫ + লিখিত ২০)",
+              "ইংরেজি (MCQ ১৫ + লিখিত ২০)",
+              "সাধারণ জ্ঞান ও মৌলিক আইসিটি (MCQ ৩০)"
+            ]
+          },
+          {
+            tabLabel: "ক ইউনিট (বিভাগ পরিবর্তন)",
+            unitName: "ক ইউনিট (বিজ্ঞান অনুষদ — বিভাগ পরিবর্তন কোটা)",
+            totalSeats: "১১৮টি",
+            negMark: "০.২৫",
+            examDate: "১২ ডিসেম্বর ২০২৬",
+            seats: { humanities: "৭৮টি", science: "মূল বিজ্ঞান আসন", commerce: "৪০টি" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "বিভাগ পরিবর্তন: আলাদা ৩.০০ এবং মোট ৭.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "বিজ্ঞান: আলাদা ৩.৫০ এবং মোট ৮.০০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "বিভাগ পরিবর্তন: আলাদা ৩.০০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (পরীক্ষা ১০০ + GPA ২০)",
+              mcq: "৬০ নম্বর (সময়: ৪৫ মিনিট)",
+              written: "৪০ নম্বর (সময়: ৪৫ মিনিট)",
+              negative: "প্রতি ভুল MCQ-তে ০.২৫ কাটা যাবে",
+              pass: "MCQ-তে ২৪ এবং লিখিতে ১২সহ মোট ৪০ নম্বর"
+            },
+            subjects: [
+              "বাংলা (MCQ ১৫ + লিখিত ১০)",
+              "ইংরেজি (MCQ ১৫ + লিখিত ১০)",
+              "সাধারণ জ্ঞান / আইসিটি / অর্থনীতি / পরিসংখ্যান (MCQ ৩০ + লিখিত ২০)"
+            ]
+          },
+          {
+            tabLabel: "গ ইউনিট (ব্যবসায় শিক্ষা)",
+            unitName: "গ ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
+            totalSeats: "১,০৫০টি",
+            negMark: "০.২৫",
+            examDate: "২৬ ডিসেম্বর ২০২৬",
+            seats: { humanities: "২৫টি", science: "৯৫টি", commerce: "৯৩০টি" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "আলাদা ৩.০০ এবং মোট ৭.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদা ৩.৫০ এবং মোট ৮.০০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "আলাদা ৩.০০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (পরীক্ষা ১০০ + GPA ২০)",
+              mcq: "৬০ নম্বর (সময়: ৪৫ মিনিট)",
+              written: "৪০ নম্বর (সময়: ৪৫ মিনিট)",
+              negative: "প্রতি ভুল MCQ-তে ০.২৫ কাটা যাবে",
+              pass: "MCQ-তে ২৪ এবং লিখিতে ১১সহ মোট ৪০"
+            },
+            subjects: [
+              "বাংলা (MCQ ১২ + লিখিত ৮) ও ইংরেজি (MCQ ১২ + লিখিত ৮)",
+              "বাণিজ্য: হিসাববিজ্ঞান, ব্যবসায় নীতি ও মার্কেটিং/ফিন্যান্স",
+              "বিজ্ঞান/মানবিক: গণিত/অর্থনীতি ও সাধারণ জ্ঞান"
+            ]
+          },
+          {
+            tabLabel: "চ ইউনিট (চারুকলা)",
+            unitName: "চ ইউনিট (চারুকলা অনুষদ)",
+            totalSeats: "১৩০টি",
+            negMark: "০.২৫",
+            examDate: "৫ ডিসেম্বর ২০২৬",
+            seats: { humanities: "সকল বিভাগ উন্মুক্ত", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "আলাদাভাবে ৩.০০ এবং মোট ৬.৫০" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "আলাদাভাবে ৩.০০ এবং মোট ৬.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "আলাদাভাবে ৩.০০ এবং মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (MCQ ৪০ + অঙ্কন ৬০ + GPA ২০)",
+              mcq: "৪০ নম্বর (সময়: ৩০ মিনিট)",
+              written: "অঙ্কন ৬০ নম্বর (সময়: ৬০ মিনিট)",
+              negative: "প্রতি ভুল MCQ-তে ০.২৫ কাটা যাবে",
+              pass: "MCQ-তে ন্যূনতম ১৬ এবং অঙ্কনে ২৪ পেতে হবে"
+            },
+            subjects: [
+              "সাধারণ জ্ঞান ও শিল্পকলা ইতিহাস (MCQ ৪০)",
+              "ফ্রি-হ্যান্ড অঙ্কন / Drawing (৬০ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "আইবিএ (IBA)",
+            unitName: "ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন (IBA)",
+            totalSeats: "১২০টি",
+            negMark: "০.২৫",
+            examDate: "২৮ নভেম্বর ২০২৬",
+            seats: { humanities: "সকল বিভাগ উন্মুক্ত", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ এবং মোট ৭.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদা ৩.৫০ এবং মোট ৮.০০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ ৭০ + লিখিত ৩০) + ভাইভা",
+              mcq: "৭০ নম্বর (সময়: ৯০ মিনিট)",
+              written: "৩০ নম্বর (সময়: ৩০ মিনিট)",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "প্রতিটি সেকশনে আলাদাভাবে পাস নম্বর পেতে হবে"
+            },
+            subjects: [
+              "English (MCQ ৩০ + Written)",
+              "Mathematics (MCQ ২৫)",
+              "Analytical Ability (MCQ ১৫)"
+            ]
+          }
+        ]
+      },
+      {
+        id: "ru",
+        shortName: "রাবি",
+        fullName: "রাজশাহী বিশ্ববিদ্যালয় (RU)",
+        summaryText: "A (মানবিক), B (বাণিজ্য) ও C (অ-বিজ্ঞান কোটা)",
+        appStatus: "open",
+        secondTime: true,
+        applyTimeline: "১৫ নভেম্বর – ৩০ নভেম্বর ২০২৬",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ১২ দিন)",
+        examTimeline: "১৩ ফেব্রুয়ারি – ২৭ ফেব্রুয়ারি ২০২৭",
+        examNote: "C ইউনিট ১৩ ফেব, A ইউনিট ২০ ফেব, B ইউনিট ২৭ ফেব",
+        website: "https://admission.ru.ac.bd/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "A ইউনিট (মানবিক)",
+            unitName: "A ইউনিট (কলা, আইন, সামাজিক বিজ্ঞান ও চারুকলা)",
+            totalSeats: "১,৮৭২টি",
+            negMark: "০.২৫",
+            examDate: "২০ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "১,২৪০টি", science: "৬৩২টি (বিজ্ঞান ও বাণিজ্য উন্মুক্ত)", commerce: "৬৩২টি (বিজ্ঞান ও বাণিজ্য উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 7.00, note: "আলাদাভাবে ন্যূনতম ৩.০০ এবং মোট ৭.০০ (সেকেন্ড টাইম আছে, নম্বর কাটা হয় না)" },
+              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদাভাবে ন্যূনতম ৩.৫০ এবং মোট ৮.০০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদাভাবে ন্যূনতম ৩.৫০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (সম্পূর্ণ MCQ, ৮০টি প্রশ্ন)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ৪টি ভুলে ১ নম্বর (০.২৫) কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর (ইংরেজি বিভাগের জন্য আলাদা শর্ত প্রযোজ্য)"
+            },
+            subjects: [
+              "বাংলা (২৮টি প্রশ্ন = ৩৫ নম্বর)",
+              "ইংরেজি (২৮টি প্রশ্ন = ৩৫ নম্বর)",
+              "সাধারণ জ্ঞান (২৪টি প্রশ্ন = ৩০ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "B ইউনিট (বাণিজ্য)",
+            unitName: "B ইউনিট (বিজনেস স্টাডিজ অনুষদ ও আইবিএ)",
+            totalSeats: "৫৬০টি",
+            negMark: "০.২৫",
+            examDate: "২৭ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "১০৫টি (অ-বাণিজ্য কোটা)", science: "১০৫টি (অ-বাণিজ্য কোটা)", commerce: "৪৫৫টি" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 7.00, note: "অ-বাণিজ্য: আলাদা ৩.০০ এবং মোট ৭.০০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "অ-বাণিজ্য: আলাদা ৩.৫০ এবং মোট ৮.০০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বাণিজ্য: আলাদা ৩.৫০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর"
+            },
+            subjects: [
+              "বাণিজ্য: ইংরেজি (৩০), হিসাববিজ্ঞান (৩৫), ব্যবসায় সংগঠন (৩৫)",
+              "অ-বাণিজ্য: বাংলা (৩০), ইংরেজি (৩০), সাধারণ জ্ঞান (৪০)"
+            ]
+          },
+          {
+            tabLabel: "C ইউনিট (অ-বিজ্ঞান)",
+            unitName: "C ইউনিট (বিজ্ঞান অনুষদ — অ-বিজ্ঞান কোটা)",
+            totalSeats: "৮০টি (অ-বিজ্ঞান)",
+            negMark: "০.২৫",
+            examDate: "১৩ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "৮০টি (মানবিক ও বাণিজ্য সমন্বিত)", science: "১,৪৩৬টি (মূল বিজ্ঞান)", commerce: "৮০টি (মানবিক ও বাণিজ্য সমন্বিত)" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদাভাবে ৩.৫০ এবং মোট ৮.০০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদাভাবে ৩.৫০ এবং মোট ৮.০০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদাভাবে ৩.৫০ এবং মোট ৮.০০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর"
+            },
+            subjects: [
+              "বাংলা (৩০), ইংরেজি (৩০), সাধারণ জ্ঞান ও আইকিউ (৪০)"
+            ]
+          }
+        ]
+      },
+      {
+        id: "cu",
+        shortName: "চবি",
+        fullName: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU)",
+        summaryText: "B, B1, B2, C, D ও D1 উপ-ইউনিটসমূহ",
+        appStatus: "upcoming",
+        secondTime: true,
+        applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৭ দিন)",
+        examTimeline: "২৯ জানুয়ারি – ৮ ফেব্রুয়ারি ২০২৭",
+        examNote: "C ২৯ জানু, B1 ৩ ফেব, B2 ৪ ফেব, B ৫ ফেব, D ৬ ফেব",
+        website: "https://admission.cu.ac.bd/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "B ইউনিট (কলা)",
+            unitName: "B ইউনিট (কলা ও মানববিদ্যা অনুষদ)",
+            totalSeats: "১,২২১টি",
+            negMark: "০.২৫",
+            examDate: "৫ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "সকল বিভাগের জন্য উন্মুক্ত", science: "সকল বিভাগের জন্য উন্মুক্ত", commerce: "সকল বিভাগের জন্য উন্মুক্ত" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 2.50, total: 6.50, note: "মানবিক: মোট ৬.৫০ (SSC ৩.০০, HSC ২.৫০) | সেকেন্ড টাইমে ৩ নম্বর কাটা যাবে" },
+              science: { ssc: 3.50, hsc: 3.00, total: 7.00, note: "বিজ্ঞান: মোট ৭.০০ (SSC ৩.৫০, HSC ৩.০০)" },
+              commerce: { ssc: 3.50, hsc: 3.00, total: 7.00, note: "বাণিজ্য: মোট ৭.০০ (SSC ৩.৫০, HSC ৩.০০)" }
+            },
+            marks: {
+              total: "১২০ নম্বর (MCQ ১০০ + GPA ২০)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর (বাংলা ৭, ইংরেজি ৬, জিকে ১৩)"
+            },
+            subjects: [
+              "বাংলা বা ঐচ্ছিক ইংরেজি (৩০ নম্বর)",
+              "ইংরেজি (৩০ নম্বর)",
+              "সাধারণ জ্ঞান (৪০ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "B1 উপ-ইউনিট (চারুকলা)",
+            unitName: "B1 উপ-ইউনিট (চারুকলা, নাট্যকলা ও সংগীত)",
+            totalSeats: "১২৫টি",
+            negMark: "০.২৫",
+            examDate: "৩ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "১২৫টি (সকল বিভাগ উন্মুক্ত)", science: "১২৫টি (সকল বিভাগ উন্মুক্ত)", commerce: "১২৫টি (সকল বিভাগ উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 2.50, total: 6.50, note: "মানবিক: মোট ৬.৫০ (শুধু চবি ক্যাম্পাস)" },
+              science: { ssc: 3.50, hsc: 3.00, total: 7.00, note: "বিজ্ঞান: মোট ৭.০০ (শুধু চবি ক্যাম্পাস)" },
+              commerce: { ssc: 3.50, hsc: 3.00, total: 7.00, note: "বাণিজ্য: মোট ৭.০০ (শুধু চবি ক্যাম্পাস)" }
+            },
+            marks: {
+              total: "১২০ নম্বর (MCQ ১০০ + GPA ২০) + ব্যবহারিক",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "ব্যবহারিক পরীক্ষা প্রযোজ্য",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "MCQ-তে ৪০ এবং ব্যবহারিকে আলাদা পাস"
+            },
+            subjects: [
+              "বাংলা (২৫), ইংরেজি (২৫), সাধারণ জ্ঞান (৫০)"
+            ]
+          },
+          {
+            tabLabel: "B2 উপ-ইউনিট (আরবি ও ই.স্টাডিজ)",
+            unitName: "B2 উপ-ইউনিট (আরবি, ইসলামিক স্টাডিজ ও পালি)",
+            totalSeats: "২৮০টি",
+            negMark: "০.২৫",
+            examDate: "৪ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "আরবি ১২০, ইসলামিক স্টাডিজ ১২০, পালি ৪০", science: "সকল বিভাগ উন্মুক্ত (২৮০টি)", commerce: "সকল বিভাগ উন্মুক্ত (২৮০টি)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 2.50, total: 6.50, note: "মানবিক/মাদ্রাসা: মোট ৬.৫০ (শুধু চবি ক্যাম্পাস)" },
+              science: { ssc: 3.50, hsc: 3.00, total: 7.00, note: "বিজ্ঞান: মোট ৭.০০" },
+              commerce: { ssc: 3.50, hsc: 3.00, total: 7.00, note: "বাণিজ্য: মোট ৭.০০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (MCQ ১০০ + GPA ২০)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর"
+            },
+            subjects: [
+              "বাংলা (২০) ও ইংরেজি (২০)",
+              "আরবি / ইসলামিক স্টাডিজ / পালি থেকে যেকোনো ২টি (৩০×২ = ৬০)"
+            ]
+          },
+          {
+            tabLabel: "D ইউনিট (সমাজবিজ্ঞান)",
+            unitName: "D ইউনিট (সমাজবিজ্ঞান, আইন ও ভূগোল)",
+            totalSeats: "৯৫৮টি",
+            negMark: "০.২৫",
+            examDate: "৬ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "৫৫৪টি", science: "২৪৩টি", commerce: "১৬১টি" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.00, total: 7.50, note: "সকল বিভাগ: SSC ৩.৫০, HSC ৩.০০ এবং মোট ৭.৫০" },
+              science: { ssc: 3.50, hsc: 3.00, total: 7.50, note: "সকল বিভাগ: SSC ৩.৫০, HSC ৩.০০ এবং মোট ৭.৫০" },
+              commerce: { ssc: 3.50, hsc: 3.00, total: 7.50, note: "সকল বিভাগ: SSC ৩.৫০, HSC ৩.০০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (MCQ ১০০ + GPA ২০)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর"
+            },
+            subjects: [
+              "বাংলা (৩০) ও ইংরেজি (৩০)",
+              "বিশ্লেষণ দক্ষতা / আইকিউ (২০) এবং সাধারণ জ্ঞান/অর্থনীতি (২০)"
+            ]
+          },
+          {
+            tabLabel: "D1 উপ-ইউনিট (স্পোর্টস)",
+            unitName: "D1 উপ-ইউনিট (ফিজিক্যাল এডুকেশন অ্যান্ড স্পোর্টস সায়েন্স)",
+            totalSeats: "৪০টি",
+            negMark: "০.২৫",
+            examDate: "৮ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "৪০টি (সকল বিভাগ উন্মুক্ত)", science: "৪০টি (সকল বিভাগ উন্মুক্ত)", commerce: "৪০টি (সকল বিভাগ উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 2.50, hsc: 2.00, total: 5.50, note: "সকল বিভাগ: SSC ২.৫০, HSC ২.০০ এবং মোট ৫.৫০" },
+              science: { ssc: 2.50, hsc: 2.00, total: 5.50, note: "সকল বিভাগ: SSC ২.৫০, HSC ২.০০ এবং মোট ৫.৫০" },
+              commerce: { ssc: 2.50, hsc: 2.00, total: 5.50, note: "সকল বিভাগ: SSC ২.৫০, HSC ২.০০ এবং মোট ৫.৫০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (MCQ ১০০ + GPA ২০) + ব্যবহারিক",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "মাঠ পর্যায়ে ব্যবহারিক পরীক্ষা",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৩৫ নম্বর"
+            },
+            subjects: [
+              "বাংলা (৩০), ইংরেজি (৩০), সাধারণ জ্ঞান (২৫), ক্রীড়াবিজ্ঞান নীতিমালা (১৫)"
+            ]
+          },
+          {
+            tabLabel: "C ইউনিট (ব্যবসায়)",
+            unitName: "C ইউনিট (ব্যবসায় প্রশাসন অনুষদ)",
+            totalSeats: "৬৪০টি",
+            negMark: "০.২৫",
+            examDate: "২৯ জানুয়ারি ২০২৭",
+            seats: { humanities: "অ-বাণিজ্য কোটা", science: "অ-বাণিজ্য কোটা", commerce: "মূল বাণিজ্য আসন" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.00, total: 7.00, note: "আলাদা ৩.৫০ ও ৩.০০ এবং মোট ৭.০০" },
+              science: { ssc: 3.50, hsc: 3.00, total: 7.50, note: "আলাদা ৩.৫০ ও ৩.০০ এবং মোট ৭.৫০" },
+              commerce: { ssc: 3.50, hsc: 3.00, total: 7.00, note: "আলাদা ৩.৫০ ও ৩.০০ এবং মোট ৭.০০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (MCQ ১০০ + GPA ২০)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর"
+            },
+            subjects: [
+              "ইংরেজি কমিউনিকেশন (৪০), অ্যানালিটিক্যাল স্কিল (৩০), প্রবলেম সলভিং (৩০)"
+            ]
+          }
+        ]
+      },
+      {
+        id: "ju",
+        shortName: "জাবি",
+        fullName: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
+        summaryText: "B, C, C1 (চারুকলা), E ও IBA-JU উপ-ইউনিট",
+        appStatus: "upcoming",
+        secondTime: true,
+        applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩২ দিন)",
+        examTimeline: "১০ জানুয়ারি – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
+        examNote: "শিফটভিত্তিক পরীক্ষা অনুষ্ঠিত হবে",
+        website: "https://ju-admission.org/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "C ইউনিট (কলা)",
+            unitName: "C ইউনিট (কলা ও মানবিকী অনুষদ)",
+            totalSeats: "৪৩৮টি",
+            negMark: "০.২০",
+            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "৪৩৮টি (সমন্বিত)", science: "বিভাগ পরিবর্তনের সুযোগ রয়েছে", commerce: "বিভাগ পরিবর্তনের সুযোগ রয়েছে" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০ (সেকেন্ড টাইম আছে)" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বাণিজ্য: আলাদা ৩.৫০ ও মোট ৭.৫০" }
+            },
+            marks: {
+              total: "৯০ নম্বর (MCQ ৮০ + GPA ১০)",
+              mcq: "৮০ নম্বর (সময়: ৫৫ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২০ কাটা যাবে",
+              pass: "ন্যূনতম ৩৩% (২৭ নম্বর)"
+            },
+            subjects: [
+              "বাংলা (২০) ও ইংরেজি (২০)",
+              "সাধারণ জ্ঞান ও অনুষদ সংশ্লিষ্ট বিষয় (৪০ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "B ইউনিট (সমাজবিজ্ঞান)",
+            unitName: "B ইউনিট (সমাজবিজ্ঞান ও আইন অনুষদ)",
+            totalSeats: "৩২৬টি",
+            negMark: "০.২০",
+            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "৩২৬টি (সমন্বিত)", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০" }
+            },
+            marks: {
+              total: "৯০ নম্বর (MCQ ৮০ + GPA ১০)",
+              mcq: "৮০ নম্বর (সময়: ৫৫ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২০ কাটা যাবে",
+              pass: "ন্যূনতম ৩৩% (২৭ নম্বর)"
+            },
+            subjects: [
+              "বাংলা (২০), ইংরেজি (২০), সাধারণ গণিত (২০)",
+              "সাধারণ জ্ঞান (১৫) ও যৌক্তিক বিশ্লেষণ (৫)"
+            ]
+          },
+          {
+            tabLabel: "C1 উপ-ইউনিট (নাটক ও চারুকলা)",
+            unitName: "C1 উপ-ইউনিট (নাটক ও নাট্যতত্ত্ব এবং চারুকলা)",
+            totalSeats: "৬৪টি",
+            negMark: "০.২০",
+            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "নাটক ২৮টি, চারুকলা ৩৬টি", science: "সকল বিভাগ উন্মুক্ত (৬৪টি)", commerce: "সকল বিভাগ উন্মুক্ত (৬৪টি)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১১০ নম্বর (MCQ ৮০ + ব্যবহারিক ২০ + GPA ১০)",
+              mcq: "৮০ নম্বর (সময়: ৫৫ মিনিট)",
+              written: "ব্যবহারিক ২০ নম্বর",
+              negative: "প্রতি ভুল উত্তরে ০.২০ কাটা যাবে",
+              pass: "লিখিতে ৩৩% এবং ব্যবহারিকে ৪০%"
+            },
+            subjects: [
+              "বাংলা (১০), ইংরেজি (১০), সাধারণ জ্ঞান (২০)",
+              "নাটক/চারুকলা বিষয়ভিত্তিক (৪০ নম্বর) + ব্যবহারিক (২০)"
+            ]
+          },
+          {
+            tabLabel: "E ইউনিট (বিজনেস)",
+            unitName: "E ইউনিট (বিজনেস স্টাডিজ অনুষদ)",
+            totalSeats: "১৭৬টি",
+            negMark: "০.২০",
+            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "সকল বিভাগ উন্মুক্ত", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য/মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য/মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০" }
+            },
+            marks: {
+              total: "৯০ নম্বর (MCQ ৮০ + GPA ১০)",
+              mcq: "৮০ নম্বর (সময়: ৫৫ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২০ কাটা যাবে",
+              pass: "ন্যূনতম ৩৩% (২৭ নম্বর)"
+            },
+            subjects: [
+              "বাণিজ্য: বাংলা ২০, ইংরেজি ২০, হিসাববিজ্ঞান ২০, ব্যবস্থাপনা ২০",
+              "বিজ্ঞান/মানবিক: বাংলা ২০, ইংরেজি ২০, গণিত ও বিশ্লেষণ ২০, জিকে ২০"
+            ]
+          },
+          {
+            tabLabel: "IBA-JU",
+            unitName: "IBA-JU (ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন)",
+            totalSeats: "৭০টি",
+            negMark: "০.২০",
+            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "৭০টি (সকল বিভাগ উন্মুক্ত)", science: "৭০টি (সকল বিভাগ উন্মুক্ত)", commerce: "৭০টি (সকল বিভাগ উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ ৮০ + ভাইভা ১০ + GPA ১০)",
+              mcq: "৮০ নম্বর (সময়: ৫৫ মিনিট)",
+              written: "ভাইভা ১০ নম্বর",
+              negative: "প্রতি ভুল উত্তরে ০.২০ কাটা যাবে",
+              pass: "ন্যূনতম ৩৩% ও বিষয়ভিত্তিক শর্ত"
+            },
+            subjects: [
+              "বাংলা (৫) ও ইংরেজি (৩০)",
+              "ম্যাথমেটিক্যাল অ্যাপটিটিউড ও আইকিউ (৩০) এবং সাম্প্রতিক (১৫)"
+            ]
+          }
+        ]
+      },
+      {
+        id: "jnu",
+        shortName: "জবি",
+        fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
+        summaryText: "B (কলা ও আইন), C (বাণিজ্য) ও D (সামাজিক বিজ্ঞান)",
+        appStatus: "open",
+        secondTime: false,
+        applyTimeline: "১৫ নভেম্বর – ০৫ ডিসেম্বর ২০২৬",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ১৭ দিন)",
+        examTimeline: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+        examNote: "লিখিত ও MCQ পদ্ধতিতে পরীক্ষা হবে",
+        website: "https://admission.jnu.ac.bd/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "B ইউনিট (কলা ও আইন)",
+            unitName: "B ইউনিট (কলা ও আইন অনুষদ)",
+            totalSeats: "৭৮৫টি",
+            negMark: "০.২৫",
+            examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "৫৪০টি", science: "১৪৫টি", commerce: "১০০টি" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 7.00, note: "আলাদাভাবে ৩.০০ এবং মোট ৭.০০ (শুধু ২০২৬ ব্যাচ)" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদাভাবে ৩.৫০ এবং মোট ৭.৫০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদাভাবে ৩.৫০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (লিখিত ৪৮ + MCQ ২৪ + GPA ২৮)",
+              mcq: "২৪ নম্বর (সময়: ৩০ মিনিট)",
+              written: "৪৮ নম্বর (সময়: ৬০ মিনিট)",
+              negative: "MCQ অংশে প্রতি ভুলে ০.২৫ কাটা যাবে",
+              pass: "লিখিত ও MCQ-তে আলাদা পাস করতে হবে"
+            },
+            subjects: [
+              "বাংলা (২৪ নম্বর)",
+              "ইংরেজি (২৪ নম্বর)",
+              "সাধারণ জ্ঞান (২৪ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "D ইউনিট (সামাজিক বিজ্ঞান)",
+            unitName: "D ইউনিট (সামাজিক বিজ্ঞান অনুষদ)",
+            totalSeats: "৫৯০টি",
+            negMark: "০.২৫",
+            examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "৩৬০টি", science: "১৪০টি", commerce: "৯০টি" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 7.00, note: "মানবিক: মোট ৭.০০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: মোট ৭.৫০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বাণিজ্য: মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (লিখিত ৪৮ + MCQ ২৪ + GPA ২৮)",
+              mcq: "২৪ নম্বর",
+              written: "৪৮ নম্বর",
+              negative: "MCQ অংশে প্রতি ভুলে ০.২৫ কাটা যাবে",
+              pass: "লিখিত ও MCQ-তে আলাদা পাস"
+            },
+            subjects: [
+              "বাংলা (২৪), ইংরেজি (২৪), সাধারণ জ্ঞান (২৪)"
+            ]
+          },
+          {
+            tabLabel: "C ইউনিট (ব্যবসায় শিক্ষা)",
+            unitName: "C ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
+            totalSeats: "৫২০টি",
+            negMark: "০.২৫",
+            examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "অ-বাণিজ্য আসন", science: "অ-বাণিজ্য আসন", commerce: "মূল বাণিজ্য আসন" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদা ৩.৫০ ও মোট ৮.০০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ ও মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (লিখিত ৪৮ + MCQ ২৪ + GPA ২৮)",
+              mcq: "২৪ নম্বর",
+              written: "৪৮ নম্বর",
+              negative: "MCQ অংশে প্রতি ভুলে ০.২৫ কাটা যাবে",
+              pass: "লিখিত ও MCQ-তে আলাদা পাস"
+            },
+            subjects: [
+              "ইংরেজি, হিসাববিজ্ঞান, ব্যবসায় নীতি / গণিত ও সাধারণ জ্ঞান"
+            ]
+          }
+        ]
+      },
+      {
+        id: "bup",
+        shortName: "বিইউপি",
+        fullName: "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস (BUP)",
+        summaryText: "FASS, FBS ও FSSS অনুষদসমূহ",
+        appStatus: "upcoming",
+        secondTime: true,
+        applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২২ দিন)",
+        examTimeline: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
+        examNote: "ঢাকা ও বিভাগীয় শহরে পরীক্ষা অনুষ্ঠিত হবে",
+        website: "https://admission.bup.edu.bd/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "FASS (কলা ও সমাজবিজ্ঞান)",
+            unitName: "FASS (কলা ও সামাজিক বিজ্ঞান অনুষদ)",
+            totalSeats: "৩৫০টি",
+            negMark: "০.২৫",
+            examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "৩৫০টি (সমন্বিত মেধাক্রম)", science: "৩৫০টি (সমন্বিত মেধাক্রম)", commerce: "৩৫০টি (সমন্বিত মেধাক্রম)" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদাভাবে ৩.৫০ এবং মোট ৭.৫০ (সেকেন্ড টাইম আছে)" },
+              science: { ssc: 4.00, hsc: 4.00, total: 8.50, note: "আলাদাভাবে ৪.০০ এবং মোট ৮.৫০" },
+              commerce: { ssc: 3.75, hsc: 3.75, total: 8.00, note: "আলাদাভাবে ৩.৭৫ এবং মোট ৮.০০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ + ভাইভা ও GPA)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই (ভাইভা প্রযোজ্য)",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "প্রতিটি সেকশনে আলাদা পাস নম্বর"
+            },
+            subjects: [
+              "ইংরেজি (৪০ নম্বর)",
+              "সাধারণ জ্ঞান (৪০ নম্বর)",
+              "বাংলা (২০ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "FBS (বিজনেস স্টাডিজ)",
+            unitName: "FBS (বিজনেস স্টাডিজ অনুষদ)",
+            totalSeats: "৫০০টি",
+            negMark: "০.২৫",
+            examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "৫০০টি (সকল বিভাগ উন্মুক্ত)", science: "৫০০টি (সকল বিভাগ উন্মুক্ত)", commerce: "৫০০টি (সকল বিভাগ উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ এবং মোট ৭.৫০" },
+              science: { ssc: 4.00, hsc: 4.00, total: 8.50, note: "আলাদা ৪.০০ এবং মোট ৮.৫০" },
+              commerce: { ssc: 3.75, hsc: 3.75, total: 8.00, note: "আলাদা ৩.৭৫ এবং মোট ৮.০০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ + ভাইভা ও GPA)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই (ভাইভা প্রযোজ্য)",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ইংরেজি ও গণিতে আলাদা পাস নম্বর"
+            },
+            subjects: [
+              "ইংরেজি (৪০ নম্বর)",
+              "গণিত / Math (৩৫ নম্বর)",
+              "সাধারণ জ্ঞান (২৫ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "FSSS (নিরাপত্তা ও কৌশলগত)",
+            unitName: "FSSS (নিরাপত্তা ও কৌশলগত অধ্যয়ন অনুষদ)",
+            totalSeats: "২০০টি",
+            negMark: "০.২৫",
+            examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "২০০টি (সকল বিভাগ উন্মুক্ত)", science: "২০০টি (সকল বিভাগ উন্মুক্ত)", commerce: "২০০টি (সকল বিভাগ উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ এবং মোট ৭.৫০" },
+              science: { ssc: 4.00, hsc: 4.00, total: 8.50, note: "আলাদা ৪.০০ এবং মোট ৮.৫০" },
+              commerce: { ssc: 3.75, hsc: 3.75, total: 8.00, note: "আলাদা ৩.৭৫ এবং মোট ৮.০০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ + ভাইভা ও GPA)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই (ভাইভা প্রযোজ্য)",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০% নম্বর"
+            },
+            subjects: [
+              "ইংরেজি (৪০), সাধারণ জ্ঞান (৪০), বাংলা (২০)"
+            ]
+          }
+        ]
+      },
+      {
+        id: "ku",
+        shortName: "খুবি",
+        fullName: "খুলনা বিশ্ববিদ্যালয় (KU)",
+        summaryText: "C ইউনিট (মানবিক ও আইন) এবং D ইউনিট (বিবিএ)",
+        appStatus: "upcoming",
+        secondTime: true,
+        applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
+        applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৭ দিন)",
+        examTimeline: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+        examNote: "MCQ ও লিখিত পদ্ধতিতে পরীক্ষা অনুষ্ঠিত হবে",
+        website: "https://admission.ku.ac.bd/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "C ইউনিট (কলা ও মানবিক)",
+            unitName: "C ইউনিট (কলা ও মানবিক, সামাজিক বিজ্ঞান, আইন, শিক্ষা ও চারুকলা)",
+            totalSeats: "৪৪৫টি",
+            negMark: "০.২৫",
+            examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "প্রায় ৩১০টি", science: "বিভাগ পরিবর্তন কোটা", commerce: "বিভাগ পরিবর্তন কোটা" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.50, total: 7.00, note: "মানবিক ও বাণিজ্য: আলাদা ৩.৫০ ও মোট ৭.০০ (সেকেন্ড টাইম আছে)" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.00, note: "মানবিক ও বাণিজ্য: আলাদা ৩.৫০ ও মোট ৭.০০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ ৬০ + লিখিত ৪০)",
+              mcq: "৬০ নম্বর",
+              written: "৪০ নম্বর (মোট সময়: ৯০ মিনিট)",
+              negative: "MCQ অংশে প্রতি ভুলে ০.২৫ কাটা যাবে",
+              pass: "MCQ ও লিখিত অংশে আলাদাভাবে পাস নম্বর"
+            },
+            subjects: [
+              "বাংলা, ইংরেজি, সাধারণ জ্ঞান ও মানসিক দক্ষতা (চারুকলায় ব্যবহারিক প্রযোজ্য)"
+            ]
+          },
+          {
+            tabLabel: "D ইউনিট (বিবিএ)",
+            unitName: "D ইউনিট (ব্যবস্থাপনা ও ব্যবসায় প্রশাসন স্কুল)",
+            totalSeats: "৮০টি",
+            negMark: "০.২৫",
+            examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "৮০টি (সকল বিভাগ উন্মুক্ত)", science: "৮০টি (সকল বিভাগ উন্মুক্ত)", commerce: "৮০টি (সকল বিভাগ উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "সকল বিভাগ: আলাদা ৩.৫০ এবং মোট ৭.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "সকল বিভাগ: আলাদা ৩.৫০ এবং মোট ৭.৫০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "সকল বিভাগ: আলাদা ৩.৫০ এবং মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ ৬০ + লিখিত ৪০)",
+              mcq: "৬০ নম্বর",
+              written: "৪০ নম্বর",
+              negative: "MCQ অংশে প্রতি ভুলে ০.২৫ কাটা যাবে",
+              pass: "লিখিত ও MCQ-তে আলাদা পাস"
+            },
+            subjects: [
+              "বাংলা, ইংরেজি, গাণিতিক যুক্তি ও সাধারণ জ্ঞান"
+            ]
+          }
+        ]
+      },
+      {
+        id: "cou",
+        shortName: "কুমিল্লা",
+        fullName: "কুমিল্লা বিশ্ববিদ্যালয় (CoU)",
+        summaryText: "B ইউনিট (কলা ও আইন) এবং C ইউনিট (ব্যবসায়)",
+        appStatus: "upcoming",
+        secondTime: true,
+        applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৮ দিন)",
+        examTimeline: "৫ – ৭ ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+        examNote: "কুমিল্লা বিশ্ববিদ্যালয় ও সংশ্লিষ্ট কেন্দ্রে পরীক্ষা",
+        website: "https://admission.cou.ac.bd/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "B ইউনিট (কলা ও আইন)",
+            unitName: "B ইউনিট (কলা ও মানবিক, সামাজিক বিজ্ঞান ও আইন)",
+            totalSeats: "৪৪০টি",
+            negMark: "০.২৫",
+            examDate: "৫–৭ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "প্রায় ২৭৫টি", science: "প্রায় ১০৫টি (বিভাগ পরিবর্তন)", commerce: "প্রায় ৬০টি (বিভাগ পরিবর্তন)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.00, note: "মানবিক: আলাদা ৩.০০ এবং মোট ৬.০০ (সেকেন্ড টাইম আছে)" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বিজ্ঞান: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য: আলাদা ৩.০০ এবং মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ পরীক্ষা)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর"
+            },
+            subjects: [
+              "বাংলা (৩০ নম্বর)",
+              "ইংরেজি (৩০ নম্বর)",
+              "সাধারণ জ্ঞান ও মৌলিক আইসিটি (৪০ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "C ইউনিট (ব্যবসায় শিক্ষা)",
+            unitName: "C ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
+            totalSeats: "২৪০টি",
+            negMark: "০.২৫",
+            examDate: "৫–৭ ফেব্রুয়ারি ২০২৭",
+            seats: { humanities: "অ-বাণিজ্য কোটা", science: "অ-বাণিজ্য কোটা", commerce: "মূল বাণিজ্য আসন" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ পরীক্ষা)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৪০ নম্বর"
+            },
+            subjects: [
+              "ইংরেজি (২৫), হিসাববিজ্ঞান (২৫), ব্যবসায় নীতি ও প্রয়োগ (২৫), সাধারণ জ্ঞান/গণিত (২৫)"
+            ]
+          }
+        ]
+      },
+      {
+        id: "gst",
+        shortName: "গুচ্ছ",
+        fullName: "গুচ্ছ (GST) ২৪টি বিশ্ববিদ্যালয়",
+        summaryText: "B ইউনিট (মানবিক) ও C ইউনিট (বাণিজ্য)",
+        appStatus: "upcoming",
+        secondTime: true,
+        applyTimeline: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৫০ দিন)",
+        examTimeline: "মার্চ ২০২৭ (সম্ভাব্য)",
+        examNote: "দেশব্যাপী ২৪টি বিশ্ববিদ্যালয় কেন্দ্রে পরীক্ষা",
+        website: "https://gstadmission.ac.bd/",
+        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "B ইউনিট (মানবিক)",
+            unitName: "B ইউনিট (মানবিক ও বিভাগ পরিবর্তন)",
+            totalSeats: "৪,৫০০+ আসন",
+            negMark: "০.২৫",
+            examDate: "মার্চ ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "অধিকাংশ আসন মানবিকের জন্য", science: "বিভাগ পরিবর্তনের আসন রয়েছে", commerce: "বিভাগ পরিবর্তনের আসন রয়েছে" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.00, note: "আলাদাভাবে ন্যূনতম ৩.০০ এবং মোট ৬.০০ (সেকেন্ড টাইম আছে)" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.00, note: "ন্যূনতম ৩.০০ ও মোট ৬.০০ (বিশ্ববিদ্যালয়ভেদে শর্ত ভিন্ন)" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.00, note: "আলাদাভাবে ন্যূনতম ৩.০০ এবং মোট ৬.০০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (সম্পূর্ণ MCQ)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৩০ নম্বর"
+            },
+            subjects: [
+              "বাংলা (৩৫ নম্বর)",
+              "ইংরেজি (৩৫ নম্বর)",
+              "সাধারণ জ্ঞান ও মৌলিক আইসিটি (৩০ নম্বর)"
+            ]
+          },
+          {
+            tabLabel: "C ইউনিট (বাণিজ্য)",
+            unitName: "C ইউনিট (ব্যবসায় শিক্ষা)",
+            totalSeats: "৩,২০০+ আসন",
+            negMark: "০.২৫",
+            examDate: "মার্চ ২০২৭ (সম্ভাব্য)",
+            seats: { humanities: "অ-বাণিজ্য আসন (নির্দিষ্ট বিশ্ববিদ্যালয়)", science: "অ-বাণিজ্য আসন (নির্দিষ্ট বিশ্ববিদ্যালয়)", commerce: "মূল বাণিজ্য আসন" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "আলাদাভাবে ৩.০০ এবং মোট ৬.৫০" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "আলাদাভাবে ৩.০০ এবং মোট ৬.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "আলাদাভাবে ৩.০০ এবং মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (সম্পূর্ণ MCQ)",
+              mcq: "১০০ নম্বর (সময়: ৬০ মিনিট)",
+              written: "নেই",
+              negative: "প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে",
+              pass: "ন্যূনতম ৩০ নম্বর"
+            },
+            subjects: [
+              "হিসাববিজ্ঞান (৩৫) ও ব্যবসায় সংগঠন ও ব্যবস্থাপনা (৩৫)",
+              "বাংলা (১৫) ও ইংরেজি (১৫)"
+            ]
+          }
+        ]
+      }
+    ];
 
-<!-- Compare Units Modal -->
-<div class="modal-overlay" id="compareModal" onclick="if(event.target===this) closeModal('compareModal')">
-  <div class="modal-card">
-    <div class="modal-top">
-      <h3 style="font-size:19px; font-weight:700;">⚖️ দুটি ইউনিটের পাশাপাশি তুলনা</h3>
-      <button class="close-btn" onclick="closeModal('compareModal')">✕</button>
-    </div>
-    <div class="compare-selectors">
-      <select id="compareSelect1" class="form-group" style="padding:9px; border-radius:10px; border:1px solid var(--border); background:var(--card-sub); color:var(--text-main);" onchange="renderCompareTable()"></select>
-      <select id="compareSelect2" class="form-group" style="padding:9px; border-radius:10px; border:1px solid var(--border); background:var(--card-sub); color:var(--text-main);" onchange="renderCompareTable()"></select>
-    </div>
-    <div id="compareTableWrap"></div>
-  </div>
-</div>
+    const sameDayClashes = [
+      {
+        date: "৫ ফেব্রুয়ারি ২০২৭ – ৬ ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+        title: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU) বনাম কুমিল্লা বিশ্ববিদ্যালয় (CoU)",
+        desc: "চবির B ইউনিট (৫ ফেব্রুয়ারি) ও D ইউনিটের (৬ ফেব্রুয়ারি) সাথে কুমিল্লা বিশ্ববিদ্যালয়ের সম্ভাব্য পরীক্ষার তারিখ (৫–৭ ফেব্রুয়ারি) কাছাকাছি বা একই দিনে পড়ার সম্ভাবনা রয়েছে। কেন্দ্র দূরত্ব বিবেচনায় রেখে প্রস্তুতি নিন।"
+      },
+      {
+        date: "জানুয়ারি ২০২৭ (মধ্যভাগ — সম্ভাব্য)",
+        title: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU) বনাম বিইউপি (BUP)",
+        desc: "জাবির শিফটভিত্তিক পরীক্ষা এবং বিইউপির ফ্যাকাল্টিভিত্তিক লিখিত পরীক্ষা জানুয়ারির একই সপ্তাহে পড়তে পারে। পরীক্ষার রুটিন প্রকাশের পর শিফট মিলিয়ে নেওয়া জরুরি।"
+      }
+    ];
 
-<script>
-  const universitiesData = [
-    {
-      id: "du",
-      shortName: "DU",
-      fullName: "ঢাকা বিশ্ববিদ্যালয় (DU)",
-      status: "open",
-      statusText: "আবেদন চলমান",
-      secondTime: false,
-      secondTimeText: "শুধু ২০২৬ ব্যাচ",
-      appWindow: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
-      daysLeft: 7,
-      website: "https://admission.eis.du.ac.bd",
-      units: [
-        {
-          id: "du-ka",
-          name: "ক ইউনিট (বিজ্ঞান)",
-          subText: "বিভাগ পরিবর্তন কোটা: ১১৮টি আসন",
-          totalSeats: "১১৮টি (বিভাগ পরিবর্তন কোটা)",
-          seatBreakdown: "মানবিক ৭৮টি, ব্যবসায় শিক্ষা ৪০টি",
-          secondTime: "নেই (শুধু ২০২৬ ব্যাচ)",
-          examDate: "১২ ডিসেম্বর ২০২৬",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 7.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 8.00,
-          gpaSummary: "বিভাগ পরিবর্তন: SSC ও HSC আলাদাভাবে ৩.০০ এবং মোট ৭.৫০",
-          marks: "MCQ ৬০ (বাংলা ১৫, ইংরেজি ১৫, সাধারণ জ্ঞান/আইসিটি ৩০) + লিখিত ৪০। সময়: ১ ঘণ্টা ৩০ মিনিট।",
-          passMarks: "MCQ-তে ন্যূনতম ২৪ এবং লিখিতে ১২সহ মোট ৪০ পেতে হবে। নেগেটিভ মার্কিং: ০.২৫।"
-        },
-        {
-          id: "du-kha",
-          name: "খ ইউনিট (কলা, আইন ও সামাজিক বিজ্ঞান)",
-          subText: "মোট আসন: ২,৯৩৪টি",
-          totalSeats: "২,৯৩৪টি",
-          seatBreakdown: "মানবিক ১,৭৪৪টি, বিজ্ঞান ৯০৮টি, ব্যবসায় শিক্ষা ২৮২টি",
-          secondTime: "নেই (শুধু ২০২৬ ব্যাচ)",
-          examDate: "১৯ ডিসেম্বর ২০২৬",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 7.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 8.00,
-          gpaSummary: "মানবিক ও বাণিজ্য: আলাদা ৩.০০ ও মোট ৭.৫০ | বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৮.০০",
-          marks: "MCQ ৬০ (বাংলা ১৫, ইংরেজি ১৫, সাধারণ জ্ঞান ৩০) + লিখিত ৪০ (বাংলা ২০, ইংরেজি ২০)।",
-          passMarks: "MCQ-তে ন্যূনতম ২৪ (বাংলা ৫, ইংরেজি ৫, জিকে ১০) এবং লিখিতে ১১সহ মোট ৪০।"
-        },
-        {
-          id: "du-ga",
-          name: "গ ইউনিট (ব্যবসায় শিক্ষা)",
-          subText: "মোট আসন: ১,০৫০টি",
-          totalSeats: "১,০৫০টি",
-          seatBreakdown: "বাণিজ্য ৯৩০টি, বিজ্ঞান ৯৫টি, মানবিক ২৫টি",
-          secondTime: "নেই (শুধু ২০২৬ ব্যাচ)",
-          examDate: "২৬ ডিসেম্বর ২০২৬",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 7.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 8.00,
-          gpaSummary: "বাণিজ্য ও মানবিক: আলাদা ৩.০০ ও মোট ৭.৫০ | বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৮.০০",
-          marks: "MCQ ৬০ (বাংলা ১২, ইংরেজি ১২, হিসাববিজ্ঞান ১২, ব্যবসায় নীতি ১২, মার্কেটিং/ফিন্যান্স ১২) + লিখিত ৪০।",
-          passMarks: "MCQ-তে ২৪ এবং লিখিতে ১১সহ মোট ৪০ নম্বর।"
-        },
-        {
-          id: "du-cha",
-          name: "চ ইউনিট (চারুকলা)",
-          subText: "মোট আসন: ১৩০টি",
-          totalSeats: "১৩০টি (সকল বিভাগের জন্য উন্মুক্ত)",
-          seatBreakdown: "মেধার ভিত্তিতে সকল বিভাগ",
-          secondTime: "নেই (শুধু ২০২৬ ব্যাচ)",
-          examDate: "৫ ডিসেম্বর ২০২৬",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.50,
-          minSscSci: 3.00, minHscSci: 3.00, minTotalSci: 6.50,
-          gpaSummary: "সকল বিভাগ: আলাদাভাবে ৩.০০ এবং মোট ৬.৫০",
-          marks: "সাধারণ জ্ঞান (MCQ) ৪০ নম্বর + অঙ্কন (Drawing) ৬০ নম্বর।",
-          passMarks: "MCQ-তে ন্যূনতম ১৬ এবং অঙ্কনে ২৪ পেতে হবে।"
-        },
-        {
-          id: "du-iba",
-          name: "আইবিএ (IBA)",
-          subText: "মোট আসন: ১২০টি",
-          totalSeats: "১২০টি (সকল বিভাগের জন্য উন্মুক্ত)",
-          seatBreakdown: "সকল বিভাগ উন্মুক্ত",
-          secondTime: "নেই (শুধু ২০২৬ ব্যাচ)",
-          examDate: "২৮ নভেম্বর ২০২৬",
-          minSscHum: 3.50, minHscHum: 3.50, minTotalHum: 7.50,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 8.00,
-          gpaSummary: "মানবিক/বাণিজ্য: আলাদা ৩.৫০ ও মোট ৭.৫০ | বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৮.০০",
-          marks: "MCQ ৭০ (ইংরেজি ৩০, গণিত ২৫, অ্যানালিটিক্যাল ১৫) + লিখিত ৩০ + কমিউনিকেশন টেস্ট।",
-          passMarks: "প্রতিটি সেকশনে আলাদাভাবে ন্যূনতম পাস নম্বর পেতে হবে।"
-        }
-      ]
-    },
-    {
-      id: "ru",
-      shortName: "RU",
-      fullName: "রাজশাহী বিশ্ববিদ্যালয় (RU)",
-      status: "open",
-      statusText: "আবেদন চলমান",
-      secondTime: true,
-      secondTimeText: "সেকেন্ড টাইম আছে",
-      appWindow: "১৫ নভেম্বর – ৩০ নভেম্বর ২০২৬",
-      daysLeft: 12,
-      website: "https://admission.ru.ac.bd",
-      units: [
-        {
-          id: "ru-a",
-          name: "এ ইউনিট (মানবিক)",
-          subText: "মোট আসন: ১,৮৭২টি (মানবিক ১,২৪০)",
-          totalSeats: "১,৮৭২টি",
-          seatBreakdown: "মানবিক ১,২৪০টি, বিজ্ঞান ও বাণিজ্য (উন্মুক্ত) ৬৩২টি",
-          secondTime: "আছে (কোনো নম্বর কাটা হয় না)",
-          examDate: "২০ ফেব্রুয়ারি ২০২৭",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 7.00,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 8.00,
-          gpaSummary: "মানবিক: মোট ৭.০০ (আলাদা ৩.০০) | বাণিজ্য: মোট ৭.৫০ (আলাদা ৩.৫০) | বিজ্ঞান: মোট ৮.০০",
-          marks: "১০০ নম্বরের MCQ (বাংলা ৩৫, ইংরেজি ৩৫, সাধারণ জ্ঞান ৩০)। ৮০টি প্রশ্ন, প্রতিটি ১.২৫ নম্বর।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০। নেগেটিভ মার্কিং: প্রতি ৪টি ভুল উত্তরে ১ নম্বর কাটা যাবে।"
-        },
-        {
-          id: "ru-b",
-          name: "বি ইউনিট (বাণিজ্য)",
-          subText: "মোট আসন: ৫৬০টি",
-          totalSeats: "৫৬০টি",
-          seatBreakdown: "বাণিজ্য ৪৫৫টি, অ-বাণিজ্য (বিজ্ঞান ও মানবিক) ১০৫টি",
-          secondTime: "আছে (কোনো নম্বর কাটা হয় না)",
-          examDate: "২৭ ফেব্রুয়ারি ২০২৭",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 7.00,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 8.00,
-          gpaSummary: "বাণিজ্য: মোট ৭.৫০ (আলাদা ৩.৫০) | মানবিক: মোট ৭.০০ | বিজ্ঞান: মোট ৮.০০",
-          marks: "বাণিজ্য: ইংরেজি ৩০, হিসাববিজ্ঞান ৩৫, ব্যবসায় সংগঠন ৩৫। অ-বাণিজ্য: বাংলা ৩০, ইংরেজি ৩০, জিকে ৪০।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০। নেগেটিভ মার্কিং: প্রতি ভুল উত্তরে ০.২৫ কাটা যাবে।"
-        },
-        {
-          id: "ru-c",
-          name: "সি ইউনিট (বিজ্ঞান)",
-          subText: "অ-বিজ্ঞান কোটা: ৮০টি আসন",
-          totalSeats: "১,৫১৬টি (অ-বিজ্ঞান কোটা ৮০টি)",
-          seatBreakdown: "বিজ্ঞান ১,৪৩৬টি, অ-বিজ্ঞান (মানবিক/বাণিজ্য) ৮০টি",
-          secondTime: "আছে (কোনো নম্বর কাটা হয় না)",
-          examDate: "১৩ ফেব্রুয়ারি ২০২৭",
-          minSscHum: 3.50, minHscHum: 3.50, minTotalHum: 8.00,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 8.00,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 8.00,
-          gpaSummary: "সকল বিভাগ: আলাদাভাবে ৩.৫০ এবং মোট ৮.০০",
-          marks: "১০০ নম্বরের MCQ (৮০টি প্রশ্ন, সময় ১ ঘণ্টা)।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০।"
-        }
-      ]
-    },
-    {
-      id: "cu",
-      shortName: "CU",
-      fullName: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU)",
-      status: "open",
-      statusText: "আবেদন চলমান",
-      secondTime: true,
-      secondTimeText: "সেকেন্ড টাইম আছে",
-      appWindow: "১৫ নভেম্বর – ১০ ডিসেম্বর ২০২৬",
-      daysLeft: 22,
-      website: "https://admission.cu.ac.bd",
-      units: [
-        {
-          id: "cu-b",
-          name: "বি ইউনিট (কলা ও মানববিদ্যা)",
-          subText: "মোট আসন: ১,২২১টি",
-          totalSeats: "১,২২১টি",
-          seatBreakdown: "কলা ও মানববিদ্যা অনুষদের মূল বিভাগসমূহ",
-          secondTime: "আছে (৩ নম্বর কাটা যাবে)",
-          examDate: "৫ ফেব্রুয়ারি ২০২৭",
-          minSscHum: 3.00, minHscHum: 2.50, minTotalHum: 6.50,
-          minSscBus: 3.50, minHscBus: 3.00, minTotalBus: 7.00,
-          minSscSci: 3.50, minHscSci: 3.00, minTotalSci: 7.00,
-          gpaSummary: "মানবিক: মোট ৬.৫০ (SSC ৩.০০, HSC ২.৫০) | বিজ্ঞান/বাণিজ্য: মোট ৭.০০ (SSC ৩.৫০, HSC ৩.০০)",
-          marks: "MCQ ১০০ (বাংলা/ঐচ্ছিক ইংরেজি ৩০, ইংরেজি ৩০, সাধারণ জ্ঞান ৪০) + GPA ২০ = ১২০।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০ (বাংলা ৭, ইংরেজি ৬, জিকে ১৩)। নেগেটিভ মার্কিং: ০.২৫।"
-        },
-        {
-          id: "cu-b1",
-          name: "B1 উপ-ইউনিট (চারুকলা, নাট্যকলা ও সংগীত)",
-          subText: "মোট আসন: ১২৫টি (শুধু চবি ক্যাম্পাস)",
-          totalSeats: "১২৫টি (সকল বিভাগের জন্য উন্মুক্ত)",
-          seatBreakdown: "চারুকলা, নাট্যকলা ও সংগীত বিভাগ",
-          secondTime: "আছে (৩ নম্বর কাটা যাবে)",
-          examDate: "৩ ফেব্রুয়ারি ২০২৭ (শুধু চবি কেন্দ্র)",
-          minSscHum: 3.00, minHscHum: 2.50, minTotalHum: 6.50,
-          minSscBus: 3.50, minHscBus: 3.00, minTotalBus: 7.00,
-          minSscSci: 3.50, minHscSci: 3.00, minTotalSci: 7.00,
-          gpaSummary: "মানবিক: মোট ৬.৫০ | বিজ্ঞান ও বাণিজ্য: মোট ৭.০০",
-          marks: "MCQ ১০০ (বাংলা ২৫, ইংরেজি ২৫, সাধারণ জ্ঞান ৫০) + ব্যবহারিক পরীক্ষা।",
-          passMarks: "লিখিত পরীক্ষায় ন্যূনতম ৪০ এবং ব্যবহারিকে আলাদা পাস করতে হবে।"
-        },
-        {
-          id: "cu-b2",
-          name: "B2 উপ-ইউনিট (আরবি, ইসলামিক স্টাডিজ ও পালি)",
-          subText: "মোট আসন: ২৮০টি (শুধু চবি ক্যাম্পাস)",
-          totalSeats: "২৮০টি",
-          seatBreakdown: "আরবি ১২০টি, ইসলামিক স্টাডিজ ১২০টি, পালি ৪০টি",
-          secondTime: "আছে (৩ নম্বর কাটা যাবে)",
-          examDate: "৪ ফেব্রুয়ারি ২০২৭ (শুধু চবি কেন্দ্র)",
-          minSscHum: 3.00, minHscHum: 2.50, minTotalHum: 6.50,
-          minSscBus: 3.50, minHscBus: 3.00, minTotalBus: 7.00,
-          minSscSci: 3.50, minHscSci: 3.00, minTotalSci: 7.00,
-          gpaSummary: "মানবিক/মাদ্রাসা: মোট ৬.৫০ | বিজ্ঞান ও বাণিজ্য: মোট ৭.০০",
-          marks: "MCQ ১০০ (বাংলা ২০, ইংরেজি ২০ এবং আরবি/ইসলামিক স্টাডিজ/পালি থেকে যেকোনো ২টি ৩০×২=৬০)।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০। নেগেটিভ মার্কিং: ০.২৫।"
-        },
-        {
-          id: "cu-c",
-          name: "সি ইউনিট (ব্যবসায় প্রশাসন)",
-          subText: "মোট আসন: ৬৪০টি",
-          totalSeats: "৬৪০টি (বাণিজ্য ও অ-বাণিজ্য)",
-          seatBreakdown: "ব্যবসায় প্রশাসন অনুষদের ৬টি বিভাগ",
-          secondTime: "আছে (৩ নম্বর কাটা যাবে)",
-          examDate: "২৯ জানুয়ারি ২০২৭",
-          minSscHum: 3.50, minHscHum: 3.00, minTotalHum: 7.00,
-          minSscBus: 3.50, minHscBus: 3.00, minTotalBus: 7.00,
-          minSscSci: 3.50, minHscSci: 3.00, minTotalSci: 7.50,
-          gpaSummary: "বাণিজ্য/মানবিক: মোট ৭.০০ (আলাদা ৩.৫০ ও ৩.০০) | বিজ্ঞান: মোট ৭.৫০",
-          marks: "MCQ ১০০ (ইংরেজি কমিউনিকেশন ৪০, অ্যানালিটিক্যাল স্কিল ৩০, প্রবলেম সলভিং ৩০)।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০। নেগেটিভ মার্কিং: ০.২৫।"
-        },
-        {
-          id: "cu-d",
-          name: "ডি ইউনিট (সমাজবিজ্ঞান ও আইন)",
-          subText: "মোট আসন: ৯৫৮টি (সকল বিভাগ)",
-          totalSeats: "৯৫৮টি (সকল বিভাগের জন্য উন্মুক্ত)",
-          seatBreakdown: "সমাজবিজ্ঞান, আইন, ভূগোল ও মনোবিজ্ঞান",
-          secondTime: "আছে (৩ নম্বর কাটা যাবে)",
-          examDate: "৬ ফেব্রুয়ারি ২০২৭",
-          minSscHum: 3.50, minHscHum: 3.00, minTotalHum: 7.50,
-          minSscBus: 3.50, minHscBus: 3.00, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.00, minTotalSci: 7.50,
-          gpaSummary: "সকল বিভাগ: SSC ৩.৫০, HSC ৩.০০ এবং মোট ৭.৫০",
-          marks: "MCQ ১০০ (বাংলা ৩০, ইংরেজি ৩০, অ্যানালিটিক্যাল স্কিল ২০, সাধারণ জ্ঞান/গণিত/অর্থনীতি ২০)।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০। নেগেটিভ মার্কিং: ০.২৫।"
-        },
-        {
-          id: "cu-d1",
-          name: "D1 উপ-ইউনিট (ফিজিক্যাল এডুকেশন ও স্পোর্টস)",
-          subText: "মোট আসন: ৪০টি (শুধু চবি ক্যাম্পাস)",
-          totalSeats: "৪০টি (সকল বিভাগের জন্য উন্মুক্ত)",
-          seatBreakdown: "ফিজিক্যাল এডুকেশন অ্যান্ড স্পোর্টস সায়েন্স",
-          secondTime: "আছে (৩ নম্বর কাটা যাবে)",
-          examDate: "৮ ফেব্রুয়ারি ২০২৭ (শুধু চবি কেন্দ্র)",
-          minSscHum: 2.50, minHscHum: 2.00, minTotalHum: 5.50,
-          minSscBus: 2.50, minHscBus: 2.00, minTotalBus: 5.50,
-          minSscSci: 2.50, minHscSci: 2.00, minTotalSci: 5.50,
-          gpaSummary: "সকল বিভাগ: SSC ২.৫০, HSC ২.০০ এবং মোট ৫.৫০",
-          marks: "MCQ ১০০ (বাংলা ৩০, ইংরেজি ৩০, সাধারণ জ্ঞান ২৫, ক্রীড়াবিজ্ঞান নীতিমালা ১৫) + ব্যবহারিক।",
-          passMarks: "ন্যূনতম পাস নম্বর ৩৫। নেগেটিভ মার্কিং: ০.২৫।"
-        },
-        {
-          id: "cu-a",
-          name: "এ ইউনিট (বিজ্ঞান)",
-          subText: "মোট আসন: ১,২১৫টি (শুধু বিজ্ঞান)",
-          totalSeats: "১,২১৫টি",
-          seatBreakdown: "বিজ্ঞান, জীববিজ্ঞান, ইঞ্জিনিয়ারিং ও মেরিন সায়েন্স",
-          secondTime: "আছে (৩ নম্বর কাটা যাবে)",
-          examDate: "৩০ জানুয়ারি ২০২৭",
-          minSscHum: 9.99, minHscHum: 9.99, minTotalHum: 99.0,
-          minSscBus: 9.99, minHscBus: 9.99, minTotalBus: 99.0,
-          minSscSci: 4.00, minHscSci: 3.00, minTotalSci: 8.00,
-          gpaSummary: "শুধু বিজ্ঞান: SSC ৪.০০, HSC ৩.০০ এবং মোট ৮.০০",
-          marks: "MCQ ১০০ (ইংরেজি ২৫ + পদার্থ, রসায়ন, গণিত, জীববিজ্ঞান থেকে যেকোনো ৩টি ৭৫)।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০।"
-        }
-      ]
-    },
-    {
-      id: "ju",
-      shortName: "JU",
-      fullName: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
-      status: "soon",
-      statusText: "আবেদন ২২ নভেম্বর",
-      secondTime: true,
-      secondTimeText: "সেকেন্ড টাইম আছে",
-      appWindow: "২২ নভেম্বর – ১৫ ডিসেম্বর ২০২৬",
-      daysLeft: 4,
-      website: "https://admission.juniv.edu",
-      units: [
-        {
-          id: "ju-b",
-          name: "বি ইউনিট (সমাজবিজ্ঞান ও আইন)",
-          subText: "মোট আসন: ৩২৬টি",
-          totalSeats: "৩২৬টি",
-          seatBreakdown: "সমাজবিজ্ঞান ও আইন অনুষদ",
-          secondTime: "আছে",
-          examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 7.50,
-          gpaSummary: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০ | বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০",
-          marks: "MCQ ৮০ (বাংলা ২০, ইংরেজি ২০, সাধারণ গণিত ২০, সাধারণ জ্ঞান ১৫, যৌক্তিক বিশ্লেষণ ৫) + GPA ১০ = ৯০।",
-          passMarks: "ন্যূনতম ৩৩% (২৭ নম্বর)। নেগেটিভ মার্কিং: ০.২০।"
-        },
-        {
-          id: "ju-c",
-          name: "সি ইউনিট (কলা ও মানবিকী)",
-          subText: "মোট আসন: ৪৩৮টি",
-          totalSeats: "৪৩৮টি",
-          seatBreakdown: "কলা ও মানবিকী অনুষদ এবং তুলনামূলক সাহিত্য",
-          secondTime: "আছে",
-          examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.50,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 7.50,
-          gpaSummary: "মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০ | বিজ্ঞান/বাণিজ্য: আলাদা ৩.৫০ ও মোট ৭.৫০",
-          marks: "MCQ ৮০ (বাংলা ২০, ইংরেজি ২০, সাধারণ জ্ঞান ও অনুষদ সংশ্লিষ্ট ৪০) + GPA ১০ = ৯০।",
-          passMarks: "ন্যূনতম ৩৩% (২৭ নম্বর)। নেগেটিভ মার্কিং: ০.২০।"
-        },
-        {
-          id: "ju-c1",
-          name: "C1 উপ-ইউনিট (নাটক ও চারুকলা)",
-          subText: "মোট আসন: ৬৪টি",
-          totalSeats: "৬৪টি",
-          seatBreakdown: "নাটক ও নাট্যতত্ত্ব ২৮টি, চারুকলা ৩৬টি",
-          secondTime: "আছে",
-          examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.50,
-          minSscSci: 3.00, minHscSci: 3.00, minTotalSci: 6.50,
-          gpaSummary: "সকল বিভাগ: আলাদাভাবে ৩.০০ এবং মোট ৬.৫০",
-          marks: "MCQ ৮০ (বাংলা ১০, ইংরেজি ১০, সাধারণ জ্ঞান ২০, বিষয়ভিত্তিক ৪০) + ২০ নম্বরের ব্যবহারিক।",
-          passMarks: "ব্যবহারিকে ন্যূনতম ৪০% এবং লিখিতে ৩৩% পেতে হবে।"
-        },
-        {
-          id: "ju-e",
-          name: "ই ইউনিট (বিজনেস স্টাডিজ)",
-          subText: "মোট আসন: ১৭৬টি",
-          totalSeats: "১৭৬টি",
-          seatBreakdown: "ফিন্যান্স ৪৪, মার্কেটিং ৪৪, অ্যাকাউন্টিং ৪৪, ম্যানেজমেন্ট ৪৪",
-          secondTime: "আছে",
-          examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 7.50,
-          gpaSummary: "বাণিজ্য/মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০ | বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০",
-          marks: "বাণিজ্য: বাংলা ২০, ইংরেজি ২০, হিসাববিজ্ঞান ২০, ব্যবস্থাপনা ২০। বিজ্ঞান/মানবিক: বাংলা ২০, ইংরেজি ২০, গণিত ও বিশ্লেষণ ২০, জিকে ২০।",
-          passMarks: "ন্যূনতম ৩৩% (২৭ নম্বর)। নেগেটিভ মার্কিং: ০.২০।"
-        },
-        {
-          id: "ju-iba",
-          name: "IBA-JU (বিজনেস অ্যাডমিনিস্ট্রেশন)",
-          subText: "মোট আসন: ৭০টি",
-          totalSeats: "৭০টি (সকল বিভাগের জন্য উন্মুক্ত)",
-          seatBreakdown: "ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন",
-          secondTime: "আছে",
-          examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 7.50,
-          gpaSummary: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০ | বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০",
-          marks: "MCQ ৮০ (বাংলা ৫, ইংরেজি ৩০, ম্যাথমেটিক্যাল অ্যাপটিটিউড ও আইকিউ ৩০, সাম্প্রতিক ১৫) + ভাইভা।",
-          passMarks: "ন্যূনতম ৩৩% ও বিষয়ভিত্তিক শর্ত প্রযোজ্য।"
-        }
-      ]
-    },
-    {
-      id: "jnu",
-      shortName: "JnU",
-      fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
-      status: "open",
-      statusText: "আবেদন চলমান",
-      secondTime: false,
-      secondTimeText: "শুধু ২০২৬ ব্যাচ",
-      appWindow: "১৫ নভেম্বর – ০৫ ডিসেম্বর ২০২৬",
-      daysLeft: 17,
-      website: "https://admission.jnu.ac.bd",
-      units: [
-        {
-          id: "jnu-b",
-          name: "বি ইউনিট (কলা ও আইন)",
-          subText: "মোট আসন: ৭৮৫টি",
-          totalSeats: "৭৮৫টি",
-          seatBreakdown: "কলা ও আইন অনুষদ",
-          secondTime: "নেই (শুধু ২০২৬ ব্যাচ)",
-          examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 7.00,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 7.50,
-          gpaSummary: "মানবিক: মোট ৭.০০ (আলাদা ৩.০০) | বিজ্ঞান ও বাণিজ্য: মোট ৭.৫০ (আলাদা ৩.৫০)",
-          marks: "লিখিত ৪৮ নম্বর + MCQ ২৪ নম্বর + GPA ২৮ নম্বর = ১০০ নম্বর।",
-          passMarks: "লিখিত ও MCQ-তে আলাদা পাস করতে হবে।"
-        },
-        {
-          id: "jnu-c",
-          name: "সি ইউনিট (ব্যবসায় শিক্ষা)",
-          subText: "মোট আসন: ৫২০টি",
-          totalSeats: "৫২০টি",
-          seatBreakdown: "ব্যবসায় শিক্ষা অনুষদ",
-          secondTime: "নেই (শুধু ২০২৬ ব্যাচ)",
-          examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.50, minHscHum: 3.50, minTotalHum: 7.50,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 8.00,
-          gpaSummary: "বাণিজ্য ও মানবিক: মোট ৭.৫০ (আলাদা ৩.৫০) | বিজ্ঞান: মোট ৮.০০",
-          marks: "লিখিত ৪৮ + MCQ ২৪ + GPA ২৮ = ১০০ নম্বর।",
-          passMarks: "লিখিত ও MCQ-তে আলাদা পাস করতে হবে।"
-        },
-        {
-          id: "jnu-d",
-          name: "ডি ইউনিট (সামাজিক বিজ্ঞান)",
-          subText: "মোট আসন: ৫৯০টি",
-          totalSeats: "৫৯০টি",
-          seatBreakdown: "সামাজিক বিজ্ঞান অনুষদ (সকল বিভাগ উন্মুক্ত)",
-          secondTime: "নেই (শুধু ২০২৬ ব্যাচ)",
-          examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 7.00,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 7.50,
-          gpaSummary: "মানবিক: মোট ৭.০০ | বিজ্ঞান ও বাণিজ্য: মোট ৭.৫০",
-          marks: "লিখিত ৪৮ + MCQ ২৪ + GPA ২৮ = ১০০ নম্বর।",
-          passMarks: "লিখিত ও MCQ-তে আলাদা পাস করতে হবে।"
-        }
-      ]
-    },
-    {
-      id: "bup",
-      shortName: "BUP",
-      fullName: "বাংলাদেশ ইউনিভার্সিটি অব প্রফেশনালস (BUP)",
-      status: "soon",
-      statusText: "আসন্ন (ডিসেম্বর)",
-      secondTime: true,
-      secondTimeText: "সেকেন্ড টাইম আছে",
-      appWindow: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-      daysLeft: 22,
-      website: "https://admission.bup.edu.bd",
-      units: [
-        {
-          id: "bup-fass",
-          name: "FASS (কলা ও সমাজবিজ্ঞান)",
-          subText: "মোট আসন: ৩৫০টি",
-          totalSeats: "৩৫০টি",
-          seatBreakdown: "অর্থনীতি, ইংরেজি, আন্তর্জাতিক সম্পর্ক, গণযোগাযোগ, সমাজবিজ্ঞান ও উন্নয়ন অধ্যয়ন",
-          secondTime: "আছে",
-          examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.50, minHscHum: 3.50, minTotalHum: 7.50,
-          minSscBus: 3.75, minHscBus: 3.75, minTotalBus: 8.00,
-          minSscSci: 4.00, minHscSci: 4.00, minTotalSci: 8.50,
-          gpaSummary: "মানবিক: মোট ৭.৫০ (আলাদা ৩.৫০) | বাণিজ্য: মোট ৮.০০ (আলাদা ৩.৭৫) | বিজ্ঞান: মোট ৮.৫০ (আলাদা ৪.০০)",
-          marks: "MCQ ১০০ নম্বর (ইংরেজি ৪০, সাধারণ জ্ঞান ৪০, বাংলা ২০) + ভাইভা। নেগেটিভ মার্কিং: ০.২৫।",
-          passMarks: "প্রতিটি সেকশনে আলাদাভাবে ন্যূনতম পাস নম্বর পেতে হবে।"
-        },
-        {
-          id: "bup-fbs",
-          name: "FBS (বিজনেস স্টাডিজ)",
-          subText: "মোট আসন: ৫০০টি",
-          totalSeats: "৫০০টি (বিবিএ জেনারেল ও স্পেশালাইজড)",
-          seatBreakdown: "ফিন্যান্স, মার্কেটিং, অ্যাকাউন্টিং, ম্যানেজমেন্ট ও বিবিএ জেনারেল",
-          secondTime: "আছে",
-          examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.50, minHscHum: 3.50, minTotalHum: 7.50,
-          minSscBus: 3.75, minHscBus: 3.75, minTotalBus: 8.00,
-          minSscSci: 4.00, minHscSci: 4.00, minTotalSci: 8.50,
-          gpaSummary: "মানবিক: মোট ৭.৫০ | বাণিজ্য: মোট ৮.০০ (আলাদা ৩.৭৫) | বিজ্ঞান: মোট ৮.৫০ (আলাদা ৪.০০)",
-          marks: "MCQ ১০০ নম্বর (ইংরেজি ৪০, গণিত ৩৫, সাধারণ জ্ঞান ২৫) + ভাইভা। নেগেটিভ মার্কিং: ০.২৫।",
-          passMarks: "ইংরেজি ও গণিতে আলাদাভাবে পাস করতে হবে।"
-        },
-        {
-          id: "bup-fsss",
-          name: "FSSS (নিরাপত্তা ও কৌশলগত অধ্যয়ন)",
-          subText: "মোট আসন: ২০০টি",
-          totalSeats: "২০০টি",
-          seatBreakdown: "আন্তর্জাতিক সম্পর্ক, শান্তি ও সংঘর্ষ অধ্যয়ন এবং আইন",
-          secondTime: "আছে",
-          examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.50, minHscHum: 3.50, minTotalHum: 7.50,
-          minSscBus: 3.75, minHscBus: 3.75, minTotalBus: 8.00,
-          minSscSci: 4.00, minHscSci: 4.00, minTotalSci: 8.50,
-          gpaSummary: "মানবিক: মোট ৭.৫০ | বাণিজ্য: মোট ৮.০০ | বিজ্ঞান: মোট ৮.৫০",
-          marks: "MCQ ১০০ নম্বর (ইংরেজি ৪০, সাধারণ জ্ঞান ৪০, বাংলা ২০) + ভাইভা।",
-          passMarks: "ন্যূনতম ৪০% নম্বর পেতে হবে।"
-        }
-      ]
-    },
-    {
-      id: "ku",
-      shortName: "KU",
-      fullName: "খুলনা বিশ্ববিদ্যালয় (KU)",
-      status: "soon",
-      statusText: "আসন্ন",
-      secondTime: true,
-      secondTimeText: "সেকেন্ড টাইম আছে",
-      appWindow: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-      daysLeft: 37,
-      website: "https://admission.ku.ac.bd",
-      units: [
-        {
-          id: "ku-c",
-          name: "সি ইউনিট (কলা ও মানবিক, সামাজিক বিজ্ঞান, আইন, শিক্ষা ও চারুকলা)",
-          subText: "মোট আসন: ৪৪৫টি (সকল বিভাগ)",
-          totalSeats: "৪৪৫টি",
-          seatBreakdown: "কলা ও মানবিক, সামাজিক বিজ্ঞান, আইন, শিক্ষা ও চারুকলা স্কুল",
-          secondTime: "আছে",
-          examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.50, minHscHum: 3.50, minTotalHum: 7.00,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.00,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 7.50,
-          gpaSummary: "মানবিক ও বাণিজ্য: আলাদাভাবে ৩.৫০ ও মোট ৭.০০ | বিজ্ঞান: আলাদাভাবে ৩.৫০ ও মোট ৭.৫০",
-          marks: "MCQ ৬০ নম্বর (বাংলা, ইংরেজি ও সাধারণ জ্ঞান) + লিখিত ৪০ নম্বর = ১০০। (চারুকলার জন্য আলাদা অঙ্কন)।",
-          passMarks: "MCQ ও লিখিত অংশে আলাদাভাবে ন্যূনতম পাস নম্বর পেতে হবে।"
-        },
-        {
-          id: "ku-d",
-          name: "ডি ইউনিট (ব্যবস্থাপনা ও ব্যবসায় প্রশাসন)",
-          subText: "মোট আসন: ৮০টি (বিবিএ)",
-          totalSeats: "৮০টি",
-          seatBreakdown: "ব্যবস্থাপনা ও ব্যবসায় প্রশাসন ডিসিপ্লিন (সকল বিভাগ উন্মুক্ত)",
-          secondTime: "আছে",
-          examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.50, minHscHum: 3.50, minTotalHum: 7.50,
-          minSscBus: 3.50, minHscBus: 3.50, minTotalBus: 7.50,
-          minSscSci: 3.50, minHscSci: 3.50, minTotalSci: 7.50,
-          gpaSummary: "সকল বিভাগ: আলাদাভাবে ৩.৫০ এবং মোট ৭.৫০",
-          marks: "MCQ ৬০ নম্বর + লিখিত ৪০ নম্বর = ১০০ নম্বর।",
-          passMarks: "লিখিত ও MCQ-তে আলাদা পাস নম্বর প্রযোজ্য।"
-        }
-      ]
-    },
-    {
-      id: "cou",
-      shortName: "CoU",
-      fullName: "কুমিল্লা বিশ্ববিদ্যালয় (CoU)",
-      status: "soon",
-      statusText: "আসন্ন",
-      secondTime: true,
-      secondTimeText: "সেকেন্ড টাইম আছে",
-      appWindow: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-      daysLeft: 38,
-      website: "https://cou.ac.bd",
-      units: [
-        {
-          id: "cou-b",
-          name: "বি ইউনিট (কলা ও মানবিক, সামাজিক বিজ্ঞান ও আইন)",
-          subText: "মোট আসন: ৪৪০টি",
-          totalSeats: "৪৪০টি",
-          seatBreakdown: "কলা, সামাজিক বিজ্ঞান ও আইন অনুষদ (সকল বিভাগ উন্মুক্ত)",
-          secondTime: "আছে",
-          examDate: "৫–৭ ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.00,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.50,
-          minSscSci: 3.00, minHscSci: 3.00, minTotalSci: 6.50,
-          gpaSummary: "মানবিক: আলাদা ৩.০০ ও মোট ৬.০০ | বিজ্ঞান ও বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০",
-          marks: "MCQ ১০০ নম্বর (বাংলা ৩০, ইংরেজি ৩০, সাধারণ জ্ঞান ৪০)। নেগেটিভ মার্কিং: ০.২৫।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০।"
-        },
-        {
-          id: "cou-c",
-          name: "সি ইউনিট (ব্যবসায় শিক্ষা)",
-          subText: "মোট আসন: ২৪০টি",
-          totalSeats: "২৪০টি",
-          seatBreakdown: "ব্যবসায় শিক্ষা অনুষদের ৪টি বিভাগ",
-          secondTime: "আছে",
-          examDate: "৫–৭ ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.50,
-          minSscSci: 3.00, minHscSci: 3.00, minTotalSci: 6.50,
-          gpaSummary: "সকল বিভাগ: আলাদাভাবে ৩.০০ এবং মোট ৬.৫০",
-          marks: "MCQ ১০০ নম্বর (ইংরেজি ২৫, হিসাববিজ্ঞান ২৫, ব্যবসায় নীতি ও প্রয়োগ ২৫, সাধারণ জ্ঞান/গণিত ২৫)।",
-          passMarks: "ন্যূনতম পাস নম্বর ৪০। নেগেটিভ মার্কিং: ০.২৫।"
-        }
-      ]
-    },
-    {
-      id: "gst",
-      shortName: "GST",
-      fullName: "গুচ্ছভুক্ত বিশ্ববিদ্যালয় (২৪টি)",
-      status: "soon",
-      statusText: "শীঘ্রই আবেদন",
-      secondTime: true,
-      secondTimeText: "সেকেন্ড টাইম আছে",
-      appWindow: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-      daysLeft: 50,
-      website: "https://gstadmission.ac.bd",
-      units: [
-        {
-          id: "gst-b",
-          name: "বি ইউনিট (মানবিক)",
-          subText: "২৪টি বিশ্ববিদ্যালয়ের মানবিক আসন",
-          totalSeats: "প্রায় ৪,৫০০+ আসন",
-          seatBreakdown: "২৪টি সাধারণ ও বিজ্ঞান-প্রযুক্তি বিশ্ববিদ্যালয়",
-          secondTime: "আছে (অধিকাংশ বিশ্ববিদ্যালয়ে)",
-          examDate: "মার্চ ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.00,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.00,
-          minSscSci: 3.00, minHscSci: 3.00, minTotalSci: 6.00,
-          gpaSummary: "ন্যূনতম আলাদাভাবে ৩.০০ এবং মোট ৬.০০",
-          marks: "MCQ ১০০ (বাংলা ৩৫, ইংরেজি ৩৫, সাধারণ জ্ঞান ৩০)।",
-          passMarks: "ন্যূনতম ৩০ নম্বর পেতে হবে। নেগেটিভ মার্কিং: ০.২৫।"
-        },
-        {
-          id: "gst-c",
-          name: "সি ইউনিট (বাণিজ্য)",
-          subText: "২৪টি বিশ্ববিদ্যালয়ের বাণিজ্য আসন",
-          totalSeats: "প্রায় ৩,২০০+ আসন",
-          seatBreakdown: "২৪টি বিশ্ববিদ্যালয়ের ব্যবসায় প্রশাসন অনুষদ",
-          secondTime: "আছে",
-          examDate: "মার্চ ২০২৭ (সম্ভাব্য)",
-          minSscHum: 3.00, minHscHum: 3.00, minTotalHum: 6.50,
-          minSscBus: 3.00, minHscBus: 3.00, minTotalBus: 6.50,
-          minSscSci: 3.00, minHscSci: 3.00, minTotalSci: 6.50,
-          gpaSummary: "ন্যূনতম আলাদাভাবে ৩.০০ এবং মোট ৬.৫০",
-          marks: "MCQ ১০০ (হিসাববিজ্ঞান ৩৫, ব্যবসায় সংগঠন ও ব্যবস্থাপনা ৩৫, বাংলা ১৫, ইংরেজি ১৫)।",
-          passMarks: "ন্যূনতম ৩০ নম্বর। নেগেটিভ মার্কিং: ০.২৫।"
-        }
-      ]
+    let currentGroup = "humanities";
+    let statusFilter = "all";
+    let currentRoadmapTab = "apply";
+    let selectedUniId = null;
+    let selectedUnitIndex = 0;
+    let searchQuery = "";
+
+    const groupNames = {
+      humanities: "মানবিক বিভাগ",
+      science: "বিজ্ঞান বিভাগ",
+      commerce: "বাণিজ্য বিভাগ"
+    };
+
+    const homeView = document.getElementById("homeView");
+    const detailView = document.getElementById("detailView");
+    const uniGrid = document.getElementById("uniGrid");
+    const detailContent = document.getElementById("detailContent");
+    const unitTabsContainer = document.getElementById("unitTabsContainer");
+    const horizontalNavBar = document.getElementById("horizontalNavBar");
+
+    /* Theme Switcher */
+    function setTheme(themeName) {
+      document.documentElement.setAttribute("data-theme", themeName);
+      document.querySelectorAll(".theme-btn").forEach(btn => {
+        btn.classList.toggle("active", btn.dataset.themeVal === themeName);
+      });
+      try { localStorage.setItem("admission_site_theme", themeName); } catch (e) {}
     }
-  ];
 
-  let currentFilter = 'all';
+    document.querySelectorAll(".theme-btn").forEach(btn => {
+      btn.addEventListener("click", () => setTheme(btn.dataset.themeVal));
+    });
 
-  function toggleTheme() {
-    const html = document.documentElement;
-    const btn = document.getElementById('themeToggle');
-    if (html.getAttribute('data-theme') === 'dark') {
-      html.setAttribute('data-theme', 'blue');
-      btn.textContent = '🌙 ডার্ক মোড';
-    } else {
-      html.setAttribute('data-theme', 'dark');
-      btn.textContent = '☀️ লাইট মোড';
-    }
-  }
+    try {
+      const savedTheme = localStorage.getItem("admission_site_theme");
+      if (savedTheme) setTheme(savedTheme);
+    } catch (e) {}
 
-  function setFilter(filter, btn) {
-    currentFilter = filter;
-    document.querySelectorAll('.filter-chip').forEach(c => c.classList.remove('active'));
-    btn.classList.add('active');
-    renderUniversities();
-  }
+    /* Render Home University Cards (Opens Details in New Window/Tab via ?uni=id) */
+    function renderHome() {
+      uniGrid.innerHTML = "";
+      const q = searchQuery.trim().toLowerCase();
 
-  function renderUniversities() {
-    const query = document.getElementById('searchInput').value.toLowerCase().trim();
-    const container = document.getElementById('uniListContainer');
-    container.innerHTML = '';
+      const filtered = admissionData.filter(uni => {
+        if (statusFilter === "secondTime" && !uni.secondTime) return false;
+        if (statusFilter === "open" && uni.appStatus !== "open") return false;
+        if (statusFilter === "upcoming" && uni.appStatus !== "upcoming") return false;
 
-    universitiesData.forEach(uni => {
-      if (currentFilter === 'secondTime' && !uni.secondTime) return;
-      if (currentFilter === 'open' && uni.status !== 'open') return;
+        if (q !== "") {
+          const unitText = uni.units.map(u => `${u.tabLabel} ${u.unitName}`).join(" ");
+          const haystack = `${uni.shortName} ${uni.fullName} ${uni.summaryText} ${unitText}`.toLowerCase();
+          if (!haystack.includes(q)) return false;
+        }
+        return true;
+      });
 
-      const matchingUnits = uni.units.filter(u =>
-        uni.fullName.toLowerCase().includes(query) ||
-        uni.shortName.toLowerCase().includes(query) ||
-        u.name.toLowerCase().includes(query) ||
-        u.subText.toLowerCase().includes(query)
-      );
+      if (filtered.length === 0) {
+        uniGrid.innerHTML = `<div class="empty-state">আপনার ফিল্টার বা অনুসন্ধান অনুযায়ী কোনো বিশ্ববিদ্যালয় পাওয়া যায়নি।</div>`;
+        return;
+      }
 
-      if (query && matchingUnits.length === 0) return;
+      filtered.forEach(uni => {
+        const isOpen = uni.appStatus === "open";
+        const statusHtml = isOpen
+          ? `<span class="badge badge-open"><span class="live-pulse"></span> আবেদন চলমান</span>`
+          : `<span class="badge badge-soon">আবেদন আসন্ন</span>`;
 
-      const unitsToRender = query ? matchingUnits : uni.units;
-      const statusClass = uni.status === 'open' ? 'status-open' : 'status-soon';
+        const secondTimeHtml = uni.secondTime
+          ? `<span class="badge badge-2nd">সেকেন্ড টাইম চলমান</span>`
+          : `<span class="badge badge-2nd">শুধু ২০২৬ ব্যাচ</span>`;
 
-      const card = document.createElement('div');
-      card.className = 'uni-card';
-      card.innerHTML = `
-        <div class="uni-header">
-          <div class="uni-badge">${uni.shortName}</div>
-          <div class="uni-title-wrap">
+        const card = document.createElement("a");
+        card.className = "uni-card";
+        card.href = `?uni=${uni.id}`;
+        card.target = "_blank";
+        card.rel = "noopener noreferrer";
+        card.innerHTML = `
+          <div class="uni-card-title">
             <h3>${uni.fullName}</h3>
-            <div class="uni-meta">
-              <span class="status-dot ${statusClass}">● ${uni.statusText}</span>
-              <span class="status-dot status-2nd">${uni.secondTimeText}</span>
+            <p>${uni.summaryText}</p>
+          </div>
+          <div class="uni-card-bottom">
+            <div class="uni-badges">
+              ${statusHtml}
+              ${secondTimeHtml}
             </div>
+            <span class="details-cta">বিস্তারিত ↗</span>
+          </div>
+        `;
+        uniGrid.appendChild(card);
+      });
+    }
+
+    /* 4 Filter Buttons */
+    document.querySelectorAll(".status-filter-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        statusFilter = btn.dataset.sfilter;
+        document.querySelectorAll(".status-filter-btn").forEach(b => {
+          b.classList.toggle("active", b.dataset.sfilter === statusFilter);
+        });
+        renderHome();
+      });
+    });
+
+    document.getElementById("searchInput").addEventListener("input", (e) => {
+      searchQuery = e.target.value;
+      renderHome();
+    });
+
+    /* Roadmap 3 Tabs */
+    function renderRoadmap() {
+      const container = document.getElementById("roadmapContent");
+      if (currentRoadmapTab === "apply") {
+        container.innerHTML = admissionData.map(uni => {
+          const isOpen = uni.appStatus === "open";
+          return `
+            <div class="roadmap-card">
+              <div>
+                <h4>${uni.fullName}</h4>
+                <p>সময়সীমা: ${uni.applyTimeline} • ${uni.applyNote}</p>
+              </div>
+              ${isOpen
+                ? `<span class="badge badge-open"><span class="live-pulse"></span> চলমান</span>`
+                : `<span class="badge badge-soon">আসন্ন</span>`}
+            </div>
+          `;
+        }).join("");
+      } else if (currentRoadmapTab === "exam") {
+        container.innerHTML = admissionData.map(uni => `
+          <div class="roadmap-card">
+            <div>
+              <h4>${uni.fullName}</h4>
+              <p>${uni.examNote}</p>
+            </div>
+            <span class="badge badge-2nd">${uni.examTimeline}</span>
+          </div>
+        `).join("");
+      } else {
+        container.innerHTML = sameDayClashes.map(item => `
+          <div class="clash-card">
+            <h4>⚠️ ${item.title}</h4>
+            <p><strong>তারিখ: ${item.date}</strong></p>
+            <p style="margin-top:4px;">${item.desc}</p>
+          </div>
+        `).join("");
+      }
+    }
+
+    document.querySelectorAll(".roadmap-tab-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        currentRoadmapTab = btn.dataset.rtab;
+        document.querySelectorAll(".roadmap-tab-btn").forEach(b => {
+          b.classList.toggle("active", b.dataset.rtab === currentRoadmapTab);
+        });
+        renderRoadmap();
+      });
+    });
+
+    /* Eligibility Calculator (In-line Feedback) */
+    document.getElementById("checkBtn").addEventListener("click", () => {
+      const ssc = parseFloat(document.getElementById("sscInput").value);
+      const hsc = parseFloat(document.getElementById("hscInput").value);
+      const fb = document.getElementById("calcFeedback");
+
+      if (isNaN(ssc) || isNaN(hsc) || ssc < 1 || ssc > 5 || hsc < 1 || hsc > 5) {
+        fb.className = "inline-feedback error";
+        fb.innerHTML = "⚠️ অনুগ্রহ করে ১.০০ থেকে ৫.০০-এর মধ্যে সঠিক SSC এবং HSC GPA লিখুন।";
+        return;
+      }
+
+      const total = parseFloat((ssc + hsc).toFixed(2));
+      const eligibleList = [];
+
+      admissionData.forEach(uni => {
+        const matchedUnits = uni.units.filter(u => {
+          const req = u.gpa[currentGroup];
+          return ssc >= req.ssc && hsc >= req.hsc && total >= req.total;
+        });
+        if (matchedUnits.length > 0) {
+          eligibleList.push(`<strong>${uni.shortName}:</strong> ${matchedUnits.map(m => m.tabLabel).join(", ")}`);
+        }
+      });
+
+      if (eligibleList.length > 0) {
+        fb.className = "inline-feedback success";
+        fb.innerHTML = `<strong>মোট GPA: ${total.toFixed(2)} (${groupNames[currentGroup]})</strong><br>আপনি নিচের ${eligibleList.length}টি বিশ্ববিদ্যালয়ের ইউনিটগুলোতে আবেদনের যোগ্য:<br>• ${eligibleList.join("<br>• ")}`;
+      } else {
+        fb.className = "inline-feedback error";
+        fb.innerHTML = `<strong>মোট GPA: ${total.toFixed(2)}</strong><br>দুঃখিত, প্রদত্ত জিপিএ অনুযায়ী তালিকাভুক্ত কোনো ইউনিটের শর্ত পূরণ হয়নি।`;
+      }
+    });
+
+    document.getElementById("resetBtn").addEventListener("click", () => {
+      document.getElementById("sscInput").value = "";
+      document.getElementById("hscInput").value = "";
+      const fb = document.getElementById("calcFeedback");
+      fb.className = "inline-feedback";
+      fb.innerHTML = "";
+    });
+
+    /* GPA Marks Calculator */
+    document.getElementById("calcMarksBtn").addEventListener("click", () => {
+      const ssc = parseFloat(document.getElementById("marksSscInput").value);
+      const hsc = parseFloat(document.getElementById("marksHscInput").value);
+      const fb = document.getElementById("marksFeedback");
+
+      if (isNaN(ssc) || isNaN(hsc) || ssc < 1 || ssc > 5 || hsc < 1 || hsc > 5) {
+        fb.className = "inline-feedback error";
+        fb.innerHTML = "⚠️ অনুগ্রহ করে ১.০০ থেকে ৫.০০-এর মধ্যে সঠিক SSC এবং HSC GPA দিন।";
+        return;
+      }
+
+      const cuMarks = (ssc * 2 + hsc * 2).toFixed(2);
+      const juMarks = (ssc * 0.75 + hsc * 1.25).toFixed(2);
+      const jnuMarks = (ssc * 2.4 + hsc * 3.2).toFixed(2);
+
+      fb.className = "inline-feedback success";
+      fb.innerHTML = `
+        <strong>আপনার জিপিএ থেকে প্রাপ্ত সম্ভাব্য নম্বর:</strong><br>
+        • চট্টগ্রাম বিশ্ববিদ্যালয় (২০ নম্বরের মধ্যে): <strong>${cuMarks}</strong><br>
+        • জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (১০ নম্বরের মধ্যে): <strong>${juMarks}</strong><br>
+        • জগন্নাথ বিশ্ববিদ্যালয় (২৮ নম্বরের মধ্যে): <strong>${jnuMarks}</strong>
+      `;
+    });
+
+    /* Details Page View (Opened in New Tab/Window) */
+    function renderDetail() {
+      const uni = admissionData.find(u => u.id === selectedUniId);
+      if (!uni) return;
+
+      document.title = `${uni.fullName} — ভর্তি তথ্য ২০২৬-২৭`;
+      if (selectedUnitIndex >= uni.units.length) selectedUnitIndex = 0;
+      const activeUnit = uni.units[selectedUnitIndex];
+
+      unitTabsContainer.innerHTML = uni.units.map((u, uIdx) => `
+        <button class="unit-tab-btn ${uIdx === selectedUnitIndex ? 'active' : ''}" onclick="switchUnitTab(${uIdx})">
+          ${u.tabLabel}
+        </button>
+      `).join("");
+
+      const req = activeUnit.gpa[currentGroup];
+      const statusBadge = uni.appStatus === "open"
+        ? `<span class="badge badge-open"><span class="live-pulse"></span> আবেদন চলমান</span>`
+        : `<span class="badge badge-soon">আবেদন আসন্ন</span>`;
+
+      detailContent.innerHTML = `
+        <div class="detail-header">
+          <div>
+            <h2>${uni.fullName}</h2>
+            <span>${activeUnit.unitName}</span>
+          </div>
+          ${statusBadge}
+        </div>
+
+        <div class="quick-stats">
+          <div class="stat-pill">
+            <span class="stat-label">মোট আসন</span>
+            <span class="stat-value">${activeUnit.totalSeats}</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">পরীক্ষার তারিখ</span>
+            <span class="stat-value">${activeUnit.examDate}</span>
+          </div>
+          <div class="stat-pill">
+            <span class="stat-label">নেগেটিভ মার্ক</span>
+            <span class="stat-value">${activeUnit.negMark}</span>
           </div>
         </div>
-        <div class="units-grid">
-          ${unitsToRender.map(u => `
-            <div class="unit-chip" onclick="openUnitModal('${uni.id}', '${u.id}')">
-              <div>
-                <span class="unit-chip-name">${u.name}</span>
-                <span class="unit-chip-sub">${u.subText}</span>
-              </div>
-              <span class="unit-chip-arrow">→</span>
+
+        <div class="detail-sections">
+          <div class="info-box">
+            <h3>১. আসন সংখ্যা (${groupNames[currentGroup]})</h3>
+            <div class="info-row">
+              <strong>নির্বাচিত বিভাগ:</strong>
+              <span>${activeUnit.seats[currentGroup]}</span>
             </div>
-          `).join('')}
+            <div class="info-row">
+              <strong>মানবিক:</strong>
+              <span>${activeUnit.seats.humanities}</span>
+            </div>
+            <div class="info-row">
+              <strong>বিজ্ঞান:</strong>
+              <span>${activeUnit.seats.science}</span>
+            </div>
+            <div class="info-row">
+              <strong>বাণিজ্য:</strong>
+              <span>${activeUnit.seats.commerce}</span>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h3>২. ভর্তির যোগ্যতা (${groupNames[currentGroup]})</h3>
+            <div class="gpa-chips">
+              <div class="gpa-chip">
+                <small>SSC ন্যূনতম</small>
+                <b>${req.ssc.toFixed(2)}</b>
+              </div>
+              <div class="gpa-chip">
+                <small>HSC ন্যূনতম</small>
+                <b>${req.hsc.toFixed(2)}</b>
+              </div>
+              <div class="gpa-chip">
+                <small>মোট GPA</small>
+                <b>${req.total.toFixed(2)}</b>
+              </div>
+            </div>
+            <p style="font-size:0.88rem; margin-top:4px;">${req.note}</p>
+          </div>
+
+          <div class="info-box">
+            <h3>৩. মানবন্টন ও পরীক্ষার সময়</h3>
+            <div class="info-row">
+              <strong>মোট নম্বর:</strong>
+              <span>${activeUnit.marks.total}</span>
+            </div>
+            <div class="info-row">
+              <strong>MCQ অংশ:</strong>
+              <span>${activeUnit.marks.mcq}</span>
+            </div>
+            <div class="info-row">
+              <strong>লিখিত অংশ:</strong>
+              <span>${activeUnit.marks.written}</span>
+            </div>
+            <div class="info-row">
+              <strong>নেগেটিভ মার্কিং:</strong>
+              <span>${activeUnit.marks.negative}</span>
+            </div>
+            <div class="info-row">
+              <strong>পাস নম্বর:</strong>
+              <span>${activeUnit.marks.pass}</span>
+            </div>
+          </div>
+
+          <div class="info-box">
+            <h3>৪. পরীক্ষার বিষয়সমূহ</h3>
+            <ul class="subject-list">
+              ${activeUnit.subjects.map(sub => `<li>${sub}</li>`).join("")}
+            </ul>
+          </div>
+        </div>
+
+        <div class="source-footer">
+          <a class="source-link" href="${uni.website}" target="_blank" rel="noopener noreferrer">
+            বিস্তারিত বিশ্ববিদ্যালয়ের ওয়েবসাইটে দেখুন ↗
+          </a>
+          <span class="update-date">সর্বশেষ আপডেট: ${uni.lastUpdated}</span>
         </div>
       `;
-      container.appendChild(card);
-    });
-  }
-
-  function renderRoadmap() {
-    const container = document.getElementById('roadmapContainer');
-    container.innerHTML = universitiesData.map(uni => `
-      <div class="roadmap-item">
-        <div>
-          <h4>${uni.fullName}</h4>
-          <p>আবেদন: ${uni.appWindow}</p>
-        </div>
-        <span class="days-pill">${uni.status === 'open' ? 'বাকি আছে ' + uni.daysLeft + ' দিন' : 'শুরু হতে ' + uni.daysLeft + ' দিন'}</span>
-      </div>
-    `).join('');
-  }
-
-  function openUnitModal(uniId, unitId) {
-    const uni = universitiesData.find(u => u.id === uniId);
-    const unit = uni.units.find(x => x.id === unitId);
-
-    document.getElementById('modalUniName').textContent = uni.fullName;
-    document.getElementById('modalUnitTitle').textContent = unit.name;
-    document.getElementById('modalBody').innerHTML = `
-      <div class="info-block"><h4>মোট আসন ও বিভাজন</h4><p>${unit.totalSeats} — ${unit.seatBreakdown}</p></div>
-      <div class="info-block"><h4>পরীক্ষার তারিখ ও সেকেন্ড টাইম</h4><p>তারিখ: ${unit.examDate} | সেকেন্ড টাইম: ${unit.secondTime}</p></div>
-      <div class="info-block"><h4>ন্যূনতম জিপিএ শর্ত</h4><p>${unit.gpaSummary}</p></div>
-      <div class="info-block"><h4>পরীক্ষার মানবণ্টন</h4><p>${unit.marks}</p></div>
-      <div class="info-block"><h4>পাস নম্বর ও নেগেটিভ মার্কিং</h4><p>${unit.passMarks}</p></div>
-      <div style="margin-top:14px; display:flex; gap:10px;">
-        <a href="${uni.website}" target="_blank" class="action-btn" style="text-align:center; text-decoration:none;">আবেদন পোর্টাল ↗</a>
-      </div>
-    `;
-    document.getElementById('unitModal').classList.add('open');
-  }
-
-  function closeModal(id) {
-    document.getElementById(id).classList.remove('open');
-  }
-
-  /* Compare Units */
-  function populateCompareSelects() {
-    const options = [];
-    universitiesData.forEach(uni => {
-      uni.units.forEach(u => {
-        options.push(`<option value="${uni.id}|${u.id}">${uni.shortName} - ${u.name}</option>`);
-      });
-    });
-    const s1 = document.getElementById('compareSelect1');
-    const s2 = document.getElementById('compareSelect2');
-    s1.innerHTML = options.join('');
-    s2.innerHTML = options.join('');
-    if (options.length > 5) s2.selectedIndex = 5;
-  }
-
-  function openCompareModal() {
-    renderCompareTable();
-    document.getElementById('compareModal').classList.add('open');
-  }
-
-  function renderCompareTable() {
-    const [uId1, unitId1] = document.getElementById('compareSelect1').value.split('|');
-    const [uId2, unitId2] = document.getElementById('compareSelect2').value.split('|');
-
-    const uni1 = universitiesData.find(u => u.id === uId1);
-    const unit1 = uni1.units.find(x => x.id === unitId1);
-    const uni2 = universitiesData.find(u => u.id === uId2);
-    const unit2 = uni2.units.find(x => x.id === unitId2);
-
-    document.getElementById('compareTableWrap').innerHTML = `
-      <table class="compare-table">
-        <tr>
-          <th>তুলনার বিষয়</th>
-          <td><strong>${uni1.shortName}: ${unit1.name}</strong></td>
-          <td><strong>${uni2.shortName}: ${unit2.name}</strong></td>
-        </tr>
-        <tr>
-          <th>মোট আসন</th>
-          <td>${unit1.totalSeats}</td>
-          <td>${unit2.totalSeats}</td>
-        </tr>
-        <tr>
-          <th>সেকেন্ড টাইম</th>
-          <td>${unit1.secondTime}</td>
-          <td>${unit2.secondTime}</td>
-        </tr>
-        <tr>
-          <th>পরীক্ষার তারিখ</th>
-          <td>${unit1.examDate}</td>
-          <td>${unit2.examDate}</td>
-        </tr>
-        <tr>
-          <th>জিপিএ শর্ত</th>
-          <td>${unit1.gpaSummary}</td>
-          <td>${unit2.gpaSummary}</td>
-        </tr>
-        <tr>
-          <th>মানবণ্টন</th>
-          <td>${unit1.marks}</td>
-          <td>${unit2.marks}</td>
-        </tr>
-      </table>
-    `;
-  }
-
-  /* In-line Result Display */
-  function checkEligibility() {
-    const year = document.getElementById('passYear').value;
-    const group = document.getElementById('hscGroup').value;
-    const ssc = parseFloat(document.getElementById('sscGpa').value);
-    const hsc = parseFloat(document.getElementById('hscGpa').value);
-    const resBox = document.getElementById('eligibilityResult');
-
-    if (isNaN(ssc) || isNaN(hsc) || ssc < 1 || ssc > 5 || hsc < 1 || hsc > 5) {
-      resBox.className = 'inline-result error';
-      resBox.innerHTML = '⚠️ অনুগ্রহ করে ১.০০ থেকে ৫.০০ এর মধ্যে সঠিক SSC ও HSC জিপিএ লিখুন।';
-      return;
     }
 
-    const total = +(ssc + hsc).toFixed(2);
-    const eligible = [];
+    function switchUnitTab(uIdx) {
+      selectedUnitIndex = uIdx;
+      renderDetail();
+    }
 
-    universitiesData.forEach(uni => {
-      if (year === '2025' && !uni.secondTime) return;
-      uni.units.forEach(u => {
-        let mSsc, mHsc, mTot;
-        if (group === 'humanities') { mSsc = u.minSscHum; mHsc = u.minHscHum; mTot = u.minTotalHum; }
-        else if (group === 'commerce') { mSsc = u.minSscBus; mHsc = u.minHscBus; mTot = u.minTotalBus; }
-        else { mSsc = u.minSscSci; mHsc = u.minHscSci; mTot = u.minTotalSci; }
-
-        if (ssc >= mSsc && hsc >= mHsc && total >= mTot) {
-          eligible.push(`${uni.shortName} (${u.name})`);
+    document.querySelectorAll(".group-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        const group = btn.dataset.group;
+        currentGroup = group;
+        document.querySelectorAll(".group-btn").forEach(b => {
+          b.classList.toggle("active", b.dataset.group === group);
+        });
+        if (selectedUniId) {
+          renderDetail();
         }
       });
     });
 
-    if (eligible.length > 0) {
-      resBox.className = 'inline-result success';
-      resBox.innerHTML = `<strong>মোট জিপিএ: ${total}</strong><br>আপনি নিচের ${eligible.length}টি ইউনিটে আবেদনের যোগ্য:<br>• ${eligible.join('<br>• ')}`;
+    document.getElementById("copyBtn").addEventListener("click", () => {
+      const uni = admissionData.find(u => u.id === selectedUniId);
+      if (!uni) return;
+      const activeUnit = uni.units[selectedUnitIndex];
+      const req = activeUnit.gpa[currentGroup];
+      const text = `${uni.fullName}
+${activeUnit.unitName}
+বিভাগ: ${groupNames[currentGroup]}
+আসন: ${activeUnit.seats[currentGroup]} (মোট: ${activeUnit.totalSeats})
+পরীক্ষার তারিখ: ${activeUnit.examDate}
+যোগ্যতা: ${req.note}
+মানবন্টন: ${activeUnit.marks.total} | MCQ: ${activeUnit.marks.mcq} | লিখিত: ${activeUnit.marks.written}
+বিষয়: ${activeUnit.subjects.join(", ")}
+ওয়েবসাইট: ${uni.website}`;
+      navigator.clipboard?.writeText(text);
+      const btn = document.getElementById("copyBtn");
+      btn.textContent = "কপি হয়েছে ✓";
+      setTimeout(() => { btn.textContent = "তথ্য কপি করুন"; }, 1800);
+    });
+
+    // Check URL parameter (?uni=du) to open Details Page in new window/tab
+    const urlParams = new URLSearchParams(window.location.search);
+    const uniParam = urlParams.get("uni");
+    if (uniParam && admissionData.some(u => u.id === uniParam)) {
+      selectedUniId = uniParam;
+      homeView.classList.add("hidden");
+      horizontalNavBar.classList.add("hidden");
+      detailView.classList.remove("hidden");
+      renderDetail();
     } else {
-      resBox.className = 'inline-result error';
-      resBox.innerHTML = `<strong>মোট জিপিএ: ${total}</strong><br>দুঃখিত, প্রদত্ত শর্ত অনুযায়ী তালিকাভুক্ত কোনো ইউনিটে যোগ্যতা পাওয়া যায়নি।`;
+      renderHome();
+      renderRoadmap();
     }
-  }
-
-  function calculateGpaMarks() {
-    const ssc = parseFloat(document.getElementById('calcSsc').value);
-    const hsc = parseFloat(document.getElementById('calcHsc').value);
-    const resBox = document.getElementById('gpaMarksResult');
-
-    if (isNaN(ssc) || isNaN(hsc) || ssc < 1 || ssc > 5 || hsc < 1 || hsc > 5) {
-      resBox.className = 'inline-result error';
-      resBox.innerHTML = '⚠️ অনুগ্রহ করে ১.০০ থেকে ৫.০০ এর মধ্যে সঠিক জিপিএ দিন।';
-      return;
-    }
-
-    const juScore = (ssc * 0.75 + hsc * 1.25).toFixed(2);
-    const cuScore = (ssc * 2 + hsc * 2).toFixed(2);
-    const jnuScore = (ssc * 2.4 + hsc * 3.2).toFixed(2);
-
-    resBox.className = 'inline-result success';
-    resBox.innerHTML = `
-      <strong>জিপিএ থেকে প্রাপ্ত সম্ভাব্য নম্বর:</strong><br>
-      • জাহাঙ্গীরনগর (১০ নম্বরের মধ্যে): <strong>${juScore}</strong><br>
-      • চট্টগ্রাম বিশ্ববিদ্যালয় (২০ নম্বরের মধ্যে): <strong>${cuScore}</strong><br>
-      • জগন্নাথ বিশ্ববিদ্যালয় (২৮ নম্বরের মধ্যে): <strong>${jnuScore}</strong>
-    `;
-  }
-
-  // Initial Render
-  renderUniversities();
-  renderRoadmap();
-  populateCompareSelects();
-</script>
+  </script>
 </body>
-          </html>
+            </html>
