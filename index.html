@@ -315,7 +315,7 @@
     .roadmap-tab-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
     [data-theme="dark"] .roadmap-tab-btn.active { color: #0f172a; }
 
-    .roadmap-list { display: flex; flex-direction: column; gap: 9px; }
+    .roadmap-list { display: flex; flex-direction: column; gap: 8px; }
     .roadmap-card {
       background: var(--card-sub);
       border: 1px solid var(--border);
@@ -328,13 +328,82 @@
     }
     .roadmap-card h4 { font-size: 0.96rem; font-weight: 700; }
     .roadmap-card p { font-size: 0.83rem; color: var(--muted); }
+
+    /* Compact Exam Timeline Cards */
+    .exam-row-compact {
+      background: var(--card-sub);
+      border: 1px solid var(--border);
+      border-left: 3.5px solid var(--primary);
+      border-radius: 9px;
+      padding: 8px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+    }
+    .exam-row-left { min-width: 0; }
+    .exam-uni-unit {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+      line-height: 1.3;
+    }
+    .exam-uni-tag { color: var(--primary); }
+    .exam-center-sub {
+      font-size: 0.76rem;
+      color: var(--muted);
+      margin-top: 2px;
+    }
+    .exam-date-pill {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.78rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 7px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* Enhanced Same-Day Clash Cards */
     .clash-card {
-      background: var(--danger-bg);
-      color: var(--danger-text);
-      border: 1px solid currentColor;
+      background: var(--card-sub);
+      border: 1px solid rgba(220, 38, 38, 0.35);
+      border-left: 4px solid #dc2626;
       border-radius: 11px;
       padding: 12px 14px;
-      font-size: 0.88rem;
+    }
+    .clash-top-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .clash-badge {
+      background: var(--danger-bg);
+      color: var(--danger-text);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 9px;
+      border-radius: 999px;
+    }
+    .clash-date-text {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--danger-text);
+    }
+    .clash-title {
+      font-size: 0.96rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+    .clash-desc {
+      font-size: 0.83rem;
+      color: var(--muted);
+      line-height: 1.5;
     }
 
     /* Calculator */
@@ -360,7 +429,9 @@
     [data-theme="dark"] .group-btn.active { color: #0f172a; }
 
     .calc-row { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 10px; }
-    .calc-row input {
+    .calc-field { display: flex; flex-direction: column; gap: 4px; }
+    .calc-field label { font-size: 0.78rem; font-weight: 700; color: var(--muted); }
+    .calc-row input, .calc-row select {
       width: 100%;
       padding: 9px 11px;
       border: 1.5px solid var(--border);
@@ -368,7 +439,7 @@
       color: var(--text);
       border-radius: 9px;
       font-family: inherit;
-      font-size: 0.92rem;
+      font-size: 0.9rem;
     }
     .calc-actions { display: flex; gap: 8px; }
     .btn-calc {
@@ -396,13 +467,13 @@
       cursor: pointer;
     }
 
-    .inline-feedback { margin-top: 10px; padding: 10px 12px; border-radius: 9px; font-size: 0.88rem; display: none; }
+    .inline-feedback { margin-top: 10px; padding: 10px 12px; border-radius: 9px; font-size: 0.88rem; display: none; line-height: 1.6; }
     .inline-feedback.error { display: block; background: var(--danger-bg); color: var(--danger-text); }
     .inline-feedback.success { display: block; background: var(--success-bg); color: var(--success-text); }
 
     /* Details Page View (Same Tab) */
     .hidden { display: none !important; }
-    .top-nav-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 12px; }
+    .top-nav-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
     .btn-back, .btn-copy {
       display: inline-flex;
       align-items: center;
@@ -418,15 +489,22 @@
       cursor: pointer;
     }
 
-    /* 1. Side Horizontal Scrolling Unit Tabs on Details Page */
+    /* Pinned (Sticky) Side Horizontal Scrolling Unit Tabs on Details Page */
+    .unit-tabs-sticky {
+      position: sticky;
+      top: 98px;
+      z-index: 90;
+      background: var(--bg);
+      padding: 8px 0;
+      margin-bottom: 8px;
+      border-bottom: 1px solid var(--border);
+    }
     .unit-tabs {
       display: flex;
       flex-wrap: nowrap;
       overflow-x: auto;
       white-space: nowrap;
       gap: 7px;
-      padding-bottom: 6px;
-      margin-bottom: 12px;
       scrollbar-width: none;
       -webkit-overflow-scrolling: touch;
     }
@@ -553,22 +631,79 @@
     }
     .special-condition-box p { font-size: 0.89rem; line-height: 1.5; }
 
-    .source-footer {
+    /* Official Links & Helpline Section in Details */
+    .official-links-box {
       margin-top: 16px;
-      padding-top: 12px;
+      padding-top: 14px;
       border-top: 1px dashed var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .official-action-row {
+      background: var(--card-sub);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 13px;
       display: flex;
       justify-content: space-between;
       align-items: center;
+      gap: 10px;
       flex-wrap: wrap;
-      gap: 8px;
-      font-size: 0.88rem;
     }
-    .source-link { color: var(--primary); font-weight: 700; text-decoration: none; }
+    .official-action-label {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--text);
+    }
+    .official-action-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      padding: 5px 12px;
+      border-radius: 8px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
+    }
+    .helpline-right {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .helpline-num {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+    .btn-copy-mini {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 4px 10px;
+      border-radius: 7px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 700;
+      cursor: pointer;
+    }
+    [data-theme="dark"] .btn-copy-mini { color: #0f172a; }
+    .update-meta {
+      text-align: right;
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-top: 4px;
+    }
 
     .empty-state { grid-column: 1 / -1; text-align: center; padding: 24px 16px; background: var(--card); border: 1px dashed var(--border); border-radius: 12px; color: var(--muted); }
 
-    /* 4. Footer (Without Message Box) */
+    /* Footer */
     footer {
       margin-top: 28px;
       padding: 18px 16px;
@@ -593,7 +728,7 @@
         <h1>Admission Update</h1>
         <p>সেশন ২০২৬-২৭ • মানবিক ও বিভাগ পরিবর্তন</p>
       </div>
-      <!-- Round Color Dots Only (No Text) -->
+      <!-- Round Color Dots Only -->
       <div class="theme-bar" aria-label="থিম পরিবর্তন">
         <button class="theme-dot dot-blue active" data-theme-val="blue" title="নীল থিম"></button>
         <button class="theme-dot dot-green" data-theme-val="green" title="সবুজ থিম"></button>
@@ -622,7 +757,7 @@
         <!-- ৪টি ফিল্টার অপশন -->
         <div class="status-filters">
           <button class="status-filter-btn active" data-sfilter="all">সব</button>
-          <button class="status-filter-btn" data-sfilter="secondTime">সেকেন্ড টাইম চলমান</button>
+          <button class="status-filter-btn" data-sfilter="secondTime">সেকেন্ড টাইম আছে</button>
           <button class="status-filter-btn" data-sfilter="open">আবেদন চলমান</button>
           <button class="status-filter-btn" data-sfilter="upcoming">আবেদন আসন্ন</button>
         </div>
@@ -650,7 +785,7 @@
       <section class="panel" id="calculatorSec">
         <div class="section-header">
           <h2>এডমিশন যোগ্যতা ক্যালকুলেটর</h2>
-          <p>তোমার বিভাগ ও জিপিএ দিয়ে কোন কোন বিশ্ববিদ্যালয়ে পরীক্ষা দিতে পারবে যাচাই করো</p>
+          <p>তোমার বিভাগ, পাসের সাল ও জিপিএ দিয়ে কোন কোন ইউনিটে পরীক্ষা দিতে পারবে যাচাই করো</p>
         </div>
 
         <div class="group-tabs">
@@ -668,6 +803,24 @@
         </div>
 
         <div class="calc-row">
+          <div class="calc-field">
+            <label for="sscYearInput">SSC পাসের সাল</label>
+            <select id="sscYearInput">
+              <option value="2024" selected>২০২৪</option>
+              <option value="2023">২০২৩</option>
+              <option value="2022">২০২২ বা তার আগে</option>
+            </select>
+          </div>
+          <div class="calc-field">
+            <label for="hscYearInput">HSC পাসের সাল</label>
+            <select id="hscYearInput">
+              <option value="2026" selected>২০২৬ (ফার্স্ট টাইম)</option>
+              <option value="2025">২০২৫ (সেকেন্ড টাইম)</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="calc-row">
           <input type="number" id="sscInput" step="0.01" min="1" max="5" placeholder="SSC GPA (যেমন: 4.50)" />
           <input type="number" id="hscInput" step="0.01" min="1" max="5" placeholder="HSC GPA (যেমন: 4.75)" />
         </div>
@@ -682,7 +835,7 @@
       <section class="panel" id="gpaMarksSec">
         <div class="section-header">
           <h2>জিপিএ নম্বর হিসাব ক্যালকুলেটর</h2>
-          <p>যেসব বিশ্ববিদ্যালয়ে মূল পরীক্ষার সাথে SSC ও HSC জিপিএ নম্বর যোগ হয়</p>
+          <p>ঢাবিসহ যেসব বিশ্ববিদ্যালয়ে মূল পরীক্ষার সাথে SSC ও HSC জিপিএ নম্বর যোগ হয়</p>
         </div>
 
         <div class="calc-row">
@@ -701,18 +854,20 @@
     <div id="detailView" class="hidden">
       <div class="top-nav-bar">
         <button class="btn-back" id="backBtn">← মূল পাতায় ফিরে যান</button>
-        <button class="btn-copy" id="copyBtn">তথ্য কপি করুন</button>
+        <button class="btn-copy" id="copyBtn">লিংক কপি করুন</button>
       </div>
 
-      <!-- 1. Side Horizontal Scrolling Unit Tabs -->
-      <div class="unit-tabs" id="unitTabsContainer"></div>
+      <!-- Pinned Sticky Side Horizontal Scrolling Unit Tabs -->
+      <div class="unit-tabs-sticky">
+        <div class="unit-tabs" id="unitTabsContainer"></div>
+      </div>
 
       <article class="detail-card" id="detailContent"></article>
     </div>
 
   </main>
 
-  <!-- 4. Footer Without Message Box -->
+  <!-- Footer -->
   <footer>
     <p class="footer-disclaimer">
       বি.দ্র.: এই ওয়েবসাইটের তথ্যগুলো এআই (AI) ব্যবহার করে সংকলিত, যা আমরা ব্যক্তিগতভাবে যাচাই করিনি। চূড়ান্ত ও নির্ভুল তথ্যের জন্য অবশ্যই সংশ্লিষ্ট বিশ্ববিদ্যালয়ের অফিশিয়াল ওয়েবসাইট দেখুন।
@@ -735,11 +890,13 @@
         applyTimeline: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
         applyNote: "আবেদন চলমান (শেষ হতে বাকি ৭ দিন)",
         website: "https://admission.eis.du.ac.bd/",
+        helpline: "09666-911463",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "ক ইউনিট (বিভাগ পরিবর্তন)",
             unitName: "ক ইউনিট (বিজ্ঞান অনুষদ — বিভাগ পরিবর্তন কোটা)",
+            pdfUrl: "https://admission.eis.du.ac.bd/",
             totalSeats: "১১৮টি",
             examOrder: 3,
             examDate: "১২ ডিসেম্বর ২০২৬",
@@ -768,6 +925,7 @@
           {
             tabLabel: "খ ইউনিট (কলা ও সামাজিক বিজ্ঞান)",
             unitName: "খ ইউনিট (কলা, আইন ও সামাজিক বিজ্ঞান অনুষদ)",
+            pdfUrl: "https://admission.eis.du.ac.bd/",
             totalSeats: "২,৯৩৪টি",
             examOrder: 4,
             examDate: "১৯ ডিসেম্বর ২০২৬",
@@ -796,6 +954,7 @@
           {
             tabLabel: "গ ইউনিট (ব্যবসায় শিক্ষা)",
             unitName: "গ ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
+            pdfUrl: "https://admission.eis.du.ac.bd/",
             totalSeats: "১,০৫০টি",
             examOrder: 5,
             examDate: "২৬ ডিসেম্বর ২০২৬",
@@ -824,6 +983,7 @@
           {
             tabLabel: "চ ইউনিট (চারুকলা)",
             unitName: "চ ইউনিট (চারুকলা অনুষদ)",
+            pdfUrl: "https://admission.eis.du.ac.bd/",
             totalSeats: "১৩০টি",
             examOrder: 2,
             examDate: "৫ ডিসেম্বর ২০২৬",
@@ -851,6 +1011,7 @@
           {
             tabLabel: "আইবিএ (IBA)",
             unitName: "ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন (IBA)",
+            pdfUrl: "https://admission.eis.du.ac.bd/",
             totalSeats: "১২০টি",
             examOrder: 1,
             examDate: "২৮ নভেম্বর ২০২৬",
@@ -889,11 +1050,13 @@
         applyTimeline: "১৫ নভেম্বর – ৩০ নভেম্বর ২০২৬",
         applyNote: "আবেদন চলমান (শেষ হতে বাকি ১২ দিন)",
         website: "https://admission.ru.ac.bd/",
+        helpline: "01703-899973",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "A ইউনিট (মানবিক)",
             unitName: "A ইউনিট (কলা, আইন, সামাজিক বিজ্ঞান ও চারুকলা)",
+            pdfUrl: "https://admission.ru.ac.bd/",
             totalSeats: "১,৮৭২টি",
             examOrder: 17,
             examDate: "২০ ফেব্রুয়ারি ২০২৭",
@@ -922,6 +1085,7 @@
           {
             tabLabel: "B ইউনিট (বাণিজ্য)",
             unitName: "B ইউনিট (বিজনেস স্টাডিজ অনুষদ ও আইবিএ)",
+            pdfUrl: "https://admission.ru.ac.bd/",
             totalSeats: "৫৬০টি",
             examOrder: 18,
             examDate: "২৭ ফেব্রুয়ারি ২০২৭",
@@ -949,6 +1113,7 @@
           {
             tabLabel: "C ইউনিট (অ-বিজ্ঞান)",
             unitName: "C ইউনিট (বিজ্ঞান অনুষদ — অ-বিজ্ঞান কোটা)",
+            pdfUrl: "https://admission.ru.ac.bd/",
             totalSeats: "৮০টি (অ-বিজ্ঞান)",
             examOrder: 16,
             examDate: "১৩ ফেব্রুয়ারি ২০২৭",
@@ -986,11 +1151,13 @@
         applyTimeline: "১৫ নভেম্বর – ০৫ ডিসেম্বর ২০২৬",
         applyNote: "আবেদন চলমান (শেষ হতে বাকি ১৭ দিন)",
         website: "https://admission.jnu.ac.bd/",
+        helpline: "09611-773388",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (কলা ও আইন)",
             unitName: "B ইউনিট (কলা ও আইন অনুষদ)",
+            pdfUrl: "https://admission.jnu.ac.bd/",
             totalSeats: "৭৮৫টি",
             examOrder: 19,
             examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1019,6 +1186,7 @@
           {
             tabLabel: "C ইউনিট (ব্যবসায় শিক্ষা)",
             unitName: "C ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
+            pdfUrl: "https://admission.jnu.ac.bd/",
             totalSeats: "৫২০টি",
             examOrder: 20,
             examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1047,6 +1215,7 @@
           {
             tabLabel: "D ইউনিট (সামাজিক বিজ্ঞান)",
             unitName: "D ইউনিট (সামাজিক বিজ্ঞান অনুষদ)",
+            pdfUrl: "https://admission.jnu.ac.bd/",
             totalSeats: "৫৯০টি",
             examOrder: 21,
             examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1085,11 +1254,13 @@
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
         applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২২ দিন)",
         website: "https://admission.bup.edu.bd/",
+        helpline: "09666-790790",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "FASS (কলা ও সমাজবিজ্ঞান)",
             unitName: "FASS (কলা ও সামাজিক বিজ্ঞান অনুষদ)",
+            pdfUrl: "https://admission.bup.edu.bd/",
             totalSeats: "৩৫০টি",
             examOrder: 6,
             examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1118,6 +1289,7 @@
           {
             tabLabel: "FBS (বিজনেস স্টাডিজ)",
             unitName: "FBS (বিজনেস স্টাডিজ অনুষদ)",
+            pdfUrl: "https://admission.bup.edu.bd/",
             totalSeats: "৫০০টি",
             examOrder: 7,
             examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1146,6 +1318,7 @@
           {
             tabLabel: "FSSS (নিরাপত্তা ও কৌশলগত)",
             unitName: "FSSS (নিরাপত্তা ও কৌশলগত অধ্যয়ন অনুষদ)",
+            pdfUrl: "https://admission.bup.edu.bd/",
             totalSeats: "২০০টি",
             examOrder: 8,
             examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1184,11 +1357,13 @@
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
         applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৭ দিন)",
         website: "https://admission.cu.ac.bd/",
+        helpline: "01555-555140",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (কলা)",
             unitName: "B ইউনিট (কলা ও মানববিদ্যা অনুষদ)",
+            pdfUrl: "https://admission.cu.ac.bd/",
             totalSeats: "১,২২১টি",
             examOrder: 13,
             examDate: "৫ ফেব্রুয়ারি ২০২৭",
@@ -1217,6 +1392,7 @@
           {
             tabLabel: "B1 উপ-ইউনিট (চারুকলা)",
             unitName: "B1 উপ-ইউনিট (চারুকলা, নাট্যকলা ও সংগীত)",
+            pdfUrl: "https://admission.cu.ac.bd/",
             totalSeats: "১২৫টি",
             examOrder: 11,
             examDate: "৩ ফেব্রুয়ারি ২০২৭",
@@ -1245,6 +1421,7 @@
           {
             tabLabel: "B2 উপ-ইউনিট (আরবি ও ই.স্টাডিজ)",
             unitName: "B2 উপ-ইউনিট (আরবি, ইসলামিক স্টাডিজ ও পালি)",
+            pdfUrl: "https://admission.cu.ac.bd/",
             totalSeats: "২৮০টি",
             examOrder: 12,
             examDate: "৪ ফেব্রুয়ারি ২০২৭",
@@ -1273,6 +1450,7 @@
           {
             tabLabel: "C ইউনিট (ব্যবসায়)",
             unitName: "C ইউনিট (ব্যবসায় প্রশাসন অনুষদ)",
+            pdfUrl: "https://admission.cu.ac.bd/",
             totalSeats: "৬৪০টি",
             examOrder: 10,
             examDate: "২৯ জানুয়ারি ২০২৭",
@@ -1301,6 +1479,7 @@
           {
             tabLabel: "D ইউনিট (সমাজবিজ্ঞান)",
             unitName: "D ইউনিট (সমাজবিজ্ঞান, আইন ও ভূগোল)",
+            pdfUrl: "https://admission.cu.ac.bd/",
             totalSeats: "৯৫৮টি",
             examOrder: 14,
             examDate: "৬ ফেব্রুয়ারি ২০২৭",
@@ -1329,6 +1508,7 @@
           {
             tabLabel: "D1 উপ-ইউনিট (স্পোর্টস)",
             unitName: "D1 উপ-ইউনিট (ফিজিক্যাল এডুকেশন অ্যান্ড স্পোর্টস সায়েন্স)",
+            pdfUrl: "https://admission.cu.ac.bd/",
             totalSeats: "৪০টি",
             examOrder: 15,
             examDate: "৮ ফেব্রুয়ারি ২০২৭",
@@ -1367,11 +1547,13 @@
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
         applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩২ দিন)",
         website: "https://ju-admission.org/",
+        helpline: "01841-458000",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (সমাজবিজ্ঞান)",
             unitName: "B ইউনিট (সমাজবিজ্ঞান ও আইন অনুষদ)",
+            pdfUrl: "https://ju-admission.org/",
             totalSeats: "৩২৬টি",
             examOrder: 9,
             examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1400,6 +1582,7 @@
           {
             tabLabel: "C ইউনিট (কলা)",
             unitName: "C ইউনিট (কলা ও মানবিকী অনুষদ)",
+            pdfUrl: "https://ju-admission.org/",
             totalSeats: "৪৩৮টি",
             examOrder: 9,
             examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1428,6 +1611,7 @@
           {
             tabLabel: "C1 উপ-ইউনিট (নাটক ও চারুকলা)",
             unitName: "C1 উপ-ইউনিট (নাটক ও নাট্যতত্ত্ব এবং চারুকলা)",
+            pdfUrl: "https://ju-admission.org/",
             totalSeats: "৬৪টি",
             examOrder: 9,
             examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1456,6 +1640,7 @@
           {
             tabLabel: "E ইউনিট (বিজনেস)",
             unitName: "E ইউনিট (বিজনেস স্টাডিজ অনুষদ)",
+            pdfUrl: "https://ju-admission.org/",
             totalSeats: "১৭৬টি",
             examOrder: 9,
             examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1483,6 +1668,7 @@
           {
             tabLabel: "IBA-JU",
             unitName: "IBA-JU (ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন)",
+            pdfUrl: "https://ju-admission.org/",
             totalSeats: "৭০টি",
             examOrder: 9,
             examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1521,11 +1707,13 @@
         applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
         applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৭ দিন)",
         website: "https://admission.ku.ac.bd/",
+        helpline: "01534-296430",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "C ইউনিট (কলা ও মানবিক)",
             unitName: "C ইউনিট (কলা ও মানবিক, সামাজিক বিজ্ঞান, আইন, শিক্ষা ও চারুকলা)",
+            pdfUrl: "https://admission.ku.ac.bd/",
             totalSeats: "৪৪৫টি",
             examOrder: 22,
             examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1554,6 +1742,7 @@
           {
             tabLabel: "D ইউনিট (বিবিএ)",
             unitName: "D ইউনিট (ব্যবস্থাপনা ও ব্যবসায় প্রশাসন স্কুল)",
+            pdfUrl: "https://admission.ku.ac.bd/",
             totalSeats: "৮০টি",
             examOrder: 23,
             examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
@@ -1591,11 +1780,13 @@
         applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
         applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৮ দিন)",
         website: "https://admission.cou.ac.bd/",
+        helpline: "01557-330381",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (কলা ও আইন)",
             unitName: "B ইউনিট (কলা ও মানবিক, সামাজিক বিজ্ঞান ও আইন)",
+            pdfUrl: "https://admission.cou.ac.bd/",
             totalSeats: "৪৪০টি",
             examOrder: 13.5,
             examDate: "৫–৭ ফেব্রুয়ারি ২০২৭",
@@ -1624,6 +1815,7 @@
           {
             tabLabel: "C ইউনিট (ব্যবসায় শিক্ষা)",
             unitName: "C ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
+            pdfUrl: "https://admission.cou.ac.bd/",
             totalSeats: "২৪০টি",
             examOrder: 13.6,
             examDate: "৫–৭ ফেব্রুয়ারি ২০২৭",
@@ -1662,11 +1854,13 @@
         applyTimeline: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
         applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৫০ দিন)",
         website: "https://gstadmission.ac.bd/",
+        helpline: "09613-330000",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (মানবিক)",
             unitName: "B ইউনিট (মানবিক ও বিভাগ পরিবর্তন)",
+            pdfUrl: "https://gstadmission.ac.bd/",
             totalSeats: "৪,৫০০+ আসন",
             examOrder: 24,
             examDate: "মার্চ ২০২৭ (সম্ভাব্য)",
@@ -1695,6 +1889,7 @@
           {
             tabLabel: "C ইউনিট (বাণিজ্য)",
             unitName: "C ইউনিট (ব্যবসায় শিক্ষা)",
+            pdfUrl: "https://gstadmission.ac.bd/",
             totalSeats: "৩,২০০+ আসন",
             examOrder: 25,
             examDate: "মার্চ ২০২৭ (সম্ভাব্য)",
@@ -1774,7 +1969,7 @@
       if (savedTheme) setTheme(savedTheme);
     } catch (e) {}
 
-    /* Render Home University Cards (Opens Details in Same Tab) */
+    /* Render Home University Cards (Same Tab Navigation) */
     function renderHome() {
       uniGrid.innerHTML = "";
       const q = searchQuery.trim().toLowerCase();
@@ -1804,7 +1999,7 @@
           : `<span class="badge badge-soon">আবেদন আসন্ন</span>`;
 
         const secondTimeHtml = uni.secondTime
-          ? `<span class="badge badge-2nd">সেকেন্ড টাইম চলমান</span>`
+          ? `<span class="badge badge-2nd">সেকেন্ড টাইম আছে</span>`
           : `<span class="badge badge-2nd">শুধু ২০২৬ ব্যাচ</span>`;
 
         const card = document.createElement("button");
@@ -1843,7 +2038,7 @@
       renderHome();
     });
 
-    /* 2 & 3. Roadmap 3 Tabs (Chronological Application Timeline & Unit-Wise Exam Timeline) */
+    /* Roadmap 3 Tabs */
     function renderRoadmap() {
       const container = document.getElementById("roadmapContent");
       if (currentRoadmapTab === "apply") {
@@ -1867,7 +2062,7 @@
         admissionData.forEach(uni => {
           uni.units.forEach(u => {
             unitExams.push({
-              uniName: uni.fullName,
+              shortName: uni.shortName,
               unitLabel: u.tabLabel,
               examDate: u.examDate,
               examCenter: u.examCenter,
@@ -1878,20 +2073,23 @@
         unitExams.sort((a, b) => a.examOrder - b.examOrder);
 
         container.innerHTML = unitExams.map(item => `
-          <div class="roadmap-card">
-            <div>
-              <h4>${item.uniName} — ${item.unitLabel}</h4>
-              <p>কেন্দ্র: ${item.examCenter}</p>
+          <div class="exam-row-compact">
+            <div class="exam-row-left">
+              <div class="exam-uni-unit"><span class="exam-uni-tag">${item.shortName}</span> • ${item.unitLabel}</div>
+              <div class="exam-center-sub">কেন্দ্র: ${item.examCenter}</div>
             </div>
-            <span class="badge badge-2nd" style="white-space:nowrap;">${item.examDate}</span>
+            <span class="exam-date-pill">${item.examDate}</span>
           </div>
         `).join("");
       } else {
         container.innerHTML = sameDayClashes.map(item => `
           <div class="clash-card">
-            <h4>⚠️ ${item.title}</h4>
-            <p><strong>তারিখ: ${item.date}</strong></p>
-            <p style="margin-top:4px;">${item.desc}</p>
+            <div class="clash-top-bar">
+              <span class="clash-badge">⚠️ একই দিনে পরীক্ষার সতর্কতা</span>
+              <span class="clash-date-text">📅 ${item.date}</span>
+            </div>
+            <div class="clash-title">${item.title}</div>
+            <div class="clash-desc">${item.desc}</div>
           </div>
         `).join("");
       }
@@ -1907,7 +2105,7 @@
       });
     });
 
-    /* Eligibility Calculator (Home) */
+    /* Eligibility Calculator (With SSC/HSC Passing Years & All Sub-Units) */
     document.querySelectorAll(".group-btn").forEach(btn => {
       btn.addEventListener("click", () => {
         currentGroup = btn.dataset.group;
@@ -1918,6 +2116,8 @@
     });
 
     document.getElementById("checkBtn").addEventListener("click", () => {
+      const sscYear = document.getElementById("sscYearInput").value;
+      const hscYear = document.getElementById("hscYearInput").value;
       const ssc = parseFloat(document.getElementById("sscInput").value);
       const hsc = parseFloat(document.getElementById("hscInput").value);
       const fb = document.getElementById("calcFeedback");
@@ -1928,29 +2128,39 @@
         return;
       }
 
+      const isSecondTime = hscYear === "2025";
       const total = parseFloat((ssc + hsc).toFixed(2));
       const eligibleList = [];
 
       admissionData.forEach(uni => {
+        if (isSecondTime && !uni.secondTime) return;
+
         const matchedUnits = uni.units.filter(u => {
           const req = u.gpa[currentGroup];
           return ssc >= req.ssc && hsc >= req.hsc && total >= req.total;
         });
+
         if (matchedUnits.length > 0) {
           eligibleList.push(`<strong>${uni.shortName}:</strong> ${matchedUnits.map(m => m.tabLabel).join(", ")}`);
         }
       });
 
+      const batchLabel = isSecondTime
+        ? `SSC ${sscYear} • HSC ${hscYear} (সেকেন্ড টাইম)`
+        : `SSC ${sscYear} • HSC ${hscYear} (ফার্স্ট টাইম)`;
+
       if (eligibleList.length > 0) {
         fb.className = "inline-feedback success";
-        fb.innerHTML = `<strong>মোট GPA: ${total.toFixed(2)} (${groupNames[currentGroup]})</strong><br>আপনি নিচের ${eligibleList.length}টি বিশ্ববিদ্যালয়ের ইউনিটগুলোতে আবেদনের যোগ্য:<br>• ${eligibleList.join("<br>• ")}`;
+        fb.innerHTML = `<strong>মোট GPA: ${total.toFixed(2)} (${groupNames[currentGroup]} | ${batchLabel})</strong><br>আপনি নিচের ${eligibleList.length}টি বিশ্ববিদ্যালয়ের ইউনিট ও উপ-ইউনিটগুলোতে আবেদনের যোগ্য:<br>• ${eligibleList.join("<br>• ")}`;
       } else {
         fb.className = "inline-feedback error";
-        fb.innerHTML = `<strong>মোট GPA: ${total.toFixed(2)}</strong><br>দুঃখিত, প্রদত্ত জিপিএ অনুযায়ী তালিকাভুক্ত কোনো ইউনিটের শর্ত পূরণ হয়নি।`;
+        fb.innerHTML = `<strong>মোট GPA: ${total.toFixed(2)} (${batchLabel})</strong><br>দুঃখিত, প্রদত্ত পাসের সাল ও জিপিএ অনুযায়ী তালিকাভুক্ত কোনো ইউনিটের শর্ত পূরণ হয়নি।`;
       }
     });
 
     document.getElementById("resetBtn").addEventListener("click", () => {
+      document.getElementById("sscYearInput").value = "2024";
+      document.getElementById("hscYearInput").value = "2026";
       document.getElementById("sscInput").value = "";
       document.getElementById("hscInput").value = "";
       const fb = document.getElementById("calcFeedback");
@@ -1958,7 +2168,7 @@
       fb.innerHTML = "";
     });
 
-    /* GPA Marks Calculator */
+    /* GPA Marks Calculator (Including DU & All GPA-counted Universities) */
     document.getElementById("calcMarksBtn").addEventListener("click", () => {
       const ssc = parseFloat(document.getElementById("marksSscInput").value);
       const hsc = parseFloat(document.getElementById("marksHscInput").value);
@@ -1970,6 +2180,7 @@
         return;
       }
 
+      const duMarks = (ssc * 2 + hsc * 2).toFixed(2);
       const cuMarks = (ssc * 2 + hsc * 2).toFixed(2);
       const juMarks = (ssc * 0.75 + hsc * 1.25).toFixed(2);
       const jnuMarks = (ssc * 2.4 + hsc * 3.2).toFixed(2);
@@ -1977,9 +2188,11 @@
       fb.className = "inline-feedback success";
       fb.innerHTML = `
         <strong>আপনার জিপিএ থেকে প্রাপ্ত সম্ভাব্য নম্বর:</strong><br>
+        • ঢাকা বিশ্ববিদ্যালয় (২০ নম্বরের মধ্যে): <strong>${duMarks}</strong><br>
         • চট্টগ্রাম বিশ্ববিদ্যালয় (২০ নম্বরের মধ্যে): <strong>${cuMarks}</strong><br>
         • জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (১০ নম্বরের মধ্যে): <strong>${juMarks}</strong><br>
-        • জগন্নাথ বিশ্ববিদ্যালয় (২৮ নম্বরের মধ্যে): <strong>${jnuMarks}</strong>
+        • জগন্নাথ বিশ্ববিদ্যালয় (২৮ নম্বরের মধ্যে): <strong>${jnuMarks}</strong><br>
+        <small style="opacity:0.85;">(দ্রষ্টব্য: রাবি, বিইউপি, খুবি, কুমিল্লা ও গুচ্ছ পরীক্ষায় জিপিএ থেকে কোনো নম্বর যোগ হয় না; শুধু মূল পরীক্ষার নম্বরে মেধাতালিকা হয়।)</small>
       `;
     });
 
@@ -2011,6 +2224,13 @@
           history.pushState({}, "", window.location.pathname);
         }
       }
+    }
+
+    function copyHelpline(num, btnEl) {
+      navigator.clipboard?.writeText(num);
+      const orig = btnEl.textContent;
+      btnEl.textContent = "কপি হয়েছে ✓";
+      setTimeout(() => { btnEl.textContent = orig; }, 1800);
     }
 
     function renderDetail() {
@@ -2133,11 +2353,30 @@
           </div>
         </div>
 
-        <div class="source-footer">
-          <a class="source-link" href="${uni.website}" target="_blank" rel="noopener noreferrer">
-            বিস্তারিত বিশ্ববিদ্যালয়ের ওয়েবসাইটে দেখুন ↗
-          </a>
-          <span class="update-date">সর্বশেষ আপডেট: ${uni.lastUpdated}</span>
+        <div class="official-links-box">
+          <div class="official-action-row">
+            <span class="official-action-label">১. সংশ্লিষ্ট ইউনিটের সার্কুলার (PDF)</span>
+            <a class="official-action-btn" href="${activeUnit.pdfUrl}" target="_blank" rel="noopener noreferrer">
+              📄 সার্কুলার পিডিএফ দেখুন ↗
+            </a>
+          </div>
+
+          <div class="official-action-row">
+            <span class="official-action-label">২. অফিশিয়াল ভর্তি ওয়েবসাইট</span>
+            <a class="official-action-btn" href="${uni.website}" target="_blank" rel="noopener noreferrer">
+              🌐 ওয়েবসাইট ভিজিট করুন ↗
+            </a>
+          </div>
+
+          <div class="official-action-row">
+            <span class="official-action-label">৩. হেল্পলাইন নাম্বার</span>
+            <div class="helpline-right">
+              <span class="helpline-num">${uni.helpline}</span>
+              <button class="btn-copy-mini" onclick="copyHelpline('${uni.helpline}', this)">কপি করুন</button>
+            </div>
+          </div>
+
+          <div class="update-meta">সর্বশেষ আপডেট: ${uni.lastUpdated}</div>
         </div>
       `;
     }
@@ -2151,23 +2390,14 @@
       }
     }
 
+    /* Copy Direct Page Link on Details Page */
     document.getElementById("copyBtn").addEventListener("click", () => {
-      const uni = admissionData.find(u => u.id === selectedUniId);
-      if (!uni) return;
-      const activeUnit = uni.units[selectedUnitIndex];
-      const subText = activeUnit.marks.subjects.map(s => `${s.name} (${s.dist})`).join(", ");
-      const text = `${uni.fullName}
-${activeUnit.unitName}
-মোট আসন: ${activeUnit.totalSeats} (মানবিক: ${activeUnit.seats.humanities}, বিজ্ঞান: ${activeUnit.seats.science}, বাণিজ্য: ${activeUnit.seats.commerce})
-পরীক্ষার তারিখ: ${activeUnit.examDate}
-পরীক্ষার কেন্দ্র: ${activeUnit.examCenter}
-নম্বর বণ্টন: ${activeUnit.marks.total} | ${subText}
-বিশেষ শর্ত: ${activeUnit.specialCondition}
-ওয়েবসাইট: ${uni.website}`;
-      navigator.clipboard?.writeText(text);
+      if (!selectedUniId) return;
+      const shareUrl = `${window.location.origin}${window.location.pathname}#${selectedUniId}`;
+      navigator.clipboard?.writeText(shareUrl);
       const btn = document.getElementById("copyBtn");
-      btn.textContent = "কপি হয়েছে ✓";
-      setTimeout(() => { btn.textContent = "তথ্য কপি করুন"; }, 1800);
+      btn.textContent = "লিংক কপি হয়েছে ✓";
+      setTimeout(() => { btn.textContent = "লিংক কপি করুন"; }, 1800);
     });
 
     document.getElementById("backBtn").addEventListener("click", () => goHome(true));
