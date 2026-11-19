@@ -620,10 +620,36 @@
 
     .info-box { background: var(--card-sub); border: 1px solid var(--border); border-radius: 12px; padding: 14px; }
     .info-box h3 { font-size: 0.98rem; font-weight: 700; color: var(--primary); margin-bottom: 10px; padding-bottom: 6px; border-bottom: 1px solid var(--border); }
-    .info-row { display: flex; justify-content: space-between; gap: 8px; font-size: 0.9rem; padding: 5px 0; border-bottom: 1px dashed var(--border); }
-    .info-row:last-child { border-bottom: none; }
-    .info-row strong { color: var(--muted); font-weight: 600; flex-shrink: 0; }
-    .info-row span { text-align: right; font-weight: 600; color: var(--text); }
+
+    /* Desktop & Mobile Friendly Data Item Cards inside Info Boxes */
+    .data-item-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .data-item-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 9px 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.9rem;
+    }
+    .data-item-card .item-label {
+      color: var(--muted);
+      font-weight: 700;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .data-item-card .item-val {
+      text-align: right;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+    }
 
     /* User-Friendly Marks Distribution Section */
     .marks-highlights {
@@ -641,38 +667,77 @@
       text-align: center;
     }
     .mark-metric small { display: block; font-size: 0.74rem; color: var(--muted); font-weight: 600; }
-    .mark-metric b { display: block; font-size: 0.92rem; color: var(--primary); margin-top: 2px; }
+    .mark-metric b { display: block; font-size: 0.92rem; color: var(--primary); margin-top: 2px; line-height: 1.3; }
 
-    .subject-cards { display: flex; flex-direction: column; gap: 6px; margin-bottom: 10px; }
+    .subject-cards { display: flex; flex-direction: column; gap: 7px; margin-bottom: 10px; }
     .subject-pill-row {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 8px;
-      padding: 8px 12px;
+      border-radius: 9px;
+      padding: 9px 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
       gap: 10px;
       font-size: 0.9rem;
     }
-    .subject-pill-row .sub-name { font-weight: 600; color: var(--text); }
+    .subject-pill-row .sub-name { font-weight: 600; color: var(--text); line-height: 1.4; }
     .subject-pill-row .sub-mark {
       background: var(--accent-soft);
       color: var(--accent);
       font-weight: 700;
       font-size: 0.82rem;
-      padding: 2px 9px;
+      padding: 3px 10px;
       border-radius: 999px;
       white-space: nowrap;
+      flex-shrink: 0;
     }
 
     .pass-banner {
       background: var(--primary-soft);
       color: var(--primary);
-      padding: 8px 12px;
-      border-radius: 8px;
+      padding: 9px 12px;
+      border-radius: 9px;
       font-size: 0.86rem;
       font-weight: 600;
+      line-height: 1.45;
+    }
+
+    /* Mobile-Specific User-Friendly Adjustments (<= 600px) */
+    @media (max-width: 600px) {
+      .detail-card { padding: 14px 12px; }
+      .info-box { padding: 12px 10px; }
+
+      /* Stack Seat & GPA rows cleanly on mobile so long text never squeezes */
+      .data-item-card {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 3px;
+        padding: 9px 11px;
+      }
+      .data-item-card .item-label {
+        font-size: 0.8rem;
+        color: var(--primary);
+      }
+      .data-item-card .item-val {
+        text-align: left;
+        font-size: 0.9rem;
+      }
+
+      /* Stack Subject Name & Marks Pill cleanly on mobile */
+      .subject-pill-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+        padding: 9px 11px;
+      }
+      .subject-pill-row .sub-mark {
+        white-space: normal;
+        font-size: 0.8rem;
+      }
+
+      .mark-metric { padding: 8px 6px; }
+      .mark-metric b { font-size: 0.85rem; }
     }
 
     /* Special Circular Condition Box */
@@ -793,7 +858,7 @@
       flex-wrap: wrap;
       justify-content: space-between;
       align-items: center;
-      gap: 8px;
+      gap: 10px;
     }
     .share-buttons-group {
       display: flex;
@@ -822,12 +887,17 @@
       font-size: 0.82rem;
       font-weight: 700;
       text-decoration: none;
+      border: none;
+      font-family: inherit;
+      cursor: pointer;
       display: inline-flex;
       align-items: center;
       gap: 4px;
     }
     .btn-wa { background: #dcfce7; color: #166534; }
     .btn-tg { background: #e0f2fe; color: #0369a1; }
+    .btn-msg { background: #dbeafe; color: #1d4ed8; }
+    .btn-ig { background: #fce7f3; color: #be185d; }
     .update-meta {
       font-size: 0.78rem;
       color: var(--muted);
@@ -2608,6 +2678,18 @@
       setTimeout(() => { btnEl.textContent = orig; }, 1800);
     }
 
+    function shareInstagram(btnEl) {
+      if (!selectedUniId) return;
+      const shareUrl = `${window.location.origin}${window.location.pathname}#${selectedUniId}`;
+      navigator.clipboard?.writeText(shareUrl);
+      const orig = btnEl.textContent;
+      btnEl.textContent = "লিংক কপি হয়েছে (DM খুলছে...)";
+      setTimeout(() => {
+        btnEl.textContent = orig;
+        window.open("https://www.instagram.com/direct/inbox/", "_blank", "noopener,noreferrer");
+      }, 650);
+    }
+
     function renderDetail() {
       const uni = admissionData.find(u => u.id === selectedUniId);
       if (!uni) return;
@@ -2626,7 +2708,7 @@
         ? `<span class="badge badge-open"><span class="live-pulse"></span> আবেদন চলমান</span>`
         : `<span class="badge badge-soon">আবেদন আসন্ন</span>`;
 
-      /* Dynamic Seat Rows (only shows groups present in activeUnit.seats) */
+      /* Dynamic Seat Cards (Mobile & Desktop Friendly) */
       const seatGroupLabels = [
         { key: "humanities", label: "মানবিক বিভাগ" },
         { key: "science", label: "বিজ্ঞান বিভাগ" },
@@ -2635,9 +2717,9 @@
       const seatRowsHtml = seatGroupLabels
         .filter(g => activeUnit.seats && activeUnit.seats[g.key])
         .map(g => `
-          <div class="info-row">
-            <strong>${g.label}:</strong>
-            <span>${activeUnit.seats[g.key]}</span>
+          <div class="data-item-card">
+            <span class="item-label">${g.label}</span>
+            <span class="item-val">${activeUnit.seats[g.key]}</span>
           </div>
         `).join("");
 
@@ -2710,6 +2792,7 @@
       const shareText = encodeURIComponent(`${uni.fullName} (${activeUnit.tabLabel}) ভর্তি তথ্য ২০২৬-২৭ দেখো এখানে:\n${pageUrl}`);
       const waHref = `https://wa.me/?text=${shareText}`;
       const tgHref = `https://t.me/share/url?url=${encodeURIComponent(pageUrl)}&text=${encodeURIComponent(`${uni.fullName} (${activeUnit.tabLabel}) ভর্তি তথ্য ২০২৬-২৭`)}`;
+      const msgHref = `fb-messenger://share/?link=${encodeURIComponent(pageUrl)}`;
 
       detailContent.innerHTML = `
         <div class="detail-header">
@@ -2753,22 +2836,26 @@
         <div class="detail-sections">
           <div class="info-box">
             <h3>১. বিভাগভিত্তিক আসন সংখ্যা</h3>
-            ${seatRowsHtml}
+            <div class="data-item-list">
+              ${seatRowsHtml}
+            </div>
           </div>
 
           <div class="info-box">
             <h3>২. ভর্তির ন্যূনতম জিপিএ যোগ্যতা</h3>
-            <div class="info-row">
-              <strong>মানবিক:</strong>
-              <span>${activeUnit.gpa.humanities.note}</span>
-            </div>
-            <div class="info-row">
-              <strong>বিজ্ঞান:</strong>
-              <span>${activeUnit.gpa.science.note}</span>
-            </div>
-            <div class="info-row">
-              <strong>বাণিজ্য:</strong>
-              <span>${activeUnit.gpa.commerce.note}</span>
+            <div class="data-item-list">
+              <div class="data-item-card">
+                <span class="item-label">মানবিক বিভাগ</span>
+                <span class="item-val">${activeUnit.gpa.humanities.note}</span>
+              </div>
+              <div class="data-item-card">
+                <span class="item-label">বিজ্ঞান বিভাগ</span>
+                <span class="item-val">${activeUnit.gpa.science.note}</span>
+              </div>
+              <div class="data-item-card">
+                <span class="item-label">বাণিজ্য বিভাগ</span>
+                <span class="item-val">${activeUnit.gpa.commerce.note}</span>
+              </div>
             </div>
           </div>
 
@@ -2836,6 +2923,8 @@
             <button type="button" class="btn-share-main" onclick="copyShareLink(this)">🔗 বন্ধুদের সাথে তথ্যটি শেয়ার করো</button>
             <a class="btn-social-share btn-wa" href="${waHref}" target="_blank" rel="noopener noreferrer">WhatsApp</a>
             <a class="btn-social-share btn-tg" href="${tgHref}" target="_blank" rel="noopener noreferrer">Telegram</a>
+            <a class="btn-social-share btn-msg" href="${msgHref}">Messenger</a>
+            <button type="button" class="btn-social-share btn-ig" onclick="shareInstagram(this)">Instagram</button>
           </div>
           <span class="update-meta">সর্বশেষ আপডেট: ${uni.lastUpdated}</span>
         </div>
@@ -2885,4 +2974,4 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
-          </html>
+                                                   </html>
