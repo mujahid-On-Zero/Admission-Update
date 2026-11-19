@@ -702,7 +702,7 @@
       padding: 14px;
     }
     .verify-box-title {
-      font-size: 0.9rem;
+      font-size: 0.92rem;
       font-weight: 700;
       color: var(--primary);
       margin-bottom: 10px;
@@ -714,6 +714,7 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
+      margin-bottom: 12px;
     }
     .verify-btn {
       display: inline-flex;
@@ -730,28 +731,56 @@
       font-family: inherit;
       cursor: pointer;
     }
-    .helpline-pill {
-      display: inline-flex;
-      align-items: center;
-      gap: 7px;
+    .verify-btn:hover { border-color: var(--primary); }
+
+    /* Two-Tier Helpline Cards inside Verification Box */
+    .helpline-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+    @media (min-width: 600px) { .helpline-grid { grid-template-columns: 1fr 1fr; } }
+    .helpline-card {
       background: var(--card);
       border: 1px solid var(--border);
-      padding: 5px 10px;
-      border-radius: 9px;
+      border-radius: 10px;
+      padding: 10px 12px;
       font-size: 0.84rem;
+    }
+    .helpline-card h4 {
+      font-size: 0.85rem;
       font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 6px;
+      padding-bottom: 4px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .hl-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 0;
       color: var(--text);
+      font-weight: 600;
+    }
+    .hl-meta {
+      font-size: 0.79rem;
+      color: var(--muted);
+      margin-top: 4px;
+      line-height: 1.4;
     }
     .btn-copy-mini {
       background: var(--accent);
       color: #ffffff;
       border: none;
-      padding: 3px 9px;
+      padding: 2px 8px;
       border-radius: 6px;
       font-family: inherit;
-      font-size: 0.78rem;
+      font-size: 0.76rem;
       font-weight: 700;
       cursor: pointer;
+      flex-shrink: 0;
     }
     [data-theme="dark"] .btn-copy-mini { color: #0f172a; }
 
@@ -1043,23 +1072,44 @@
         secondTime: false,
         applyOrder: 1,
         applyTimeline: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
-        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৭ দিন)",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৬ দিন)",
         website: "https://admission.eis.du.ac.bd/",
-        helpline: "09666-911463",
-        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        generalCircularUrl: "https://admission.eis.du.ac.bd/bn/gf6s7h89rthg463786e4q6a3b679w6jrn46a",
+        helpline: "09666361991",
+        centralOffice: {
+          title: "কেন্দ্রীয় ভর্তি অফিস (সাধারণ হেল্প ডেস্ক)",
+          phones: [
+            { label: "ফোন ১", number: "09666361991" },
+            { label: "ফোন ২", number: "09666361070" }
+          ],
+          email: "helpline@eis.du.ac.bd",
+          address: "কক্ষ নং ২১৪, প্রশাসনিক ভবন, ঢাকা বিশ্ববিদ্যালয়।"
+        },
+        lastUpdated: "১৯ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "ক ইউনিট (বিভাগ পরিবর্তন)",
             unitName: "ক ইউনিট (বিজ্ঞান অনুষদ — বিভাগ পরিবর্তন কোটা)",
-            pdfUrl: "https://admission.eis.du.ac.bd/",
+            pdfUrl: "https://admission.eis.du.ac.bd/bn/b45de047fde97gsg488cadae3cfe8e88dc01",
+            unitHelpline: {
+              title: "বিজ্ঞান ইউনিট হেল্পলাইন",
+              phones: [
+                { label: "ফোন (এক্স: ৪৩৬৩, ৪৩৬৪)", number: "09666911463" },
+                { label: "মোবাইল", number: "01870033945" }
+              ]
+            },
             appFee: "১,০৫০ টাকা",
-            mandatorySubject: "HSC-তে অর্থনীতি / পরিসংখ্যান / ভূগোল / মনোবিজ্ঞান / সমাজবিজ্ঞান (বিভাগভেদে)",
-            totalSeats: "১১৮টি",
-            examOrder: 3,
+            mandatorySubject: "HSC-তে গণিত / পরিসংখ্যান / ভূগোল / মনোবিজ্ঞান / অর্থনীতি (বিভাগভেদে)",
+            totalSeats: "৭৬টি (বিভাগ পরিবর্তন)",
+            examOrder: 2,
             examDate: "১২ ডিসেম্বর ২০২৬",
             examCenter: "ঢাকাসহ ৮টি বিভাগীয় শহর",
             negMark: "০.২৫",
-            seats: { humanities: "৭৮টি", science: "মূল বিজ্ঞান আসন", commerce: "৪০টি" },
+            seats: {
+              humanities: "৫১টি (ভূগোল ২৫, মনোবিজ্ঞান ২০, গণিত ৩, পরিসংখ্যান ৩)",
+              science: "১,৮৫১টি (মূল বিজ্ঞান শাখা)",
+              commerce: "২৫টি (মনোবিজ্ঞান ২০, ভূগোল ৫)"
+            },
             gpa: {
               humanities: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "আলাদা ৩.০০ এবং মোট ৭.৫০" },
               science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদা ৩.৫০ এবং মোট ৮.০০" },
@@ -1072,21 +1122,28 @@
               duration: "১ ঘণ্টা ৩০ মিনিট",
               pass: "MCQ-তে ন্যূনতম ২৪ এবং লিখিতে ১২সহ মোট ৪০ নম্বর পেতে হবে",
               subjects: [
-                { name: "বাংলা", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
-                { name: "ইংরেজি", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
-                { name: "সাধারণ জ্ঞান / আইসিটি / অর্থনীতি", dist: "MCQ ৩০ + লিখিত ২০ = ৫০" }
+                { name: "আবশ্যিক: বাংলা", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
+                { name: "আবশ্যিক: ইংরেজি", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
+                { name: "আবশ্যিক: আইসিটি (ICT)", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
+                { name: "অপশনাল: গণিত / পরিসংখ্যান / ভূগোল / মনোবিজ্ঞান / অর্থনীতি (যেকোনো ১টি)", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" }
               ]
             },
-            specialCondition: "বিভাগ পরিবর্তন কোটায় আবেদন করতে হলে উচ্চমাধ্যমিক পর্যায়ে অর্থনীতি, পরিসংখ্যান, ভূগোল, মনোবিজ্ঞান বা সমাজবিজ্ঞান বিষয়সমূহের যেকোনো একটি থাকতে হবে (সংশ্লিষ্ট বিভাগের শর্ত অনুযায়ী) এবং শুধু ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে।"
+            specialCondition: "মানবিক ও ব্যবসায় শিক্ষা শাখার শিক্ষার্থীদের জন্য বাংলা, ইংরেজি ও আইসিটি আবশ্যিক এবং গণিত, পরিসংখ্যান, ভূগোল, মনোবিজ্ঞান বা অর্থনীতি হতে যেকোনো ১টি অপশনাল বিষয়ে পরীক্ষা দিতে হবে। শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে।"
           },
           {
             tabLabel: "খ ইউনিট (কলা ও সামাজিক বিজ্ঞান)",
             unitName: "খ ইউনিট (কলা, আইন ও সামাজিক বিজ্ঞান অনুষদ)",
-            pdfUrl: "https://admission.eis.du.ac.bd/",
+            pdfUrl: "https://admission.eis.du.ac.bd/bn/b45de047fde9788c53fradae3cfe8e88dc02",
+            unitHelpline: {
+              title: "কলা, আইন ও সামাজিক বিজ্ঞান হেল্পলাইন",
+              phones: [
+                { label: "ফোন (এক্স: ৪৩৪৩, ৪৩৪২, ৪৩৪১)", number: "09666911463" }
+              ]
+            },
             appFee: "১,০৫০ টাকা",
-            mandatorySubject: "নির্দিষ্ট বাধ্যতামূলক বিষয় নেই (সকল বিভাগের জন্য উন্মুক্ত)",
+            mandatorySubject: "নির্দিষ্ট বাধ্যতামূলক বিষয় নেই (সকল বিভাগের জন্য অভিন্ন প্রশ্ন ও নম্বর বণ্টন)",
             totalSeats: "২,৯৩৪টি",
-            examOrder: 4,
+            examOrder: 3,
             examDate: "১৯ ডিসেম্বর ২০২৬",
             examCenter: "ঢাকাসহ ৮টি বিভাগীয় শহর",
             negMark: "০.২৫",
@@ -1108,20 +1165,29 @@
                 { name: "সাধারণ জ্ঞান ও মৌলিক আইসিটি", dist: "MCQ ৩০" }
               ]
             },
-            specialCondition: "শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)। লিখিত খাতা মূল্যায়নের জন্য আগে MCQ অংশে ন্যূনতম ২৪ নম্বর পেতে হবে।"
+            specialCondition: "সকল বিভাগের শিক্ষার্থীদের জন্য একই প্রশ্নপত্র ও নম্বর বণ্টন প্রযোজ্য। শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)।"
           },
           {
             tabLabel: "গ ইউনিট (ব্যবসায় শিক্ষা)",
-            unitName: "গ ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
-            pdfUrl: "https://admission.eis.du.ac.bd/",
+            unitName: "গ ইউনিট (ব্যবসায় শিক্ষা অনুষদ — বিভাগ পরিবর্তন কোটা)",
+            pdfUrl: "https://admission.eis.du.ac.bd/bn/b45de047fde9788cad5h6esae3cfe8e88dc03",
+            unitHelpline: {
+              title: "ব্যবসায় শিক্ষা ইউনিট হেল্পলাইন",
+              phones: [
+                { label: "ফোন (এক্স: ৪৩৬০)", number: "09666911463" }
+              ]
+            },
             appFee: "১,০৫০ টাকা",
-            mandatorySubject: "বাণিজ্যের জন্য হিসাববিজ্ঞান আবশ্যক; মানবিক/বিজ্ঞানে নির্দিষ্ট আসন কোটা",
-            totalSeats: "১,০৫০টি",
+            mandatorySubject: "মানবিক/বিজ্ঞান শাখার জন্য বাংলা, ইংরেজি, আইসিটি আবশ্যিক ও গণিত/পরিসংখ্যান/অর্থনীতি থেকে ১টি",
+            totalSeats: "১২০টি (মানবিক ও বিজ্ঞান কোটা)",
             examOrder: 5,
             examDate: "২৬ ডিসেম্বর ২০২৬",
             examCenter: "ঢাকাসহ ৮টি বিভাগীয় শহর",
             negMark: "০.২৫",
-            seats: { humanities: "২৫টি", science: "৯৫টি", commerce: "৯৩০টি" },
+            seats: {
+              humanities: "২৫টি",
+              science: "৯৫টি"
+            },
             gpa: {
               humanities: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "আলাদা ৩.০০ এবং মোট ৭.৫০" },
               science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদা ৩.৫০ এবং মোট ৮.০০" },
@@ -1134,22 +1200,29 @@
               duration: "১ ঘণ্টা ৩০ মিনিট",
               pass: "MCQ-তে ন্যূনতম ২৪ এবং লিখিতে ১১সহ মোট ৪০ নম্বর",
               subjects: [
-                { name: "বাংলা ও ইংরেজি", dist: "MCQ ২৪ + লিখিত ১৬ = ৪০" },
-                { name: "বাণিজ্য: হিসাববিজ্ঞান, ব্যবসায় নীতি, মার্কেটিং/ফিন্যান্স", dist: "MCQ ৩৬ + লিখিত ২৪ = ৬০" },
-                { name: "বিজ্ঞান/মানবিক: গণিত/অর্থনীতি ও সাধারণ জ্ঞান", dist: "MCQ ৩৬ + লিখিত ২৪ = ৬০" }
+                { name: "আবশ্যিক: বাংলা", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
+                { name: "আবশ্যিক: ইংরেজি", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
+                { name: "আবশ্যিক: আইসিটি (ICT)", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
+                { name: "অপশনাল: গণিত / পরিসংখ্যান / অর্থনীতি (যেকোনো ১টি)", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" }
               ]
             },
-            specialCondition: "ব্যবসায় শিক্ষা শাখার শিক্ষার্থীদের HSC পর্যায়ে হিসাববিজ্ঞান বিষয়টি অবশ্যই থাকতে হবে। বিজ্ঞান ও মানবিক শাখার শিক্ষার্থীদের জন্য নির্দিষ্ট কোটায় আসন বরাদ্দ রয়েছে।"
+            specialCondition: "বিজ্ঞান ও মানবিক শাখার শিক্ষার্থীদের জন্য নির্ধারিত ১২০টি (বিজ্ঞান ৯৫টি ও মানবিক ২৫টি) আসনে বাংলা, ইংরেজি, আইসিটি এবং গণিত/পরিসংখ্যান/অর্থনীতি বিষয়ের ওপর পরীক্ষা অনুষ্ঠিত হয়। শুধু ২০২৬ ব্যাচ আবেদনযোগ্য।"
           },
           {
             tabLabel: "চ ইউনিট (চারুকলা)",
             unitName: "চ ইউনিট (চারুকলা অনুষদ)",
-            pdfUrl: "https://admission.eis.du.ac.bd/",
+            pdfUrl: "https://admission.eis.du.ac.bd/bn/b45de047fde97fsgfg8cadaghge3cfe8e88dc05",
+            unitHelpline: {
+              title: "চারুকলা ইউনিট হেল্পলাইন",
+              phones: [
+                { label: "ফোন (এক্স: ৮৫৭১, ৮৫৮১)", number: "09666911463" }
+              ]
+            },
             appFee: "১,০৫০ টাকা",
-            mandatorySubject: "নির্দিষ্ট বিষয় শর্ত নেই (ফ্রি-হ্যান্ড অঙ্কন দক্ষতা আবশ্যক)",
+            mandatorySubject: "সকল বিভাগের জন্য অভিন্ন নম্বর বণ্টন (ফ্রি-হ্যান্ড অঙ্কন দক্ষতা আবশ্যক)",
             totalSeats: "১৩০টি",
-            examOrder: 2,
-            examDate: "৫ ডিসেম্বর ২০২৬",
+            examOrder: 4,
+            examDate: "২২ ডিসেম্বর ২০২৬",
             examCenter: "শুধু ঢাকা বিশ্ববিদ্যালয় ক্যাম্পাস",
             negMark: "০.২৫",
             seats: { humanities: "সকল বিভাগ উন্মুক্ত", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
@@ -1169,17 +1242,24 @@
                 { name: "ফ্রি-হ্যান্ড অঙ্কন (Drawing)", dist: "ব্যবহারিক ৬০ নম্বর (৬০ মিনিট)" }
               ]
             },
-            specialCondition: "চ ইউনিটের ভর্তি পরীক্ষা বিভাগীয় শহরে অনুষ্ঠিত হবে না; এটি শুধুমাত্র ঢাকা বিশ্ববিদ্যালয় ক্যাম্পাস কেন্দ্রে অনুষ্ঠিত হবে।"
+            specialCondition: "সকল বিভাগের শিক্ষার্থীদের জন্য একই নম্বর বণ্টন প্রযোজ্য। চ ইউনিটের ভর্তি পরীক্ষা বিভাগীয় শহরে অনুষ্ঠিত হবে না; এটি শুধুমাত্র ঢাকা বিশ্ববিদ্যালয় ক্যাম্পাস কেন্দ্রে অনুষ্ঠিত হবে।"
           },
           {
             tabLabel: "আইবিএ (IBA)",
             unitName: "ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন (IBA)",
-            pdfUrl: "https://admission.eis.du.ac.bd/",
+            pdfUrl: "https://admission.eis.du.ac.bd/bn/b45de047fde973543hj88ae3cfe8e88dc06",
+            unitHelpline: {
+              title: "আইবিএ (IBA) হেল্পলাইন",
+              phones: [
+                { label: "ফোন (এক্স: ৮৩৩৫)", number: "029673387" },
+                { label: "মোবাইল", number: "01772563303" }
+              ]
+            },
             appFee: "১,৫০০ টাকা",
-            mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ইংরেজি মাধ্যমে পরীক্ষা)",
+            mandatorySubject: "সকল বিভাগের জন্য অভিন্ন নম্বর বণ্টন (ইংরেজি মাধ্যমে পরীক্ষা)",
             totalSeats: "১২০টি",
             examOrder: 1,
-            examDate: "২৮ নভেম্বর ২০২৬",
+            examDate: "৫ ডিসেম্বর ২০২৬",
             examCenter: "শুধু ঢাকা কেন্দ্র",
             negMark: "০.২৫",
             seats: { humanities: "সকল বিভাগ উন্মুক্ত", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
@@ -1200,7 +1280,7 @@
                 { name: "Analytical Ability", dist: "MCQ ১৫" }
               ]
             },
-            specialCondition: "লিখিত পরীক্ষায় উত্তীর্ণ প্রার্থীদের পরবর্তীতে Communication Test (ভাইভা)-তে অংশগ্রহণ করতে হবে এবং প্রশ্নপত্র সম্পূর্ণ ইংরেজি মাধ্যমে হবে।"
+            specialCondition: "সকল বিভাগের শিক্ষার্থীদের জন্য একই নম্বর বণ্টন প্রযোজ্য। লিখিত পরীক্ষায় উত্তীর্ণ প্রার্থীদের পরবর্তীতে Communication Test (ভাইভা)-তে অংশগ্রহণ করতে হবে।"
           }
         ]
       },
@@ -1213,15 +1293,25 @@
         secondTime: true,
         applyOrder: 2,
         applyTimeline: "১৫ নভেম্বর – ৩০ নভেম্বর ২০২৬",
-        applyNote: "আবেদন চলমান (শেষ হতে বাকি ১২ দিন)",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ১১ দিন)",
         website: "https://admission.ru.ac.bd/",
-        helpline: "01703-899973",
-        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        generalCircularUrl: "https://admission.ru.ac.bd/student/notices",
+        helpline: "+880-1703-899973",
+        centralOffice: {
+          title: "রাবি ভর্তি হেল্পলাইন (১৫-১১-২০২৬ থেকে ৩০-১১-২০২৬)",
+          phones: [
+            { label: "ফোন ১", number: "+880-1703-899973" },
+            { label: "ফোন ২", number: "+880-1703-899974" }
+          ],
+          email: "admission@ru.ac.bd",
+          address: "অফিস সময়: সকাল ০৯:৩০ – বিকাল ০৫:৩০ পর্যন্ত।"
+        },
+        lastUpdated: "১৯ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "A ইউনিট (মানবিক)",
             unitName: "A ইউনিট (কলা, আইন, সামাজিক বিজ্ঞান ও চারুকলা)",
-            pdfUrl: "https://admission.ru.ac.bd/",
+            pdfUrl: "https://admission.ru.ac.bd/student/notices",
             appFee: "১,৩২০ টাকা (প্রাথমিক ৫৫ টাকা)",
             mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ইংরেজি বিভাগে আলাদা শর্ত)",
             totalSeats: "১,৮৭২টি",
@@ -1252,7 +1342,7 @@
           {
             tabLabel: "B ইউনিট (বাণিজ্য)",
             unitName: "B ইউনিট (বিজনেস স্টাডিজ অনুষদ ও আইবিএ)",
-            pdfUrl: "https://admission.ru.ac.bd/",
+            pdfUrl: "https://admission.ru.ac.bd/student/notices",
             appFee: "১,১০০ টাকা (প্রাথমিক ৫৫ টাকা)",
             mandatorySubject: "বাণিজ্য ও অ-বাণিজ্য (বিজ্ঞান/মানবিক) উভয় শাখা উন্মুক্ত",
             totalSeats: "৫৬০টি",
@@ -1282,7 +1372,7 @@
           {
             tabLabel: "C ইউনিট (অ-বিজ্ঞান)",
             unitName: "C ইউনিট (বিজ্ঞান অনুষদ — অ-বিজ্ঞান কোটা)",
-            pdfUrl: "https://admission.ru.ac.bd/",
+            pdfUrl: "https://admission.ru.ac.bd/student/notices",
             appFee: "১,৩২০ টাকা (প্রাথমিক ৫৫ টাকা)",
             mandatorySubject: "অ-বিজ্ঞান কোটায় HSC-তে ভূগোল বা মনোবিজ্ঞান থাকতে হবে",
             totalSeats: "৮০টি (অ-বিজ্ঞান)",
@@ -1315,25 +1405,25 @@
         id: "jnu",
         shortName: "জবি",
         fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
-        summaryText: "B (কলা ও আইন), C (বাণিজ্য) ও D (সামাজিক বিজ্ঞান)",
-        appStatus: "open",
+        summaryText: "B (কলা ও আইন), C (বাণিজ্য), D (সামাজিক বিজ্ঞান) ও E (চারুকলা)",
+        appStatus: "upcoming",
         secondTime: false,
         applyOrder: 3,
-        applyTimeline: "১৫ নভেম্বর – ০৫ ডিসেম্বর ২০২৬",
-        applyNote: "আবেদন চলমান (শেষ হতে বাকি ১৭ দিন)",
+        applyTimeline: "২৫ নভেম্বর (দুপুর ১২টা) – ১০ ডিসেম্বর ২০২৬",
+        applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৬ দিন)",
         website: "https://admission.jnu.ac.bd/",
         helpline: "09611-773388",
-        lastUpdated: "১৮ নভেম্বর ২০২৬",
+        lastUpdated: "১৯ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (কলা ও আইন)",
             unitName: "B ইউনিট (কলা ও আইন অনুষদ)",
             pdfUrl: "https://admission.jnu.ac.bd/",
-            appFee: "১,০০০ টাকা (প্রাথমিক ১০০ টাকা)",
+            appFee: "১,২০০ টাকা",
             mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (শুধু ২০২৬ ব্যাচ)",
             totalSeats: "৭৮৫টি",
-            examOrder: 19,
-            examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+            examOrder: 6.2,
+            examDate: "১৫ জানুয়ারি ২০২৭ (সকাল ১১:০০ – ১২:০০)",
             examCenter: "জগন্নাথ বিশ্ববিদ্যালয় ও ঢাকার কেন্দ্রসমূহ",
             negMark: "০.২৫",
             seats: { humanities: "৫৪০টি", science: "১৪৫টি", commerce: "১০০টি" },
@@ -1343,28 +1433,28 @@
               commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদাভাবে ৩.৫০ এবং মোট ৭.৫০" }
             },
             marks: {
-              total: "১০০ নম্বর (লিখিত ৪৮ + MCQ ২৪ + GPA ২৮)",
-              mcq: "২৪ নম্বর",
-              written: "৪৮ নম্বর",
-              duration: "১ ঘণ্টা ৩০ মিনিট",
-              pass: "লিখিত ও MCQ অংশে আলাদাভাবে পাস করতে হবে",
+              total: "১০০ নম্বর (সম্পূর্ণ MCQ ৭২ + GPA ২৮)",
+              mcq: "৭২ নম্বর",
+              written: "নেই",
+              duration: "১ ঘণ্টা",
+              pass: "MCQ অংশে ন্যূনতম নির্ধারিত পাস নম্বর পেতে হবে",
               subjects: [
-                { name: "বাংলা", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" },
-                { name: "ইংরেজি", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" },
-                { name: "সাধারণ জ্ঞান", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" }
+                { name: "বাংলা", dist: "MCQ ২৪ নম্বর" },
+                { name: "ইংরেজি", dist: "MCQ ২৪ নম্বর" },
+                { name: "সাধারণ জ্ঞান", dist: "MCQ ২৪ নম্বর" }
               ]
             },
-            specialCondition: "শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)।"
+            specialCondition: "শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)। লিখিত পরীক্ষা ছাড়াই ১ ঘণ্টার MCQ পদ্ধতিতে পরীক্ষা অনুষ্ঠিত হবে।"
           },
           {
             tabLabel: "C ইউনিট (ব্যবসায় শিক্ষা)",
             unitName: "C ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
             pdfUrl: "https://admission.jnu.ac.bd/",
-            appFee: "১,০০০ টাকা (প্রাথমিক ১০০ টাকা)",
+            appFee: "১,২০০ টাকা",
             mandatorySubject: "বাণিজ্য ও অ-বাণিজ্য উভয় শাখার জন্য নির্ধারিত আসন",
             totalSeats: "৫২০টি",
-            examOrder: 20,
-            examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+            examOrder: 6.3,
+            examDate: "২২ জানুয়ারি ২০২৭ (সকাল ১১:০০ – ১২:০০)",
             examCenter: "জগন্নাথ বিশ্ববিদ্যালয় ও ঢাকার কেন্দ্রসমূহ",
             negMark: "০.২৫",
             seats: { humanities: "অ-বাণিজ্য আসন", science: "অ-বাণিজ্য আসন", commerce: "মূল বাণিজ্য আসন" },
@@ -1374,28 +1464,28 @@
               commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ ও মোট ৭.৫০" }
             },
             marks: {
-              total: "১০০ নম্বর (লিখিত ৪৮ + MCQ ২৪ + GPA ২৮)",
-              mcq: "২৪ নম্বর",
-              written: "৪৮ নম্বর",
-              duration: "১ ঘণ্টা ৩০ মিনিট",
-              pass: "লিখিত ও MCQ অংশে আলাদাভাবে পাস করতে হবে",
+              total: "১০০ নম্বর (সম্পূর্ণ MCQ ৭২ + GPA ২৮)",
+              mcq: "৭২ নম্বর",
+              written: "নেই",
+              duration: "১ ঘণ্টা",
+              pass: "MCQ অংশে ন্যূনতম নির্ধারিত পাস নম্বর পেতে হবে",
               subjects: [
-                { name: "ইংরেজি", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" },
-                { name: "হিসাববিজ্ঞান / গণিত", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" },
-                { name: "ব্যবসায় নীতি / সাধারণ জ্ঞান", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" }
+                { name: "ইংরেজি", dist: "MCQ ২৪ নম্বর" },
+                { name: "হিসাববিজ্ঞান / গণিত", dist: "MCQ ২৪ নম্বর" },
+                { name: "ব্যবসায় নীতি / সাধারণ জ্ঞান", dist: "MCQ ২৪ নম্বর" }
               ]
             },
-            specialCondition: "শুধু ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বাণিজ্য ও অ-বাণিজ্য শাখার জন্য আলাদা প্রশ্নপত্রে পরীক্ষা নেওয়া হয়।"
+            specialCondition: "শুধু ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বাণিজ্য ও অ-বাণিজ্য শাখার জন্য আলাদা প্রশ্নপত্রে ১ ঘণ্টার MCQ পরীক্ষা নেওয়া হয়।"
           },
           {
             tabLabel: "D ইউনিট (সামাজিক বিজ্ঞান)",
             unitName: "D ইউনিট (সামাজিক বিজ্ঞান অনুষদ)",
             pdfUrl: "https://admission.jnu.ac.bd/",
-            appFee: "১,০০০ টাকা (প্রাথমিক ১০০ টাকা)",
+            appFee: "১,২০০ টাকা",
             mandatorySubject: "অর্থনীতি বিভাগে HSC-তে অর্থনীতি বা গণিত/পরিসংখ্যান আবশ্যক",
             totalSeats: "৫৯০টি",
-            examOrder: 21,
-            examDate: "ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+            examOrder: 6.4,
+            examDate: "২৩ জানুয়ারি ২০২৭ (সকাল ১১:০০ – ১২:০০)",
             examCenter: "জগন্নাথ বিশ্ববিদ্যালয় ও ঢাকার কেন্দ্রসমূহ",
             negMark: "০.২৫",
             seats: { humanities: "৩৬০টি", science: "১৪০টি", commerce: "৯০টি" },
@@ -1405,18 +1495,48 @@
               commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বাণিজ্য: মোট ৭.৫০" }
             },
             marks: {
-              total: "১০০ নম্বর (লিখিত ৪৮ + MCQ ২৪ + GPA ২৮)",
-              mcq: "২৪ নম্বর",
-              written: "৪৮ নম্বর",
-              duration: "১ ঘণ্টা ৩০ মিনিট",
-              pass: "লিখিত ও MCQ অংশে আলাদাভাবে পাস করতে হবে",
+              total: "১০০ নম্বর (সম্পূর্ণ MCQ ৭২ + GPA ২৮)",
+              mcq: "৭২ নম্বর",
+              written: "নেই",
+              duration: "১ ঘণ্টা",
+              pass: "MCQ অংশে ন্যূনতম নির্ধারিত পাস নম্বর পেতে হবে",
               subjects: [
-                { name: "বাংলা", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" },
-                { name: "ইংরেজি", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" },
-                { name: "সাধারণ জ্ঞান", dist: "MCQ ৮ + লিখিত ১৬ = ২৪" }
+                { name: "বাংলা", dist: "MCQ ২৪ নম্বর" },
+                { name: "ইংরেজি", dist: "MCQ ২৪ নম্বর" },
+                { name: "সাধারণ জ্ঞান", dist: "MCQ ২৪ নম্বর" }
               ]
             },
             specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। অর্থনীতি বিভাগে ভর্তির জন্য HSC-তে অর্থনীতি বা গণিত/পরিসংখ্যান বিষয় থাকতে হবে।"
+          },
+          {
+            tabLabel: "E ইউনিট (চারুকলা)",
+            unitName: "E ইউনিট (চারুকলা অনুষদ)",
+            pdfUrl: "https://admission.jnu.ac.bd/",
+            appFee: "১,৫০০ টাকা",
+            mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ব্যবহারিক পরীক্ষা আবশ্যক)",
+            totalSeats: "৬০টি",
+            examOrder: 6.1,
+            examDate: "৮ জানুয়ারি ২০২৭ (সকাল ১০:০০ – ১১:৩০)",
+            examCenter: "জগন্নাথ বিশ্ববিদ্যালয় ক্যাম্পাস",
+            negMark: "০.২৫",
+            seats: { humanities: "সকল বিভাগ উন্মুক্ত", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ + ব্যবহারিক + GPA ২৮)",
+              mcq: "২৪ নম্বর",
+              written: "ব্যবহারিক ৪৮ নম্বর",
+              duration: "১ ঘণ্টা ৩০ মিনিট",
+              pass: "MCQ ও ব্যবহারিক পরীক্ষায় আলাদাভাবে পাস করতে হবে",
+              subjects: [
+                { name: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান", dist: "MCQ ২৪ নম্বর" },
+                { name: "ব্যবহারিক (Drawing / Performance)", dist: "৪৮ নম্বর" }
+              ]
+            },
+            specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে এবং ব্যবহারিক পরীক্ষায় অংশগ্রহণ বাধ্যতামূলক।"
           }
         ]
       },
@@ -1429,7 +1549,7 @@
         secondTime: true,
         applyOrder: 4,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২২ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২১ দিন)",
         website: "https://admission.bup.edu.bd/",
         helpline: "09666-790790",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1538,7 +1658,7 @@
         secondTime: true,
         applyOrder: 5,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৭ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৬ দিন)",
         website: "https://admission.cu.ac.bd/",
         helpline: "01555-555140",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1740,7 +1860,7 @@
         secondTime: true,
         applyOrder: 6,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩২ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩১ দিন)",
         website: "https://ju-admission.org/",
         helpline: "01841-458000",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1910,7 +2030,7 @@
         secondTime: true,
         applyOrder: 7,
         applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-        applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৭ দিন)",
+        applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৬ দিন)",
         website: "https://admission.ku.ac.bd/",
         helpline: "01534-296430",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1987,7 +2107,7 @@
         secondTime: true,
         applyOrder: 8,
         applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৮ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৭ দিন)",
         website: "https://admission.cou.ac.bd/",
         helpline: "01557-330381",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -2065,7 +2185,7 @@
         secondTime: true,
         applyOrder: 9,
         applyTimeline: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৫০ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৯ দিন)",
         website: "https://gstadmission.ac.bd/",
         helpline: "09613-330000",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -2506,6 +2626,86 @@
         ? `<span class="badge badge-open"><span class="live-pulse"></span> আবেদন চলমান</span>`
         : `<span class="badge badge-soon">আবেদন আসন্ন</span>`;
 
+      /* Dynamic Seat Rows (only shows groups present in activeUnit.seats) */
+      const seatGroupLabels = [
+        { key: "humanities", label: "মানবিক বিভাগ" },
+        { key: "science", label: "বিজ্ঞান বিভাগ" },
+        { key: "commerce", label: "বাণিজ্য বিভাগ" }
+      ];
+      const seatRowsHtml = seatGroupLabels
+        .filter(g => activeUnit.seats && activeUnit.seats[g.key])
+        .map(g => `
+          <div class="info-row">
+            <strong>${g.label}:</strong>
+            <span>${activeUnit.seats[g.key]}</span>
+          </div>
+        `).join("");
+
+      /* Two-Tier or Central Office Helpline Section */
+      let helplineHtml = "";
+      if (activeUnit.unitHelpline && uni.centralOffice) {
+        const unitPhonesHtml = activeUnit.unitHelpline.phones.map(p => `
+          <div class="hl-item">
+            <span>${p.label}: <b>${p.number}</b></span>
+            <button type="button" class="btn-copy-mini" onclick="copyHelpline('${p.number}', this)">কপি</button>
+          </div>
+        `).join("");
+
+        const centralPhonesHtml = uni.centralOffice.phones.map(p => `
+          <div class="hl-item">
+            <span>${p.label}: <b>${p.number}</b></span>
+            <button type="button" class="btn-copy-mini" onclick="copyHelpline('${p.number}', this)">কপি</button>
+          </div>
+        `).join("");
+
+        helplineHtml = `
+          <div class="helpline-grid">
+            <div class="helpline-card">
+              <h4>📞 ${activeUnit.unitHelpline.title}</h4>
+              ${unitPhonesHtml}
+            </div>
+            <div class="helpline-card">
+              <h4>🏛️ ${uni.centralOffice.title}</h4>
+              ${centralPhonesHtml}
+              <div class="hl-meta">
+                ✉️ ই-মেইল: ${uni.centralOffice.email}<br>
+                📍 ${uni.centralOffice.address}
+              </div>
+            </div>
+          </div>
+        `;
+      } else if (uni.centralOffice) {
+        const centralPhonesHtml = uni.centralOffice.phones.map(p => `
+          <div class="hl-item">
+            <span>${p.label}: <b>${p.number}</b></span>
+            <button type="button" class="btn-copy-mini" onclick="copyHelpline('${p.number}', this)">কপি</button>
+          </div>
+        `).join("");
+
+        helplineHtml = `
+          <div style="max-width:460px; margin:0 auto;">
+            <div class="helpline-card">
+              <h4>📞 ${uni.centralOffice.title}</h4>
+              ${centralPhonesHtml}
+              <div class="hl-meta">
+                ✉️ ই-মেইল: ${uni.centralOffice.email}<br>
+                📍 ${uni.centralOffice.address}
+              </div>
+            </div>
+          </div>
+        `;
+      } else {
+        helplineHtml = `
+          <div style="display:flex; justify-content:center;">
+            <div class="helpline-card" style="display:inline-flex; align-items:center; gap:10px;">
+              <span>📞 হেল্পলাইন: <b>${uni.helpline}</b></span>
+              <button type="button" class="btn-copy-mini" onclick="copyHelpline('${uni.helpline}', this)">কপি</button>
+            </div>
+          </div>
+        `;
+      }
+
+      const generalCircularHref = uni.generalCircularUrl || uni.website;
       const pageUrl = `${window.location.origin}${window.location.pathname}#${uni.id}`;
       const shareText = encodeURIComponent(`${uni.fullName} (${activeUnit.tabLabel}) ভর্তি তথ্য ২০২৬-২৭ দেখো এখানে:\n${pageUrl}`);
       const waHref = `https://wa.me/?text=${shareText}`;
@@ -2553,18 +2753,7 @@
         <div class="detail-sections">
           <div class="info-box">
             <h3>১. বিভাগভিত্তিক আসন সংখ্যা</h3>
-            <div class="info-row">
-              <strong>মানবিক বিভাগ:</strong>
-              <span>${activeUnit.seats.humanities}</span>
-            </div>
-            <div class="info-row">
-              <strong>বিজ্ঞান বিভাগ:</strong>
-              <span>${activeUnit.seats.science}</span>
-            </div>
-            <div class="info-row">
-              <strong>বাণিজ্য বিভাগ:</strong>
-              <span>${activeUnit.seats.commerce}</span>
-            </div>
+            ${seatRowsHtml}
           </div>
 
           <div class="info-box">
@@ -2628,17 +2817,17 @@
         <div class="verify-box">
           <div class="verify-box-title">তথ্য যাচাই করতে বিশ্ববিদ্যালয়ের ভর্তি ওয়েবসাইট ভিজিট করুন।</div>
           <div class="verify-actions-grid">
+            <a class="verify-btn" href="${generalCircularHref}" target="_blank" rel="noopener noreferrer">
+              📋 সাধারণ সার্কুলার ↗
+            </a>
             <a class="verify-btn" href="${activeUnit.pdfUrl}" target="_blank" rel="noopener noreferrer">
               📄 ইউনিট সার্কুলার (PDF) ↗
             </a>
             <a class="verify-btn" href="${uni.website}" target="_blank" rel="noopener noreferrer">
               🌐 এডমিশন সাইট ↗
             </a>
-            <div class="helpline-pill">
-              <span>📞 হেল্পলাইন: ${uni.helpline}</span>
-              <button type="button" class="btn-copy-mini" onclick="copyHelpline('${uni.helpline}', this)">কপি</button>
-            </div>
           </div>
+          ${helplineHtml}
         </div>
 
         <!-- Bottom Share Bar -->
@@ -2696,4 +2885,4 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
-  </html>
+          </html>
