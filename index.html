@@ -569,6 +569,37 @@
     .unit-tab-btn.active { background: var(--accent); color: #ffffff; border-color: var(--accent); }
     [data-theme="dark"] .unit-tab-btn.active { color: #0f172a; }
 
+    /* Horizontal Scrolling Filter Bar on Updates Page */
+    .update-filter-scroll {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      white-space: nowrap;
+      gap: 7px;
+      padding-bottom: 10px;
+      margin-bottom: 12px;
+      border-bottom: 1px dashed var(--border);
+      scrollbar-width: none;
+      -webkit-overflow-scrolling: touch;
+    }
+    .update-filter-scroll::-webkit-scrollbar { display: none; }
+    .update-uni-pill-btn {
+      flex-shrink: 0;
+      padding: 6px 13px;
+      border-radius: 999px;
+      border: 1.5px solid var(--border);
+      background: var(--card-sub);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.83rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .update-uni-pill-btn:hover { border-color: var(--primary); }
+    .update-uni-pill-btn.active { background: var(--primary); color: #ffffff; border-color: var(--primary); }
+    [data-theme="dark"] .update-uni-pill-btn.active { color: #0f172a; }
+
     .detail-card {
       background: var(--card);
       border: 1px solid var(--border);
@@ -783,6 +814,20 @@
     }
     .special-condition-box p { font-size: 0.89rem; line-height: 1.5; }
 
+    /* Outdated / Pending Circular Disclaimer Box */
+    .unit-disclaimer-box {
+      background: var(--danger-bg);
+      border: 1px solid rgba(220, 38, 38, 0.32);
+      border-radius: 12px;
+      padding: 13px 14px;
+      color: var(--danger-text);
+      font-size: 0.88rem;
+      line-height: 1.5;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
     /* Organized Single Official Verification Box at Bottom */
     .verify-box {
       margin-top: 16px;
@@ -971,10 +1016,27 @@
       border-bottom: 1px dashed var(--border);
     }
     .changelog-list {
-      padding-left: 18px;
+      list-style: none;
+      padding-left: 0;
       font-size: 0.9rem;
       color: var(--text);
       line-height: 1.6;
+    }
+    .changelog-list li {
+      padding: 4px 0;
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+    }
+    .changelog-uni-tag {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 5px;
+      flex-shrink: 0;
+      margin-top: 2px;
     }
 
     /* Pre-Footer Update Banner Link */
@@ -1216,6 +1278,21 @@
           </div>
           <span class="badge badge-open"><span class="live-pulse"></span> লাইভ লগ</span>
         </div>
+
+        <!-- Horizontal Scrolling University Filter for Updates -->
+        <div class="update-filter-scroll" id="updateFilterBar">
+          <button type="button" class="update-uni-pill-btn active" data-ufilter="ALL">সব আপডেট</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="DU">DU</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="RU">RU</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="JnU">JnU</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="JU">JU</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="BUP">BUP</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="CU">CU</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="KU">KU</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="CoU">CoU</button>
+          <button type="button" class="update-uni-pill-btn" data-ufilter="GST">GST</button>
+        </div>
+
         <div id="updatesListContainer"></div>
       </article>
     </div>
@@ -1261,31 +1338,50 @@
       } catch (e) {}
     })();
 
+    const DISCLAIMER_25_26 = "২০২৬–২৭ শিক্ষাবর্ষের ডাটা প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের ডাটা দিয়ে তথ্য সাজানো হয়েছে। সংশ্লিষ্ট ইউনিটের নোটিশ প্রকাশিত হলে আমরা আপডেট করে দেব।";
+    const DISCLAIMER_JNU_PARTIAL = "২০২৬–২৭ শিক্ষাবর্ষের একাডেমিক কাউন্সিলের সিদ্ধান্ত অনুযায়ী পরীক্ষার তারিখ, সময় ও জিপিএ যোগ্যতা আপডেট করা হয়েছে। তবে পূর্ণাঙ্গ সার্কুলার এখনো প্রকাশিত না হওয়ায় আবেদন ফি ও আসন সংখ্যার মতো কিছু তথ্য ২০২৫–২৬ সেশনের ডাটা দিয়ে সাজানো হয়েছে। সংশ্লিষ্ট ইউনিটের চূড়ান্ত নোটিশ প্রকাশিত হলে আমরা আপডেট করে দেব।";
+
     /* Site Version & Update Log Data (ISO timestamp auto-calculates relative time, Bengali date, time & weekday) */
     const siteUpdates = [
+      {
+        version: "v1.6",
+        timestamp: "2026-11-20T14:36:00+06:00",
+        changes: [
+          { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের ‘গ’ ইউনিটের বিজ্ঞান ও মানবিক শাখার MCQ (বাংলা আবশ্যিক ১২, ইংরেজি আবশ্যিক ১২, আইসিটি আবশ্যিক ১২, গণিত অথবা অর্থনীতি ২৪) এবং লিখিত (৪০ নম্বর) মানবণ্টন হুবহু সার্কুলার অনুযায়ী সংশোধন করা হয়েছে।" },
+          { uni: "JU", text: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের ২০২৬–২৭ পূর্ণাঙ্গ অফিশিয়াল সার্কুলার যুক্ত: আবেদন ২২ নভে – ১৫ ডিসে ২০২৬, পরীক্ষা ১০–২১ জানু ২০২৭, ফি ৬০০–৮০০/- (+১.২% চার্জ), নেগেটিভ মার্ক ০.২০ এবং B, C, C1, E ও IBA-JU ইউনিটের আসন, জিপিএ ও মানবণ্টন হালনাগাদ।" },
+          { uni: "RU", text: "রাজশাহী বিশ্ববিদ্যালয়ের সবগুলো ইউনিটের (A, B ও C) অফিশিয়াল ইউনিট সার্কুলার PDF ডাউনলোড লিংক সংযোজন করা হয়েছে।" },
+          { uni: "JnU", text: "জগন্নাথ বিশ্ববিদ্যালয়ের সাধারণ সার্কুলার লিংক, ২৫ নভে – ১০ ডিসে আবেদন সূচি, সকাল ১০–১১টা পরীক্ষা, বিভাগীয় শহর ঢাকা কেন্দ্র, B, C, D ও E ইউনিটের নতুন জিপিএ যোগ্যতা এবং আবেদন ফির পাশে আংশিক ডিসক্লেইমার যুক্ত করা হয়েছে।" },
+          { uni: "BUP", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
+          { uni: "CU", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
+          { uni: "KU", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
+          { uni: "CoU", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
+          { uni: "GST", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" }
+        ]
+      },
       {
         version: "v1.5",
         timestamp: "2026-11-20T13:05:00+06:00",
         changes: [
-          "ঢাকা বিশ্ববিদ্যালয়ের ইউনিটভিত্তিক আবেদন ফি আপডেট করা হয়েছে (ক, খ ও গ ইউনিট ১,২০০ টাকা, চারুকলা ১,৪০০ টাকা এবং আইবিএ ১,৫০০ টাকা)।",
-          "ঢাকা বিশ্ববিদ্যালয়ের কোটা সংক্রান্ত তথ্য (মুক্তিযোদ্ধা ৫%, ক্ষুদ্র নৃগোষ্ঠী ১%, হরিজন-দলিত ১%, প্রতিবন্ধী ১%, বিকেএসপি ও খেলোয়াড় এবং ট্রান্সজেন্ডার) যুক্ত করা হয়েছে।",
-          "ফুটারের উপরে সাইট আপডেট ও ভার্সন হিস্ট্রি পেইজ যুক্ত করা হয়েছে।"
+          { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের ইউনিটভিত্তিক আবেদন ফি আপডেট করা হয়েছে (ক, খ ও গ ইউনিট ১,২০০ টাকা, চারুকলা ১,৪০০ টাকা এবং আইবিএ ১,৫০০ টাকা)।" },
+          { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের কোটা সংক্রান্ত তথ্য (মুক্তিযোদ্ধা ৫%, ক্ষুদ্র নৃগোষ্ঠী ১%, হরিজন-দলিত ১%, প্রতিবন্ধী ১%, বিকেএসপি ও খেলোয়াড় এবং ট্রান্সজেন্ডার) যুক্ত করা হয়েছে।" },
+          { uni: "ALL", text: "ফুটারের উপরে সাইট আপডেট ও ভার্সন হিস্ট্রি পেইজ যুক্ত করা হয়েছে।" }
         ]
       },
       {
         version: "v1.4",
         timestamp: "2026-11-19T22:15:00+06:00",
         changes: [
-          "মোবাইল ব্যবহারকারীদের জন্য ডিটেইলস পেইজের আসন সংখ্যা, জিপিএ যোগ্যতা এবং নম্বর বণ্টন অংশগুলো আরও ইউজার ফ্রেন্ডলি কার্ড আকারে সাজানো হয়েছে।",
-          "ডিটেইলস পেইজের নিচে WhatsApp ও Telegram-এর পাশাপাশি Messenger এবং Instagram শেয়ার বাটন যুক্ত করা হয়েছে।"
+          { uni: "ALL", text: "মোবাইল ব্যবহারকারীদের জন্য ডিটেইলস পেইজের আসন সংখ্যা, জিপিএ যোগ্যতা এবং নম্বর বণ্টন অংশগুলো আরও ইউজার ফ্রেন্ডলি কার্ড আকারে সাজানো হয়েছে।" },
+          { uni: "ALL", text: "ডিটেইলস পেইজের নিচে WhatsApp ও Telegram-এর পাশাপাশি Messenger এবং Instagram শেয়ার বাটন যুক্ত করা হয়েছে।" }
         ]
       },
       {
         version: "v1.3",
         timestamp: "2026-11-19T16:40:00+06:00",
         changes: [
-          "ঢাকা বিশ্ববিদ্যালয়ের সাধারণ সার্কুলার ও ৫টি অনুষদের অফিশিয়াল লিংক, দুই স্তরের হেল্পলাইন এবং ক ও গ ইউনিটের আবশ্যিক ও অপশনাল বিষয় বণ্টন আপডেট করা হয়েছে।",
-          "রাজশাহী বিশ্ববিদ্যালয়ের নোটিশ লিংক ও হেল্পলাইন নম্বর এবং জগন্নাথ বিশ্ববিদ্যালয়ের ২৫ নভেম্বরের চূড়ান্ত সময়সূচি ও E ইউনিট যুক্ত করা হয়েছে।"
+          { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের সাধারণ সার্কুলার ও ৫টি অনুষদের অফিশিয়াল লিংক, দুই স্তরের হেল্পলাইন এবং ক ও গ ইউনিটের আবশ্যিক ও অপশনাল বিষয় বণ্টন আপডেট করা হয়েছে।" },
+          { uni: "RU", text: "রাজশাহী বিশ্ববিদ্যালয়ের নোটিশ লিংক ও হেল্পলাইন নম্বর যুক্ত করা হয়েছে।" },
+          { uni: "JnU", text: "জগন্নাথ বিশ্ববিদ্যালয়ের ২৫ নভেম্বরের চূড়ান্ত সময়সূচি ও E ইউনিট যুক্ত করা হয়েছে।" }
         ]
       }
     ];
@@ -1459,7 +1555,7 @@
           },
           {
             tabLabel: "গ ইউনিট (ব্যবসায় শিক্ষা)",
-            unitName: "গ ইউনিট (ব্যবসায় শিক্ষা অনুষদ — বিভাগ পরিবর্তন কোটা)",
+            unitName: "গ ইউনিট (ব্যবসায় শিক্ষা অনুষদ — বিজ্ঞান ও মানবিক শাখা)",
             pdfUrl: "https://admission.eis.du.ac.bd/bn/b45de047fde9788cad5h6esae3cfe8e88dc03",
             unitHelpline: {
               title: "ব্যবসায় শিক্ষা ইউনিট হেল্পলাইন",
@@ -1468,7 +1564,7 @@
               ]
             },
             appFee: "১,২০০ টাকা",
-            mandatorySubject: "মানবিক/বিজ্ঞান শাখার জন্য বাংলা, ইংরেজি, আইসিটি আবশ্যিক ও গণিত/পরিসংখ্যান/অর্থনীতি থেকে ১টি",
+            mandatorySubject: "বিজ্ঞান/মানবিক শাখার জন্য বাংলা, ইংরেজি, আইসিটি আবশ্যিক ও গণিত অথবা অর্থনীতি থেকে যেকোনো ১টি",
             totalSeats: "১২০টি (মানবিক ও বিজ্ঞান কোটা)",
             examOrder: 5,
             examDate: "২৬ ডিসেম্বর ২০২৬",
@@ -1490,13 +1586,19 @@
               duration: "১ ঘণ্টা ৩০ মিনিট",
               pass: "MCQ-তে ন্যূনতম ২৪ এবং লিখিতে ১১সহ মোট ৪০ নম্বর",
               subjects: [
-                { name: "আবশ্যিক: বাংলা", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
-                { name: "আবশ্যিক: ইংরেজি", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
-                { name: "আবশ্যিক: আইসিটি (ICT)", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" },
-                { name: "অপশনাল: গণিত / পরিসংখ্যান / অর্থনীতি (যেকোনো ১টি)", dist: "MCQ ১৫ + লিখিত ১০ = ২৫" }
+                { name: "MCQ: বাংলা (আবশ্যিক)", dist: "১২ নম্বর" },
+                { name: "MCQ: ইংরেজি (আবশ্যিক)", dist: "১২ নম্বর" },
+                { name: "MCQ: আইসিটি (আবশ্যিক)", dist: "১২ নম্বর" },
+                { name: "MCQ: গণিত অথবা অর্থনীতি (যে কোনো ১টি)", dist: "২৪ নম্বর" },
+                { name: "লিখিত: বাংলা থেকে ইংরেজি অনুবাদ", dist: "৫ নম্বর" },
+                { name: "লিখিত: ইংরেজি থেকে বাংলা অনুবাদ", dist: "৫ নম্বর" },
+                { name: "লিখিত: ভুল সংশোধনী (বাংলা)", dist: "৫ নম্বর" },
+                { name: "লিখিত: ভুল সংশোধনী (ইংরেজি)", dist: "৫ নম্বর" },
+                { name: "লিখিত: আইসিটি (আবশ্যিক)", dist: "১০ নম্বর" },
+                { name: "লিখিত: গণিত অথবা অর্থনীতি (যে কোনো ১টি)", dist: "১০ নম্বর" }
               ]
             },
-            specialCondition: "বিজ্ঞান ও মানবিক শাখার শিক্ষার্থীদের জন্য নির্ধারিত ১২০টি (বিজ্ঞান ৯৫টি ও মানবিক ২৫টি) আসনে বাংলা, ইংরেজি, আইসিটি এবং গণিত/পরিসংখ্যান/অর্থনীতি বিষয়ের ওপর পরীক্ষা অনুষ্ঠিত হয়। শুধু ২০২৬ ব্যাচ আবেদনযোগ্য।"
+            specialCondition: "বিজ্ঞান ও মানবিক শাখার শিক্ষার্থীদের জন্য নির্ধারিত ১২০টি (বিজ্ঞান ৯৫টি ও মানবিক ২৫টি) আসনে MCQ ৬০ নম্বর (বাংলা আবশ্যিক ১২, ইংরেজি আবশ্যিক ১২, আইসিটি আবশ্যিক ১২ এবং গণিত অথবা অর্থনীতি ২৪) ও লিখিত ৪০ নম্বরের পরীক্ষা অনুষ্ঠিত হয়। শুধু ২০২৬ ব্যাচ আবেদনযোগ্য।"
           },
           {
             tabLabel: "চ ইউনিট (চারুকলা)",
@@ -1596,12 +1698,12 @@
           email: "admission@ru.ac.bd",
           address: "অফিস সময়: সকাল ০৯:৩০ – বিকাল ০৫:৩০ পর্যন্ত।"
         },
-        lastUpdated: "১৯ নভেম্বর ২০২৬",
+        lastUpdated: "২০ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "A ইউনিট (মানবিক)",
             unitName: "A ইউনিট (কলা, আইন, সামাজিক বিজ্ঞান ও চারুকলা)",
-            pdfUrl: "https://admission.ru.ac.bd/student/notices",
+            pdfUrl: "https://admstorage.ru.ac.bd/storage/files/tHfN8SU5LaA8Y4u3u5HS5XcHMa1E7uJR_1794901245.pdf",
             appFee: "১,৩২০ টাকা (প্রাথমিক ৫৫ টাকা)",
             mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ইংরেজি বিভাগে আলাদা শর্ত)",
             totalSeats: "১,৮৭২টি",
@@ -1632,7 +1734,7 @@
           {
             tabLabel: "B ইউনিট (বাণিজ্য)",
             unitName: "B ইউনিট (বিজনেস স্টাডিজ অনুষদ ও আইবিএ)",
-            pdfUrl: "https://admission.ru.ac.bd/student/notices",
+            pdfUrl: "https://admstorage.ru.ac.bd/storage/files/tHfN8SU5LaA8Y4u3u5HS5XcHMa1E7uJR_1794901245.pdf",
             appFee: "১,১০০ টাকা (প্রাথমিক ৫৫ টাকা)",
             mandatorySubject: "বাণিজ্য ও অ-বাণিজ্য (বিজ্ঞান/মানবিক) উভয় শাখা উন্মুক্ত",
             totalSeats: "৫৬০টি",
@@ -1662,7 +1764,7 @@
           {
             tabLabel: "C ইউনিট (অ-বিজ্ঞান)",
             unitName: "C ইউনিট (বিজ্ঞান অনুষদ — অ-বিজ্ঞান কোটা)",
-            pdfUrl: "https://admission.ru.ac.bd/student/notices",
+            pdfUrl: "https://admstorage.ru.ac.bd/storage/files/tHfN8SU5LaA8Y4u3u5HS5XcHMa1E7uJR_1794901245.pdf",
             appFee: "১,৩২০ টাকা (প্রাথমিক ৫৫ টাকা)",
             mandatorySubject: "অ-বিজ্ঞান কোটায় HSC-তে ভূগোল বা মনোবিজ্ঞান থাকতে হবে",
             totalSeats: "৮০টি (অ-বিজ্ঞান)",
@@ -1692,41 +1794,228 @@
         ]
       },
       {
+        id: "ju",
+        shortName: "জাবি",
+        fullName: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
+        summaryText: "B, C, C1 (চারুকলা), E ও IBA-JU উপ-ইউনিট",
+        appStatus: "upcoming",
+        secondTime: true,
+        applyOrder: 3,
+        applyTimeline: "২২ নভেম্বর (সকাল ১০টা) – ১৫ ডিসেম্বর ২০২৬ (রাত ১১:৫৯)",
+        applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ২ দিন)",
+        website: "https://admission.juniv.edu",
+        generalCircularUrl: "https://juniv.edu/discussion/18670",
+        helpline: "01348307028",
+        centralOffice: {
+          title: "জাবি কেন্দ্রীয় ভর্তি সহায়তা (সকাল ১০টা – সন্ধ্যা ৭টা)",
+          phones: [
+            { label: "হেল্পলাইন ১", number: "01348307028" },
+            { label: "হেল্পলাইন ২", number: "01348307029" },
+            { label: "হেল্পলাইন ৩", number: "01348307031" },
+            { label: "হেল্পলাইন ৪", number: "01348307032" }
+          ],
+          email: "admissionhelp@juniv.edu",
+          address: "সাভার, ঢাকা-১৩৪২ (প্রবেশপত্র ডাউনলোড: ২৫ ডিসেম্বর ২০২৬ থেকে)।"
+        },
+        lastUpdated: "২০ নভেম্বর ২০২৬",
+        units: [
+          {
+            tabLabel: "B ইউনিট (সমাজবিজ্ঞান)",
+            unitName: "B ইউনিট (সমাজবিজ্ঞান ও আইন অনুষদ)",
+            pdfUrl: "https://juniv.edu/discussion/18670",
+            appFee: "৮০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
+            mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (অর্থনীতি, আইন ও নগর পরিকল্পনায় আলাদা বিষয় শর্ত)",
+            totalSeats: "৩৯৬টি (ছাত্র ১৯৮ + ছাত্রী ১৯৮)",
+            examOrder: 9,
+            examDate: "১০ জানুয়ারি – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত)",
+            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
+            negMark: "০.২০",
+            seats: { humanities: "৩৯৬টি (ছাত্র ১৯৮ + ছাত্রী ১৯৮ সমন্বিত)", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য/অন্যান্য: আলাদা ৩.০০ ও মোট ৬.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য/অন্যান্য: আলাদা ৩.০০ ও মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ ৮০ প্রশ্নে ৯০ নম্বর + GPA ১০)",
+              mcq: "৯০ নম্বর (৮০টি প্রশ্ন, প্রতি প্রশ্ন ১.১২৫)",
+              written: "নেই",
+              duration: "৫৫ মিনিট (+ OMR পূরণে ৫ মিনিট)",
+              pass: "৯০ নম্বরের মধ্যে ন্যূনতম ৪০ নম্বর",
+              subjects: [
+                { name: "বাংলা", dist: "২০টি প্রশ্ন" },
+                { name: "ইংরেজি", dist: "২০টি প্রশ্ন" },
+                { name: "সাধারণ গণিত", dist: "২০টি প্রশ্ন" },
+                { name: "সাধারণ জ্ঞান", dist: "১৫টি প্রশ্ন" },
+                { name: "যৌক্তিক বিশ্লেষণ", dist: "০৫টি প্রশ্ন" }
+              ]
+            },
+            specialCondition: "সেকেন্ড টাইম (২০২৫ ব্যাচ) পরীক্ষার সুযোগ রয়েছে। ৮০টি MCQ প্রশ্নের মোট মান ৯০ (প্রতিটি ভুল উত্তরে ০.২০ কাটা যাবে) এবং SSC GPA × ০.৭৫ + HSC GPA × ১.২৫ = ১০ নম্বর যোগ হয়ে ১০০ নম্বরের মেধাতালিকা তৈরি হবে।"
+          },
+          {
+            tabLabel: "C ইউনিট (কলা)",
+            unitName: "C ইউনিট (কলা ও মানবিকী অনুষদ এবং তুলনামূলক সাহিত্য ও সংস্কৃতি ইনস্টিটিউট)",
+            pdfUrl: "https://juniv.edu/discussion/18670",
+            appFee: "৮০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
+            mandatorySubject: "বাংলা ও ইংরেজি বিভাগে HSC-তে সংশ্লিষ্ট বিষয়ে ন্যূনতম A- (মাইনাস) গ্রেড",
+            totalSeats: "৪০২টি (ছাত্র ২০১ + ছাত্রী ২০১)",
+            examOrder: 9,
+            examDate: "১০ জানুয়ারি – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত)",
+            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
+            negMark: "০.২০",
+            seats: { humanities: "৪০২টি (ছাত্র ২০১ + ছাত্রী ২০১ সমন্বিত)", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান/বাণিজ্য/অন্যান্য: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান/বাণিজ্য/অন্যান্য: আলাদা ৩.৫০ ও মোট ৭.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ ৮০ প্রশ্নে ৯০ নম্বর + GPA ১০)",
+              mcq: "৯০ নম্বর (৮০টি প্রশ্ন, প্রতি প্রশ্ন ১.১২৫)",
+              written: "নেই",
+              duration: "৫৫ মিনিট (+ OMR পূরণে ৫ মিনিট)",
+              pass: "৯০ নম্বরের মধ্যে ন্যূনতম ৪০ নম্বর",
+              subjects: [
+                { name: "বাংলা", dist: "২০টি প্রশ্ন" },
+                { name: "ইংরেজি", dist: "২০টি প্রশ্ন" },
+                { name: "সাধারণ জ্ঞান ও বিভাগ সংশ্লিষ্ট অন্যান্য বিষয়", dist: "৪০টি প্রশ্ন" }
+              ]
+            },
+            specialCondition: "সেকেন্ড টাইম পরীক্ষার সুযোগ রয়েছে। বাংলা ও ইংরেজি বিভাগে ভর্তির জন্য MCQ পরীক্ষার সংশ্লিষ্ট বিষয় অংশে ন্যূনতম ৫০% নম্বর পেতে হবে।"
+          },
+          {
+            tabLabel: "C1 উপ-ইউনিট (নাটক ও চারুকলা)",
+            unitName: "C1 উপ-ইউনিট (নাটক ও নাট্যতত্ত্ব বিভাগ এবং চারুকলা বিভাগ)",
+            pdfUrl: "https://juniv.edu/discussion/18670",
+            appFee: "৬০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
+            mandatorySubject: "সকল বিভাগ উন্মুক্ত (২০ নম্বরের ব্যবহারিক পরীক্ষা আবশ্যক)",
+            totalSeats: "৬৪টি (নাটক ২৮টি, চারুকলা ৩৬টি)",
+            examOrder: 9,
+            examDate: "১০ জানুয়ারি – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত)",
+            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
+            negMark: "০.২০",
+            seats: { humanities: "নাটক ও নাট্যতত্ত্ব ২৮টি, চারুকলা ৩৬টি (ছাত্র ৩২ + ছাত্রী ৩২)", science: "সকল বিভাগ উন্মুক্ত (৬৪টি)", commerce: "সকল বিভাগ উন্মুক্ত (৬৪টি)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১২০ নম্বর (MCQ ৯০ + ব্যবহারিক ২০ + GPA ১০)",
+              mcq: "৯০ নম্বর (৮০টি প্রশ্ন)",
+              written: "ব্যবহারিক ২০ নম্বর",
+              duration: "৫৫ মিনিট (+ OMR পূরণে ৫ মিনিট)",
+              pass: "MCQ-তে ন্যূনতম ৪০ এবং ২০ নম্বরের ব্যবহারিক পরীক্ষায় ন্যূনতম ৪০% নম্বর",
+              subjects: [
+                { name: "বাংলা", dist: "১০টি প্রশ্ন" },
+                { name: "ইংরেজি", dist: "১০টি প্রশ্ন" },
+                { name: "সাধারণ জ্ঞান", dist: "২০টি প্রশ্ন" },
+                { name: "বিভাগ সংশ্লিষ্ট অন্যান্য বিষয়", dist: "৪০টি প্রশ্ন" }
+              ]
+            },
+            specialCondition: "C1 ইউনিটভুক্ত বিভাগসমূহে ভর্তিচ্ছুদের MCQ ও ব্যবহারিক পরীক্ষায় পৃথকভাবে পাস করতে হবে এবং ২০ নম্বরের ব্যবহারিক পরীক্ষায় ন্যূনতম ৪০% নম্বর পেতে হবে।"
+          },
+          {
+            tabLabel: "E ইউনিট (বিজনেস)",
+            unitName: "E ইউনিট (বিজনেস স্টাডিজ অনুষদ)",
+            pdfUrl: "https://juniv.edu/discussion/18670",
+            appFee: "৭০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
+            mandatorySubject: "বাণিজ্য/মানবিক: ইংরেজি ও হিসাববিজ্ঞান/গণিত/অর্থনীতিতে B; বিজ্ঞান: ইংরেজি ও গণিতে A-",
+            totalSeats: "১৭৬টি (ছাত্র ৮৮ + ছাত্রী ৮৮)",
+            examOrder: 9,
+            examDate: "১০ জানুয়ারি – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত)",
+            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
+            negMark: "০.২০",
+            seats: { humanities: "১৭৬টি (সকল বিভাগ উন্মুক্ত)", science: "১৭৬টি (সকল বিভাগ উন্মুক্ত)", commerce: "১৭৬টি (সকল বিভাগ উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য/মানবিক/অন্যান্য: আলাদা ৩.০০ ও মোট ৬.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য/মানবিক/অন্যান্য: আলাদা ৩.০০ ও মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ ৮০ প্রশ্নে ৯০ নম্বর + GPA ১০)",
+              mcq: "৯০ নম্বর (৮০টি প্রশ্ন)",
+              written: "নেই",
+              duration: "৫৫ মিনিট (+ OMR পূরণে ৫ মিনিট)",
+              pass: "৯০ নম্বরের মধ্যে ন্যূনতম ৪০ নম্বর",
+              subjects: [
+                { name: "ব্যবসায় শিক্ষা শাখা", dist: "বাংলা ২০, ইংরেজি ২০, হিসাববিজ্ঞান ২০, ব্যবস্থাপনা ২০" },
+                { name: "বিজ্ঞান/মানবিক/সমমান শাখা", dist: "বাংলা ২০, ইংরেজি ২০, গণিত ও Analytical Ability ২০, বিজনেস জিকে ২০" }
+              ]
+            },
+            specialCondition: "ব্যবসায় শিক্ষা এবং বিজ্ঞান/মানবিক শিক্ষার্থীদের জন্য আলাদা প্রশ্নপত্রে ৮০টি MCQ প্রশ্নে (মোট ৯০ নম্বর) পরীক্ষা অনুষ্ঠিত হয়। সেকেন্ড টাইম সুযোগ রয়েছে।"
+          },
+          {
+            tabLabel: "IBA-JU",
+            unitName: "ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন (IBA-JU)",
+            pdfUrl: "https://juniv.edu/discussion/18670",
+            appFee: "৬০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
+            mandatorySubject: "ইংরেজি এবং গণিত/পরিসংখ্যান/হিসাববিজ্ঞান/অর্থনীতি/ব্যবস্থাপনায় পৃথকভাবে ন্যূনতম B গ্রেড",
+            totalSeats: "৭০টি (ছাত্র ৩৫ + ছাত্রী ৩৫)",
+            examOrder: 9,
+            examDate: "১০ জানুয়ারি – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত)",
+            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
+            negMark: "০.২০",
+            seats: { humanities: "৭০টি (ছাত্র ৩৫ + ছাত্রী ৩৫ উন্মুক্ত)", science: "৭০টি (সকল বিভাগ উন্মুক্ত)", commerce: "৭০টি (সকল বিভাগ উন্মুক্ত)" },
+            gpa: {
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য/মানবিক/অন্যান্য: আলাদা ৩.০০ ও মোট ৬.৫০" },
+              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য/মানবিক/অন্যান্য: আলাদা ৩.০০ ও মোট ৬.৫০" }
+            },
+            marks: {
+              total: "১০০ নম্বর (MCQ ৮০ প্রশ্নে ৯০ নম্বর + GPA ১০)",
+              mcq: "৯০ নম্বর (৮০টি প্রশ্ন)",
+              written: "নেই",
+              duration: "৫৫ মিনিট (+ OMR পূরণে ৫ মিনিট)",
+              pass: "৯০ নম্বরের মধ্যে ন্যূনতম ৪০ নম্বর",
+              subjects: [
+                { name: "বাংলা", dist: "০৫টি প্রশ্ন" },
+                { name: "English", dist: "৩০টি প্রশ্ন" },
+                { name: "Mathematical Aptitude and IQ", dist: "৩০টি প্রশ্ন" },
+                { name: "সাম্প্রতিক ও বিশ্লেষণমূলক বিষয়", dist: "১৫টি প্রশ্ন" }
+              ]
+            },
+            specialCondition: "IBA-JU ভর্তি পরীক্ষায় বাংলা অংশ ব্যতীত সম্পূর্ণ প্রশ্নপত্র ইংরেজিতে প্রণীত হবে।"
+          }
+        ]
+      },
+      {
         id: "jnu",
         shortName: "জবি",
         fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
         summaryText: "B (কলা ও আইন), C (বাণিজ্য), D (সামাজিক বিজ্ঞান) ও E (চারুকলা)",
         appStatus: "upcoming",
         secondTime: false,
-        applyOrder: 3,
-        applyTimeline: "২৫ নভেম্বর (দুপুর ১২টা) – ১০ ডিসেম্বর ২০২৬",
+        applyOrder: 4,
+        applyTimeline: "২৫ নভেম্বর (দুপুর ১২টা) – ১০ ডিসেম্বর ২০২৬ (রাত ১১:৫৯)",
         applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৫ দিন)",
         website: "https://admission.jnu.ac.bd/",
+        generalCircularUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
         helpline: "09611-773388",
-        lastUpdated: "১৯ নভেম্বর ২০২৬",
+        lastUpdated: "২০ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (কলা ও আইন)",
             unitName: "B ইউনিট (কলা ও আইন অনুষদ)",
-            pdfUrl: "https://admission.jnu.ac.bd/",
-            appFee: "১,২০০ টাকা",
+            pdfUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
+            appFee: "১,২০০ টাকা (২০২৫–২৬ সেশন অনুযায়ী)",
             mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (শুধু ২০২৬ ব্যাচ)",
             totalSeats: "৭৮৫টি",
             examOrder: 6.2,
-            examDate: "১৫ জানুয়ারি ২০২৭ (সকাল ১১:০০ – ১২:০০)",
-            examCenter: "জগন্নাথ বিশ্ববিদ্যালয় ও ঢাকার কেন্দ্রসমূহ",
+            examDate: "১৫ জানুয়ারি ২০২৭ (সকাল ১০:০০ – ১১:০০)",
+            examCenter: "বিভাগীয় শহর ঢাকা",
             negMark: "০.২৫",
             seats: { humanities: "৫৪০টি", science: "১৪৫টি", commerce: "১০০টি" },
             gpa: {
-              humanities: { ssc: 3.00, hsc: 3.00, total: 7.00, note: "আলাদাভাবে ৩.০০ এবং মোট ৭.০০" },
-              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদাভাবে ৩.৫০ এবং মোট ৭.৫০" },
-              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদাভাবে ৩.৫০ এবং মোট ৭.৫০" }
+              humanities: { ssc: 2.75, hsc: 2.75, total: 6.00, note: "সকল বিভাগ: আলাদা ২.৭৫ এবং মোট ৬.০০" },
+              science: { ssc: 2.75, hsc: 2.75, total: 6.00, note: "সকল বিভাগ: আলাদা ২.৭৫ এবং মোট ৬.০০" },
+              commerce: { ssc: 2.75, hsc: 2.75, total: 6.00, note: "সকল বিভাগ: আলাদা ২.৭৫ এবং মোট ৬.০০" }
             },
             marks: {
               total: "১০০ নম্বর (সম্পূর্ণ MCQ ৭২ + GPA ২৮)",
               mcq: "৭২ নম্বর",
               written: "নেই",
-              duration: "১ ঘণ্টা",
+              duration: "১ ঘণ্টা (সকাল ১০:০০ – ১১:০০)",
               pass: "MCQ অংশে ন্যূনতম নির্ধারিত পাস নম্বর পেতে হবে",
               subjects: [
                 { name: "বাংলা", dist: "MCQ ২৪ নম্বর" },
@@ -1734,30 +2023,31 @@
                 { name: "সাধারণ জ্ঞান", dist: "MCQ ২৪ নম্বর" }
               ]
             },
-            specialCondition: "শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)। লিখিত পরীক্ষা ছাড়াই ১ ঘণ্টার MCQ পদ্ধতিতে পরীক্ষা অনুষ্ঠিত হবে।"
+            specialCondition: "শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)। পরীক্ষা বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত অনুষ্ঠিত হবে।",
+            disclaimer: DISCLAIMER_JNU_PARTIAL
           },
           {
             tabLabel: "C ইউনিট (ব্যবসায় শিক্ষা)",
             unitName: "C ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
-            pdfUrl: "https://admission.jnu.ac.bd/",
-            appFee: "১,২০০ টাকা",
+            pdfUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
+            appFee: "১,২০০ টাকা (২০২৫–২৬ সেশন অনুযায়ী)",
             mandatorySubject: "বাণিজ্য ও অ-বাণিজ্য উভয় শাখার জন্য নির্ধারিত আসন",
             totalSeats: "৫২০টি",
             examOrder: 6.3,
-            examDate: "২২ জানুয়ারি ২০২৭ (সকাল ১১:০০ – ১২:০০)",
-            examCenter: "জগন্নাথ বিশ্ববিদ্যালয় ও ঢাকার কেন্দ্রসমূহ",
+            examDate: "২২ জানুয়ারি ২০২৭ (সকাল ১০:০০ – ১১:০০)",
+            examCenter: "বিভাগীয় শহর ঢাকা",
             negMark: "০.২৫",
             seats: { humanities: "অ-বাণিজ্য আসন", science: "অ-বাণিজ্য আসন", commerce: "মূল বাণিজ্য আসন" },
             gpa: {
-              humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ ও মোট ৭.৫০" },
-              science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "আলাদা ৩.৫০ ও মোট ৮.০০" },
-              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ ও মোট ৭.৫০" }
+              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
+              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" }
             },
             marks: {
               total: "১০০ নম্বর (সম্পূর্ণ MCQ ৭২ + GPA ২৮)",
               mcq: "৭২ নম্বর",
               written: "নেই",
-              duration: "১ ঘণ্টা",
+              duration: "১ ঘণ্টা (সকাল ১০:০০ – ১১:০০)",
               pass: "MCQ অংশে ন্যূনতম নির্ধারিত পাস নম্বর পেতে হবে",
               subjects: [
                 { name: "ইংরেজি", dist: "MCQ ২৪ নম্বর" },
@@ -1765,30 +2055,31 @@
                 { name: "ব্যবসায় নীতি / সাধারণ জ্ঞান", dist: "MCQ ২৪ নম্বর" }
               ]
             },
-            specialCondition: "শুধু ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বাণিজ্য ও অ-বাণিজ্য শাখার জন্য আলাদা প্রশ্নপত্রে ১ ঘণ্টার MCQ পরীক্ষা নেওয়া হয়।"
+            specialCondition: "শুধু ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত পরীক্ষা নেওয়া হয়।",
+            disclaimer: DISCLAIMER_JNU_PARTIAL
           },
           {
             tabLabel: "D ইউনিট (সামাজিক বিজ্ঞান)",
             unitName: "D ইউনিট (সামাজিক বিজ্ঞান অনুষদ)",
-            pdfUrl: "https://admission.jnu.ac.bd/",
-            appFee: "১,২০০ টাকা",
+            pdfUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
+            appFee: "১,২০০ টাকা (২০২৫–২৬ সেশন অনুযায়ী)",
             mandatorySubject: "অর্থনীতি বিভাগে HSC-তে অর্থনীতি বা গণিত/পরিসংখ্যান আবশ্যক",
             totalSeats: "৫৯০টি",
             examOrder: 6.4,
-            examDate: "২৩ জানুয়ারি ২০২৭ (সকাল ১১:০০ – ১২:০০)",
-            examCenter: "জগন্নাথ বিশ্ববিদ্যালয় ও ঢাকার কেন্দ্রসমূহ",
+            examDate: "২৩ জানুয়ারি ২০২৭ (সকাল ১০:০০ – ১১:০০)",
+            examCenter: "বিভাগীয় শহর ঢাকা",
             negMark: "০.২৫",
             seats: { humanities: "৩৬০টি", science: "১৪০টি", commerce: "৯০টি" },
             gpa: {
-              humanities: { ssc: 3.00, hsc: 3.00, total: 7.00, note: "মানবিক: মোট ৭.০০" },
-              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: মোট ৭.৫০" },
-              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বাণিজ্য: মোট ৭.৫০" }
+              humanities: { ssc: 2.75, hsc: 2.75, total: 6.00, note: "সকল বিভাগ: আলাদা ২.৭৫ এবং মোট ৬.০০" },
+              science: { ssc: 2.75, hsc: 2.75, total: 6.00, note: "সকল বিভাগ: আলাদা ২.৭৫ এবং মোট ৬.০০" },
+              commerce: { ssc: 2.75, hsc: 2.75, total: 6.00, note: "সকল বিভাগ: আলাদা ২.৭৫ এবং মোট ৬.০০" }
             },
             marks: {
               total: "১০০ নম্বর (সম্পূর্ণ MCQ ৭২ + GPA ২৮)",
               mcq: "৭২ নম্বর",
               written: "নেই",
-              duration: "১ ঘণ্টা",
+              duration: "১ ঘণ্টা (সকাল ১০:০০ – ১১:০০)",
               pass: "MCQ অংশে ন্যূনতম নির্ধারিত পাস নম্বর পেতে হবে",
               subjects: [
                 { name: "বাংলা", dist: "MCQ ২৪ নম্বর" },
@@ -1796,37 +2087,39 @@
                 { name: "সাধারণ জ্ঞান", dist: "MCQ ২৪ নম্বর" }
               ]
             },
-            specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। অর্থনীতি বিভাগে ভর্তির জন্য HSC-তে অর্থনীতি বা গণিত/পরিসংখ্যান বিষয় থাকতে হবে।"
+            specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত পরীক্ষা অনুষ্ঠিত হবে।",
+            disclaimer: DISCLAIMER_JNU_PARTIAL
           },
           {
             tabLabel: "E ইউনিট (চারুকলা)",
             unitName: "E ইউনিট (চারুকলা অনুষদ)",
-            pdfUrl: "https://admission.jnu.ac.bd/",
-            appFee: "১,৫০০ টাকা",
+            pdfUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
+            appFee: "১,৫০০ টাকা (২০২৫–২৬ সেশন অনুযায়ী)",
             mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ব্যবহারিক পরীক্ষা আবশ্যক)",
             totalSeats: "৬০টি",
             examOrder: 6.1,
-            examDate: "৮ জানুয়ারি ২০২৭ (সকাল ১০:০০ – ১১:৩০)",
-            examCenter: "জগন্নাথ বিশ্ববিদ্যালয় ক্যাম্পাস",
+            examDate: "৮ জানুয়ারি ২০২৭ (সকাল ১০:০০ – ১১:০০)",
+            examCenter: "বিভাগীয় শহর ঢাকা",
             negMark: "০.২৫",
             seats: { humanities: "সকল বিভাগ উন্মুক্ত", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
             gpa: {
-              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
-              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
-              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" }
+              humanities: { ssc: 2.50, hsc: 2.50, total: 5.50, note: "সকল বিভাগ: আলাদা ২.৫০ এবং মোট ৫.৫০" },
+              science: { ssc: 2.50, hsc: 2.50, total: 5.50, note: "সকল বিভাগ: আলাদা ২.৫০ এবং মোট ৫.৫০" },
+              commerce: { ssc: 2.50, hsc: 2.50, total: 5.50, note: "সকল বিভাগ: আলাদা ২.৫০ এবং মোট ৫.৫০" }
             },
             marks: {
               total: "১০০ নম্বর (MCQ + ব্যবহারিক + GPA ২৮)",
               mcq: "২৪ নম্বর",
               written: "ব্যবহারিক ৪৮ নম্বর",
-              duration: "১ ঘণ্টা ৩০ মিনিট",
+              duration: "১ ঘণ্টা (সকাল ১০:০০ – ১১:০০)",
               pass: "MCQ ও ব্যবহারিক পরীক্ষায় আলাদাভাবে পাস করতে হবে",
               subjects: [
                 { name: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান", dist: "MCQ ২৪ নম্বর" },
                 { name: "ব্যবহারিক (Drawing / Performance)", dist: "৪৮ নম্বর" }
               ]
             },
-            specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে এবং ব্যবহারিক পরীক্ষায় অংশগ্রহণ বাধ্যতামূলক।"
+            specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে এবং ব্যবহারিক পরীক্ষায় অংশগ্রহণ বাধ্যতামূলক। ১ম বর্ষের ক্লাস শুরু: ৪ এপ্রিল ২০২৭।",
+            disclaimer: DISCLAIMER_JNU_PARTIAL
           }
         ]
       },
@@ -1837,7 +2130,7 @@
         summaryText: "FASS, FBS ও FSSS অনুষদসমূহ",
         appStatus: "upcoming",
         secondTime: true,
-        applyOrder: 4,
+        applyOrder: 5,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
         applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২০ দিন)",
         website: "https://admission.bup.edu.bd/",
@@ -1873,7 +2166,8 @@
                 { name: "বাংলা", dist: "২০ নম্বর" }
               ]
             },
-            specialCondition: "সেকেন্ড টাইম (২০২৫ ব্যাচ) পরীক্ষার সুযোগ রয়েছে। লিখিত পরীক্ষায় উত্তীর্ণ প্রার্থীদের মিরপুর ক্যাম্পাসে মৌখিক পরীক্ষায় (Viva) অংশ নিতে হবে।"
+            specialCondition: "সেকেন্ড টাইম (২০২৫ ব্যাচ) পরীক্ষার সুযোগ রয়েছে। লিখিত পরীক্ষায় উত্তীর্ণ প্রার্থীদের মিরপুর ক্যাম্পাসে মৌখিক পরীক্ষায় (Viva) অংশ নিতে হবে।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "FBS (বিজনেস স্টাডিজ)",
@@ -1904,7 +2198,8 @@
                 { name: "সাধারণ জ্ঞান", dist: "২৫ নম্বর" }
               ]
             },
-            specialCondition: "সকল বিভাগের শিক্ষার্থীরা আবেদন করতে পারবে এবং প্রশ্নপত্র সম্পূর্ণ ইংরেজি মাধ্যমে প্রণীত হয়।"
+            specialCondition: "সকল বিভাগের শিক্ষার্থীরা আবেদন করতে পারবে এবং প্রশ্নপত্র সম্পূর্ণ ইংরেজি মাধ্যমে প্রণীত হয়।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "FSSS (নিরাপত্তা ও কৌশলগত)",
@@ -1935,7 +2230,8 @@
                 { name: "বাংলা", dist: "২০ নম্বর" }
               ]
             },
-            specialCondition: "আন্তর্জাতিক সম্পর্ক, আইন এবং শান্তি ও সংঘর্ষ অধ্যয়ন বিভাগে ভর্তির জন্য লিখিত ও ভাইভা উভয় ধাপে উত্তীর্ণ হতে হবে।"
+            specialCondition: "আন্তর্জাতিক সম্পর্ক, আইন এবং শান্তি ও সংঘর্ষ অধ্যয়ন বিভাগে ভর্তির জন্য লিখিত ও ভাইভা উভয় ধাপে উত্তীর্ণ হতে হবে।",
+            disclaimer: DISCLAIMER_25_26
           }
         ]
       },
@@ -1946,7 +2242,7 @@
         summaryText: "B, B1, B2, C, D ও D1 উপ-ইউনিটসমূহ",
         appStatus: "upcoming",
         secondTime: true,
-        applyOrder: 5,
+        applyOrder: 6,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
         applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৫ দিন)",
         website: "https://admission.cu.ac.bd/",
@@ -1982,7 +2278,8 @@
                 { name: "সাধারণ জ্ঞান", dist: "৪০ নম্বর" }
               ]
             },
-            specialCondition: "সেকেন্ড টাইম শিক্ষার্থীদের মোট প্রাপ্ত নম্বর থেকে ৩ নম্বর কাটা যাবে। প্রতিটি বিষয়ে আলাদা পাস নম্বর অর্জন করা বাধ্যতামূলক।"
+            specialCondition: "সেকেন্ড টাইম শিক্ষার্থীদের মোট প্রাপ্ত নম্বর থেকে ৩ নম্বর কাটা যাবে। প্রতিটি বিষয়ে আলাদা পাস নম্বর অর্জন করা বাধ্যতামূলক।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "B1 উপ-ইউনিট (চারুকলা)",
@@ -2013,7 +2310,8 @@
                 { name: "সাধারণ জ্ঞান ও শিল্পকলা", dist: "৫০ নম্বর" }
               ]
             },
-            specialCondition: "এই উপ-ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে না; শুধুমাত্র চট্টগ্রাম বিশ্ববিদ্যালয় ক্যাম্পাসে অনুষ্ঠিত হবে এবং ব্যবহারিক পরীক্ষায় অংশগ্রহণ বাধ্যতামূলক।"
+            specialCondition: "এই উপ-ইউনিটের পরীক্ষা বিভাগীয় শহরে হবে না; শুধুমাত্র চট্টগ্রাম বিশ্ববিদ্যালয় ক্যাম্পাসে অনুষ্ঠিত হবে এবং ব্যবহারিক পরীক্ষায় অংশগ্রহণ বাধ্যতামূলক।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "B2 উপ-ইউনিট (আরবি ও ই.স্টাডিজ)",
@@ -2044,7 +2342,8 @@
                 { name: "আরবি / ইসলামিক স্টাডিজ / পালি (যেকোনো ২টি)", dist: "৩০ × ২ = ৬০ নম্বর" }
               ]
             },
-            specialCondition: "পরীক্ষা শুধু চবি ক্যাম্পাসে অনুষ্ঠিত হবে। আলিম/মাদ্রাসা বোর্ড অথবা উচ্চমাধ্যমিকে আরবি/ইসলামিক স্টাডিজ/পালি বিষয় থাকলে সংশ্লিষ্ট বিভাগে অগ্রাধিকার ও বিশেষ আসন সুবিধা পাওয়া যায়।"
+            specialCondition: "পরীক্ষা শুধু চবি ক্যাম্পাসে অনুষ্ঠিত হবে। আলিম/মাদ্রাসা বোর্ড অথবা উচ্চমাধ্যমিকে আরবি/ইসলামিক স্টাডিজ/পালি বিষয় থাকলে সংশ্লিষ্ট বিভাগে অগ্রাধিকার ও বিশেষ আসন সুবিধা পাওয়া যায়।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "C ইউনিট (ব্যবসায়)",
@@ -2075,7 +2374,8 @@
                 { name: "প্রবলেম সলভিং", dist: "৩০ নম্বর" }
               ]
             },
-            specialCondition: "সকল বিভাগের শিক্ষার্থীদের জন্য একই প্রশ্নপত্রে (ইংরেজি, অ্যানালিটিক্যাল ও প্রবলেম সলভিং) পরীক্ষা অনুষ্ঠিত হয়। সেকেন্ড টাইমে ৩ নম্বর কাটা যাবে।"
+            specialCondition: "সকল বিভাগের শিক্ষার্থীদের জন্য একই প্রশ্নপত্রে (ইংরেজি, অ্যানালিটিক্যাল ও প্রবলেম সলভিং) পরীক্ষা অনুষ্ঠিত হয়। সেকেন্ড টাইমে ৩ নম্বর কাটা যাবে।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "D ইউনিট (সমাজবিজ্ঞান)",
@@ -2106,7 +2406,8 @@
                 { name: "সাধারণ জ্ঞান / গণিত / অর্থনীতি", dist: "২০ নম্বর" }
               ]
             },
-            specialCondition: "অর্থনীতি বিভাগে ভর্তির জন্য HSC-তে অর্থনীতি বা গণিত/পরিসংখ্যান বিষয় থাকতে হবে। সেকেন্ড টাইম শিক্ষার্থীদের মোট নম্বর থেকে ৩ নম্বর কাটা যাবে।"
+            specialCondition: "অর্থনীতি বিভাগে ভর্তির জন্য HSC-তে অর্থনীতি বা গণিত/পরিসংখ্যান বিষয় থাকতে হবে। সেকেন্ড টাইম শিক্ষার্থীদের মোট নম্বর থেকে ৩ নম্বর কাটা যাবে।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "D1 উপ-ইউনিট (স্পোর্টস)",
@@ -2137,177 +2438,8 @@
                 { name: "ক্রীড়াবিজ্ঞান নীতিমালা", dist: "১৫ নম্বর" }
               ]
             },
-            specialCondition: "পরীক্ষা শুধু চবি ক্যাম্পাসে অনুষ্ঠিত হবে এবং লিখিত পরীক্ষার পর শারীরিক যোগ্যতা ও ব্যবহারিক পরীক্ষায় উত্তীর্ণ হতে হবে।"
-          }
-        ]
-      },
-      {
-        id: "ju",
-        shortName: "জাবি",
-        fullName: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
-        summaryText: "B, C, C1 (চারুকলা), E ও IBA-JU উপ-ইউনিট",
-        appStatus: "upcoming",
-        secondTime: true,
-        applyOrder: 6,
-        applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩০ দিন)",
-        website: "https://ju-admission.org/",
-        helpline: "01841-458000",
-        lastUpdated: "১৮ নভেম্বর ২০২৬",
-        units: [
-          {
-            tabLabel: "B ইউনিট (সমাজবিজ্ঞান)",
-            unitName: "B ইউনিট (সমাজবিজ্ঞান ও আইন অনুষদ)",
-            pdfUrl: "https://ju-admission.org/",
-            appFee: "৯০০ টাকা",
-            mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ছাত্র-ছাত্রী আলাদা শিফট)",
-            totalSeats: "৩২৬টি",
-            examOrder: 9,
-            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
-            negMark: "০.২০",
-            seats: { humanities: "৩২৬টি (সমন্বিত)", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
-            gpa: {
-              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০" },
-              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
-              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০" }
-            },
-            marks: {
-              total: "৯০ নম্বর (MCQ ৮০ + GPA ১০)",
-              mcq: "৮০ নম্বর",
-              written: "নেই",
-              duration: "৫৫ মিনিট",
-              pass: "ন্যূনতম ৩৩% (২৭ নম্বর)",
-              subjects: [
-                { name: "বাংলা ও ইংরেজি", dist: "বাংলা ২০ + ইংরেজি ২০ = ৪০" },
-                { name: "সাধারণ গণিত", dist: "২০ নম্বর" },
-                { name: "সাধারণ জ্ঞান ও যৌক্তিক বিশ্লেষণ", dist: "জিকে ১৫ + বিশ্লেষণ ৫ = ২০" }
-              ]
-            },
-            specialCondition: "সেকেন্ড টাইম (২০২৫ ব্যাচ) পরীক্ষার সুযোগ রয়েছে। ছাত্র ও ছাত্রীদের জন্য আলাদা শিফটে পরীক্ষা অনুষ্ঠিত হয় এবং আসন সংখ্যা সমানভাবে বিভক্ত থাকে।"
-          },
-          {
-            tabLabel: "C ইউনিট (কলা)",
-            unitName: "C ইউনিট (কলা ও মানবিকী অনুষদ)",
-            pdfUrl: "https://ju-admission.org/",
-            appFee: "৯০০ টাকা",
-            mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ইংরেজি ও জার্নালিজমে আলাদা শর্ত)",
-            totalSeats: "৪৩৮টি",
-            examOrder: 9,
-            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
-            negMark: "০.২০",
-            seats: { humanities: "৪৩৮টি (সমন্বিত)", science: "বিভাগ পরিবর্তনের সুযোগ রয়েছে", commerce: "বিভাগ পরিবর্তনের সুযোগ রয়েছে" },
-            gpa: {
-              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০" },
-              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
-              commerce: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বাণিজ্য: আলাদা ৩.৫০ ও মোট ৭.৫০" }
-            },
-            marks: {
-              total: "৯০ নম্বর (MCQ ৮০ + GPA ১০)",
-              mcq: "৮০ নম্বর",
-              written: "নেই",
-              duration: "৫৫ মিনিট",
-              pass: "ন্যূনতম ৩৩% (২৭ নম্বর)",
-              subjects: [
-                { name: "বাংলা", dist: "২০ নম্বর" },
-                { name: "ইংরেজি", dist: "২০ নম্বর" },
-                { name: "সাধারণ জ্ঞান ও অনুষদ সংশ্লিষ্ট বিষয়", dist: "৪০ নম্বর" }
-              ]
-            },
-            specialCondition: "সেকেন্ড টাইম পরীক্ষার সুযোগ রয়েছে। ইংরেজি ও জার্নালিজম বিভাগে ভর্তির জন্য MCQ পরীক্ষার ইংরেজি অংশে ন্যূনতম নির্ধারিত নম্বর পেতে হবে।"
-          },
-          {
-            tabLabel: "C1 উপ-ইউনিট (নাটক ও চারুকলা)",
-            unitName: "C1 উপ-ইউনিট (নাটক ও নাট্যতত্ত্ব এবং চারুকলা)",
-            pdfUrl: "https://ju-admission.org/",
-            appFee: "৬০০ টাকা",
-            mandatorySubject: "সকল বিভাগ উন্মুক্ত (২০ নম্বরের ব্যবহারিক পরীক্ষা আবশ্যক)",
-            totalSeats: "৬৪টি",
-            examOrder: 9,
-            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
-            negMark: "০.২০",
-            seats: { humanities: "নাটক ২৮টি, চারুকলা ৩৬টি", science: "সকল বিভাগ উন্মুক্ত (৬৪টি)", commerce: "সকল বিভাগ উন্মুক্ত (৬৪টি)" },
-            gpa: {
-              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
-              science: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" },
-              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "সকল বিভাগ: আলাদা ৩.০০ এবং মোট ৬.৫০" }
-            },
-            marks: {
-              total: "১১০ নম্বর (MCQ ৮০ + ব্যবহারিক ২০ + GPA ১০)",
-              mcq: "৮০ নম্বর",
-              written: "ব্যবহারিক ২০ নম্বর",
-              duration: "৫৫ মিনিট",
-              pass: "লিখিতে ৩৩% এবং ব্যবহারিকে ন্যূনতম ৪০% পেতে হবে",
-              subjects: [
-                { name: "বাংলা ও ইংরেজি", dist: "বাংলা ১০ + ইংরেজি ১০ = ২০" },
-                { name: "সাধারণ জ্ঞান", dist: "২০ নম্বর" },
-                { name: "নাটক/চারুকলা বিষয়ভিত্তিক + ব্যবহারিক", dist: "MCQ ৪০ + ব্যবহারিক ২০ = ৬০" }
-              ]
-            },
-            specialCondition: "MCQ পরীক্ষায় উত্তীর্ণ প্রার্থীদের পরবর্তীতে ২০ নম্বরের ব্যবহারিক পরীক্ষায় (অভিনয়/আবৃত্তি বা অঙ্কন) অংশগ্রহণ করতে হবে।"
-          },
-          {
-            tabLabel: "E ইউনিট (বিজনেস)",
-            unitName: "E ইউনিট (বিজনেস স্টাডিজ অনুষদ)",
-            pdfUrl: "https://ju-admission.org/",
-            appFee: "৯০০ টাকা",
-            mandatorySubject: "বাণিজ্য ও অ-বাণিজ্য উভয় শাখা উন্মুক্ত",
-            totalSeats: "১৭৬টি",
-            examOrder: 9,
-            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
-            negMark: "০.২০",
-            seats: { humanities: "সকল বিভাগ উন্মুক্ত", science: "সকল বিভাগ উন্মুক্ত", commerce: "সকল বিভাগ উন্মুক্ত" },
-            gpa: {
-              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য/মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০" },
-              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
-              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "বাণিজ্য/মানবিক: আলাদা ৩.০০ ও মোট ৬.৫০" }
-            },
-            marks: {
-              total: "৯০ নম্বর (MCQ ৮০ + GPA ১০)",
-              mcq: "৮০ নম্বর",
-              written: "নেই",
-              duration: "৫৫ মিনিট",
-              pass: "ন্যূনতম ৩৩% (২৭ নম্বর)",
-              subjects: [
-                { name: "বাণিজ্য শাখা", dist: "বাংলা ২০, ইংরেজি ২০, হিসাববিজ্ঞান ২০, ব্যবস্থাপনা ২০" },
-                { name: "বিজ্ঞান ও মানবিক শাখা", dist: "বাংলা ২০, ইংরেজি ২০, গণিত ও বিশ্লেষণ ২০, জিকে ২০" }
-              ]
-            },
-            specialCondition: "বাণিজ্য এবং অ-বাণিজ্য (বিজ্ঞান ও মানবিক) শিক্ষার্থীদের জন্য আলাদা প্রশ্নপত্রে পরীক্ষা অনুষ্ঠিত হয়। সেকেন্ড টাইম সুযোগ রয়েছে।"
-          },
-          {
-            tabLabel: "IBA-JU",
-            unitName: "IBA-JU (ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন)",
-            pdfUrl: "https://ju-admission.org/",
-            appFee: "৯০০ টাকা",
-            mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ভাইভা প্রযোজ্য)",
-            totalSeats: "৭০টি",
-            examOrder: 9,
-            examDate: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
-            examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
-            negMark: "০.২০",
-            seats: { humanities: "৭০টি (সকল বিভাগ উন্মুক্ত)", science: "৭০টি (সকল বিভাগ উন্মুক্ত)", commerce: "৭০টি (সকল বিভাগ উন্মুক্ত)" },
-            gpa: {
-              humanities: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০" },
-              science: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "বিজ্ঞান: আলাদা ৩.৫০ ও মোট ৭.৫০" },
-              commerce: { ssc: 3.00, hsc: 3.00, total: 6.50, note: "মানবিক/বাণিজ্য: আলাদা ৩.০০ ও মোট ৬.৫০" }
-            },
-            marks: {
-              total: "১০০ নম্বর (MCQ ৮০ + ভাইভা ১০ + GPA ১০)",
-              mcq: "৮০ নম্বর",
-              written: "ভাইভা ১০ নম্বর",
-              duration: "৫৫ মিনিট",
-              pass: "ন্যূনতম ৩৩% ও বিষয়ভিত্তিক পাস শর্ত",
-              subjects: [
-                { name: "বাংলা ও ইংরেজি", dist: "বাংলা ৫ + ইংরেজি ৩০ = ৩৫" },
-                { name: "ম্যাথমেটিক্যাল অ্যাপটিটিউড ও আইকিউ", dist: "৩০ নম্বর" },
-                { name: "সাম্প্রতিক ও সাধারণ জ্ঞান", dist: "১৫ নম্বর" }
-              ]
-            },
-            specialCondition: "লিখিত MCQ পরীক্ষায় উত্তীর্ণ প্রার্থীদের ১০ নম্বরের মৌখিক পরীক্ষায় (Viva-voce) অংশগ্রহণ করতে হবে।"
+            specialCondition: "পরীক্ষা শুধু চবি ক্যাম্পাসে অনুষ্ঠিত হবে এবং লিখিত পরীক্ষার পর শারীরিক যোগ্যতা ও ব্যবহারিক পরীক্ষায় উত্তীর্ণ হতে হবে।",
+            disclaimer: DISCLAIMER_25_26
           }
         ]
       },
@@ -2354,7 +2486,8 @@
                 { name: "সাধারণ জ্ঞান ও মানসিক দক্ষতা", dist: "MCQ ও লিখিত সমন্বিত" }
               ]
             },
-            specialCondition: "চারুকলা স্কুলে ভর্তির জন্য আলাদাভাবে অঙ্কন (Drawing) পরীক্ষায় অংশগ্রহণ করতে হবে। সেকেন্ড টাইম সুযোগ রয়েছে।"
+            specialCondition: "চারুকলা স্কুলে ভর্তির জন্য আলাদাভাবে অঙ্কন (Drawing) পরীক্ষায় অংশগ্রহণ করতে হবে। সেকেন্ড টাইম সুযোগ রয়েছে।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "D ইউনিট (বিবিএ)",
@@ -2384,7 +2517,8 @@
                 { name: "গাণিতিক যুক্তি ও সাধারণ জ্ঞান", dist: "MCQ ও লিখিত সমন্বিত" }
               ]
             },
-            specialCondition: "বিবিএ প্রোগ্রামে সকল বিভাগের শিক্ষার্থীরা সমানভাবে আবেদন করতে পারবে এবং সেকেন্ড টাইম সুযোগ রয়েছে।"
+            specialCondition: "বিবিএ প্রোগ্রামে সকল বিভাগের শিক্ষার্থীরা সমানভাবে আবেদন করতে পারবে এবং সেকেন্ড টাইম সুযোগ রয়েছে।",
+            disclaimer: DISCLAIMER_25_26
           }
         ]
       },
@@ -2431,7 +2565,8 @@
                 { name: "সাধারণ জ্ঞান ও মৌলিক আইসিটি", dist: "৪০ নম্বর" }
               ]
             },
-            specialCondition: "সেকেন্ড টাইম (২০২৫ ব্যাচ) পরীক্ষার সুযোগ রয়েছে। ইংরেজি ও অর্থনীতি বিভাগে ভর্তির জন্য সংশ্লিষ্ট বিষয়ে ন্যূনতম শর্ত প্রযোজ্য।"
+            specialCondition: "সেকেন্ড টাইম (২০২৫ ব্যাচ) পরীক্ষার সুযোগ রয়েছে। ইংরেজি ও অর্থনীতি বিভাগে ভর্তির জন্য সংশ্লিষ্ট বিষয়ে ন্যূনতম শর্ত প্রযোজ্য।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "C ইউনিট (ব্যবসায় শিক্ষা)",
@@ -2462,7 +2597,8 @@
                 { name: "ব্যবসায় নীতি ও প্রয়োগ / গণিত", dist: "৫০ নম্বর" }
               ]
             },
-            specialCondition: "ব্যবসায় শিক্ষা ও অ-বাণিজ্য শিক্ষার্থীদের জন্য নিজস্ব বিষয়ের ওপর ভিত্তি করে প্রশ্নপত্র নির্ধারিত থাকে।"
+            specialCondition: "ব্যবসায় শিক্ষা ও অ-বাণিজ্য শিক্ষার্থীদের জন্য নিজস্ব বিষয়ের ওপর ভিত্তি করে প্রশ্নপত্র নির্ধারিত থাকে।",
+            disclaimer: DISCLAIMER_25_26
           }
         ]
       },
@@ -2509,7 +2645,8 @@
                 { name: "সাধারণ জ্ঞান ও মৌলিক আইসিটি", dist: "৩০ নম্বর" }
               ]
             },
-            specialCondition: "গুচ্ছ পরীক্ষায় ন্যূনতম ৩০ নম্বর পেলে পাস হিসেবে গণ্য হবে। তবে পরবর্তীতে প্রতিটি বিশ্ববিদ্যালয়ে আলাদাভাবে আবেদনের সময় তাদের নিজস্ব বিষয়ভিত্তিক ও জিপিএ শর্ত প্রযোজ্য হবে।"
+            specialCondition: "গুচ্ছ পরীক্ষায় ন্যূনতম ৩০ নম্বর পেলে পাস হিসেবে গণ্য হবে। তবে পরবর্তীতে প্রতিটি বিশ্ববিদ্যালয়ে আলাদাভাবে আবেদনের সময় তাদের নিজস্ব বিষয়ভিত্তিক ও জিপিএ শর্ত প্রযোজ্য হবে।",
+            disclaimer: DISCLAIMER_25_26
           },
           {
             tabLabel: "C ইউনিট (বাণিজ্য)",
@@ -2540,7 +2677,8 @@
                 { name: "বাংলা ও ইংরেজি", dist: "বাংলা ১৫ + ইংরেজি ১৫ = ৩০" }
               ]
             },
-            specialCondition: "অধিকাংশ গুচ্ছভুক্ত বিশ্ববিদ্যালয়ে সেকেন্ড টাইম শিক্ষার্থীদের ভর্তির সুযোগ রয়েছে।"
+            specialCondition: "অধিকাংশ গুচ্ছভুক্ত বিশ্ববিদ্যালয়ে সেকেন্ড টাইম শিক্ষার্থীদের ভর্তির সুযোগ রয়েছে।",
+            disclaimer: DISCLAIMER_25_26
           }
         ]
       }
@@ -2553,15 +2691,16 @@
         desc: "চবির B ইউনিট (৫ ফেব্রুয়ারি) ও D ইউনিটের (৬ ফেব্রুয়ারি) সাথে কুমিল্লা বিশ্ববিদ্যালয়ের সম্ভাব্য পরীক্ষার তারিখ (৫–৭ ফেব্রুয়ারি) কাছাকাছি বা একই দিনে পড়ার সম্ভাবনা রয়েছে। কেন্দ্র দূরত্ব বিবেচনায় রেখে প্রস্তুতি নিন।"
       },
       {
-        date: "জানুয়ারি ২০২৭ (মধ্যভাগ — সম্ভাব্য)",
-        title: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU) বনাম বিইউপি (BUP)",
-        desc: "জাবির শিফটভিত্তিক পরীক্ষা এবং বিইউপির ফ্যাকাল্টিভিত্তিক লিখিত পরীক্ষা জানুয়ারির একই সপ্তাহে পড়তে পারে। পরীক্ষার রুটিন প্রকাশের পর শিফট মিলিয়ে নেওয়া জরুরি।"
+        date: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
+        title: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU) বনাম জবি (JnU) ও বিইউপি (BUP)",
+        desc: "জাবির ভর্তি পরীক্ষা (১০–২১ জানুয়ারি) চলাকালীন জগন্নাথ বিশ্ববিদ্যালয়ের B ইউনিট (১৫ জানুয়ারি) ও বিইউপির সম্ভাব্য পরীক্ষা একই সপ্তাহে পড়তে পারে। প্রবেশপত্রের তারিখ ও শিফট মিলিয়ে পরিকল্পনা করুন।"
       }
     ];
 
     let currentGroup = "humanities";
     let statusFilter = "all";
     let currentRoadmapTab = "apply";
+    let updateUniFilter = "ALL";
     let selectedUniId = null;
     let selectedUnitIndex = 0;
     let searchQuery = "";
@@ -2879,10 +3018,26 @@
       }
     }
 
+    document.querySelectorAll("#updateFilterBar .update-uni-pill-btn").forEach(btn => {
+      btn.addEventListener("click", () => {
+        updateUniFilter = btn.dataset.ufilter;
+        document.querySelectorAll("#updateFilterBar .update-uni-pill-btn").forEach(b => {
+          b.classList.toggle("active", b.dataset.ufilter === updateUniFilter);
+        });
+        renderUpdatesPage();
+      });
+    });
+
     function renderUpdatesPage() {
       document.title = "সাইট আপডেট ও ভার্সন হিস্ট্রি | Admission Update";
       const container = document.getElementById("updatesListContainer");
-      container.innerHTML = siteUpdates.map((upd, idx) => {
+      const htmlBlocks = siteUpdates.map((upd, idx) => {
+        const filteredChanges = updateUniFilter === "ALL"
+          ? upd.changes
+          : upd.changes.filter(c => c.uni === updateUniFilter);
+
+        if (filteredChanges.length === 0) return "";
+
         const meta = formatUpdateMeta(upd.timestamp);
         const latestBadge = idx === 0 ? " (সর্বশেষ)" : "";
         return `
@@ -2893,11 +3048,18 @@
             </div>
             <div class="exact-timestamp">🕒 ${meta.exactText}</div>
             <ul class="changelog-list">
-              ${upd.changes.map(c => `<li>${c}</li>`).join("")}
+              ${filteredChanges.map(c => `
+                <li>
+                  <span class="changelog-uni-tag">${c.uni}</span>
+                  <span>${c.text}</span>
+                </li>
+              `).join("")}
             </ul>
           </div>
         `;
       }).join("");
+
+      container.innerHTML = htmlBlocks || `<div class="empty-state">নির্বাচিত বিশ্ববিদ্যালয়ের জন্য কোনো আলাদা আপডেট লগ পাওয়া যায়নি।</div>`;
     }
 
     function goHome(pushHistory = true) {
@@ -2986,6 +3148,14 @@
               </div>
             `).join("")}
           </div>
+        </div>
+      ` : "";
+
+      /* Unit-Specific Disclaimer Box (For 2025-26 Data or Partial Circulars) */
+      const disclaimerBoxHtml = activeUnit.disclaimer ? `
+        <div class="unit-disclaimer-box full-span">
+          <span>⚠️</span>
+          <div><strong>ডিসক্লেইমার:</strong> ${activeUnit.disclaimer}</div>
         </div>
       ` : "";
 
@@ -3166,6 +3336,8 @@
             <h3>📌 সার্কুলারের বিশেষ শর্তাবলি</h3>
             <p>${activeUnit.specialCondition}</p>
           </div>
+
+          ${disclaimerBoxHtml}
         </div>
 
         <!-- Organized Official Verification Box -->
@@ -3254,4 +3426,4 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
-              </html>
+  </html>
