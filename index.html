@@ -515,7 +515,7 @@
     .inline-feedback.error { display: block; background: var(--danger-bg); color: var(--danger-text); }
     .inline-feedback.success { display: block; background: var(--success-bg); color: var(--success-text); }
 
-    /* Details Page View (Same Tab) */
+    /* Details Page View & Update Log View (Same Tab) */
     .hidden { display: none !important; }
     .top-nav-bar { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin-bottom: 10px; }
     .btn-back {
@@ -651,6 +651,33 @@
       line-height: 1.4;
     }
 
+    /* Quota Grid inside Info Box */
+    .quota-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 8px;
+    }
+    @media (min-width: 560px) { .quota-grid { grid-template-columns: repeat(3, 1fr); } }
+    .quota-pill {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      padding: 8px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .quota-pill .q-name {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 600;
+    }
+    .quota-pill .q-val {
+      font-size: 0.92rem;
+      color: var(--primary);
+      font-weight: 700;
+    }
+
     /* User-Friendly Marks Distribution Section */
     .marks-highlights {
       display: grid;
@@ -708,7 +735,6 @@
       .detail-card { padding: 14px 12px; }
       .info-box { padding: 12px 10px; }
 
-      /* Stack Seat & GPA rows cleanly on mobile so long text never squeezes */
       .data-item-card {
         flex-direction: column;
         align-items: flex-start;
@@ -724,7 +750,6 @@
         font-size: 0.9rem;
       }
 
-      /* Stack Subject Name & Marks Pill cleanly on mobile */
       .subject-pill-row {
         flex-direction: column;
         align-items: flex-start;
@@ -903,6 +928,85 @@
       color: var(--muted);
     }
 
+    /* Update Log / Changelog Cards */
+    .changelog-card {
+      background: var(--card-sub);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 12px;
+    }
+    .changelog-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 6px;
+    }
+    .version-pill {
+      background: var(--primary);
+      color: #ffffff;
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+    [data-theme="dark"] .version-pill { color: #0f172a; }
+    .relative-time-badge {
+      background: var(--success-bg);
+      color: var(--success-text);
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 2px 10px;
+      border-radius: 999px;
+    }
+    .exact-timestamp {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--muted);
+      margin-bottom: 8px;
+      padding-bottom: 6px;
+      border-bottom: 1px dashed var(--border);
+    }
+    .changelog-list {
+      padding-left: 18px;
+      font-size: 0.9rem;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Pre-Footer Update Banner Link */
+    .pre-footer-update {
+      max-width: 860px;
+      margin: 12px auto 0;
+      padding: 0 16px;
+      text-align: center;
+    }
+    .update-link-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 8px 15px;
+      border-radius: 999px;
+      font-size: 0.84rem;
+      font-weight: 700;
+      text-decoration: none;
+      box-shadow: var(--shadow);
+      cursor: pointer;
+      transition: border-color 0.15s ease, transform 0.15s ease;
+    }
+    .update-link-pill:hover {
+      border-color: var(--primary);
+      transform: translateY(-1px);
+    }
+
     .empty-state { grid-column: 1 / -1; text-align: center; padding: 24px 16px; background: var(--card); border: 1px dashed var(--border); border-radius: 12px; color: var(--muted); }
 
     /* Floating Scroll to Top Button */
@@ -938,7 +1042,7 @@
 
     /* Footer */
     footer {
-      margin-top: 28px;
+      margin-top: 16px;
       padding: 18px 16px;
       border-top: 1px solid var(--border);
       text-align: center;
@@ -1084,7 +1188,7 @@
 
     </div>
 
-    <!-- দ্বিতীয় পেইজ (সেইম ট্যাবে ওপেন হওয়া ডিটেইলস ভিউ) -->
+    <!-- দ্বিতীয় পেইজ (সেইম ট্যাবে ওপেন হওয়া বিশ্ববিদ্যালয় ডিটেইলস ভিউ) -->
     <div id="detailView" class="hidden">
       <div class="top-nav-bar">
         <button class="btn-back" id="backBtn">← মূল পাতায় ফিরে যান</button>
@@ -1098,7 +1202,32 @@
       <article class="detail-card" id="detailContent"></article>
     </div>
 
+    <!-- তৃতীয় পেইজ (সাইটের আপডেট ও ভার্সন হিস্ট্রি পেইজ) -->
+    <div id="updatesView" class="hidden">
+      <div class="top-nav-bar">
+        <button class="btn-back" id="updatesBackBtn">← মূল পাতায় ফিরে যান</button>
+      </div>
+
+      <article class="detail-card">
+        <div class="detail-header">
+          <div>
+            <h2>সাইট আপডেট ও ভার্সন হিস্ট্রি</h2>
+            <span>ওয়েবসাইটের সর্বশেষ তথ্য সংযোজন ও পরিবর্তনের বিবরণ</span>
+          </div>
+          <span class="badge badge-open"><span class="live-pulse"></span> লাইভ লগ</span>
+        </div>
+        <div id="updatesListContainer"></div>
+      </article>
+    </div>
+
   </main>
+
+  <!-- Pre-Footer Update Version Link -->
+  <div class="pre-footer-update">
+    <a href="#updates" class="update-link-pill" id="footerUpdateLink">
+      🔄 সর্বশেষ আপডেট লোড হচ্ছে...
+    </a>
+  </div>
 
   <!-- Floating Scroll to Top Button -->
   <button class="scroll-top-btn" id="scrollTopBtn" title="উপরে যান" aria-label="উপরে যান">↑</button>
@@ -1132,6 +1261,89 @@
       } catch (e) {}
     })();
 
+    /* Site Version & Update Log Data (ISO timestamp auto-calculates relative time, Bengali date, time & weekday) */
+    const siteUpdates = [
+      {
+        version: "v1.5",
+        timestamp: "2026-11-20T13:05:00+06:00",
+        changes: [
+          "ঢাকা বিশ্ববিদ্যালয়ের ইউনিটভিত্তিক আবেদন ফি আপডেট করা হয়েছে (ক, খ ও গ ইউনিট ১,২০০ টাকা, চারুকলা ১,৪০০ টাকা এবং আইবিএ ১,৫০০ টাকা)।",
+          "ঢাকা বিশ্ববিদ্যালয়ের কোটা সংক্রান্ত তথ্য (মুক্তিযোদ্ধা ৫%, ক্ষুদ্র নৃগোষ্ঠী ১%, হরিজন-দলিত ১%, প্রতিবন্ধী ১%, বিকেএসপি ও খেলোয়াড় এবং ট্রান্সজেন্ডার) যুক্ত করা হয়েছে।",
+          "ফুটারের উপরে সাইট আপডেট ও ভার্সন হিস্ট্রি পেইজ যুক্ত করা হয়েছে।"
+        ]
+      },
+      {
+        version: "v1.4",
+        timestamp: "2026-11-19T22:15:00+06:00",
+        changes: [
+          "মোবাইল ব্যবহারকারীদের জন্য ডিটেইলস পেইজের আসন সংখ্যা, জিপিএ যোগ্যতা এবং নম্বর বণ্টন অংশগুলো আরও ইউজার ফ্রেন্ডলি কার্ড আকারে সাজানো হয়েছে।",
+          "ডিটেইলস পেইজের নিচে WhatsApp ও Telegram-এর পাশাপাশি Messenger এবং Instagram শেয়ার বাটন যুক্ত করা হয়েছে।"
+        ]
+      },
+      {
+        version: "v1.3",
+        timestamp: "2026-11-19T16:40:00+06:00",
+        changes: [
+          "ঢাকা বিশ্ববিদ্যালয়ের সাধারণ সার্কুলার ও ৫টি অনুষদের অফিশিয়াল লিংক, দুই স্তরের হেল্পলাইন এবং ক ও গ ইউনিটের আবশ্যিক ও অপশনাল বিষয় বণ্টন আপডেট করা হয়েছে।",
+          "রাজশাহী বিশ্ববিদ্যালয়ের নোটিশ লিংক ও হেল্পলাইন নম্বর এবং জগন্নাথ বিশ্ববিদ্যালয়ের ২৫ নভেম্বরের চূড়ান্ত সময়সূচি ও E ইউনিট যুক্ত করা হয়েছে।"
+        ]
+      }
+    ];
+
+    function toBnDigits(str) {
+      const bn = ["০", "১", "২", "৩", "৪", "৫", "৬", "৭", "৮", "৯"];
+      return String(str).replace(/\d/g, d => bn[d]);
+    }
+
+    function formatUpdateMeta(isoStr) {
+      const dateObj = new Date(isoStr);
+      const now = new Date();
+      const diffMs = now - dateObj;
+      const diffMins = Math.max(0, Math.floor(diffMs / 60000));
+      const diffHours = Math.floor(diffMins / 60);
+      const diffDays = Math.floor(diffHours / 24);
+
+      let relativeText = "";
+      if (diffMins < 1) {
+        relativeText = "সর্বশেষ এইমাত্র আপডেট করা হয়েছে";
+      } else if (diffMins < 60) {
+        relativeText = `সর্বশেষ ${toBnDigits(diffMins)} মিনিট আগে আপডেট করা হয়েছে`;
+      } else if (diffHours < 24) {
+        relativeText = `সর্বশেষ ${toBnDigits(diffHours)} ঘণ্টা আগে আপডেট করা হয়েছে`;
+      } else {
+        relativeText = `সর্বশেষ ${toBnDigits(diffDays)} দিন আগে আপডেট করা হয়েছে`;
+      }
+
+      const daysBn = ["রবিবার", "সোমবার", "মঙ্গলবার", "বুধবার", "বৃহস্পতিবার", "শুক্রবার", "শনিবার"];
+      const dayName = daysBn[dateObj.getDay()];
+      const dd = toBnDigits(String(dateObj.getDate()).padStart(2, "0"));
+      const mm = toBnDigits(String(dateObj.getMonth() + 1).padStart(2, "0"));
+      const yy = toBnDigits(String(dateObj.getFullYear()).slice(-2));
+
+      let hours = dateObj.getHours();
+      const mins = toBnDigits(String(dateObj.getMinutes()).padStart(2, "0"));
+      let period = "সকাল";
+      if (hours >= 12 && hours < 16) period = "দুপুর";
+      else if (hours >= 16 && hours < 18) period = "বিকাল";
+      else if (hours >= 18 && hours < 20) period = "সন্ধ্যা";
+      else if (hours >= 20 || hours < 4) period = "রাত";
+
+      const hour12 = hours % 12 === 0 ? 12 : hours % 12;
+      const exactText = `আপডেটের সময়: ${period} ${toBnDigits(hour12)}:${mins}, ${dd}/${mm}/${yy} (${dayName})`;
+
+      return { relativeText, exactText };
+    }
+
+    function updateFooterPill() {
+      const latest = siteUpdates[0];
+      if (!latest) return;
+      const meta = formatUpdateMeta(latest.timestamp);
+      const linkEl = document.getElementById("footerUpdateLink");
+      if (linkEl) {
+        linkEl.innerHTML = `🔄 আপডেট লগ (${latest.version}) • ${meta.relativeText} →`;
+      }
+    }
+
     const admissionData = [
       {
         id: "du",
@@ -1142,10 +1354,18 @@
         secondTime: false,
         applyOrder: 1,
         applyTimeline: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
-        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৬ দিন)",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৫ দিন)",
         website: "https://admission.eis.du.ac.bd/",
         generalCircularUrl: "https://admission.eis.du.ac.bd/bn/gf6s7h89rthg463786e4q6a3b679w6jrn46a",
         helpline: "09666361991",
+        quotas: [
+          { name: "মুক্তিযোদ্ধা কোটা", value: "৫%" },
+          { name: "ক্ষুদ্র নৃগোষ্ঠী", value: "১%" },
+          { name: "হরিজন-দলিত", value: "১%" },
+          { name: "প্রতিবন্ধী", value: "১%" },
+          { name: "বিকেএসপি ও খেলোয়াড় কোটা", value: "নির্দিষ্ট না" },
+          { name: "ট্রান্সজেন্ডার", value: "বিশেষ বিবেচনা" }
+        ],
         centralOffice: {
           title: "কেন্দ্রীয় ভর্তি অফিস (সাধারণ হেল্প ডেস্ক)",
           phones: [
@@ -1155,7 +1375,7 @@
           email: "helpline@eis.du.ac.bd",
           address: "কক্ষ নং ২১৪, প্রশাসনিক ভবন, ঢাকা বিশ্ববিদ্যালয়।"
         },
-        lastUpdated: "১৯ নভেম্বর ২০২৬",
+        lastUpdated: "২০ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "ক ইউনিট (বিভাগ পরিবর্তন)",
@@ -1168,7 +1388,7 @@
                 { label: "মোবাইল", number: "01870033945" }
               ]
             },
-            appFee: "১,০৫০ টাকা",
+            appFee: "১,২০০ টাকা",
             mandatorySubject: "HSC-তে গণিত / পরিসংখ্যান / ভূগোল / মনোবিজ্ঞান / অর্থনীতি (বিভাগভেদে)",
             totalSeats: "৭৬টি (বিভাগ পরিবর্তন)",
             examOrder: 2,
@@ -1210,7 +1430,7 @@
                 { label: "ফোন (এক্স: ৪৩৪৩, ৪৩৪২, ৪৩৪১)", number: "09666911463" }
               ]
             },
-            appFee: "১,০৫০ টাকা",
+            appFee: "১,২০০ টাকা",
             mandatorySubject: "নির্দিষ্ট বাধ্যতামূলক বিষয় নেই (সকল বিভাগের জন্য অভিন্ন প্রশ্ন ও নম্বর বণ্টন)",
             totalSeats: "২,৯৩৪টি",
             examOrder: 3,
@@ -1247,7 +1467,7 @@
                 { label: "ফোন (এক্স: ৪৩৬০)", number: "09666911463" }
               ]
             },
-            appFee: "১,০৫০ টাকা",
+            appFee: "১,২০০ টাকা",
             mandatorySubject: "মানবিক/বিজ্ঞান শাখার জন্য বাংলা, ইংরেজি, আইসিটি আবশ্যিক ও গণিত/পরিসংখ্যান/অর্থনীতি থেকে ১টি",
             totalSeats: "১২০টি (মানবিক ও বিজ্ঞান কোটা)",
             examOrder: 5,
@@ -1288,7 +1508,7 @@
                 { label: "ফোন (এক্স: ৮৫৭১, ৮৫৮১)", number: "09666911463" }
               ]
             },
-            appFee: "১,০৫০ টাকা",
+            appFee: "১,৪০০ টাকা",
             mandatorySubject: "সকল বিভাগের জন্য অভিন্ন নম্বর বণ্টন (ফ্রি-হ্যান্ড অঙ্কন দক্ষতা আবশ্যক)",
             totalSeats: "১৩০টি",
             examOrder: 4,
@@ -1363,7 +1583,7 @@
         secondTime: true,
         applyOrder: 2,
         applyTimeline: "১৫ নভেম্বর – ৩০ নভেম্বর ২০২৬",
-        applyNote: "আবেদন চলমান (শেষ হতে বাকি ১১ দিন)",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ১০ দিন)",
         website: "https://admission.ru.ac.bd/",
         generalCircularUrl: "https://admission.ru.ac.bd/student/notices",
         helpline: "+880-1703-899973",
@@ -1480,7 +1700,7 @@
         secondTime: false,
         applyOrder: 3,
         applyTimeline: "২৫ নভেম্বর (দুপুর ১২টা) – ১০ ডিসেম্বর ২০২৬",
-        applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৬ দিন)",
+        applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৫ দিন)",
         website: "https://admission.jnu.ac.bd/",
         helpline: "09611-773388",
         lastUpdated: "১৯ নভেম্বর ২০২৬",
@@ -1619,7 +1839,7 @@
         secondTime: true,
         applyOrder: 4,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২১ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২০ দিন)",
         website: "https://admission.bup.edu.bd/",
         helpline: "09666-790790",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1728,7 +1948,7 @@
         secondTime: true,
         applyOrder: 5,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৬ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৫ দিন)",
         website: "https://admission.cu.ac.bd/",
         helpline: "01555-555140",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1930,7 +2150,7 @@
         secondTime: true,
         applyOrder: 6,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩১ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩০ দিন)",
         website: "https://ju-admission.org/",
         helpline: "01841-458000",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -2100,7 +2320,7 @@
         secondTime: true,
         applyOrder: 7,
         applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-        applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৬ দিন)",
+        applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৫ দিন)",
         website: "https://admission.ku.ac.bd/",
         helpline: "01534-296430",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -2177,7 +2397,7 @@
         secondTime: true,
         applyOrder: 8,
         applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৭ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৬ দিন)",
         website: "https://admission.cou.ac.bd/",
         helpline: "01557-330381",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -2255,7 +2475,7 @@
         secondTime: true,
         applyOrder: 9,
         applyTimeline: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৯ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৮ দিন)",
         website: "https://gstadmission.ac.bd/",
         helpline: "09613-330000",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -2371,6 +2591,7 @@
 
     const homeView = document.getElementById("homeView");
     const detailView = document.getElementById("detailView");
+    const updatesView = document.getElementById("updatesView");
     const uniGrid = document.getElementById("uniGrid");
     const detailContent = document.getElementById("detailContent");
     const unitTabsContainer = document.getElementById("unitTabsContainer");
@@ -2632,11 +2853,12 @@
       `;
     });
 
-    /* Same Tab Details Page View */
+    /* Same Tab Navigation: Home, Details & Updates */
     function openDetailPage(uniId, pushHistory = true) {
       selectedUniId = uniId;
       selectedUnitIndex = 0;
       homeView.classList.add("hidden");
+      updatesView.classList.add("hidden");
       detailView.classList.remove("hidden");
       renderDetail();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -2645,20 +2867,49 @@
       }
     }
 
-    function goHome(pushHistory = true) {
-      if (!selectedUniId && !detailView.classList.contains("hidden")) {
-        detailView.classList.add("hidden");
-        homeView.classList.remove("hidden");
+    function openUpdatesPage(pushHistory = true) {
+      selectedUniId = null;
+      homeView.classList.add("hidden");
+      detailView.classList.add("hidden");
+      updatesView.classList.remove("hidden");
+      renderUpdatesPage();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (pushHistory) {
+        history.pushState({ updates: true }, "", "#updates");
       }
-      if (selectedUniId) {
-        selectedUniId = null;
-        detailView.classList.add("hidden");
-        homeView.classList.remove("hidden");
-        document.title = "Admission Update ২০২৬-২৭ | বিশ্ববিদ্যালয় ভর্তি তথ্য ও সহায়িকা";
-        renderHome();
-        if (pushHistory) {
-          history.pushState({}, "", window.location.pathname);
-        }
+    }
+
+    function renderUpdatesPage() {
+      document.title = "সাইট আপডেট ও ভার্সন হিস্ট্রি | Admission Update";
+      const container = document.getElementById("updatesListContainer");
+      container.innerHTML = siteUpdates.map((upd, idx) => {
+        const meta = formatUpdateMeta(upd.timestamp);
+        const latestBadge = idx === 0 ? " (সর্বশেষ)" : "";
+        return `
+          <div class="changelog-card">
+            <div class="changelog-top">
+              <span class="version-pill">ভার্সন ${upd.version}${latestBadge}</span>
+              <span class="relative-time-badge">${meta.relativeText}</span>
+            </div>
+            <div class="exact-timestamp">🕒 ${meta.exactText}</div>
+            <ul class="changelog-list">
+              ${upd.changes.map(c => `<li>${c}</li>`).join("")}
+            </ul>
+          </div>
+        `;
+      }).join("");
+    }
+
+    function goHome(pushHistory = true) {
+      const wasSubView = !detailView.classList.contains("hidden") || !updatesView.classList.contains("hidden");
+      selectedUniId = null;
+      detailView.classList.add("hidden");
+      updatesView.classList.add("hidden");
+      homeView.classList.remove("hidden");
+      document.title = "Admission Update ২০২৬-২৭ | বিশ্ববিদ্যালয় ভর্তি তথ্য ও সহায়িকা";
+      renderHome();
+      if (pushHistory && wasSubView) {
+        history.pushState({}, "", window.location.pathname);
       }
     }
 
@@ -2722,6 +2973,21 @@
             <span class="item-val">${activeUnit.seats[g.key]}</span>
           </div>
         `).join("");
+
+      /* Optional Quota Section (e.g. DU Quotas) */
+      const quotaBoxHtml = uni.quotas ? `
+        <div class="info-box full-span">
+          <h3>৪. কোটা সংক্রান্ত তথ্য</h3>
+          <div class="quota-grid">
+            ${uni.quotas.map(q => `
+              <div class="quota-pill">
+                <span class="q-name">${q.name}</span>
+                <span class="q-val">${q.value}</span>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      ` : "";
 
       /* Two-Tier or Central Office Helpline Section */
       let helplineHtml = "";
@@ -2894,6 +3160,8 @@
             </div>
           </div>
 
+          ${quotaBoxHtml}
+
           <div class="special-condition-box full-span">
             <h3>📌 সার্কুলারের বিশেষ শর্তাবলি</h3>
             <p>${activeUnit.specialCondition}</p>
@@ -2954,18 +3222,30 @@
     });
 
     document.getElementById("backBtn").addEventListener("click", () => goHome(true));
+    document.getElementById("updatesBackBtn").addEventListener("click", () => goHome(true));
+    document.getElementById("footerUpdateLink").addEventListener("click", (e) => {
+      e.preventDefault();
+      openUpdatesPage(true);
+    });
 
     window.addEventListener("popstate", () => {
       const hashId = window.location.hash.replace("#", "");
-      if (hashId && admissionData.some(u => u.id === hashId)) {
+      if (hashId === "updates") {
+        openUpdatesPage(false);
+      } else if (hashId && admissionData.some(u => u.id === hashId)) {
         openDetailPage(hashId, false);
       } else {
         goHome(false);
       }
     });
 
+    updateFooterPill();
+    setInterval(updateFooterPill, 60000);
+
     const initialHash = window.location.hash.replace("#", "");
-    if (initialHash && admissionData.some(u => u.id === initialHash)) {
+    if (initialHash === "updates") {
+      openUpdatesPage(false);
+    } else if (initialHash && admissionData.some(u => u.id === initialHash)) {
       openDetailPage(initialHash, false);
     } else {
       renderHome();
@@ -2974,4 +3254,4 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 </body>
-                                                   </html>
+              </html>
