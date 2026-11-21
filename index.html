@@ -226,7 +226,7 @@
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(265px, 1fr));
       gap: 12px;
-      margin-bottom: 20px;
+      margin-bottom: 16px;
     }
 
     .uni-card {
@@ -336,6 +336,70 @@
     }
 
     .details-cta { color: var(--primary); font-weight: 700; white-space: nowrap; }
+
+    /* Text-Only Sponsored Promo Button Card */
+    .promo-ad-card {
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-left: 4px solid var(--accent);
+      border-radius: 13px;
+      padding: 11px 14px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+    }
+    .promo-ad-card.in-details {
+      margin-bottom: 0;
+      background: var(--card-sub);
+    }
+    .promo-ad-tag {
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 0.72rem;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 999px;
+      flex-shrink: 0;
+    }
+    .promo-ad-btn {
+      flex: 1;
+      display: inline-flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      background: var(--accent);
+      color: #ffffff;
+      text-decoration: none;
+      padding: 9px 14px;
+      border-radius: 9px;
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.35;
+      transition: opacity 0.15s ease, transform 0.15s ease;
+    }
+    .promo-ad-btn:hover {
+      opacity: 0.93;
+      transform: translateY(-1px);
+    }
+    [data-theme="dark"] .promo-ad-btn { color: #0f172a; }
+    @media (max-width: 600px) {
+      .promo-ad-card {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 7px;
+        padding: 10px 12px;
+      }
+      .promo-ad-tag {
+        align-self: flex-start;
+      }
+      .promo-ad-btn {
+        font-size: 0.86rem;
+        padding: 9px 12px;
+      }
+    }
 
     /* Roadmap 3 Tabs */
     .roadmap-tabs { display: grid; grid-template-columns: repeat(3, 1fr); gap: 7px; margin-bottom: 14px; }
@@ -1577,6 +1641,15 @@
         <div class="uni-grid" id="uniGrid"></div>
       </section>
 
+      <!-- বিজ্ঞাপন প্রোমো বাটন (বিশ্ববিদ্যালয় গ্রিড ও ভর্তি রোডম্যাপের মাঝখানে) -->
+      <div class="promo-ad-card" id="homePromoAd">
+        <span class="promo-ad-tag">বিজ্ঞাপন</span>
+        <a href="https://www.panaceapubs.com/product_details/supplement-banglaenglishgk" class="promo-ad-btn" target="_blank" rel="noopener noreferrer">
+          <span>প্রস্তুতিকে আরও সমৃদ্ধ করতে সংগ্রহ করো প্যানাসিয়া সাপ্লিমেন্ট।</span>
+          <span>↗</span>
+        </a>
+      </div>
+
       <!-- ভর্তি রোডম্যাপ সেকশন (৩টি ট্যাবসহ) -->
       <section class="panel" id="roadmapSec">
         <div class="section-header">
@@ -1799,6 +1872,12 @@
       });
     })();
 
+    const PROMO_AD_DATA = {
+      tag: "বিজ্ঞাপন",
+      label: "প্রস্তুতিকে আরও সমৃদ্ধ করতে সংগ্রহ করো প্যানাসিয়া সাপ্লিমেন্ট।",
+      url: "https://www.panaceapubs.com/product_details/supplement-banglaenglishgk"
+    };
+
     const DISCLAIMER_25_26 = "২০২৬–২৭ শিক্ষাবর্ষের ডাটা প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের ডাটা দিয়ে তথ্য সাজানো হয়েছে। সংশ্লিষ্ট ইউনিটের নোটিশ প্রকাশিত হলে আমরা আপডেট করে দেব।";
     const DISCLAIMER_JNU_PARTIAL = "২০২৬–২৭ শিক্ষাবর্ষের একাডেমিক কাউন্সিলের সিদ্ধান্ত অনুযায়ী পরীক্ষার তারিখ, সময় ও জিপিএ যোগ্যতা আপডেট করা হয়েছে। তবে পূর্ণাঙ্গ সার্কুলার এখনো প্রকাশিত না হওয়ায় আবেদন ফি ও আসন সংখ্যার মতো কিছু তথ্য ২০২৫–২৬ সেশনের ডাটা দিয়ে সাজানো হয়েছে। সংশ্লিষ্ট ইউনিটের চূড়ান্ত নোটিশ প্রকাশিত হলে আমরা আপডেট করে দেব।";
 
@@ -1806,7 +1885,7 @@
     const siteUpdates = [
       {
         version: "v1.6",
-        timestamp: "2026-11-21T18:40:00+06:00",
+        timestamp: "2026-11-22T01:10:00+06:00",
         changes: [
           { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের ‘খ’ ইউনিটের বাংলা, ইংরেজি ও সাধারণ জ্ঞান বিষয়ের ২০২৬ সালের পাঠ্যসূচিভিত্তিক পরীক্ষার সিলেবাস ও গুরুত্বপূর্ণ টপিক (Collapsible বক্স) এবং ‘গ’ ইউনিটের বিজ্ঞান ও মানবিক শাখার MCQ ও লিখিত মানবণ্টন আপডেট করা হয়েছে।" },
           { uni: "JU", text: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের ২০২৬–২৭ পূর্ণাঙ্গ অফিশিয়াল সার্কুলার যুক্ত: আবেদন ২২ নভে – ১৫ ডিসে ২০২৬, পরীক্ষা ১০–২১ জানু ২০২৭, ফি ৬০০–৮০০/- (+১.২% চার্জ), নেগেটিভ মার্ক ০.২০ এবং ১৩ নং ধারা অনুযায়ী কোটার তথ্য হালনাগাদ।" },
@@ -1947,7 +2026,7 @@
         applyStartISO: "2026-11-11",
         applyEndISO: "2026-11-25",
         applyTimeline: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
-        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৪ দিন)",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৩ দিন)",
         website: "https://admission.eis.du.ac.bd/",
         generalCircularUrl: "https://admission.eis.du.ac.bd/bn/gf6s7h89rthg463786e4q6a3b679w6jrn46a",
         helpline: "09666361991",
@@ -1968,7 +2047,7 @@
           email: "helpline@eis.du.ac.bd",
           address: "কক্ষ নং ২১৪, প্রশাসনিক ভবন, ঢাকা বিশ্ববিদ্যালয়।"
         },
-        lastUpdated: "২১ নভেম্বর ২০২৬",
+        lastUpdated: "২২ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "ক ইউনিট (বিভাগ পরিবর্তন)",
@@ -2240,7 +2319,7 @@
         applyStartISO: "2026-11-15",
         applyEndISO: "2026-11-30",
         applyTimeline: "১৫ নভেম্বর – ৩০ নভেম্বর ২০২৬",
-        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৯ দিন)",
+        applyNote: "আবেদন চলমান (শেষ হতে বাকি ৮ দিন)",
         website: "https://admission.ru.ac.bd/",
         generalCircularUrl: "https://admission.ru.ac.bd/student/notices",
         helpline: "+880-1703-899973",
@@ -2253,7 +2332,7 @@
           email: "admission@ru.ac.bd",
           address: "অফিস সময়: সকাল ০৯:৩০ – বিকাল ০৫:৩০ পর্যন্ত।"
         },
-        lastUpdated: "২১ নভেম্বর ২০২৬",
+        lastUpdated: "২২ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "A ইউনিট (মানবিক)",
@@ -2368,13 +2447,13 @@
         shortName: "জাবি",
         fullName: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
         summaryText: "B, C, C1 (চারুকলা), E ও IBA-JU উপ-ইউনিট",
-        appStatus: "upcoming",
+        appStatus: "open",
         secondTime: true,
         applyOrder: 3,
         applyStartISO: "2026-11-22",
         applyEndISO: "2026-12-15",
         applyTimeline: "২২ নভেম্বর (সকাল ১০টা) – ১৫ ডিসেম্বর ২০২৬ (রাত ১১:৫৯)",
-        applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ১ দিন)",
+        applyNote: "আবেদন চলমান",
         website: "https://admission.juniv.edu",
         generalCircularUrl: "https://juniv.edu/discussion/18670",
         helpline: "01348307028",
@@ -2394,7 +2473,7 @@
           email: "admissionhelp@juniv.edu",
           address: "সাভার, ঢাকা-১৩৪২ (প্রবেশপত্র ডাউনলোড: ২৫ ডিসেম্বর ২০২৬ থেকে)।"
         },
-        lastUpdated: "২১ নভেম্বর ২০২৬",
+        lastUpdated: "২২ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (সমাজবিজ্ঞান)",
@@ -2595,11 +2674,11 @@
         applyStartISO: "2026-11-25",
         applyEndISO: "2026-12-10",
         applyTimeline: "২৫ নভেম্বর (দুপুর ১২টা) – ১০ ডিসেম্বর ২০২৬ (রাত ১১:৫৯)",
-        applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৪ দিন)",
+        applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৩ দিন)",
         website: "https://admission.jnu.ac.bd/",
         generalCircularUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
         helpline: "09611-773388",
-        lastUpdated: "২১ নভেম্বর ২০২৬",
+        lastUpdated: "২২ নভেম্বর ২০২৬",
         units: [
           {
             tabLabel: "B ইউনিট (কলা ও আইন)",
@@ -2761,7 +2840,7 @@
         secondTime: true,
         applyOrder: 5,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ১৯ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ১৮ দিন)",
         website: "https://admission.bup.edu.bd/",
         helpline: "09666-790790",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -2885,7 +2964,7 @@
         secondTime: true,
         applyOrder: 6,
         applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৪ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৩ দিন)",
         website: "https://admission.cu.ac.bd/",
         helpline: "01555-555140",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -3129,7 +3208,7 @@
         secondTime: true,
         applyOrder: 7,
         applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-        applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৪ দিন)",
+        applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৩ দিন)",
         website: "https://admission.ku.ac.bd/",
         helpline: "01534-296430",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -3222,7 +3301,7 @@
         secondTime: true,
         applyOrder: 8,
         applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৫ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৪ দিন)",
         website: "https://admission.cou.ac.bd/",
         helpline: "01557-330381",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -3312,7 +3391,7 @@
         secondTime: true,
         applyOrder: 9,
         applyTimeline: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৭ দিন)",
+        applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৬ দিন)",
         website: "https://gstadmission.ac.bd/",
         helpline: "09613-330000",
         lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -3975,6 +4054,17 @@
         </div>
       `;
 
+      /* Text-Only Sponsored Promo Button Card (Right below Section 3 Marks Distribution) */
+      const detailPromoHtml = `
+        <div class="promo-ad-card in-details full-span">
+          <span class="promo-ad-tag">${PROMO_AD_DATA.tag}</span>
+          <a href="${PROMO_AD_DATA.url}" class="promo-ad-btn" target="_blank" rel="noopener noreferrer">
+            <span>${PROMO_AD_DATA.label}</span>
+            <span>↗</span>
+          </a>
+        </div>
+      `;
+
       /* Optional Collapsible Subject Syllabus Box (e.g. DU B Unit) */
       const syllabusBoxHtml = activeUnit.subjectSyllabus ? `
         <div class="info-box full-span">
@@ -4173,6 +4263,8 @@
               ✅ পাস নম্বর ও শর্ত: ${activeUnit.marks.pass}
             </div>
           </div>
+
+          ${detailPromoHtml}
 
           ${syllabusBoxHtml}
 
