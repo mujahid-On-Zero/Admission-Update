@@ -458,13 +458,13 @@
       opacity: 0.88;
     }
 
-    /* Compact Exam Timeline Cards */
+    /* Exam Timeline Cards (Desktop & Mobile Responsive) */
     .exam-row-compact {
       background: var(--card-sub);
       border: 1px solid var(--border);
       border-left: 3.5px solid var(--primary);
-      border-radius: 9px;
-      padding: 8px 12px;
+      border-radius: 10px;
+      padding: 9px 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -472,16 +472,17 @@
     }
     .exam-row-left { min-width: 0; }
     .exam-uni-unit {
-      font-size: 0.88rem;
+      font-size: 0.89rem;
       font-weight: 700;
       color: var(--text);
-      line-height: 1.3;
+      line-height: 1.35;
     }
     .exam-uni-tag { color: var(--primary); }
     .exam-center-sub {
-      font-size: 0.76rem;
+      font-size: 0.77rem;
       color: var(--muted);
       margin-top: 2px;
+      line-height: 1.35;
     }
     .exam-date-pill {
       background: var(--primary-soft);
@@ -492,6 +493,20 @@
       border-radius: 7px;
       white-space: nowrap;
       flex-shrink: 0;
+    }
+
+    @media (max-width: 600px) {
+      .exam-row-compact {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 6px;
+        padding: 10px 11px;
+      }
+      .exam-date-pill {
+        white-space: normal;
+        font-size: 0.76rem;
+        padding: 3px 9px;
+      }
     }
 
     /* Enhanced Same-Day Clash Cards */
@@ -892,6 +907,60 @@
       font-size: 0.92rem;
       color: var(--primary);
       font-weight: 700;
+    }
+
+    /* Collapsible Subject Syllabus Accordion Box */
+    .syllabus-toggle-btn {
+      width: 100%;
+      background: var(--card);
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 13px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      font-weight: 700;
+      color: var(--primary);
+      cursor: pointer;
+      transition: border-color 0.15s ease, background-color 0.15s ease;
+    }
+    .syllabus-toggle-btn:hover {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+    }
+    .syllabus-chevron {
+      font-size: 0.85rem;
+      transition: transform 0.2s ease;
+    }
+    .syllabus-toggle-btn.open .syllabus-chevron {
+      transform: rotate(180deg);
+    }
+    .syllabus-body {
+      margin-top: 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 9px;
+    }
+    .syllabus-sub-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-left: 3.5px solid var(--accent);
+      border-radius: 9px;
+      padding: 10px 12px;
+    }
+    .syllabus-sub-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+    .syllabus-sub-card p {
+      font-size: 0.85rem;
+      color: var(--text);
+      line-height: 1.55;
     }
 
     /* User-Friendly Marks Distribution Section + Visual Breakdown Bar + Sub-Sections */
@@ -1737,9 +1806,9 @@
     const siteUpdates = [
       {
         version: "v1.6",
-        timestamp: "2026-11-21T18:00:00+06:00",
+        timestamp: "2026-11-21T18:40:00+06:00",
         changes: [
-          { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের ‘গ’ ইউনিটের বিজ্ঞান ও মানবিক শাখার MCQ (বাংলা আবশ্যিক ১২, ইংরেজি আবশ্যিক ১২, আইসিটি আবশ্যিক ১২, গণিত অথবা অর্থনীতি ২৪) ও লিখিত (৪০ নম্বর) মানবণ্টন এবং সকল ইউনিটে MCQ ও লিখিত/ব্যবহারিক আলাদা সাব-সেকশন যুক্ত করা হয়েছে।" },
+          { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের ‘খ’ ইউনিটের বাংলা, ইংরেজি ও সাধারণ জ্ঞান বিষয়ের ২০২৬ সালের পাঠ্যসূচিভিত্তিক পরীক্ষার সিলেবাস ও গুরুত্বপূর্ণ টপিক (Collapsible বক্স) এবং ‘গ’ ইউনিটের বিজ্ঞান ও মানবিক শাখার MCQ ও লিখিত মানবণ্টন আপডেট করা হয়েছে।" },
           { uni: "JU", text: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের ২০২৬–২৭ পূর্ণাঙ্গ অফিশিয়াল সার্কুলার যুক্ত: আবেদন ২২ নভে – ১৫ ডিসে ২০২৬, পরীক্ষা ১০–২১ জানু ২০২৭, ফি ৬০০–৮০০/- (+১.২% চার্জ), নেগেটিভ মার্ক ০.২০ এবং ১৩ নং ধারা অনুযায়ী কোটার তথ্য হালনাগাদ।" },
           { uni: "RU", text: "রাজশাহী বিশ্ববিদ্যালয়ের সবগুলো ইউনিটের (A, B ও C) অফিশিয়াল ইউনিট সার্কুলার PDF ডাউনলোড লিংক সংযোজন করা হয়েছে।" },
           { uni: "JnU", text: "জগন্নাথ বিশ্ববিদ্যালয়ের সাধারণ সার্কুলার লিংক, ২৫ নভে – ১০ ডিসে আবেদন সূচি, সকাল ১০–১১টা পরীক্ষা, বিভাগীয় শহর ঢাকা কেন্দ্র, B, C, D ও E ইউনিটের নতুন জিপিএ যোগ্যতা এবং আংশিক ডিসক্লেইমার যুক্ত করা হয়েছে।" },
@@ -1748,7 +1817,7 @@
           { uni: "KU", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
           { uni: "CoU", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
           { uni: "GST", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
-          { uni: "ALL", text: "ভিজ্যুয়াল ভার্টিক্যাল আবেদন টাইমলাইন, ডিটেইলস পেইজে পরীক্ষা স্ট্যাটাস ব্যানার, আসন অনুপাত বার, জিপিএ মিনি-কার্ড এবং হোম স্ক্রিনে অ্যাপ ইনস্টল কার্ড যুক্ত করা হয়েছে।" }
+          { uni: "ALL", text: "ভিজ্যুয়াল ভার্টিক্যাল আবেদন টাইমলাইন, মোবাইল রেসপন্সিভ পরীক্ষা টাইমলাইন, ডিটেইলস পেইজে পরীক্ষা স্ট্যাটাস ব্যানার, আসন অনুপাত বার, জিপিএ মিনি-কার্ড এবং হোম স্ক্রিনে অ্যাপ ইনস্টল কার্ড যুক্ত করা হয়েছে।" }
         ]
       },
       {
@@ -1999,6 +2068,20 @@
                 { name: "ইংরেজি", dist: "২০ নম্বর" }
               ]
             },
+            subjectSyllabus: [
+              {
+                subject: "📕 বাংলা (MCQ ও লিখিত অংশ)",
+                details: "ভর্তি-পরীক্ষার MCQ অংশের এবং লিখিত অংশের বাংলা বিষয়ের প্রশ্ন জাতীয় পাঠ্যপুস্তক বোর্ড নির্ধারিত শিক্ষাক্রমের আলোকে ২০২৬ সালের অনুসৃত পাঠ্যসূচি অনুসারে প্রণীত হবে। লিখিত পরীক্ষার বাংলা অংশে পাঠ্যসূচিভুক্ত একটি পাঠের মূলভাব লিখন, কবিতার উদ্ধৃতি ব্যাখ্যা, উদ্ধৃত সংলাপ ব্যাখ্যা (গদ্য, উপন্যাস ও নাটক-ভিত্তিক), লেখক / কবি পরিচিতি, মিলকরণ (গদ্য, কবিতা ও ব্যাকরণভিত্তিক), সারাংশ / সারমর্ম লিখন, বানান শুদ্ধি ও প্রমিতকরণ, সংক্ষিপ্ত অনুচ্ছেদ লিখন, ব্যাকরণ-সম্পর্কিত বিষয়াবলি (সংজ্ঞার্থ ও দৃষ্টান্ত) এবং অনুবাদ অধিক গুরুত্ব পাবে।"
+              },
+              {
+                subject: "📘 ইংরেজি (MCQ ও লিখিত General English অংশ)",
+                details: "ভর্তি-পরীক্ষার MCQ অংশের এবং লিখিত অংশের ইংরেজি বিষয়ের প্রশ্ন জাতীয় পাঠ্যপুস্তক বোর্ড নির্ধারিত শিক্ষাক্রমের আলোকে ২০২৬ সালের অনুসৃত পাঠ্যসূচি অনুসারে প্রণীত হবে। লিখিত পরীক্ষার General English অংশে Comprehension, Short paragraph, Explanation (Explain with the reference to the context), Rearranging, Translation, Punctuation, Gap filling with & without clues, Sentence making, Changing এবং Transformation of sentences অধিক গুরুত্ব পাবে।"
+              },
+              {
+                subject: "🌍 সাধারণ জ্ঞান (MCQ অংশ)",
+                details: "MCQ অংশের সাধারণ জ্ঞান-সংশ্লিষ্ট প্রশ্ন বাংলাদেশ ও আন্তর্জাতিক বিষয়াবলি এবং পৌরনীতি ও সুশাসন, সমাজবিজ্ঞান, অর্থনীতি, ইতিহাস, যুক্তিবিদ্যা, ভূগোল, তথ্য ও যোগাযোগ প্রযুক্তি প্রভৃতি বিষয়ের আলোকে প্রণীত হবে।"
+              }
+            ],
             specialCondition: "সকল বিভাগের শিক্ষার্থীদের জন্য একই প্রশ্নপত্র ও নম্বর বণ্টন প্রযোজ্য। শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)।"
           },
           {
@@ -3712,6 +3795,14 @@
       }
     }
 
+    function toggleSyllabusBox(btnEl) {
+      const bodyEl = btnEl.nextElementSibling;
+      if (!bodyEl) return;
+      const isHidden = bodyEl.classList.contains("hidden");
+      bodyEl.classList.toggle("hidden", !isHidden);
+      btnEl.classList.toggle("open", isHidden);
+    }
+
     function copyHelpline(num, btnEl) {
       navigator.clipboard?.writeText(num);
       const orig = btnEl.textContent;
@@ -3883,6 +3974,24 @@
           </div>
         </div>
       `;
+
+      /* Optional Collapsible Subject Syllabus Box (e.g. DU B Unit) */
+      const syllabusBoxHtml = activeUnit.subjectSyllabus ? `
+        <div class="info-box full-span">
+          <button type="button" class="syllabus-toggle-btn" onclick="toggleSyllabusBox(this)">
+            <span>📚 বিষয়ভিত্তিক পরীক্ষার সিলেবাস ও গুরুত্বপূর্ণ টপিক (ক্লিক করে দেখুন)</span>
+            <span class="syllabus-chevron">▼</span>
+          </button>
+          <div class="syllabus-body hidden">
+            ${activeUnit.subjectSyllabus.map(item => `
+              <div class="syllabus-sub-card">
+                <h4>${item.subject}</h4>
+                <p>${item.details}</p>
+              </div>
+            `).join("")}
+          </div>
+        </div>
+      ` : "";
 
       /* Optional Quota Section (e.g. DU & JU Quotas) */
       const quotaBoxHtml = uni.quotas ? `
@@ -4064,6 +4173,8 @@
               ✅ পাস নম্বর ও শর্ত: ${activeUnit.marks.pass}
             </div>
           </div>
+
+          ${syllabusBoxHtml}
 
           ${quotaBoxHtml}
 
