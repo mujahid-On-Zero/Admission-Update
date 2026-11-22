@@ -54,6 +54,14 @@ const DISCLAIMER_JNU_PARTIAL = "২০২৬–২৭ শিক্ষাবর�
 /* Site Version & Update Log Data */
 const siteUpdates = [
   {
+    version: "v1.7",
+    timestamp: "2026-11-22T10:30:00+06:00",
+    changes: [
+      { uni: "JU", text: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের আবেদন পোর্টাল (juadmission.org), সাধারণ সার্কুলার, সকল ইউনিটের অফিশিয়াল সার্কুলার PDF, আবেদন নির্দেশিকা ও অনলাইন সহায়তা কেন্দ্র (হেল্পডেস্ক) লিংক হালনাগাদ করা হয়েছে।" },
+      { uni: "ALL", text: "সহায়িকা বই ও মডেল টেস্টের প্রোমো বাটনগুলোর আকার আরও কম্প্যাক্ট ও মোবাইল-বান্ধব করা হয়েছে।" }
+    ]
+  },
+  {
     version: "v1.6",
     timestamp: "2026-11-22T01:40:00+06:00",
     changes: [
@@ -538,8 +546,11 @@ const admissionData = [
     applyEndISO: "2026-12-15",
     applyTimeline: "২২ নভেম্বর (সকাল ১০টা) – ১৫ ডিসেম্বর ২০২৬ (রাত ১১:৫৯)",
     applyNote: "আবেদন চলমান",
-    website: "https://admission.juniv.edu",
-    generalCircularUrl: "https://juniv.edu/discussion/18670",
+    website: "https://juadmission.org/",
+    generalCircularUrl: "https://juadmission.org/notices",
+    applicationInstructionUrl: "https://juadmission.org/application-instruction",
+    helpdeskUrl: "https://juadmission.org/help",
+    helpdeskText: "আবেদনে কোনো সমস্যা হলে অনলাইন সহায়তা কেন্দ্রে জমা দিন।",
     helpline: "01348307028",
     quotas: [
       { name: "কোটা আবেদন সময়", value: "ভর্তি পরীক্ষায় উত্তীর্ণদের মধ্য থেকে পরবর্তীতে" },
@@ -562,7 +573,7 @@ const admissionData = [
       {
         tabLabel: "B ইউনিট (সমাজবিজ্ঞান)",
         unitName: "B ইউনিট (সমাজবিজ্ঞান ও আইন অনুষদ)",
-        pdfUrl: "https://juniv.edu/discussion/18670",
+        pdfUrl: "https://api.juadmission.org/storage/uploads/2026-2027/circular/notice_1_1795271673ebce.pdf",
         appFee: "৮০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (অর্থনীতি, আইন ও নগর পরিকল্পনায় আলাদা বিষয় শর্ত)",
         totalSeats: "৩৯৬টি (ছাত্র ১৯৮ + ছাত্রী ১৯৮)",
@@ -600,7 +611,7 @@ const admissionData = [
       {
         tabLabel: "C ইউনিট (কলা)",
         unitName: "C ইউনিট (কলা ও মানবিকী অনুষদ এবং তুলনামূলক সাহিত্য ও সংস্কৃতি ইনস্টিটিউট)",
-        pdfUrl: "https://juniv.edu/discussion/18670",
+        pdfUrl: "https://api.juadmission.org/storage/uploads/2026-2027/circular/notice_1_1795271673ebce.pdf",
         appFee: "৮০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "বাংলা ও ইংরেজি বিভাগে HSC-তে সংশ্লিষ্ট বিষয়ে ন্যূনতম A- (মাইনাস) গ্রেড",
         totalSeats: "৪০২টি (ছাত্র ২০১ + ছাত্রী ২০১)",
@@ -636,7 +647,7 @@ const admissionData = [
       {
         tabLabel: "C1 উপ-ইউনিট (নাটক ও চারুকলা)",
         unitName: "C1 উপ-ইউনিট (নাটক ও নাট্যতত্ত্ব বিভাগ এবং চারুকলা বিভাগ)",
-        pdfUrl: "https://juniv.edu/discussion/18670",
+        pdfUrl: "https://api.juadmission.org/storage/uploads/2026-2027/circular/notice_1_1795271673ebce.pdf",
         appFee: "৬০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "সকল বিভাগ উন্মুক্ত (২০ নম্বরের ব্যবহারিক পরীক্ষা আবশ্যক)",
         totalSeats: "৬৪টি (নাটক ২৮টি, চারুকলা ৩৬টি)",
@@ -676,7 +687,7 @@ const admissionData = [
       {
         tabLabel: "E ইউনিট (বিজনেস)",
         unitName: "E ইউনিট (বিজনেস স্টাডিজ অনুষদ)",
-        pdfUrl: "https://juniv.edu/discussion/18670",
+        pdfUrl: "https://api.juadmission.org/storage/uploads/2026-2027/circular/notice_1_1795271673ebce.pdf",
         appFee: "৭০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "বাণিজ্য/মানবিক: ইংরেজি ও হিসাববিজ্ঞান/গণিত/অর্থনীতিতে B; বিজ্ঞান: ইংরেজি ও গণিতে A-",
         totalSeats: "১৭৬টি (ছাত্র ৮৮ + ছাত্রী ৮৮)",
@@ -711,7 +722,7 @@ const admissionData = [
       {
         tabLabel: "IBA-JU",
         unitName: "ইনস্টিটিউট অব বিজনেস অ্যাডমিনিস্ট্রেশন (IBA-JU)",
-        pdfUrl: "https://juniv.edu/discussion/18670",
+        pdfUrl: "https://api.juadmission.org/storage/uploads/2026-2027/circular/notice_1_1795271673ebce.pdf",
         appFee: "৬০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "ইংরেজি এবং গণিত/পরিসংখ্যান/হিসাববিজ্ঞান/অর্থনীতি/ব্যবস্থাপনায় পৃথকভাবে ন্যূনতম B গ্রেড",
         totalSeats: "৭০টি (ছাত্র ৩৫ + ছাত্রী ৩৫)",
