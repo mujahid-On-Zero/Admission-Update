@@ -337,17 +337,17 @@
 
     .details-cta { color: var(--primary); font-weight: 700; white-space: nowrap; }
 
-    /* Attractive Book & Model Test Promo Buttons Block (No "বিজ্ঞাপন" Label) */
+    /* Compact Promo Buttons Block (No "বিজ্ঞাপন" Label) */
     .promo-showcase-block {
       background: var(--card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 12px;
-      margin-bottom: 18px;
+      border-radius: 13px;
+      padding: 8px;
+      margin-bottom: 16px;
       box-shadow: var(--shadow);
       display: grid;
       grid-template-columns: 1fr;
-      gap: 10px;
+      gap: 7px;
     }
     .promo-showcase-block.in-details {
       margin-bottom: 0;
@@ -360,16 +360,16 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
-      padding: 12px 15px;
-      border-radius: 12px;
+      gap: 10px;
+      padding: 8px 12px;
+      border-radius: 10px;
       text-decoration: none;
       color: #ffffff;
       border: 1px solid rgba(255, 255, 255, 0.22);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
     .promo-fancy-btn:hover {
-      transform: translateY(-2px);
+      transform: translateY(-1px);
     }
     .promo-fancy-btn:active {
       transform: scale(0.99);
@@ -395,95 +395,95 @@
 
     .promo-theme-teal {
       background: linear-gradient(135deg, #065f46 0%, #0d9488 100%);
-      box-shadow: 0 4px 12px rgba(13, 148, 136, 0.25);
+      box-shadow: 0 3px 8px rgba(13, 148, 136, 0.2);
     }
     .promo-theme-blue {
       background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 3px 8px rgba(37, 99, 235, 0.2);
     }
     .promo-theme-amber {
       background: linear-gradient(135deg, #9a3412 0%, #d97706 100%);
-      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.25);
+      box-shadow: 0 3px 8px rgba(217, 119, 6, 0.2);
     }
     .promo-theme-purple {
       background: linear-gradient(135deg, #581c87 0%, #7c3aed 100%);
-      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+      box-shadow: 0 3px 8px rgba(124, 58, 237, 0.2);
     }
 
     .promo-btn-left {
       display: flex;
       align-items: center;
-      gap: 11px;
+      gap: 9px;
       min-width: 0;
     }
     .promo-btn-icon {
-      width: 38px;
-      height: 38px;
-      border-radius: 10px;
+      width: 30px;
+      height: 30px;
+      border-radius: 8px;
       background: rgba(255, 255, 255, 0.18);
       backdrop-filter: blur(4px);
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 1.2rem;
+      font-size: 1rem;
       flex-shrink: 0;
     }
     .promo-btn-copy {
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
       min-width: 0;
     }
     .promo-btn-sub {
-      font-size: 0.8rem;
+      font-size: 0.72rem;
       font-weight: 500;
       opacity: 0.92;
-      line-height: 1.35;
+      line-height: 1.25;
     }
     .promo-btn-title {
-      font-size: 0.96rem;
+      font-size: 0.85rem;
       font-weight: 700;
-      line-height: 1.35;
+      line-height: 1.3;
     }
     .promo-btn-cta {
       background: #ffffff;
       color: #0f172a;
-      font-size: 0.8rem;
+      font-size: 0.73rem;
       font-weight: 700;
-      padding: 6px 12px;
+      padding: 4px 10px;
       border-radius: 999px;
       white-space: nowrap;
       flex-shrink: 0;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
       transition: transform 0.15s ease;
     }
     .promo-fancy-btn:hover .promo-btn-cta {
-      transform: scale(1.04);
+      transform: scale(1.03);
     }
 
     @media (max-width: 600px) {
       .promo-showcase-block {
-        padding: 10px;
-        gap: 9px;
+        padding: 7px;
+        gap: 6px;
       }
       .promo-fancy-btn {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 9px;
-        padding: 11px 12px;
+        padding: 7px 10px;
+        gap: 8px;
       }
       .promo-btn-icon {
-        width: 34px;
-        height: 34px;
-        font-size: 1.05rem;
+        width: 28px;
+        height: 28px;
+        font-size: 0.92rem;
+      }
+      .promo-btn-sub {
+        font-size: 0.69rem;
       }
       .promo-btn-title {
-        font-size: 0.91rem;
+        font-size: 0.81rem;
       }
       .promo-btn-cta {
-        align-self: flex-end;
-        font-size: 0.78rem;
-        padding: 5px 11px;
+        font-size: 0.7rem;
+        padding: 4px 9px;
       }
     }
 
@@ -1399,6 +1399,24 @@
       flex-shrink: 0;
     }
     [data-theme="dark"] .btn-copy-mini { color: #0f172a; }
+
+    .helpdesk-action-link {
+      display: block;
+      margin-top: 8px;
+      padding: 7px 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(15, 118, 110, 0.25);
+      border-radius: 8px;
+      font-size: 0.81rem;
+      font-weight: 700;
+      text-decoration: none;
+      text-align: center;
+      transition: opacity 0.15s ease;
+    }
+    .helpdesk-action-link:hover {
+      opacity: 0.88;
+    }
 
     /* Prev/Next University Navigation Buttons on Details Page */
     .uni-pager-bar {
@@ -2689,6 +2707,13 @@
         </div>
       ` : "";
 
+      /* Online Helpdesk Link inside Helpline Card (if available) */
+      const helpdeskLinkHtml = uni.helpdeskUrl ? `
+        <a href="${uni.helpdeskUrl}" class="helpdesk-action-link" target="_blank" rel="noopener noreferrer">
+          🛠️ ${uni.helpdeskText || "অনলাইন সহায়তা কেন্দ্রে জমা দিন"} ↗
+        </a>
+      ` : "";
+
       /* Two-Tier or Central Office Helpline Section */
       let helplineHtml = "";
       if (activeUnit.unitHelpline && uni.centralOffice) {
@@ -2719,6 +2744,7 @@
                 ✉️ ই-মেইল: ${uni.centralOffice.email}<br>
                 📍 ${uni.centralOffice.address}
               </div>
+              ${helpdeskLinkHtml}
             </div>
           </div>
         `;
@@ -2739,21 +2765,31 @@
                 ✉️ ই-মেইল: ${uni.centralOffice.email}<br>
                 📍 ${uni.centralOffice.address}
               </div>
+              ${helpdeskLinkHtml}
             </div>
           </div>
         `;
       } else {
         helplineHtml = `
           <div style="display:flex; justify-content:center;">
-            <div class="helpline-card" style="display:inline-flex; align-items:center; gap:10px;">
-              <span>📞 হেল্পলাইন: <b>${uni.helpline}</b></span>
-              <button type="button" class="btn-copy-mini" onclick="copyHelpline('${uni.helpline}', this)">কপি</button>
+            <div class="helpline-card" style="display:inline-flex; flex-direction:column; align-items:center; gap:8px;">
+              <div style="display:inline-flex; align-items:center; gap:10px;">
+                <span>📞 হেল্পলাইন: <b>${uni.helpline}</b></span>
+                <button type="button" class="btn-copy-mini" onclick="copyHelpline('${uni.helpline}', this)">কপি</button>
+              </div>
+              ${helpdeskLinkHtml}
             </div>
           </div>
         `;
       }
 
       const generalCircularHref = uni.generalCircularUrl || uni.website;
+      const instructionBtnHtml = uni.applicationInstructionUrl ? `
+        <a class="verify-btn" href="${uni.applicationInstructionUrl}" target="_blank" rel="noopener noreferrer">
+          📖 আবেদন নির্দেশিকা ↗
+        </a>
+      ` : "";
+
       const pageUrl = `${window.location.origin}${window.location.pathname}#${uni.id}`;
       const shareText = encodeURIComponent(`${uni.fullName} (${activeUnit.tabLabel}) ভর্তি তথ্য ২০২৬-২৭ দেখো এখানে:\n${pageUrl}`);
       const waHref = `https://wa.me/?text=${shareText}`;
@@ -2871,6 +2907,7 @@
             <a class="verify-btn" href="${activeUnit.pdfUrl}" target="_blank" rel="noopener noreferrer">
               📄 ইউনিট সার্কুলার (PDF) ↗
             </a>
+            ${instructionBtnHtml}
             <a class="verify-btn" href="${uni.website}" target="_blank" rel="noopener noreferrer">
               🌐 এডমিশন সাইট ↗
             </a>
