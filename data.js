@@ -54,6 +54,14 @@ const DISCLAIMER_JNU_PARTIAL = "২০২৬–২৭ শিক্ষাবর�
 /* Site Version & Update Log Data */
 const siteUpdates = [
   {
+    version: "v1.8",
+    timestamp: "2026-11-24T21:00:00+06:00",
+    changes: [
+      { uni: "BUP", text: "বিইউপি (BUP)-এর ২০২৬–২৭ অফিশিয়াল সার্কুলার অনুযায়ী FASS, FBS ও FSSS অনুষদের চূড়ান্ত তথ্য যুক্ত: আবেদন ০১ ডিসে ২০২৬ – ০৫ জানু ২০২৭, পরীক্ষা ১৬, ২২ ও ২৩ জানু ২০২৭ (শুধু ঢাকা শহর), ফি ১,২০০/-, নেগেটিভ মার্ক ০.৫০, ৭৫ ও ১০০ নম্বরের নতুন MCQ মানবণ্টন এবং হেল্পলাইন সংযোজন।" },
+      { uni: "ALL", text: "জবি (JnU) ও বিইউপি (BUP)-এর ২২ ও ২৩ জানুয়ারির একই দিনের পরীক্ষার সময়সূচি নিয়ে ক্লাশ অ্যালার্ট আপডেট করা হয়েছে।" }
+    ]
+  },
+  {
     version: "v1.7",
     timestamp: "2026-11-22T12:05:00+06:00",
     changes: [
@@ -69,7 +77,6 @@ const siteUpdates = [
       { uni: "JU", text: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের ২০২৬–২৭ পূর্ণাঙ্গ অফিশিয়াল সার্কুলার যুক্ত: আবেদন ২২ নভে – ১৫ ডিসে ২০২৬, পরীক্ষা ১০–২১ জানু ২০২৭, ফি ৬০০–৮০০/- (+১.২% চার্জ), নেগেটিভ মার্ক ০.২০ এবং ১৩ নং ধারা অনুযায়ী কোটার তথ্য হালনাগাদ।" },
       { uni: "RU", text: "রাজশাহী বিশ্ববিদ্যালয়ের সবগুলো ইউনিটের (A, B ও C) অফিশিয়াল ইউনিট সার্কুলার PDF ডাউনলোড লিংক সংযোজন করা হয়েছে।" },
       { uni: "JnU", text: "জগন্নাথ বিশ্ববিদ্যালয়ের সাধারণ সার্কুলার লিংক, ২৫ নভে – ১০ ডিসে আবেদন সূচি, সকাল ১০–১১টা পরীক্ষা, বিভাগীয় শহর ঢাকা কেন্দ্র, B, C, D ও E ইউনিটের নতুন জিপিএ যোগ্যতা এবং আংশিক ডিসক্লেইমার যুক্ত করা হয়েছে।" },
-      { uni: "BUP", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
       { uni: "CU", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
       { uni: "KU", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
       { uni: "CoU", text: "২০২৬–২৭ সার্কুলার প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের তথ্যের নিচে ডিসক্লেইমার যুক্ত করা হয়েছে।" },
@@ -118,7 +125,7 @@ const admissionData = [
     applyStartISO: "2026-11-11",
     applyEndISO: "2026-11-25",
     applyTimeline: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
-    applyNote: "আবেদন চলমান (শেষ হতে বাকি ৩ দিন)",
+    applyNote: "আবেদন চলমান (শেষ হতে বাকি ১ দিন)",
     website: "https://admission.eis.du.ac.bd/",
     generalCircularUrl: "https://admission.eis.du.ac.bd/bn/gf6s7h89rthg463786e4q6a3b679w6jrn46a",
     helpline: "09666361991",
@@ -411,7 +418,7 @@ const admissionData = [
     applyStartISO: "2026-11-15",
     applyEndISO: "2026-11-30",
     applyTimeline: "১৫ নভেম্বর – ৩০ নভেম্বর ২০২৬",
-    applyNote: "আবেদন চলমান (শেষ হতে বাকি ৮ দিন)",
+    applyNote: "আবেদন চলমান (শেষ হতে বাকি ৬ দিন)",
     website: "https://admission.ru.ac.bd/",
     generalCircularUrl: "https://admission.ru.ac.bd/student/notices",
     helpline: "+880-1703-899973",
@@ -577,7 +584,7 @@ const admissionData = [
         appFee: "৮০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (অর্থনীতি, আইন ও নগর পরিকল্পনায় আলাদা বিষয় শর্ত)",
         totalSeats: "৩৯৬টি (ছাত্র ১৯৮ [৫০%] + ছাত্রী ১৯৮ [৫০%])",
-        examOrder: 9,
+        examOrder: 6.15,
         examStartISO: "2027-01-10",
         examDate: "১০ – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত) — সম্ভাব্য",
         examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
@@ -619,7 +626,7 @@ const admissionData = [
         appFee: "৮০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "বাংলা ও ইংরেজি বিভাগে HSC-তে সংশ্লিষ্ট বিষয়ে ন্যূনতম A- (মাইনাস) গ্রেড",
         totalSeats: "৪০২টি (ছাত্র ২০১ [৫০%] + ছাত্রী ২০১ [৫০%])",
-        examOrder: 9,
+        examOrder: 6.15,
         examStartISO: "2027-01-10",
         examDate: "১০ – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত) — সম্ভাব্য",
         examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
@@ -659,7 +666,7 @@ const admissionData = [
         appFee: "৬০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "সকল বিভাগ উন্মুক্ত (২০ নম্বরের ব্যবহারিক পরীক্ষা আবশ্যক)",
         totalSeats: "৬৪টি (ছাত্র ৩২ [৫০%] + ছাত্রী ৩২ [৫০%])",
-        examOrder: 9,
+        examOrder: 6.15,
         examStartISO: "2027-01-10",
         examDate: "১০ – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত) — সম্ভাব্য",
         examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
@@ -703,7 +710,7 @@ const admissionData = [
         appFee: "৭০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "বাণিজ্য/মানবিক: ইংরেজি ও হিসাববিজ্ঞান/গণিত/অর্থনীতিতে B; বিজ্ঞান: ইংরেজি ও গণিতে A-",
         totalSeats: "১৭৬টি (ছাত্র ৮৮ [৫০%] + ছাত্রী ৮৮ [৫০%])",
-        examOrder: 9,
+        examOrder: 6.15,
         examStartISO: "2027-01-10",
         examDate: "১০ – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত) — সম্ভাব্য",
         examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
@@ -742,7 +749,7 @@ const admissionData = [
         appFee: "৬০০ টাকা (+ ১.২% সার্ভিস চার্জ)",
         mandatorySubject: "ইংরেজি এবং গণিত/পরিসংখ্যান/হিসাববিজ্ঞান/অর্থনীতি/ব্যবস্থাপনায় পৃথকভাবে ন্যূনতম B গ্রেড",
         totalSeats: "৭০টি (ছাত্র ৩৫ [৫০%] + ছাত্রী ৩৫ [৫০%])",
-        examOrder: 9,
+        examOrder: 6.15,
         examStartISO: "2027-01-10",
         examDate: "১০ – ২১ জানুয়ারি ২০২৭ (শুক্র, শনি ও ছুটি ব্যতীত) — সম্ভাব্য",
         examCenter: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় ক্যাম্পাস",
@@ -789,7 +796,7 @@ const admissionData = [
     applyStartISO: "2026-11-25",
     applyEndISO: "2026-12-10",
     applyTimeline: "২৫ নভেম্বর (দুপুর ১২টা) – ১০ ডিসেম্বর ২০২৬ (রাত ১১:৫৯)",
-    applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৩ দিন)",
+    applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ১ দিন)",
     website: "https://admission.jnu.ac.bd/",
     generalCircularUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
     helpline: "09611-773388",
@@ -954,119 +961,130 @@ const admissionData = [
     appStatus: "upcoming",
     secondTime: true,
     applyOrder: 5,
-    applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ১৮ দিন)",
+    applyTimeline: "০১ ডিসেম্বর ২০২৬ – ০৫ জানুয়ারি ২০২৭",
+    applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৭ দিন)",
     website: "https://admission.bup.edu.bd/",
-    helpline: "09666-790790",
-    lastUpdated: "১৮ নভেম্বর ২০২৬",
+    generalCircularUrl: "https://admission.bup.edu.bd/Upload/Notices/BUP%20Admission%20Advertisement%202026-2027.pdf",
+    helpline: "09666790790",
+    centralOffice: {
+      title: "বিইউপি ভর্তি হেল্প ডেস্ক (০১ ডিসে – ০৫ জানু, সকাল ৯টা – বিকাল ৫টা)",
+      phones: [
+        { label: "ফোন ১", number: "09666790790" },
+        { label: "ফোন ২", number: "01769028540" },
+        { label: "ফোন ৩", number: "01769028541" }
+      ],
+      email: "admission@bup.edu.bd",
+      address: "মিরপুর সেনানিবাস, ঢাকা-১২১৬ (প্রবেশপত্র ডাউনলোড: ১১ জানুয়ারি ২০২৭ থেকে)।"
+    },
+    lastUpdated: "২৪ নভেম্বর ২০২৬",
     units: [
       {
         tabLabel: "FASS (কলা ও সমাজবিজ্ঞান)",
         unitName: "FASS (কলা ও সামাজিক বিজ্ঞান অনুষদ)",
-        pdfUrl: "https://admission.bup.edu.bd/",
-        appFee: "১,০০০ টাকা",
-        mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ইংরেজি মাধ্যমে পরীক্ষা)",
+        pdfUrl: "https://admission.bup.edu.bd/Upload/Notices/BUP%20Admission%20Advertisement%202026-2027.pdf",
+        appFee: "১,২০০ টাকা",
+        mandatorySubject: "English-এ SSC ও HSC উভয়টিতে A-; Economics-এ Econ/Acc/Stat/H.Math-এ A-; Disaster Mgmt-এ HSC H.Math/Stat-এ A-",
         totalSeats: "৩৫০টি",
-        examOrder: 6,
-        examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-        examCenter: "ঢাকা ও বিভাগীয় শহরসমূহ",
-        negMark: "০.২৫",
+        examOrder: 6.25,
+        examStartISO: "2027-01-16",
+        examDate: "১৬ জানুয়ারি ২০২৭ (শনিবার, সকাল ১০:৩০ – ১১:৩০)",
+        examCenter: "শুধুমাত্র ঢাকা শহর",
+        negMark: "০.৫০",
         seats: { humanities: "৩৫০টি (সমন্বিত মেধাক্রম)", science: "৩৫০টি (সমন্বিত মেধাক্রম)", commerce: "৩৫০টি (সমন্বিত মেধাক্রম)" },
         seatRatios: { humanities: 34, science: 33, commerce: 33 },
         gpa: {
-          humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদাভাবে ৩.৫০ এবং মোট ৭.৫০" },
-          science: { ssc: 4.00, hsc: 4.00, total: 8.50, note: "আলাদাভাবে ৪.০০ এবং মোট ৮.৫০" },
-          commerce: { ssc: 3.75, hsc: 3.75, total: 8.00, note: "আলাদাভাবে ৩.৭৫ এবং মোট ৮.০০" }
+          humanities: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "মানবিক: SSC ও HSC মিলিয়ে মোট জিপিএ ৭.৫০" },
+          science: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "বিজ্ঞান: SSC ও HSC মিলিয়ে মোট জিপিএ ৮.০০" },
+          commerce: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "ব্যবসায় শিক্ষা: SSC ও HSC মিলিয়ে মোট জিপিএ ৮.০০" }
         },
         marks: {
-          total: "১০০ নম্বর (MCQ + ভাইভা ও GPA)",
+          total: "১০০ নম্বর (MCQ ৫৫% + HSC নম্বর ২৫% + SSC নম্বর ২০%)",
           mcq: "১০০ নম্বর",
-          written: "ভাইভা প্রযোজ্য",
+          written: "নেই (শুধু MCQ)",
           mcqRatio: 100,
           secRatio: 0,
           secType: "none",
-          duration: "৬০ মিনিট",
-          pass: "প্রতিটি সেকশনে আলাদাভাবে পাস নম্বর পেতে হবে",
+          duration: "১ ঘণ্টা (সকাল ১০:৩০ – ১১:৩০)",
+          pass: "ইংরেজিতে ন্যূনতম ৪০% নম্বর পেতে হবে",
           mcqSubjects: [
-            { name: "ইংরেজি", dist: "৪০ নম্বর" },
-            { name: "সাধারণ জ্ঞান", dist: "৪০ নম্বর" },
-            { name: "বাংলা", dist: "২০ নম্বর" }
+            { name: "English", dist: "৪০ নম্বর" },
+            { name: "General Knowledge", dist: "৪০ নম্বর" },
+            { name: "Bangla", dist: "২০ নম্বর" }
           ]
         },
-        specialCondition: "সেকেন্ড টাইম (২০২৫ ব্যাচ) পরীক্ষার সুযোগ রয়েছে। লিখিত পরীক্ষায় উত্তীর্ণ প্রার্থীদের মিরপুর ক্যাম্পাসে মৌখিক পরীক্ষায় (Viva) অংশ নিতে হবে।",
-        disclaimer: DISCLAIMER_25_26
+        specialCondition: "সেকেন্ড টাইম (২০২৫ ও ২০২৬ ব্যাচ) পরীক্ষার সুযোগ রয়েছে। মেধাস্কোরে জিপিএ-র পরিবর্তে SSC ও HSC-এর মোট প্রাপ্ত নম্বরের শতাংশ (২০% ও ২৫%) এবং MCQ পরীক্ষার ৫৫% নম্বর গণনা করা হবে। ক্যালকুলেটর নিষিদ্ধ।"
       },
       {
         tabLabel: "FBS (বিজনেস স্টাডিজ)",
-        unitName: "FBS (বিজনেস স্টাডিজ অনুষদ)",
-        pdfUrl: "https://admission.bup.edu.bd/",
-        appFee: "১,০০০ টাকা",
-        mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ইংরেজি মাধ্যমে পরীক্ষা)",
+        unitName: "FBS (বিজনেস স্টাডিজ অনুষদ — BBA-General ও অন্যান্য ৪ বিভাগ)",
+        pdfUrl: "https://admission.bup.edu.bd/Upload/Notices/BUP%20Admission%20Advertisement%202026-2027.pdf",
+        appFee: "১,২০০ টাকা (BBA-General-এর জন্য আলাদা ১,২০০ টাকা)",
+        mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (BBA-General ও অন্য ৪ বিভাগের আলাদা শিফট)",
         totalSeats: "৫০০টি",
-        examOrder: 7,
-        examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-        examCenter: "ঢাকা ও বিভাগীয় শহরসমূহ",
-        negMark: "০.২৫",
+        examOrder: 6.45,
+        examStartISO: "2027-01-23",
+        examDate: "২৩ জানুয়ারি ২০২৭ (সকাল ১০:৩০ ও বিকাল ০৩:৩০)",
+        examCenter: "শুধুমাত্র ঢাকা শহর",
+        negMark: "০.৫০",
         seats: { humanities: "৫০০টি (সকল বিভাগ উন্মুক্ত)", science: "৫০০টি (সকল বিভাগ উন্মুক্ত)", commerce: "৫০০টি (সকল বিভাগ উন্মুক্ত)" },
         seatRatios: { humanities: 34, science: 33, commerce: 33 },
         gpa: {
-          humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ এবং মোট ৭.৫০" },
-          science: { ssc: 4.00, hsc: 4.00, total: 8.50, note: "আলাদা ৪.০০ এবং মোট ৮.৫০" },
-          commerce: { ssc: 3.75, hsc: 3.75, total: 8.00, note: "আলাদা ৩.৭৫ এবং মোট ৮.০০" }
+          humanities: { ssc: 3.00, hsc: 3.00, total: 7.50, note: "মানবিক: SSC ও HSC মিলিয়ে মোট জিপিএ ৭.৫০" },
+          science: { ssc: 3.50, hsc: 3.50, total: 8.50, note: "বিজ্ঞান: SSC ও HSC মিলিয়ে মোট জিপিএ ৮.৫০" },
+          commerce: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "ব্যবসায় শিক্ষা: SSC ও HSC মিলিয়ে মোট জিপিএ ৮.০০" }
         },
         marks: {
-          total: "১০০ নম্বর (MCQ + ভাইভা ও GPA)",
-          mcq: "১০০ নম্বর",
-          written: "ভাইভা প্রযোজ্য",
+          total: "১০০ নম্বর (MCQ ৭৫ নম্বরের ৫৫% + HSC ২৫% + SSC ২০%)",
+          mcq: "৭৫ নম্বর",
+          written: "নেই (শুধু MCQ)",
           mcqRatio: 100,
           secRatio: 0,
           secType: "none",
-          duration: "৬০ মিনিট",
-          pass: "ইংরেজি ও গণিতে আলাদাভাবে পাস নম্বর পেতে হবে",
+          duration: "১ ঘণ্টা",
+          pass: "ইংরেজিতে ন্যূনতম ৪০% নম্বর পেতে হবে",
           mcqSubjects: [
-            { name: "ইংরেজি", dist: "৪০ নম্বর" },
-            { name: "গণিত (Mathematics)", dist: "৩৫ নম্বর" },
-            { name: "সাধারণ জ্ঞান", dist: "২৫ নম্বর" }
+            { name: "BBA-General (সকল শাখা — বিকাল ৩:৩০)", dist: "English ২৫, Math & Analytical ৪০, GK ১০" },
+            { name: "অন্য ৪ বিভাগ (ব্যবসায় শিক্ষা — সকাল ১০:৩০)", dist: "English ২৫, Business Org & Mgmt ৪০, GK ১০" },
+            { name: "অন্য ৪ বিভাগ (বিজ্ঞান ও মানবিক — সকাল ১০:৩০)", dist: "English ২৫, Math & Analytical ৪০, GK ১০" }
           ]
         },
-        specialCondition: "সকল বিভাগের শিক্ষার্থীরা আবেদন করতে পারবে এবং প্রশ্নপত্র সম্পূর্ণ ইংরেজি মাধ্যমে প্রণীত হয়।",
-        disclaimer: DISCLAIMER_25_26
+        specialCondition: "Finance & Banking, Marketing, AIS এবং Management Studies বিভাগের পরীক্ষা সকাল ১০:৩০–১১:৩০ এবং BBA-General প্রোগ্রামের পরীক্ষা বিকাল ০৩:৩০–০৪:৩০ পর্যন্ত অনুষ্ঠিত হবে (উভয় ক্ষেত্রে আলাদা ১,২০০ টাকা ফি প্রযোজ্য)। সেকেন্ড টাইম সুযোগ রয়েছে।"
       },
       {
         tabLabel: "FSSS (নিরাপত্তা ও কৌশলগত)",
-        unitName: "FSSS (নিরাপত্তা ও কৌশলগত অধ্যয়ন অনুষদ)",
-        pdfUrl: "https://admission.bup.edu.bd/",
-        appFee: "১,০০০ টাকা",
-        mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত",
+        unitName: "FSSS (নিরাপত্তা ও কৌশলগত অধ্যয়ন অনুষদ — IR, LLB, MCJ, Peace Studies)",
+        pdfUrl: "https://admission.bup.edu.bd/Upload/Notices/BUP%20Admission%20Advertisement%202026-2027.pdf",
+        appFee: "১,২০০ টাকা",
+        mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (IR, LLB, MCJ ও Peace Studies)",
         totalSeats: "২০০টি",
-        examOrder: 8,
-        examDate: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-        examCenter: "ঢাকা ও বিভাগীয় শহরসমূহ",
-        negMark: "০.২৫",
+        examOrder: 6.35,
+        examStartISO: "2027-01-22",
+        examDate: "২২ জানুয়ারি ২০২৭ (শুক্রবার, বিকাল ০৩:৩০ – ০৪:৩০)",
+        examCenter: "শুধুমাত্র ঢাকা শহর",
+        negMark: "০.৫০",
         seats: { humanities: "২০০টি (সকল বিভাগ উন্মুক্ত)", science: "২০০টি (সকল বিভাগ উন্মুক্ত)", commerce: "২০০টি (সকল বিভাগ উন্মুক্ত)" },
         seatRatios: { humanities: 34, science: 33, commerce: 33 },
         gpa: {
-          humanities: { ssc: 3.50, hsc: 3.50, total: 7.50, note: "আলাদা ৩.৫০ এবং মোট ৭.৫০" },
-          science: { ssc: 4.00, hsc: 4.00, total: 8.50, note: "আলাদা ৪.০০ এবং মোট ৮.৫০" },
-          commerce: { ssc: 3.75, hsc: 3.75, total: 8.00, note: "আলাদা ৩.৭৫ এবং মোট ৮.০০" }
+          humanities: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "মানবিক: SSC ও HSC মিলিয়ে মোট জিপিএ ৮.০০" },
+          science: { ssc: 3.50, hsc: 3.50, total: 8.50, note: "বিজ্ঞান: SSC ও HSC মিলিয়ে মোট জিপিএ ৮.৫০" },
+          commerce: { ssc: 3.50, hsc: 3.50, total: 8.00, note: "ব্যবসায় শিক্ষা: SSC ও HSC মিলিয়ে মোট জিপিএ ৮.০০" }
         },
         marks: {
-          total: "১০০ নম্বর (MCQ + ভাইভা ও GPA)",
+          total: "১০০ নম্বর (MCQ ৫৫% + HSC নম্বর ২৫% + SSC নম্বর ২০%)",
           mcq: "১০০ নম্বর",
-          written: "ভাইভা প্রযোজ্য",
+          written: "নেই (শুধু MCQ)",
           mcqRatio: 100,
           secRatio: 0,
           secType: "none",
-          duration: "৬০ মিনিট",
-          pass: "ন্যূনতম ৪০% নম্বর পেতে হবে",
+          duration: "১ ঘণ্টা (বিকাল ০৩:৩০ – ০৪:৩০)",
+          pass: "ইংরেজিতে ন্যূনতম ৪০% নম্বর পেতে হবে",
           mcqSubjects: [
-            { name: "ইংরেজি", dist: "৪০ নম্বর" },
-            { name: "সাধারণ জ্ঞান", dist: "৪০ নম্বর" },
-            { name: "বাংলা", dist: "২০ নম্বর" }
+            { name: "English", dist: "৪০ নম্বর" },
+            { name: "General Knowledge", dist: "৪০ নম্বর" },
+            { name: "Bangla", dist: "২০ নম্বর" }
           ]
         },
-        specialCondition: "আন্তর্জাতিক সম্পর্ক, আইন এবং শান্তি ও সংঘর্ষ অধ্যয়ন বিভাগে ভর্তির জন্য লিখিত ও ভাইভা উভয় ধাপে উত্তীর্ণ হতে হবে।",
-        disclaimer: DISCLAIMER_25_26
+        specialCondition: "International Relations, LLB (Hons), Mass Communication & Journalism এবং Peace, Conflict and Human Rights Studies বিভাগে ভর্তির জন্য সেকেন্ড টাইম (২০২৫ ও ২০২৬ ব্যাচ) সুযোগ রয়েছে। ক্যালকুলেটর ব্যবহার নিষিদ্ধ।"
       }
     ]
   },
@@ -1079,7 +1097,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 6,
     applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২৩ দিন)",
+    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২১ দিন)",
     website: "https://admission.cu.ac.bd/",
     helpline: "01555-555140",
     lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1323,7 +1341,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 7,
     applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-    applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩৩ দিন)",
+    applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩১ দিন)",
     website: "https://admission.ku.ac.bd/",
     helpline: "01534-296430",
     lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1416,7 +1434,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 8,
     applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩৪ দিন)",
+    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩২ দিন)",
     website: "https://admission.cou.ac.bd/",
     helpline: "01557-330381",
     lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1506,7 +1524,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 9,
     applyTimeline: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৬ দিন)",
+    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৪ দিন)",
     website: "https://gstadmission.ac.bd/",
     helpline: "09613-330000",
     lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1590,13 +1608,18 @@ const admissionData = [
 /* Same-Day Exam Clash Alerts */
 const sameDayClashes = [
   {
-    date: "৫ ফেব্রুয়ারি ২০২৭ – ৬ ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
-    title: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU) বনাম কুমিল্লা বিশ্ববিদ্যালয় (CoU)",
-    desc: "চবির B ইউনিট (৫ ফেব্রুয়ারি) ও D ইউনিটের (৬ ফেব্রুয়ারি) সাথে কুমিল্লা বিশ্ববিদ্যালয়ের সম্ভাব্য পরীক্ষার তারিখ (৫–৭ ফেব্রুয়ারি) কাছাকাছি বা একই দিনে পড়ার সম্ভাবনা রয়েছে। কেন্দ্র দূরত্ব বিবেচনায় রেখে প্রস্তুতি নিন।"
+    date: "২২ ও ২৩ জানুয়ারি ২০২৭",
+    title: "জগন্নাথ বিশ্ববিদ্যালয় (JnU) বনাম বিইউপি (BUP)",
+    desc: "২২ জানুয়ারি সকাল ১০টায় জবির C ইউনিট ও বিকালে বিইউপির FSSS পরীক্ষা; এবং ২৩ জানুয়ারি সকাল ১০টায় জবির D ইউনিট ও বিইউপির FBS (সকাল ১০:৩০) পরীক্ষা একই সময়ে পড়েছে। উভয় কেন্দ্র ঢাকায় হওয়ায় শিফট মিলিয়ে সিদ্ধান্ত নিন।"
   },
   {
     date: "১০ – ২১ জানুয়ারি ২০২৭ (সম্ভাব্য)",
     title: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU) বনাম জবি (JnU) ও বিইউপি (BUP)",
-    desc: "জাবির ভর্তি পরীক্ষা (১০–২১ জানুয়ারি) চলাকালীন জগন্নাথ বিশ্ববিদ্যালয়ের B ইউনিট (১৫ জানুয়ারি) ও বিইউপির সম্ভাব্য পরীক্ষা একই সপ্তাহে পড়তে পারে। প্রবেশপত্রের তারিখ ও শিফট মিলিয়ে পরিকল্পনা করুন।"
+    desc: "জাবির ভর্তি পরীক্ষা (১০–২১ জানুয়ারি) চলাকালীন জবির B ইউনিট (১৫ জানুয়ারি) ও বিইউপির FASS (১৬ জানুয়ারি) পরীক্ষা একই সপ্তাহে পড়েছে। প্রবেশপত্রের তারিখ ও শিফট মিলিয়ে পরিকল্পনা করুন।"
+  },
+  {
+    date: "৫ ফেব্রুয়ারি ২০২৭ – ৬ ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
+    title: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU) বনাম কুমিল্লা বিশ্ববিদ্যালয় (CoU)",
+    desc: "চবির B ইউনিট (৫ ফেব্রুয়ারি) ও D ইউনিটের (৬ ফেব্রুয়ারি) সাথে কুমিল্লা বিশ্ববিদ্যালয়ের সম্ভাব্য পরীক্ষার তারিখ (৫–৭ ফেব্রুয়ারি) কাছাকাছি বা একই দিনে পড়ার সম্ভাবনা রয়েছে। কেন্দ্র দূরত্ব বিবেচনায় রেখে প্রস্তুতি নিন।"
   }
 ];
