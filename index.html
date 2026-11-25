@@ -1720,6 +1720,192 @@
       margin-top: 2px;
     }
 
+    /* AI Section Banner (Placed Directly Above Website Version Pill) */
+    .pre-footer-ai-wrapper {
+      max-width: 860px;
+      margin: 8px auto 0;
+      padding: 0 16px;
+    }
+    .ai-entry-banner {
+      background: var(--header-bg);
+      color: #ffffff;
+      border-radius: 14px;
+      padding: 14px 16px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      cursor: pointer;
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+    .ai-entry-banner:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(30, 58, 138, 0.25);
+    }
+    .ai-entry-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      flex: 1;
+    }
+    .ai-entry-icon {
+      width: 40px;
+      height: 40px;
+      border-radius: 11px;
+      background: rgba(255, 255, 255, 0.18);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .ai-entry-text h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      line-height: 1.25;
+      margin-bottom: 2px;
+    }
+    .ai-entry-text p {
+      font-size: 0.8rem;
+      opacity: 0.9;
+      line-height: 1.35;
+    }
+    .ai-entry-cta {
+      background: #ffffff;
+      color: #0f172a;
+      font-size: 0.82rem;
+      font-weight: 700;
+      padding: 7px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.16);
+    }
+
+    /* AI Details Chat Interface */
+    .ai-quick-prompts {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 12px;
+    }
+    .ai-prompt-chip {
+      background: var(--primary-soft);
+      color: var(--primary);
+      border: 1px solid rgba(30, 64, 175, 0.2);
+      border-radius: 999px;
+      padding: 5px 12px;
+      font-family: inherit;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .ai-prompt-chip:hover {
+      background: var(--primary);
+      color: #ffffff;
+    }
+    [data-theme="dark"] .ai-prompt-chip:hover { color: #0f172a; }
+
+    .ai-chat-window {
+      background: var(--card-sub);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 12px;
+      height: 360px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .ai-msg-row {
+      display: flex;
+      flex-direction: column;
+      max-width: 86%;
+    }
+    .ai-msg-row.user {
+      align-self: flex-end;
+      align-items: flex-end;
+    }
+    .ai-msg-row.bot {
+      align-self: flex-start;
+      align-items: flex-start;
+    }
+    .ai-msg-bubble {
+      padding: 9px 13px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      line-height: 1.55;
+      word-break: break-word;
+    }
+    .ai-msg-row.user .ai-msg-bubble {
+      background: var(--primary);
+      color: #ffffff;
+      border-bottom-right-radius: 3px;
+    }
+    [data-theme="dark"] .ai-msg-row.user .ai-msg-bubble { color: #0f172a; }
+    .ai-msg-row.bot .ai-msg-bubble {
+      background: var(--card);
+      color: var(--text);
+      border: 1px solid var(--border);
+      border-bottom-left-radius: 3px;
+    }
+    .ai-yt-link-btn {
+      display: inline-block;
+      margin: 4px 0;
+      padding: 4px 10px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(15, 118, 110, 0.25);
+      border-radius: 8px;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .ai-yt-link-btn:hover { opacity: 0.88; }
+
+    .ai-input-bar {
+      display: flex;
+      gap: 8px;
+    }
+    .ai-input-bar input {
+      flex: 1;
+      padding: 10px 13px;
+      border: 1.5px solid var(--border);
+      background: var(--card-sub);
+      color: var(--text);
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.92rem;
+    }
+    .ai-input-bar input:focus {
+      outline: none;
+      border-color: var(--primary);
+    }
+    .ai-send-btn {
+      background: var(--accent);
+      color: #ffffff;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ai-send-btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+    }
+    [data-theme="dark"] .ai-send-btn { color: #0f172a; }
+
     /* Pre-Footer Update Banner Link & Install App Card */
     .pre-footer-update {
       max-width: 860px;
@@ -2096,7 +2282,62 @@
       </article>
     </div>
 
+    <!-- চতুর্থ পেইজ: AI ভর্তি সহায়িকা ও ক্লাস সার্চ ডিটেইলস পেইজ -->
+    <div id="aiChatView" class="hidden">
+      <div class="top-nav-bar">
+        <button class="btn-back" onclick="goHome(true)">← মূল পাতায় ফিরে যান</button>
+      </div>
+
+      <article class="detail-card">
+        <div class="detail-header">
+          <div>
+            <h2>🤖 AI ভর্তি সহায়িকা ও ক্লাস সার্চ</h2>
+            <span>ফোকাস ও নির্দিষ্ট ৩টি ইউটিউব চ্যানেল থেকে ক্লাস খুঁজে নাও এবং ভর্তির তথ্য জানো</span>
+          </div>
+          <span class="badge badge-open"><span class="live-pulse"></span> Gemini AI</span>
+        </div>
+
+        <!-- কুইক প্রশ্ন বাটন -->
+        <div class="ai-quick-prompts">
+          <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('রাজশাহী বিশ্ববিদ্যালয়ের ইংরেজি ক্লাস দাও')">📚 রাবির ইংরেজি ক্লাস</button>
+          <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('ঢাকা বিশ্ববিদ্যালয়ের আবেদনের শেষ তারিখ কবে?')">📅 ঢাবির আবেদনের শেষ সময়</button>
+          <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('জাহাঙ্গীরনগর বিশ্ববিদ্যালয়ের গণিত ও মানসিক দক্ষতা ক্লাস দাও')">🧮 জাবির গণিত ও আইকিউ ক্লাস</button>
+          <button type="button" class="ai-prompt-chip" onclick="sendQuickAiPrompt('গুচ্ছের সাধারণ জ্ঞান ক্লাস খুঁজে দাও')">🌍 গুচ্ছের জিকে ক্লাস</button>
+        </div>
+
+        <!-- চ্যাট মেসেজ বক্স -->
+        <div class="ai-chat-window" id="aiChatMessages">
+          <div class="ai-msg-row bot">
+            <div class="ai-msg-bubble">
+              আসসালামু আলাইকুম! আমি তোমার <strong>AI ভর্তি সহায়িকা</strong>।<br>
+              তুমি আমাকে নির্দিষ্ট ৩টি ইউটিউব চ্যানেল থেকে যেকোনো বিষয় বা বিশ্ববিদ্যালয়ের ক্লাস খুঁজে দিতে বলতে পারো, অথবা ভর্তি পরীক্ষার তারিখ, ফি ও জিপিএ যোগ্যতা সম্পর্কে প্রশ্ন করতে পারো।
+            </div>
+          </div>
+        </div>
+
+        <!-- ইনপুট বার -->
+        <form class="ai-input-bar" id="aiChatForm">
+          <input type="text" id="aiChatInput" placeholder="যেমন: চবির বাংলা ক্লাস দাও অথবা জবির পরীক্ষা কবে?" autocomplete="off" required />
+          <button type="submit" class="ai-send-btn" id="aiSendBtn">পাঠান ➤</button>
+        </form>
+      </article>
+    </div>
+
   </main>
+
+  <!-- AI সহায়িকা সেকশন (ওয়েবসাইট ভার্সনের ঠিক উপরে) -->
+  <div class="pre-footer-ai-wrapper" id="preFooterAiSection">
+    <div class="ai-entry-banner" role="button" tabindex="0" onclick="openAiPage(true)">
+      <div class="ai-entry-left">
+        <div class="ai-entry-icon">🤖</div>
+        <div class="ai-entry-text">
+          <h4>AI ভর্তি সহায়িকা ও ক্লাস সার্চ</h4>
+          <p>যেকোনো ক্লাসের ভিডিও খুঁজে পেতে বা ভর্তি তথ্য জানতে কথা বলো</p>
+        </div>
+      </div>
+      <span class="ai-entry-cta">চ্যাট চালু করুন →</span>
+    </div>
+  </div>
 
   <!-- Pre-Footer Update Version Link -->
   <div class="pre-footer-update">
@@ -2342,6 +2583,8 @@
     const updatesView = document.getElementById("updatesView");
     const prepUnisView = document.getElementById("prepUnisView");
     const prepClassesView = document.getElementById("prepClassesView");
+    const aiChatView = document.getElementById("aiChatView");
+    const preFooterAiSection = document.getElementById("preFooterAiSection");
     const uniGrid = document.getElementById("uniGrid");
     const detailContent = document.getElementById("detailContent");
     const unitTabsContainer = document.getElementById("unitTabsContainer");
@@ -2362,6 +2605,8 @@
       detailView.classList.add("hidden");
       updatesView.classList.add("hidden");
       prepClassesView.classList.add("hidden");
+      aiChatView.classList.add("hidden");
+      preFooterAiSection.classList.remove("hidden");
       prepUnisView.classList.remove("hidden");
 
       document.title = "বিভিন্ন বিশ্ববিদ্যালয়ের ভর্তি প্রস্তুতি | Admission Update";
@@ -2422,6 +2667,8 @@
       detailView.classList.add("hidden");
       updatesView.classList.add("hidden");
       prepUnisView.classList.add("hidden");
+      aiChatView.classList.add("hidden");
+      preFooterAiSection.classList.remove("hidden");
       prepClassesView.classList.remove("hidden");
 
       document.title = `${course.fullName} — ভর্তি প্রস্তুতি ক্লাস`;
@@ -2479,6 +2726,113 @@
         history.pushState({ prepUniId: course.id }, "", `#prep-${course.id}`);
       }
     }
+
+    /* Open AI Chat Details Page */
+    function openAiPage(pushHistory = true) {
+      selectedUniId = null;
+      homeView.classList.add("hidden");
+      detailView.classList.add("hidden");
+      updatesView.classList.add("hidden");
+      prepUnisView.classList.add("hidden");
+      prepClassesView.classList.add("hidden");
+      preFooterAiSection.classList.add("hidden");
+      aiChatView.classList.remove("hidden");
+
+      document.title = "AI ভর্তি সহায়িকা ও ক্লাস সার্চ | Admission Update";
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (pushHistory) {
+        history.pushState({ aiChat: true }, "", "#ai");
+      }
+    }
+
+    /* Build Site Context Summary for Gemini */
+    function buildSiteContextForAi() {
+      if (typeof admissionData === "undefined") return "";
+      return admissionData.map(u => {
+        const unitsSummary = u.units.map(un => `${un.tabLabel}: আসন ${un.totalSeats}, পরীক্ষা ${un.examDate}, ফি ${un.appFee}, মানবিক GPA ${un.gpa.humanities.total}`).join(" | ");
+        return `${u.fullName}: আবেদন ${u.applyTimeline} (${u.secondTime ? "সেকেন্ড টাইম আছে" : "শুধু ২০২৬ ব্যাচ"}) -> ${unitsSummary}`;
+      }).join("\n");
+    }
+
+    /* Format AI Text with Clickable YouTube Links & Line Breaks */
+    function formatAiResponseHtml(rawText) {
+      const escaped = rawText
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+
+      const withBold = escaped.replace(/\*\*(.*?)\*\*/g, "<strong>$1</strong>");
+      const withLinks = withBold.replace(
+        /(https?:\/\/[^\s<]+)/g,
+        '<a href="$1" class="ai-yt-link-btn" target="_blank" rel="noopener noreferrer">▶ ভিডিওটি দেখুন ↗</a>'
+      );
+      return withLinks.replace(/\n/g, "<br>");
+    }
+
+    function appendAiChatBubble(text, sender) {
+      const box = document.getElementById("aiChatMessages");
+      if (!box) return null;
+      const row = document.createElement("div");
+      row.className = `ai-msg-row ${sender}`;
+      const bubble = document.createElement("div");
+      bubble.className = "ai-msg-bubble";
+      bubble.innerHTML = sender === "bot" ? formatAiResponseHtml(text) : text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+      row.appendChild(bubble);
+      box.appendChild(row);
+      box.scrollTop = box.scrollHeight;
+      return bubble;
+    }
+
+    async function handleAiUserQuery(userText) {
+      const trimmed = userText.trim();
+      if (!trimmed) return;
+
+      const inputEl = document.getElementById("aiChatInput");
+      const sendBtn = document.getElementById("aiSendBtn");
+
+      appendAiChatBubble(trimmed, "user");
+      inputEl.value = "";
+      inputEl.disabled = true;
+      sendBtn.disabled = true;
+
+      const loadingBubble = appendAiChatBubble("অনুসন্ধান করা হচ্ছে, একটু অপেক্ষা করো...", "bot");
+
+      try {
+        const res = await fetch("/api/chat", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            message: trimmed,
+            siteContext: buildSiteContextForAi()
+          })
+        });
+
+        const data = await res.json();
+        if (res.ok && data.reply) {
+          loadingBubble.innerHTML = formatAiResponseHtml(data.reply);
+        } else {
+          loadingBubble.innerHTML = data.error || "দুঃখিত, এই মুহূর্তে উত্তর পাওয়া যায়নি। API Key সেটআপ করা আছে কি না যাচাই করো।";
+        }
+      } catch (err) {
+        loadingBubble.innerHTML = "নেটওয়ার্ক বা সার্ভার সংযোগে সমস্যা হচ্ছে। একটু পর আবার চেষ্টা করো।";
+      } finally {
+        inputEl.disabled = false;
+        sendBtn.disabled = false;
+        inputEl.focus();
+        const box = document.getElementById("aiChatMessages");
+        if (box) box.scrollTop = box.scrollHeight;
+      }
+    }
+
+    function sendQuickAiPrompt(promptText) {
+      handleAiUserQuery(promptText);
+    }
+
+    document.getElementById("aiChatForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const inputEl = document.getElementById("aiChatInput");
+      handleAiUserQuery(inputEl.value);
+    });
 
     /* Theme Switcher (Round Color Dots) */
     function setTheme(themeName) {
@@ -2756,6 +3110,8 @@
       updatesView.classList.add("hidden");
       prepUnisView.classList.add("hidden");
       prepClassesView.classList.add("hidden");
+      aiChatView.classList.add("hidden");
+      preFooterAiSection.classList.remove("hidden");
       detailView.classList.remove("hidden");
       renderDetail();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -2770,6 +3126,8 @@
       detailView.classList.add("hidden");
       prepUnisView.classList.add("hidden");
       prepClassesView.classList.add("hidden");
+      aiChatView.classList.add("hidden");
+      preFooterAiSection.classList.remove("hidden");
       updatesView.classList.remove("hidden");
       renderUpdatesPage();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -2826,7 +3184,8 @@
       const wasSubView = !detailView.classList.contains("hidden")
         || !updatesView.classList.contains("hidden")
         || !prepUnisView.classList.contains("hidden")
-        || !prepClassesView.classList.contains("hidden");
+        || !prepClassesView.classList.contains("hidden")
+        || !aiChatView.classList.contains("hidden");
       const prepPlayer = document.getElementById("prepMainPlayer");
       if (prepPlayer) prepPlayer.src = "";
 
@@ -2835,6 +3194,8 @@
       updatesView.classList.add("hidden");
       prepUnisView.classList.add("hidden");
       prepClassesView.classList.add("hidden");
+      aiChatView.classList.add("hidden");
+      preFooterAiSection.classList.remove("hidden");
       homeView.classList.remove("hidden");
       document.title = "Admission Update ২০২৬-২৭ | বিশ্ববিদ্যালয় ভর্তি তথ্য ও সহায়িকা";
       renderHome();
@@ -3321,7 +3682,8 @@
         if (!detailView.classList.contains("hidden")
           || !updatesView.classList.contains("hidden")
           || !prepUnisView.classList.contains("hidden")
-          || !prepClassesView.classList.contains("hidden")) {
+          || !prepClassesView.classList.contains("hidden")
+          || !aiChatView.classList.contains("hidden")) {
           e.preventDefault();
           goHome(true);
         }
@@ -3363,6 +3725,8 @@
       const prepList = typeof prepCourseData !== "undefined" ? prepCourseData : [];
       if (hashId === "updates") {
         openUpdatesPage(pushHistory);
+      } else if (hashId === "ai") {
+        openAiPage(pushHistory);
       } else if (hashId === "prep") {
         openPrepUnisPage(pushHistory);
       } else if (hashId.startsWith("prep-")) {
