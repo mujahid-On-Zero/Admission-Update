@@ -337,6 +337,160 @@
 
     .details-cta { color: var(--primary); font-weight: 700; white-space: nowrap; }
 
+    /* Homepage Preparation Banner Section */
+    .prep-home-section {
+      background: var(--header-bg);
+      color: #ffffff;
+      border-radius: 16px;
+      padding: 20px 18px;
+      margin-bottom: 18px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .prep-home-copy {
+      flex: 1;
+      min-width: 220px;
+    }
+    .prep-home-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.18);
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      font-size: 0.76rem;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      margin-bottom: 7px;
+    }
+    .prep-home-copy h2 {
+      font-size: 1.22rem;
+      font-weight: 700;
+      line-height: 1.3;
+      margin-bottom: 4px;
+    }
+    .prep-home-copy p {
+      font-size: 0.85rem;
+      opacity: 0.9;
+      line-height: 1.45;
+    }
+    .btn-prep-open {
+      background: #ffffff;
+      color: #0f172a;
+      border: none;
+      padding: 10px 18px;
+      border-radius: 10px;
+      font-family: inherit;
+      font-size: 0.9rem;
+      font-weight: 700;
+      cursor: pointer;
+      white-space: nowrap;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+      transition: transform 0.15s ease;
+    }
+    .btn-prep-open:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Sticky In-Page Video Player & Subject Class List */
+    .prep-player-sticky {
+      position: sticky;
+      top: 98px;
+      z-index: 88;
+      background: #0f172a;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 14px;
+      box-shadow: 0 6px 20px rgba(15, 23, 42, 0.25);
+      border: 1px solid var(--border);
+    }
+    .prep-video-wrapper {
+      position: relative;
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+      background: #000000;
+    }
+    .prep-video-wrapper iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+    .prep-now-playing {
+      background: #1e293b;
+      color: #f8fafc;
+      padding: 9px 13px;
+      font-size: 0.84rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 8px;
+    }
+    .prep-now-title {
+      font-weight: 700;
+      color: #60a5fa;
+    }
+    .prep-class-row {
+      background: var(--card-sub);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 10px 13px;
+      margin-bottom: 8px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      transition: all 0.15s ease;
+    }
+    .prep-class-row:last-child { margin-bottom: 0; }
+    .prep-class-row:hover {
+      border-color: var(--primary);
+      background: var(--primary-soft);
+    }
+    .prep-class-row.active {
+      background: var(--primary);
+      color: #ffffff;
+      border-color: var(--primary);
+    }
+    [data-theme="dark"] .prep-class-row.active {
+      color: #0f172a;
+    }
+    .prep-class-info {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      min-width: 0;
+    }
+    .prep-class-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+    .prep-class-meta {
+      font-size: 0.76rem;
+      opacity: 0.82;
+    }
+    .prep-play-pill {
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.77rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 999px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .prep-class-row.active .prep-play-pill {
+      background: rgba(255, 255, 255, 0.22);
+      color: inherit;
+    }
+
     /* Compact Promo Buttons Block (No "বিজ্ঞাপন" Label) */
     .promo-showcase-block {
       background: var(--card);
@@ -1717,6 +1871,7 @@
     <nav class="horizontal-nav" id="horizontalNavBar" aria-label="সেকশন নেভিগেশন">
       <div class="horizontal-nav-inner">
         <a href="#universitiesSec" class="h-nav-link" onclick="goHome(false)">🏛️ বিশ্ববিদ্যালয়সমূহ</a>
+        <a href="#prepSec" class="h-nav-link" onclick="goHome(false)">🎓 ভর্তি প্রস্তুতি</a>
         <a href="#roadmapSec" class="h-nav-link" onclick="goHome(false)">📅 ভর্তি রোডম্যাপ</a>
         <a href="#calculatorSec" class="h-nav-link" onclick="goHome(false)">🧮 যোগ্যতা ক্যালকুলেটর</a>
         <a href="#gpaMarksSec" class="h-nav-link" onclick="goHome(false)">📊 জিপিএ নম্বর হিসাব</a>
@@ -1747,6 +1902,16 @@
 
       <!-- আকর্ষণীয় প্রোমো বাটন ব্লক (বিশ্ববিদ্যালয় গ্রিড ও ভর্তি রোডম্যাপের মাঝখানে) -->
       <div class="promo-showcase-block" id="homePromoContainer"></div>
+
+      <!-- ১ম ধাপ: হোমপেইজে নতুন সেকশন (বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি নিন) -->
+      <section class="prep-home-section" id="prepSec">
+        <div class="prep-home-copy">
+          <span class="prep-home-badge">🎓 ফোকাস অনলাইন ক্লাস আর্কাইভ</span>
+          <h2>বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি নিন</h2>
+          <p>জগন্নাথ, রাজশাহী, চট্টগ্রাম, ইসলামী বিশ্ববিদ্যালয়সহ অন্যান্য বিশ্ববিদ্যালয়ের বিগত বছরের বিষয়ভিত্তিক ক্লাসগুলো ওয়েবসাইটে বসেই করুন।</p>
+        </div>
+        <button type="button" class="btn-prep-open" onclick="openPrepUnisPage(true)">বিশ্ববিদ্যালয় নির্বাচন করুন →</button>
+      </section>
 
       <!-- ভর্তি রোডম্যাপ সেকশন (৩টি ট্যাবসহ) -->
       <section class="panel" id="roadmapSec">
@@ -1831,6 +1996,57 @@
         <div class="inline-feedback" id="marksFeedback"></div>
       </section>
 
+    </div>
+
+    <!-- দ্বিতীয় ধাপ: বিশ্ববিদ্যালয় নির্বাচনের ডিটেইলস পেইজ (ভর্তি প্রস্তুতি) -->
+    <div id="prepUnisView" class="hidden">
+      <div class="top-nav-bar">
+        <button class="btn-back" onclick="goHome(true)">← মূল পাতায় ফিরে যান</button>
+      </div>
+
+      <div class="panel">
+        <div class="section-header">
+          <h2>কোন বিশ্ববিদ্যালয়ের প্রস্তুতি নিতে চাও?</h2>
+          <p>নিচের তালিকা থেকে বিশ্ববিদ্যালয় নির্বাচন করে বিষয়ভিত্তিক ক্লাসগুলো দেখো</p>
+        </div>
+        <div class="uni-grid" id="prepUniGrid" style="margin-bottom:0;"></div>
+      </div>
+    </div>
+
+    <!-- তৃতীয় ধাপ: সংশ্লিষ্ট বিশ্ববিদ্যালয়ের বিষয়ভিত্তিক ক্লাস ও ফিক্সড প্লেয়ার পেইজ -->
+    <div id="prepClassesView" class="hidden">
+      <div class="top-nav-bar">
+        <button class="btn-back" onclick="openPrepUnisPage(true)">← বিশ্ববিদ্যালয় তালিকায় ফিরে যান</button>
+      </div>
+
+      <!-- একদম ওপরে ফিক্সড ভিডিও প্লেয়ার -->
+      <div class="prep-player-sticky">
+        <div class="prep-video-wrapper">
+          <iframe id="prepMainPlayer" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        <div class="prep-now-playing">
+          <span>চলছে: <span id="prepCurrentTitle" class="prep-now-title">ক্লাস নির্বাচন করুন</span></span>
+        </div>
+      </div>
+
+      <article class="detail-card">
+        <div class="detail-header">
+          <div>
+            <h2 id="prepSelectedUniTitle">বিশ্ববিদ্যালয় প্রস্তুতি ক্লাস</h2>
+            <span id="prepSelectedUniSub">ফোকাস-এর বিগত বছরের বিষয়ভিত্তিক ক্লাসসমূহ</span>
+          </div>
+          <span class="badge badge-open"><span class="live-pulse"></span> ওয়েবসাইট প্লেয়ার</span>
+        </div>
+
+        <!-- ২০২৬ সেশনের ক্লাস সংক্রান্ত স্পষ্ট নোটিশ -->
+        <div class="special-condition-box" style="margin-bottom: 14px;">
+          <h3>📌 ২০২৬ সেশনের ক্লাস সংক্রান্ত জরুরি বিজ্ঞপ্তি</h3>
+          <p>২০২৬ সেশনের নতুন ক্লাসগুলো এই ওয়েবসাইটে দেওয়া হবে না; এগুলো শুধুমাত্র <strong>ফোকাসের অফিশিয়াল ওয়েবসাইটে ভর্তিকৃত শিক্ষার্থীদের</strong> জন্য সংরক্ষিত। এখানে বিগত বছরের (২০২৩, ২০২৪ ও ২০২৫) উন্মুক্ত ক্লাসগুলো বিষয়ভিত্তিকভাবে সাজানো রয়েছে।</p>
+        </div>
+
+        <!-- বিষয়ভিত্তিক ক্লাসের তালিকা -->
+        <div id="prepSubjectsContainer" style="display:flex; flex-direction:column; gap:12px;"></div>
+      </article>
     </div>
 
     <!-- দ্বিতীয় পেইজ (সেইম ট্যাবে ওপেন হওয়া বিশ্ববিদ্যালয় ডিটেইলস ভিউ) -->
@@ -2124,9 +2340,302 @@
     const homeView = document.getElementById("homeView");
     const detailView = document.getElementById("detailView");
     const updatesView = document.getElementById("updatesView");
+    const prepUnisView = document.getElementById("prepUnisView");
+    const prepClassesView = document.getElementById("prepClassesView");
     const uniGrid = document.getElementById("uniGrid");
     const detailContent = document.getElementById("detailContent");
     const unitTabsContainer = document.getElementById("unitTabsContainer");
+
+    /* বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি ক্লাস ডেটা (বিষয়ভিত্তিক ও সালভিত্তিক: ২০২৩, ২০২৪, ২০২৫) */
+    const prepCourseData = [
+      {
+        id: "jnu",
+        shortName: "JnU",
+        fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
+        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+        subjects: [
+          {
+            subjectName: "বাংলা ক্লাস (MCQ)",
+            classes: [
+              { title: "বাংলা প্রশ্নব্যাংক সমাধান ও সাজেশন ক্লাস", year: "২০২৫", videoId: "" },
+              { title: "বাংলা ব্যাকরণ ও সাহিত্য স্পেশাল ক্লাস", year: "২০২৪", videoId: "" },
+              { title: "বিগত বছরের প্রশ্ন বিশ্লেষণ ক্লাস", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "ইংরেজি ক্লাস (MCQ)",
+            classes: [
+              { title: "English Grammar & Vocabulary Special", year: "২০২৫", videoId: "" },
+              { title: "JnU English Question Solve Class", year: "২০২৪", videoId: "" },
+              { title: "Important Rules & Practice Class", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "সাধারণ জ্ঞান (GK)",
+            classes: [
+              { title: "বাংলাদেশ ও আন্তর্জাতিক বিষয়াবলি স্পেশাল", year: "২০২৫", videoId: "" },
+              { title: "মৌলিক জিকে ও প্রশ্নব্যাংক সলভ", year: "২০২৪", videoId: "" },
+              { title: "গুরুত্বপূর্ণ সাধারণ জ্ঞান রিভিশন ক্লাস", year: "২০২৩", videoId: "" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "ru",
+        shortName: "RU",
+        fullName: "রাজশাহী বিশ্ববিদ্যালয় (RU)",
+        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+        subjects: [
+          {
+            subjectName: "বাংলা ক্লাস (MCQ)",
+            classes: [
+              { title: "রাবি বাংলা স্পেশাল প্রশ্নব্যাংক সলভ", year: "২০২৫", videoId: "" },
+              { title: "বাংলা প্রথম ও দ্বিতীয় পত্র গুরুত্বপূর্ণ টপিক", year: "২০২৪", videoId: "" },
+              { title: "রাবি বাংলা পূর্ণাঙ্গ রিভিশন ক্লাস", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "ইংরেজি ক্লাস (MCQ)",
+            classes: [
+              { title: "RU English Final Suggestion & Solve", year: "২০২৫", videoId: "" },
+              { title: "Grammar & Passage Practice Class", year: "২০২৪", videoId: "" },
+              { title: "Previous Year Question Analysis", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "সাধারণ জ্ঞান (GK)",
+            classes: [
+              { title: "রাবি জিকে স্পেশাল ও সাম্প্রতিক প্রশ্ন", year: "২০২৫", videoId: "" },
+              { title: "বাংলাদেশ বিষয়াবলি ও সংবিধান ক্লাস", year: "২০২৪", videoId: "" },
+              { title: "আন্তর্জাতিক বিষয়াবলি স্পেশাল ক্লাস", year: "২০২৩", videoId: "" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "cu",
+        shortName: "CU",
+        fullName: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU)",
+        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+        subjects: [
+          {
+            subjectName: "বাংলা ক্লাস (MCQ)",
+            classes: [
+              { title: "চবি বাংলা প্রশ্নব্যাংক এনালাইসিস ক্লাস", year: "২০২৫", videoId: "" },
+              { title: "ব্যাকরণ ও বিরচন স্পেশাল ক্লাস", year: "২০২৪", videoId: "" },
+              { title: "চবি বাংলা ফাইনাল মডেল সলভ", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "ইংরেজি ক্লাস (MCQ)",
+            classes: [
+              { title: "CU English Special Grammar & Vocab", year: "২০২৫", videoId: "" },
+              { title: "CU Question Bank Solve Class", year: "২০২৪", videoId: "" },
+              { title: "Common Mistakes & Grammar Tricks", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "সাধারণ জ্ঞান (GK)",
+            classes: [
+              { title: "চবি সাধারণ জ্ঞান পূর্ণাঙ্গ সাজেশন ক্লাস", year: "২০২৫", videoId: "" },
+              { title: "মৌলিক জিকে ও তথ্যভিত্তিক আলোচনা", year: "২০২৪", videoId: "" },
+              { title: "বিগত বছরের জিকে প্রশ্ন সমাধান", year: "২০২৩", videoId: "" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "iu",
+        shortName: "IU",
+        fullName: "ইসলামী বিশ্ববিদ্যালয় (IU)",
+        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+        subjects: [
+          {
+            subjectName: "বাংলা ক্লাস (MCQ)",
+            classes: [
+              { title: "ইবি বাংলা স্পেশাল ক্লাস ও সাজেশন", year: "২০২৫", videoId: "" },
+              { title: "বাংলা সাহিত্য ও ব্যাকরণ প্রশ্ন সমাধান", year: "২০২৪", videoId: "" },
+              { title: "বিগত বছরের প্রশ্ন পর্যালোচনা", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "ইংরেজি ক্লাস (MCQ)",
+            classes: [
+              { title: "IU English Preparation & Solve", year: "২০২৫", videoId: "" },
+              { title: "Important Grammar Rules Class", year: "২০২৪", videoId: "" },
+              { title: "Vocabulary & Preposition Special", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "সাধারণ জ্ঞান (GK)",
+            classes: [
+              { title: "ইবি সাধারণ জ্ঞান স্পেশাল ক্লাস", year: "২০২৫", videoId: "" },
+              { title: "বাংলাদেশ ও বিশ্ব পরিচিতি ক্লাস", year: "২০২৪", videoId: "" },
+              { title: "জিকে প্রশ্নব্যাংক সলভ ক্লাস", year: "২০২৩", videoId: "" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "gst",
+        shortName: "GST",
+        fullName: "গুচ্ছ (GST) বিশ্ববিদ্যালয়সমূহ",
+        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+        subjects: [
+          {
+            subjectName: "বাংলা ক্লাস (MCQ)",
+            classes: [
+              { title: "গুচ্ছ বাংলা প্রশ্নব্যাংক সলভ ও সাজেশন", year: "২০২৫", videoId: "" },
+              { title: "পাঠ্যবই ও ব্যাকরণ স্পেশাল ক্লাস", year: "২০২৪", videoId: "" },
+              { title: "গুচ্ছ বাংলা ফাইনাল রিভিশন", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "ইংরেজি ক্লাস (MCQ)",
+            classes: [
+              { title: "GST English Full Revision Class", year: "২০২৫", videoId: "" },
+              { title: "Grammar & Reading Comprehension", year: "২০২৪", videoId: "" },
+              { title: "GST Previous Question Solve", year: "২০২৩", videoId: "" }
+            ]
+          },
+          {
+            subjectName: "সাধারণ জ্ঞান (GK)",
+            classes: [
+              { title: "গুচ্ছ সাধারণ জ্ঞান স্পেশাল সাজেশন", year: "২০২৫", videoId: "" },
+              { title: "মৌলিক জিকে ও ইতিহাস-ঐতিহ্য ক্লাস", year: "২০২৪", videoId: "" },
+              { title: "গুচ্ছ জিকে প্রশ্নব্যাংক সমাধান", year: "২০২৩", videoId: "" }
+            ]
+          }
+        ]
+      }
+    ];
+
+    /* Extract YouTube Video ID from full URL or direct ID */
+    function extractYouTubeId(input) {
+      if (!input) return "";
+      const str = input.trim();
+      const regExp = /(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|v\/|shorts\/))([a-zA-Z0-9_-]{11})/;
+      const match = str.match(regExp);
+      if (match && match[1]) return match[1];
+      return str.length === 11 ? str : "";
+    }
+
+    function openPrepUnisPage(pushHistory = true) {
+      selectedUniId = null;
+      homeView.classList.add("hidden");
+      detailView.classList.add("hidden");
+      updatesView.classList.add("hidden");
+      prepClassesView.classList.add("hidden");
+      prepUnisView.classList.remove("hidden");
+
+      document.title = "বিভিন্ন বিশ্ববিদ্যালয়ের ভর্তি প্রস্তুতি | Admission Update";
+      const grid = document.getElementById("prepUniGrid");
+      grid.innerHTML = prepCourseData.map(item => `
+        <div class="uni-card" role="button" tabindex="0" onclick="openPrepClassesPage('${item.id}', true)">
+          <div class="uni-card-top-row">
+            <div class="uni-card-title">
+              <h3>${item.fullName}</h3>
+              <p>${item.summaryText}</p>
+            </div>
+            <span class="badge badge-2nd">${item.shortName}</span>
+          </div>
+          <div class="uni-card-bottom">
+            <div class="uni-badges">
+              <span class="badge badge-open">২০২৩–২০২৫ ক্লাস</span>
+            </div>
+            <span class="details-cta">ক্লাস দেখুন →</span>
+          </div>
+        </div>
+      `).join("");
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (pushHistory) {
+        history.pushState({ prepUnis: true }, "", "#prep");
+      }
+    }
+
+    function playPrepVideo(rawLinkOrId, titleText, rowEl) {
+      const player = document.getElementById("prepMainPlayer");
+      const titleEl = document.getElementById("prepCurrentTitle");
+      const vidId = extractYouTubeId(rawLinkOrId);
+
+      document.querySelectorAll(".prep-class-row").forEach(r => r.classList.remove("active"));
+      if (rowEl) rowEl.classList.add("active");
+
+      if (vidId) {
+        player.src = `https://www.youtube.com/embed/${vidId}?autoplay=1&rel=0`;
+        titleEl.textContent = titleText;
+      } else {
+        player.src = "";
+        titleEl.textContent = `${titleText} (লিংক শীঘ্রই যুক্ত হচ্ছে)`;
+      }
+    }
+
+    function openPrepClassesPage(prepUniId, pushHistory = true) {
+      const course = prepCourseData.find(c => c.id === prepUniId) || prepCourseData[0];
+      if (!course) return;
+
+      homeView.classList.add("hidden");
+      detailView.classList.add("hidden");
+      updatesView.classList.add("hidden");
+      prepUnisView.classList.add("hidden");
+      prepClassesView.classList.remove("hidden");
+
+      document.title = `${course.fullName} — ভর্তি প্রস্তুতি ক্লাস`;
+      document.getElementById("prepSelectedUniTitle").textContent = `${course.fullName} প্রস্তুতি ক্লাস`;
+      document.getElementById("prepSelectedUniSub").textContent = course.summaryText;
+
+      const subjectsContainer = document.getElementById("prepSubjectsContainer");
+      subjectsContainer.innerHTML = "";
+
+      let firstClassDone = false;
+
+      course.subjects.forEach(sub => {
+        const box = document.createElement("div");
+        box.className = "info-box";
+
+        const heading = document.createElement("h3");
+        heading.textContent = `📚 ${sub.subjectName}`;
+        box.appendChild(heading);
+
+        sub.classes.forEach(cls => {
+          const fullTitle = `${cls.title} [${cls.year}]`;
+          const row = document.createElement("div");
+          row.className = "prep-class-row";
+          row.innerHTML = `
+            <div class="prep-class-info">
+              <span class="prep-class-name">${cls.title}</span>
+              <span class="prep-class-meta">সেশন/সাল: ${cls.year} • ফোকাস আর্কাইভ</span>
+            </div>
+            <span class="prep-play-pill">▶ প্লে করুন</span>
+          `;
+          row.addEventListener("click", () => playPrepVideo(cls.videoId, fullTitle, row));
+          box.appendChild(row);
+
+          if (!firstClassDone) {
+            firstClassDone = true;
+            const initialVid = extractYouTubeId(cls.videoId);
+            const player = document.getElementById("prepMainPlayer");
+            const titleEl = document.getElementById("prepCurrentTitle");
+            row.classList.add("active");
+            if (initialVid) {
+              player.src = `https://www.youtube.com/embed/${initialVid}?rel=0`;
+              titleEl.textContent = fullTitle;
+            } else {
+              player.src = "";
+              titleEl.textContent = `${fullTitle} (লিংক যুক্ত হলে এখানে প্লে হবে)`;
+            }
+          }
+        });
+
+        subjectsContainer.appendChild(box);
+      });
+
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      if (pushHistory) {
+        history.pushState({ prepUniId: course.id }, "", `#prep-${course.id}`);
+      }
+    }
 
     /* Theme Switcher (Round Color Dots) */
     function setTheme(themeName) {
@@ -2402,6 +2911,8 @@
       selectedUnitIndex = 0;
       homeView.classList.add("hidden");
       updatesView.classList.add("hidden");
+      prepUnisView.classList.add("hidden");
+      prepClassesView.classList.add("hidden");
       detailView.classList.remove("hidden");
       renderDetail();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -2414,6 +2925,8 @@
       selectedUniId = null;
       homeView.classList.add("hidden");
       detailView.classList.add("hidden");
+      prepUnisView.classList.add("hidden");
+      prepClassesView.classList.add("hidden");
       updatesView.classList.remove("hidden");
       renderUpdatesPage();
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -2467,10 +2980,18 @@
     }
 
     function goHome(pushHistory = true) {
-      const wasSubView = !detailView.classList.contains("hidden") || !updatesView.classList.contains("hidden");
+      const wasSubView = !detailView.classList.contains("hidden")
+        || !updatesView.classList.contains("hidden")
+        || !prepUnisView.classList.contains("hidden")
+        || !prepClassesView.classList.contains("hidden");
+      const prepPlayer = document.getElementById("prepMainPlayer");
+      if (prepPlayer) prepPlayer.src = "";
+
       selectedUniId = null;
       detailView.classList.add("hidden");
       updatesView.classList.add("hidden");
+      prepUnisView.classList.add("hidden");
+      prepClassesView.classList.add("hidden");
       homeView.classList.remove("hidden");
       document.title = "Admission Update ২০২৬-২৭ | বিশ্ববিদ্যালয় ভর্তি তথ্য ও সহায়িকা";
       renderHome();
@@ -2954,7 +3475,10 @@
       const isTyping = tag === "input" || tag === "textarea" || tag === "select" || e.target?.isContentEditable;
 
       if (e.key === "Escape") {
-        if (!detailView.classList.contains("hidden") || !updatesView.classList.contains("hidden")) {
+        if (!detailView.classList.contains("hidden")
+          || !updatesView.classList.contains("hidden")
+          || !prepUnisView.classList.contains("hidden")
+          || !prepClassesView.classList.contains("hidden")) {
           e.preventDefault();
           goHome(true);
         }
@@ -2991,29 +3515,33 @@
       openUpdatesPage(true);
     });
 
-    window.addEventListener("popstate", () => {
+    function handleHashRouting(pushHistory = false) {
       const hashId = window.location.hash.replace("#", "");
       if (hashId === "updates") {
-        openUpdatesPage(false);
+        openUpdatesPage(pushHistory);
+      } else if (hashId === "prep") {
+        openPrepUnisPage(pushHistory);
+      } else if (hashId.startsWith("prep-")) {
+        const pId = hashId.replace("prep-", "");
+        if (prepCourseData.some(c => c.id === pId)) {
+          openPrepClassesPage(pId, pushHistory);
+        } else {
+          openPrepUnisPage(pushHistory);
+        }
       } else if (hashId && admissionData.some(u => u.id === hashId)) {
-        openDetailPage(hashId, false);
+        openDetailPage(hashId, pushHistory);
       } else {
         goHome(false);
       }
-    });
+    }
+
+    window.addEventListener("popstate", () => handleHashRouting(false));
 
     renderHomePromo();
     updateFooterPill();
     setInterval(updateFooterPill, 60000);
 
-    const initialHash = window.location.hash.replace("#", "");
-    if (initialHash === "updates") {
-      openUpdatesPage(false);
-    } else if (initialHash && admissionData.some(u => u.id === initialHash)) {
-      openDetailPage(initialHash, false);
-    } else {
-      renderHome();
-    }
+    handleHashRouting(false);
     renderRoadmap();
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
