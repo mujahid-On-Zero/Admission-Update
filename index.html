@@ -2130,7 +2130,7 @@
     </p>
   </footer>
 
-  <!-- External Data File -->
+  <!-- External Data File (Contains admissionData, promoButtonsData, siteUpdates, sameDayClashes & prepCourseData) -->
   <script src="data.js"></script>
 
   <script>
@@ -2346,148 +2346,6 @@
     const detailContent = document.getElementById("detailContent");
     const unitTabsContainer = document.getElementById("unitTabsContainer");
 
-    /* বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি ক্লাস ডেটা (বিষয়ভিত্তিক ও ফোকাস চ্যানেলের আসল ক্লাসসহ) */
-    const prepCourseData = [
-      {
-        id: "ru",
-        shortName: "RU",
-        fullName: "রাজশাহী বিশ্ববিদ্যালয় (RU)",
-        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
-        subjects: [
-          {
-            subjectName: "বাংলা ক্লাস (MCQ)",
-            classes: [
-              { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | Bangla-বাংলা", year: "২০২৫", videoId: "_DsiOw8OZSI" }
-            ]
-          },
-          {
-            subjectName: "ইংরেজি ক্লাস (MCQ)",
-            classes: [
-              { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | English-ইংরেজি", year: "২০২৫", videoId: "FhcpEQd1yC0" }
-            ]
-          },
-          {
-            subjectName: "সাধারণ জ্ঞান (GK)",
-            classes: [
-              { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | GK - সাধারণ জ্ঞান", year: "২০২৫", videoId: "KX5bCVAiVKo" }
-            ]
-          }
-        ]
-      },
-      {
-        id: "jnu",
-        shortName: "JnU",
-        fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
-        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
-        subjects: [
-          {
-            subjectName: "বাংলা ক্লাস (MCQ)",
-            classes: [
-              { title: "Jagannath University Admission Preparation | Bangla - বাংলা", year: "২০২৫", videoId: "Cnh1HkZQMa8" }
-            ]
-          },
-          {
-            subjectName: "ইংরেজি ক্লাস (MCQ)",
-            classes: [
-              { title: "Jagannath University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "Si2pNW6e17A" }
-            ]
-          },
-          {
-            subjectName: "সাধারণ জ্ঞান (GK)",
-            classes: [
-              { title: "Jagannath University Admission Preparation | GK - সাধারণ জ্ঞান", year: "২০২৫", videoId: "dqvZnbRblUw" }
-            ]
-          }
-        ]
-      },
-      {
-        id: "cu",
-        shortName: "CU",
-        fullName: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU)",
-        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
-        subjects: [
-          {
-            subjectName: "বাংলা ক্লাস (MCQ)",
-            classes: [
-              { title: "Chittagong University Admission Preparation | Bangla - বাংলা", year: "২০২৫", videoId: "OXaGc6el0is" }
-            ]
-          },
-          {
-            subjectName: "ইংরেজি ক্লাস (MCQ)",
-            classes: [
-              { title: "Chittagong University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "zVt2-0VuzRs" }
-            ]
-          },
-          {
-            subjectName: "সাধারণ জ্ঞান (GK)",
-            classes: [
-              { title: "Chittagong University Admission Preparation | Gk-সাধারণ জ্ঞান", year: "২০২৫", videoId: "fd7NlvrK9zA" }
-            ]
-          }
-        ]
-      },
-      {
-        id: "ju",
-        shortName: "JU",
-        fullName: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
-        summaryText: "বাংলা, ইংরেজি, সাধারণ জ্ঞান ও গণিত-মানসিক দক্ষতা",
-        subjects: [
-          {
-            subjectName: "বাংলা ক্লাস (MCQ)",
-            classes: [
-              { title: "Jahangirnagar University Admission Preparation | Bangla-বাংলা", year: "২০২৫", videoId: "GUuWundr7Vo" }
-            ]
-          },
-          {
-            subjectName: "ইংরেজি ক্লাস (MCQ)",
-            classes: [
-              { title: "Jahangirnagar University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "NHUFKUPpYe0" }
-            ]
-          },
-          {
-            subjectName: "সাধারণ জ্ঞান (GK)",
-            classes: [
-              { title: "JU Admission Preparation | GK - সাধারণ জ্ঞান ও অন্যান্য", year: "২০২৫", videoId: "PzKZcN6SId0" }
-            ]
-          },
-          {
-            subjectName: "গণিত ও মানসিক দক্ষতা",
-            classes: [
-              { title: "JU Admission Preparation | গণিত ও মানসিক দক্ষতা", year: "২০২৫", videoId: "Yb6A7swqheQ" }
-            ]
-          }
-        ]
-      },
-      {
-        id: "gst",
-        shortName: "GST",
-        fullName: "গুচ্ছ (GST) বিশ্ববিদ্যালয়সমূহ",
-        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
-        subjects: [
-          {
-            subjectName: "বাংলা ক্লাস (MCQ)",
-            classes: [
-              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | Bangla-বাংলা | Special Guideline & Suggestion", year: "২০২৫", videoId: "8dvoxKaS2ag" }
-            ]
-          },
-          {
-            subjectName: "ইংরেজি ক্লাস (MCQ)",
-            classes: [
-              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Question Analysis Class", year: "২০২৫", videoId: "maZ-BiwdEXU" },
-              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Special Guideline & Suggestion", year: "২০২৫", videoId: "aNKzEOJ6RLc" }
-            ]
-          },
-          {
-            subjectName: "সাধারণ জ্ঞান (GK)",
-            classes: [
-              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | GK-সাধারণ জ্ঞান | Question Analysis Class", year: "২০২৫", videoId: "Fdqs10sjY7E" },
-              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | GK-সাধারণ জ্ঞান | Special Guideline & Suggestion", year: "২০২৫", videoId: "6OzzEDtRJOY" }
-            ]
-          }
-        ]
-      }
-    ];
-
     /* Extract YouTube Video ID from full URL or direct ID */
     function extractYouTubeId(input) {
       if (!input) return "";
@@ -2508,23 +2366,29 @@
 
       document.title = "বিভিন্ন বিশ্ববিদ্যালয়ের ভর্তি প্রস্তুতি | Admission Update";
       const grid = document.getElementById("prepUniGrid");
-      grid.innerHTML = prepCourseData.map(item => `
-        <div class="uni-card" role="button" tabindex="0" onclick="openPrepClassesPage('${item.id}', true)">
-          <div class="uni-card-top-row">
-            <div class="uni-card-title">
-              <h3>${item.fullName}</h3>
-              <p>${item.summaryText}</p>
+      const list = typeof prepCourseData !== "undefined" ? prepCourseData : [];
+
+      if (list.length === 0) {
+        grid.innerHTML = `<div class="empty-state">ক্লাসের তথ্য লোড হচ্ছে না। অনুগ্রহ করে data.js ফাইলটি যাচাই করুন।</div>`;
+      } else {
+        grid.innerHTML = list.map(item => `
+          <div class="uni-card" role="button" tabindex="0" onclick="openPrepClassesPage('${item.id}', true)">
+            <div class="uni-card-top-row">
+              <div class="uni-card-title">
+                <h3>${item.fullName}</h3>
+                <p>${item.summaryText}</p>
+              </div>
+              <span class="badge badge-2nd">${item.shortName}</span>
             </div>
-            <span class="badge badge-2nd">${item.shortName}</span>
-          </div>
-          <div class="uni-card-bottom">
-            <div class="uni-badges">
-              <span class="badge badge-open">বিষয়ভিত্তিক ক্লাস</span>
+            <div class="uni-card-bottom">
+              <div class="uni-badges">
+                <span class="badge badge-open">বিষয়ভিত্তিক ক্লাস</span>
+              </div>
+              <span class="details-cta">ক্লাস দেখুন →</span>
             </div>
-            <span class="details-cta">ক্লাস দেখুন →</span>
           </div>
-        </div>
-      `).join("");
+        `).join("");
+      }
 
       window.scrollTo({ top: 0, behavior: "smooth" });
       if (pushHistory) {
@@ -2550,7 +2414,8 @@
     }
 
     function openPrepClassesPage(prepUniId, pushHistory = true) {
-      const course = prepCourseData.find(c => c.id === prepUniId) || prepCourseData[0];
+      const list = typeof prepCourseData !== "undefined" ? prepCourseData : [];
+      const course = list.find(c => c.id === prepUniId) || list[0];
       if (!course) return;
 
       homeView.classList.add("hidden");
@@ -3495,13 +3360,14 @@
 
     function handleHashRouting(pushHistory = false) {
       const hashId = window.location.hash.replace("#", "");
+      const prepList = typeof prepCourseData !== "undefined" ? prepCourseData : [];
       if (hashId === "updates") {
         openUpdatesPage(pushHistory);
       } else if (hashId === "prep") {
         openPrepUnisPage(pushHistory);
       } else if (hashId.startsWith("prep-")) {
         const pId = hashId.replace("prep-", "");
-        if (prepCourseData.some(c => c.id === pId)) {
+        if (prepList.some(c => c.id === pId)) {
           openPrepClassesPage(pId, pushHistory);
         } else {
           openPrepUnisPage(pushHistory);
