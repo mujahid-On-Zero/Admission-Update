@@ -49,10 +49,17 @@ const promoButtonsData = [
 ];
 
 const DISCLAIMER_25_26 = "২০২৬–২৭ শিক্ষাবর্ষের ডাটা প্রকাশিত না হওয়ায় ২০২৫–২৬ সেশনের ডাটা দিয়ে তথ্য সাজানো হয়েছে। সংশ্লিষ্ট ইউনিটের নোটিশ প্রকাশিত হলে আমরা আপডেট করে দেব।";
-const DISCLAIMER_JNU_PARTIAL = "২০২৬–২৭ শিক্ষাবর্ষের একাডেমিক কাউন্সিলের সিদ্ধান্ত অনুযায়ী পরীক্ষার তারিখ, সময় ও জিপিএ যোগ্যতা আপডেট করা হয়েছে। তবে পূর্ণাঙ্গ সার্কুলার এখনো প্রকাশিত না হওয়ায় আবেদন ফি ও আসন সংখ্যার মতো কিছু তথ্য ২০২৫–২৬ সেশনের ডাটা দিয়ে সাজানো হয়েছে। সংশ্লিষ্ট ইউনিটের চূড়ান্ত নোটিশ প্রকাশিত হলে আমরা আপডেট করে দেব।";
+const DISCLAIMER_JNU_PARTIAL = "২০২৬–২৭ শিক্ষাবর্ষের অনলাইন আবেদন নির্দেশিকা ও একাডেমিক কাউন্সিলের সিদ্ধান্ত অনুযায়ী পরীক্ষার তারিখ, সময়, আবেদন ফি ও জিপিএ যোগ্যতা আপডেট করা হয়েছে। তবে পূর্ণাঙ্গ আসন ও বিষয়ভিত্তিক সার্কুলার এখনো প্রকাশিত না হওয়ায় কিছু তথ্য ২০২৫–২৬ সেশনের ডাটা দিয়ে সাজানো হয়েছে। সংশ্লিষ্ট ইউনিটের চূড়ান্ত নোটিশ প্রকাশিত হলে আমরা আপডেট করে দেব।";
 
 /* Site Version & Update Log Data */
 const siteUpdates = [
+  {
+    version: "v1.9",
+    timestamp: "2026-11-25T12:40:00+06:00",
+    changes: [
+      { uni: "JnU", text: "জগন্নাথ বিশ্ববিদ্যালয়ের নতুন আবেদন পোর্টাল (jnuadmission.com), অনলাইন আবেদনের অফিশিয়াল নির্দেশিকা PDF, আবেদন চলমান স্ট্যাটাস, প্রবেশপত্র ডাউনলোডের তারিখ (১৮–২৫ ডিসে ২০২৬), B, C ও D ইউনিটের ফি ১,২০০/- (bKash/Rocket ১,২১২/-) ও E ইউনিটের ফি ১,৫০০/- (bKash/Rocket ১,৫১৫/-) এবং ধাপে ধাপে আবেদনের নিয়ম হালনাগাদ করা হয়েছে।" }
+    ]
+  },
   {
     version: "v1.8",
     timestamp: "2026-11-24T21:00:00+06:00",
@@ -125,7 +132,7 @@ const admissionData = [
     applyStartISO: "2026-11-11",
     applyEndISO: "2026-11-25",
     applyTimeline: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
-    applyNote: "আবেদন চলমান (শেষ হতে বাকি ১ দিন)",
+    applyNote: "আবেদন চলমান (শেষ দিন আজ)",
     website: "https://admission.eis.du.ac.bd/",
     generalCircularUrl: "https://admission.eis.du.ac.bd/bn/gf6s7h89rthg463786e4q6a3b679w6jrn46a",
     helpline: "09666361991",
@@ -418,7 +425,7 @@ const admissionData = [
     applyStartISO: "2026-11-15",
     applyEndISO: "2026-11-30",
     applyTimeline: "১৫ নভেম্বর – ৩০ নভেম্বর ২০২৬",
-    applyNote: "আবেদন চলমান (শেষ হতে বাকি ৬ দিন)",
+    applyNote: "আবেদন চলমান (শেষ হতে বাকি ৫ দিন)",
     website: "https://admission.ru.ac.bd/",
     generalCircularUrl: "https://admission.ru.ac.bd/student/notices",
     helpline: "+880-1703-899973",
@@ -790,23 +797,24 @@ const admissionData = [
     shortName: "জবি",
     fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
     summaryText: "B (কলা ও আইন), C (বাণিজ্য), D (সামাজিক বিজ্ঞান) ও E (চারুকলা)",
-    appStatus: "upcoming",
+    appStatus: "open",
     secondTime: false,
     applyOrder: 4,
     applyStartISO: "2026-11-25",
     applyEndISO: "2026-12-10",
     applyTimeline: "২৫ নভেম্বর (দুপুর ১২টা) – ১০ ডিসেম্বর ২০২৬ (রাত ১১:৫৯)",
-    applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ১ দিন)",
-    website: "https://admission.jnu.ac.bd/",
+    applyNote: "আবেদন চলমান (প্রবেশপত্র: ১৮–২৫ ডিসেম্বর ২০২৬)",
+    website: "https://jnuadmission.com/",
     generalCircularUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
+    applicationInstructionUrl: "https://jnuadmission.com/notices/34/pdf",
     helpline: "09611-773388",
-    lastUpdated: "২২ নভেম্বর ২০২৬",
+    lastUpdated: "২৫ নভেম্বর ২০২৬",
     units: [
       {
         tabLabel: "B ইউনিট (কলা ও আইন)",
         unitName: "B ইউনিট (কলা ও আইন অনুষদ)",
-        pdfUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
-        appFee: "১,২০০ টাকা (২০২৫–২৬ সেশন অনুযায়ী)",
+        pdfUrl: "https://jnuadmission.com/notices/34/pdf",
+        appFee: "১,২০০ টাকা (bKash/Rocket-এ ১,২১২ টাকা)",
         mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (শুধু ২০২৬ ব্যাচ)",
         totalSeats: "৭৮৫টি",
         examOrder: 6.2,
@@ -836,14 +844,14 @@ const admissionData = [
             { name: "সাধারণ জ্ঞান", dist: "২৪ নম্বর" }
           ]
         },
-        specialCondition: "শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)। পরীক্ষা বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত অনুষ্ঠিত হবে।",
+        specialCondition: "শুধুমাত্র ২০২৬ সালে HSC/সমমান উত্তীর্ণ শিক্ষার্থীরা আবেদন করতে পারবে (সেকেন্ড টাইম নেই)। অনলাইন আবেদনে HSC প্রবেশপত্র/রেজিস্ট্রেশন কার্ড, ৩০০×৩০০ পিক্সেল ছবি ও লাইভ ছবি যাচাই বাধ্যতামূলক। পরীক্ষা বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত অনুষ্ঠিত হবে এবং পরীক্ষার হলে প্রবেশপত্রের সাথে Payment Slip সঙ্গে আনতে হবে।",
         disclaimer: DISCLAIMER_JNU_PARTIAL
       },
       {
         tabLabel: "C ইউনিট (ব্যবসায় শিক্ষা)",
         unitName: "C ইউনিট (ব্যবসায় শিক্ষা অনুষদ)",
-        pdfUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
-        appFee: "১,২০০ টাকা (২০২৫–২৬ সেশন অনুযায়ী)",
+        pdfUrl: "https://jnuadmission.com/notices/34/pdf",
+        appFee: "১,২০০ টাকা (bKash/Rocket-এ ১,২১২ টাকা)",
         mandatorySubject: "বাণিজ্য ও অ-বাণিজ্য উভয় শাখার জন্য নির্ধারিত আসন",
         totalSeats: "৫২০টি",
         examOrder: 6.3,
@@ -873,14 +881,14 @@ const admissionData = [
             { name: "ব্যবসায় নীতি / সাধারণ জ্ঞান", dist: "২৪ নম্বর" }
           ]
         },
-        specialCondition: "শুধু ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত পরীক্ষা নেওয়া হয়।",
+        specialCondition: "শুধু ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত পরীক্ষা নেওয়া হয় এবং পরীক্ষার হলে প্রবেশপত্রের সাথে Payment Slip অবশ্যই আনতে হবে।",
         disclaimer: DISCLAIMER_JNU_PARTIAL
       },
       {
         tabLabel: "D ইউনিট (সামাজিক বিজ্ঞান)",
         unitName: "D ইউনিট (সামাজিক বিজ্ঞান অনুষদ)",
-        pdfUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
-        appFee: "১,২০০ টাকা (২০২৫–২৬ সেশন অনুযায়ী)",
+        pdfUrl: "https://jnuadmission.com/notices/34/pdf",
+        appFee: "১,২০০ টাকা (bKash/Rocket-এ ১,২১২ টাকা)",
         mandatorySubject: "অর্থনীতি বিভাগে HSC-তে অর্থনীতি বা গণিত/পরিসংখ্যান আবশ্যক",
         totalSeats: "৫৯০টি",
         examOrder: 6.4,
@@ -910,14 +918,14 @@ const admissionData = [
             { name: "সাধারণ জ্ঞান", dist: "২৪ নম্বর" }
           ]
         },
-        specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত পরীক্ষা অনুষ্ঠিত হবে।",
+        specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে। বিভাগীয় শহর ঢাকা কেন্দ্রে সকাল ১০:০০ – ১১:০০ পর্যন্ত পরীক্ষা অনুষ্ঠিত হবে এবং পরীক্ষার হলে প্রবেশপত্রের সাথে Payment Slip অবশ্যই সঙ্গে আনতে হবে।",
         disclaimer: DISCLAIMER_JNU_PARTIAL
       },
       {
         tabLabel: "E ইউনিট (চারুকলা)",
         unitName: "E ইউনিট (চারুকলা অনুষদ)",
-        pdfUrl: "https://jnu.ac.bd/newsite/newsdetails/138749",
-        appFee: "১,৫০০ টাকা (২০২৫–২৬ সেশন অনুযায়ী)",
+        pdfUrl: "https://jnuadmission.com/notices/34/pdf",
+        appFee: "১,৫০০ টাকা (bKash/Rocket-এ ১,৫১৫ টাকা)",
         mandatorySubject: "সকল বিভাগের জন্য উন্মুক্ত (ব্যবহারিক পরীক্ষা আবশ্যক)",
         totalSeats: "৬০টি",
         examOrder: 6.1,
@@ -948,7 +956,7 @@ const admissionData = [
             { name: "ব্যবহারিক (Drawing / Performance)", dist: "৪৮ নম্বর" }
           ]
         },
-        specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে এবং ব্যবহারিক পরীক্ষায় অংশগ্রহণ বাধ্যতামূলক। ১ম বর্ষের ক্লাস শুরু: ৪ এপ্রিল ২০২৭।",
+        specialCondition: "শুধুমাত্র ২০২৬ ব্যাচের শিক্ষার্থীরা আবেদন করতে পারবে এবং ব্যবহারিক পরীক্ষায় অংশগ্রহণ বাধ্যতামূলক। পরীক্ষার হলে প্রবেশপত্রের সাথে Payment Slip সঙ্গে আনতে হবে। ১ম বর্ষের ক্লাস শুরু: ৪ এপ্রিল ২০২৭।",
         disclaimer: DISCLAIMER_JNU_PARTIAL
       }
     ]
@@ -962,7 +970,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 5,
     applyTimeline: "০১ ডিসেম্বর ২০২৬ – ০৫ জানুয়ারি ২০২৭",
-    applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৭ দিন)",
+    applyNote: "আবেদন আসন্ন (শুরু হতে বাকি ৬ দিন)",
     website: "https://admission.bup.edu.bd/",
     generalCircularUrl: "https://admission.bup.edu.bd/Upload/Notices/BUP%20Admission%20Advertisement%202026-2027.pdf",
     helpline: "09666790790",
@@ -1097,7 +1105,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 6,
     applyTimeline: "ডিসেম্বর ২০২৬ (সম্ভাব্য)",
-    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২১ দিন)",
+    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ২০ দিন)",
     website: "https://admission.cu.ac.bd/",
     helpline: "01555-555140",
     lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1341,7 +1349,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 7,
     applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-    applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩১ দিন)",
+    applyNote: "অনলাইন পোর্টাল শীঘ্রই চালু হবে (বাকি ৩০ দিন)",
     website: "https://admission.ku.ac.bd/",
     helpline: "01534-296430",
     lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1434,7 +1442,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 8,
     applyTimeline: "ডিসেম্বর ২০২৬ – জানুয়ারি ২০২৭",
-    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩২ দিন)",
+    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৩১ দিন)",
     website: "https://admission.cou.ac.bd/",
     helpline: "01557-330381",
     lastUpdated: "১৮ নভেম্বর ২০২৬",
@@ -1524,7 +1532,7 @@ const admissionData = [
     secondTime: true,
     applyOrder: 9,
     applyTimeline: "জানুয়ারি ২০২৭ (সম্ভাব্য)",
-    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৪ দিন)",
+    applyNote: "শীঘ্রই আবেদন শুরু (বাকি আছে প্রায় ৪৩ দিন)",
     website: "https://gstadmission.ac.bd/",
     helpline: "09613-330000",
     lastUpdated: "১৮ নভেম্বর ২০২৬",
