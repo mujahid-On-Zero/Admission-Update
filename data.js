@@ -53,6 +53,14 @@ const DISCLAIMER_25_26 = "২০২৬–২৭ শিক্ষাবর্ষ�
 /* Site Version & Update Log Data */
 const siteUpdates = [
   {
+    version: "v2.1",
+    timestamp: "2026-11-25T20:40:00+06:00",
+    changes: [
+      { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের অনলাইনে আবেদনের সময়সীমা ০৩ দিন বৃদ্ধি করে আগামী শনিবার, ২৮ নভেম্বর ২০২৬, রাত ১২:০০টা পর্যন্ত নির্ধারণ করা হয়েছে (পরীক্ষাসহ অন্যান্য সময়সূচি অপরিবর্তিত রয়েছে)।" },
+      { uni: "ALL", text: "‘বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি নিন’ সেকশনে রাবি, জবি, চবি, জাবি ও গুচ্ছ বিশ্ববিদ্যালয়ের বিষয়ভিত্তিক অনলাইন ক্লাস ও ইন-পেইজ ভিডিও প্লেয়ার যুক্ত করা হয়েছে।" }
+    ]
+  },
+  {
     version: "v2.0",
     timestamp: "2026-11-25T15:35:00+06:00",
     changes: [
@@ -136,9 +144,9 @@ const admissionData = [
     secondTime: false,
     applyOrder: 1,
     applyStartISO: "2026-11-11",
-    applyEndISO: "2026-11-25",
-    applyTimeline: "১১ নভেম্বর – ২৫ নভেম্বর ২০২৬",
-    applyNote: "আবেদন চলমান (শেষ দিন আজ)",
+    applyEndISO: "2026-11-28",
+    applyTimeline: "১১ নভেম্বর – ২৮ নভেম্বর ২০২৬ (শনিবার রাত ১২:০০টা পর্যন্ত বর্ধিত)",
+    applyNote: "আবেদন চলমান (বর্ধিত শেষ সময়: ২৮ নভেম্বর রাত ১২টা)",
     website: "https://admission.eis.du.ac.bd/",
     generalCircularUrl: "https://admission.eis.du.ac.bd/bn/gf6s7h89rthg463786e4q6a3b679w6jrn46a",
     helpline: "09666361991",
@@ -159,7 +167,7 @@ const admissionData = [
       email: "helpline@eis.du.ac.bd",
       address: "কক্ষ নং ২১৪, প্রশাসনিক ভবন, ঢাকা বিশ্ববিদ্যালয়।"
     },
-    lastUpdated: "২২ নভেম্বর ২০২৬",
+    lastUpdated: "২৫ নভেম্বর ২০২৬",
     units: [
       {
         tabLabel: "ক ইউনিট (বিভাগ পরিবর্তন)",
@@ -1647,5 +1655,147 @@ const sameDayClashes = [
     date: "৫ ফেব্রুয়ারি ২০২৭ – ৬ ফেব্রুয়ারি ২০২৭ (সম্ভাব্য)",
     title: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU) বনাম কুমিল্লা বিশ্ববিদ্যালয় (CoU)",
     desc: "চবির B ইউনিট (৫ ফেব্রুয়ারি) ও D ইউনিটের (৬ ফেব্রুয়ারি) সাথে কুমিল্লা বিশ্ববিদ্যালয়ের সম্ভাব্য পরীক্ষার তারিখ (৫–৭ ফেব্রুয়ারি) কাছাকাছি বা একই দিনে পড়ার সম্ভাবনা রয়েছে। কেন্দ্র দূরত্ব বিবেচনায় রেখে প্রস্তুতি নিন।"
+  }
+];
+
+/* বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি ক্লাস ডেটা (ফোকাস চ্যানেলের বিষয়ভিত্তিক ক্লাসসমূহ) */
+const prepCourseData = [
+  {
+    id: "ru",
+    shortName: "RU",
+    fullName: "রাজশাহী বিশ্ববিদ্যালয় (RU)",
+    summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+    subjects: [
+      {
+        subjectName: "বাংলা ক্লাস (MCQ)",
+        classes: [
+          { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | Bangla-বাংলা", year: "২০২৫", videoId: "_DsiOw8OZSI" }
+        ]
+      },
+      {
+        subjectName: "ইংরেজি ক্লাস (MCQ)",
+        classes: [
+          { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | English-ইংরেজি", year: "২০২৫", videoId: "FhcpEQd1yC0" }
+        ]
+      },
+      {
+        subjectName: "সাধারণ জ্ঞান (GK)",
+        classes: [
+          { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | GK - সাধারণ জ্ঞান", year: "২০২৫", videoId: "KX5bCVAiVKo" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "jnu",
+    shortName: "JnU",
+    fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
+    summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+    subjects: [
+      {
+        subjectName: "বাংলা ক্লাস (MCQ)",
+        classes: [
+          { title: "Jagannath University Admission Preparation | Bangla - বাংলা", year: "২০২৫", videoId: "Cnh1HkZQMa8" }
+        ]
+      },
+      {
+        subjectName: "ইংরেজি ক্লাস (MCQ)",
+        classes: [
+          { title: "Jagannath University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "Si2pNW6e17A" }
+        ]
+      },
+      {
+        subjectName: "সাধারণ জ্ঞান (GK)",
+        classes: [
+          { title: "Jagannath University Admission Preparation | GK - সাধারণ জ্ঞান", year: "২০২৫", videoId: "dqvZnbRblUw" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "cu",
+    shortName: "CU",
+    fullName: "চট্টগ্রাম বিশ্ববিদ্যালয় (CU)",
+    summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+    subjects: [
+      {
+        subjectName: "বাংলা ক্লাস (MCQ)",
+        classes: [
+          { title: "Chittagong University Admission Preparation | Bangla - বাংলা", year: "২০২৫", videoId: "OXaGc6el0is" }
+        ]
+      },
+      {
+        subjectName: "ইংরেজি ক্লাস (MCQ)",
+        classes: [
+          { title: "Chittagong University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "zVt2-0VuzRs" }
+        ]
+      },
+      {
+        subjectName: "সাধারণ জ্ঞান (GK)",
+        classes: [
+          { title: "Chittagong University Admission Preparation | Gk-সাধারণ জ্ঞান", year: "২০২৫", videoId: "fd7NlvrK9zA" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "ju",
+    shortName: "JU",
+    fullName: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
+    summaryText: "বাংলা, ইংরেজি, সাধারণ জ্ঞান ও গণিত-মানসিক দক্ষতা",
+    subjects: [
+      {
+        subjectName: "বাংলা ক্লাস (MCQ)",
+        classes: [
+          { title: "Jahangirnagar University Admission Preparation | Bangla-বাংলা", year: "২০২৫", videoId: "GUuWundr7Vo" }
+        ]
+      },
+      {
+        subjectName: "ইংরেজি ক্লাস (MCQ)",
+        classes: [
+          { title: "Jahangirnagar University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "NHUFKUPpYe0" }
+        ]
+      },
+      {
+        subjectName: "সাধারণ জ্ঞান (GK)",
+        classes: [
+          { title: "JU Admission Preparation | GK - সাধারণ জ্ঞান ও অন্যান্য", year: "২০২৫", videoId: "PzKZcN6SId0" }
+        ]
+      },
+      {
+        subjectName: "গণিত ও মানসিক দক্ষতা",
+        classes: [
+          { title: "JU Admission Preparation | গণিত ও মানসিক দক্ষতা", year: "২০২৫", videoId: "Yb6A7swqheQ" }
+        ]
+      }
+    ]
+  },
+  {
+    id: "gst",
+    shortName: "GST",
+    fullName: "গুচ্ছ (GST) বিশ্ববিদ্যালয়সমূহ",
+    summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+    subjects: [
+      {
+        subjectName: "বাংলা ক্লাস (MCQ)",
+        classes: [
+          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | Bangla-বাংলা | Special Guideline & Suggestion", year: "২০২৫", videoId: "8dvoxKaS2ag" }
+        ]
+      },
+      {
+        subjectName: "ইংরেজি ক্লাস (MCQ)",
+        classes: [
+          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Question Analysis Class", year: "২০২৫", videoId: "maZ-BiwdEXU" },
+          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Special Guideline & Suggestion", year: "২০২৫", videoId: "aNKzEOJ6RLc" }
+        ]
+      },
+      {
+        subjectName: "সাধারণ জ্ঞান (GK)",
+        classes: [
+          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | GK-সাধারণ জ্ঞান | Question Analysis Class", year: "২০২৫", videoId: "Fdqs10sjY7E" },
+          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | GK-সাধারণ জ্ঞান | Special Guideline & Suggestion", year: "২০২৫", videoId: "6OzzEDtRJOY" }
+        ]
+      }
+    ]
   }
 ];
