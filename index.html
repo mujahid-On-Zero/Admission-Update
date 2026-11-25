@@ -1908,7 +1908,7 @@
         <div class="prep-home-copy">
           <span class="prep-home-badge">🎓 ফোকাস অনলাইন ক্লাস আর্কাইভ</span>
           <h2>বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি নিন</h2>
-          <p>জগন্নাথ, রাজশাহী, চট্টগ্রাম, ইসলামী বিশ্ববিদ্যালয়সহ অন্যান্য বিশ্ববিদ্যালয়ের বিগত বছরের বিষয়ভিত্তিক ক্লাসগুলো ওয়েবসাইটে বসেই করুন।</p>
+          <p>রাজশাহী, জগন্নাথ, চট্টগ্রাম, জাহাঙ্গীরনগর ও গুচ্ছ বিশ্ববিদ্যালয়ের বিগত বছরের বিষয়ভিত্তিক ক্লাসগুলো ওয়েবসাইটে বসেই করুন।</p>
         </div>
         <button type="button" class="btn-prep-open" onclick="openPrepUnisPage(true)">বিশ্ববিদ্যালয় নির্বাচন করুন →</button>
       </section>
@@ -2041,7 +2041,7 @@
         <!-- ২০২৬ সেশনের ক্লাস সংক্রান্ত স্পষ্ট নোটিশ -->
         <div class="special-condition-box" style="margin-bottom: 14px;">
           <h3>📌 ২০২৬ সেশনের ক্লাস সংক্রান্ত জরুরি বিজ্ঞপ্তি</h3>
-          <p>২০২৬ সেশনের নতুন ক্লাসগুলো এই ওয়েবসাইটে দেওয়া হবে না; এগুলো শুধুমাত্র <strong>ফোকাসের অফিশিয়াল ওয়েবসাইটে ভর্তিকৃত শিক্ষার্থীদের</strong> জন্য সংরক্ষিত। এখানে বিগত বছরের (২০২৩, ২০২৪ ও ২০২৫) উন্মুক্ত ক্লাসগুলো বিষয়ভিত্তিকভাবে সাজানো রয়েছে।</p>
+          <p>২০২৬ সেশনের নতুন ক্লাসগুলো এই ওয়েবসাইটে দেওয়া হবে না; এগুলো শুধুমাত্র <strong>ফোকাসের অফিশিয়াল ওয়েবসাইটে ভর্তিকৃত শিক্ষার্থীদের</strong> জন্য সংরক্ষিত। এখানে বিগত বছরের উন্মুক্ত ক্লাসগুলো বিষয়ভিত্তিকভাবে সাজানো রয়েছে।</p>
         </div>
 
         <!-- বিষয়ভিত্তিক ক্লাসের তালিকা -->
@@ -2346,40 +2346,8 @@
     const detailContent = document.getElementById("detailContent");
     const unitTabsContainer = document.getElementById("unitTabsContainer");
 
-    /* বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি ক্লাস ডেটা (বিষয়ভিত্তিক ও সালভিত্তিক: ২০২৩, ২০২৪, ২০২৫) */
+    /* বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি ক্লাস ডেটা (বিষয়ভিত্তিক ও ফোকাস চ্যানেলের আসল ক্লাসসহ) */
     const prepCourseData = [
-      {
-        id: "jnu",
-        shortName: "JnU",
-        fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
-        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
-        subjects: [
-          {
-            subjectName: "বাংলা ক্লাস (MCQ)",
-            classes: [
-              { title: "বাংলা প্রশ্নব্যাংক সমাধান ও সাজেশন ক্লাস", year: "২০২৫", videoId: "" },
-              { title: "বাংলা ব্যাকরণ ও সাহিত্য স্পেশাল ক্লাস", year: "২০২৪", videoId: "" },
-              { title: "বিগত বছরের প্রশ্ন বিশ্লেষণ ক্লাস", year: "২০২৩", videoId: "" }
-            ]
-          },
-          {
-            subjectName: "ইংরেজি ক্লাস (MCQ)",
-            classes: [
-              { title: "English Grammar & Vocabulary Special", year: "২০২৫", videoId: "" },
-              { title: "JnU English Question Solve Class", year: "২০২৪", videoId: "" },
-              { title: "Important Rules & Practice Class", year: "২০২৩", videoId: "" }
-            ]
-          },
-          {
-            subjectName: "সাধারণ জ্ঞান (GK)",
-            classes: [
-              { title: "বাংলাদেশ ও আন্তর্জাতিক বিষয়াবলি স্পেশাল", year: "২০২৫", videoId: "" },
-              { title: "মৌলিক জিকে ও প্রশ্নব্যাংক সলভ", year: "২০২৪", videoId: "" },
-              { title: "গুরুত্বপূর্ণ সাধারণ জ্ঞান রিভিশন ক্লাস", year: "২০২৩", videoId: "" }
-            ]
-          }
-        ]
-      },
       {
         id: "ru",
         shortName: "RU",
@@ -2389,25 +2357,45 @@
           {
             subjectName: "বাংলা ক্লাস (MCQ)",
             classes: [
-              { title: "রাবি বাংলা স্পেশাল প্রশ্নব্যাংক সলভ", year: "২০২৫", videoId: "" },
-              { title: "বাংলা প্রথম ও দ্বিতীয় পত্র গুরুত্বপূর্ণ টপিক", year: "২০২৪", videoId: "" },
-              { title: "রাবি বাংলা পূর্ণাঙ্গ রিভিশন ক্লাস", year: "২০২৩", videoId: "" }
+              { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | Bangla-বাংলা", year: "২০২৫", videoId: "_DsiOw8OZSI" }
             ]
           },
           {
             subjectName: "ইংরেজি ক্লাস (MCQ)",
             classes: [
-              { title: "RU English Final Suggestion & Solve", year: "২০২৫", videoId: "" },
-              { title: "Grammar & Passage Practice Class", year: "২০২৪", videoId: "" },
-              { title: "Previous Year Question Analysis", year: "২০২৩", videoId: "" }
+              { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | English-ইংরেজি", year: "২০২৫", videoId: "FhcpEQd1yC0" }
             ]
           },
           {
             subjectName: "সাধারণ জ্ঞান (GK)",
             classes: [
-              { title: "রাবি জিকে স্পেশাল ও সাম্প্রতিক প্রশ্ন", year: "২০২৫", videoId: "" },
-              { title: "বাংলাদেশ বিষয়াবলি ও সংবিধান ক্লাস", year: "২০২৪", videoId: "" },
-              { title: "আন্তর্জাতিক বিষয়াবলি স্পেশাল ক্লাস", year: "২০২৩", videoId: "" }
+              { title: "রাজশাহী বিশ্ববিদ্যালয় ভর্তি প্রস্তুতি | GK - সাধারণ জ্ঞান", year: "২০২৫", videoId: "KX5bCVAiVKo" }
+            ]
+          }
+        ]
+      },
+      {
+        id: "jnu",
+        shortName: "JnU",
+        fullName: "জগন্নাথ বিশ্ববিদ্যালয় (JnU)",
+        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+        subjects: [
+          {
+            subjectName: "বাংলা ক্লাস (MCQ)",
+            classes: [
+              { title: "Jagannath University Admission Preparation | Bangla - বাংলা", year: "২০২৫", videoId: "Cnh1HkZQMa8" }
+            ]
+          },
+          {
+            subjectName: "ইংরেজি ক্লাস (MCQ)",
+            classes: [
+              { title: "Jagannath University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "Si2pNW6e17A" }
+            ]
+          },
+          {
+            subjectName: "সাধারণ জ্ঞান (GK)",
+            classes: [
+              { title: "Jagannath University Admission Preparation | GK - সাধারণ জ্ঞান", year: "২০২৫", videoId: "dqvZnbRblUw" }
             ]
           }
         ]
@@ -2421,57 +2409,51 @@
           {
             subjectName: "বাংলা ক্লাস (MCQ)",
             classes: [
-              { title: "চবি বাংলা প্রশ্নব্যাংক এনালাইসিস ক্লাস", year: "২০২৫", videoId: "" },
-              { title: "ব্যাকরণ ও বিরচন স্পেশাল ক্লাস", year: "২০২৪", videoId: "" },
-              { title: "চবি বাংলা ফাইনাল মডেল সলভ", year: "২০২৩", videoId: "" }
+              { title: "Chittagong University Admission Preparation | Bangla - বাংলা", year: "২০২৫", videoId: "OXaGc6el0is" }
             ]
           },
           {
             subjectName: "ইংরেজি ক্লাস (MCQ)",
             classes: [
-              { title: "CU English Special Grammar & Vocab", year: "২০২৫", videoId: "" },
-              { title: "CU Question Bank Solve Class", year: "২০২৪", videoId: "" },
-              { title: "Common Mistakes & Grammar Tricks", year: "২০২৩", videoId: "" }
+              { title: "Chittagong University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "zVt2-0VuzRs" }
             ]
           },
           {
             subjectName: "সাধারণ জ্ঞান (GK)",
             classes: [
-              { title: "চবি সাধারণ জ্ঞান পূর্ণাঙ্গ সাজেশন ক্লাস", year: "২০২৫", videoId: "" },
-              { title: "মৌলিক জিকে ও তথ্যভিত্তিক আলোচনা", year: "২০২৪", videoId: "" },
-              { title: "বিগত বছরের জিকে প্রশ্ন সমাধান", year: "২০২৩", videoId: "" }
+              { title: "Chittagong University Admission Preparation | Gk-সাধারণ জ্ঞান", year: "২০২৫", videoId: "fd7NlvrK9zA" }
             ]
           }
         ]
       },
       {
-        id: "iu",
-        shortName: "IU",
-        fullName: "ইসলামী বিশ্ববিদ্যালয় (IU)",
-        summaryText: "বাংলা, ইংরেজি ও সাধারণ জ্ঞান (MCQ প্রস্তুতি)",
+        id: "ju",
+        shortName: "JU",
+        fullName: "জাহাঙ্গীরনগর বিশ্ববিদ্যালয় (JU)",
+        summaryText: "বাংলা, ইংরেজি, সাধারণ জ্ঞান ও গণিত-মানসিক দক্ষতা",
         subjects: [
           {
             subjectName: "বাংলা ক্লাস (MCQ)",
             classes: [
-              { title: "ইবি বাংলা স্পেশাল ক্লাস ও সাজেশন", year: "২০২৫", videoId: "" },
-              { title: "বাংলা সাহিত্য ও ব্যাকরণ প্রশ্ন সমাধান", year: "২০২৪", videoId: "" },
-              { title: "বিগত বছরের প্রশ্ন পর্যালোচনা", year: "২০২৩", videoId: "" }
+              { title: "Jahangirnagar University Admission Preparation | Bangla-বাংলা", year: "২০২৫", videoId: "GUuWundr7Vo" }
             ]
           },
           {
             subjectName: "ইংরেজি ক্লাস (MCQ)",
             classes: [
-              { title: "IU English Preparation & Solve", year: "২০২৫", videoId: "" },
-              { title: "Important Grammar Rules Class", year: "২০২৪", videoId: "" },
-              { title: "Vocabulary & Preposition Special", year: "২০২৩", videoId: "" }
+              { title: "Jahangirnagar University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "NHUFKUPpYe0" }
             ]
           },
           {
             subjectName: "সাধারণ জ্ঞান (GK)",
             classes: [
-              { title: "ইবি সাধারণ জ্ঞান স্পেশাল ক্লাস", year: "২০২৫", videoId: "" },
-              { title: "বাংলাদেশ ও বিশ্ব পরিচিতি ক্লাস", year: "২০২৪", videoId: "" },
-              { title: "জিকে প্রশ্নব্যাংক সলভ ক্লাস", year: "২০২৩", videoId: "" }
+              { title: "JU Admission Preparation | GK - সাধারণ জ্ঞান ও অন্যান্য", year: "২০২৫", videoId: "PzKZcN6SId0" }
+            ]
+          },
+          {
+            subjectName: "গণিত ও মানসিক দক্ষতা",
+            classes: [
+              { title: "JU Admission Preparation | গণিত ও মানসিক দক্ষতা", year: "২০২৫", videoId: "Yb6A7swqheQ" }
             ]
           }
         ]
@@ -2485,25 +2467,21 @@
           {
             subjectName: "বাংলা ক্লাস (MCQ)",
             classes: [
-              { title: "গুচ্ছ বাংলা প্রশ্নব্যাংক সলভ ও সাজেশন", year: "২০২৫", videoId: "" },
-              { title: "পাঠ্যবই ও ব্যাকরণ স্পেশাল ক্লাস", year: "২০২৪", videoId: "" },
-              { title: "গুচ্ছ বাংলা ফাইনাল রিভিশন", year: "২০২৩", videoId: "" }
+              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | Bangla-বাংলা | Special Guideline & Suggestion", year: "২০২৫", videoId: "8dvoxKaS2ag" }
             ]
           },
           {
             subjectName: "ইংরেজি ক্লাস (MCQ)",
             classes: [
-              { title: "GST English Full Revision Class", year: "২০২৫", videoId: "" },
-              { title: "Grammar & Reading Comprehension", year: "২০২৪", videoId: "" },
-              { title: "GST Previous Question Solve", year: "২০২৩", videoId: "" }
+              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Question Analysis Class", year: "২০২৫", videoId: "maZ-BiwdEXU" },
+              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Special Guideline & Suggestion", year: "২০২৫", videoId: "aNKzEOJ6RLc" }
             ]
           },
           {
             subjectName: "সাধারণ জ্ঞান (GK)",
             classes: [
-              { title: "গুচ্ছ সাধারণ জ্ঞান স্পেশাল সাজেশন", year: "২০২৫", videoId: "" },
-              { title: "মৌলিক জিকে ও ইতিহাস-ঐতিহ্য ক্লাস", year: "২০২৪", videoId: "" },
-              { title: "গুচ্ছ জিকে প্রশ্নব্যাংক সমাধান", year: "২০২৩", videoId: "" }
+              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | GK-সাধারণ জ্ঞান | Question Analysis Class", year: "২০২৫", videoId: "Fdqs10sjY7E" },
+              { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | GK-সাধারণ জ্ঞান | Special Guideline & Suggestion", year: "২০২৫", videoId: "6OzzEDtRJOY" }
             ]
           }
         ]
@@ -2541,7 +2519,7 @@
           </div>
           <div class="uni-card-bottom">
             <div class="uni-badges">
-              <span class="badge badge-open">২০২৩–২০২৫ ক্লাস</span>
+              <span class="badge badge-open">বিষয়ভিত্তিক ক্লাস</span>
             </div>
             <span class="details-cta">ক্লাস দেখুন →</span>
           </div>
@@ -2605,7 +2583,7 @@
           row.innerHTML = `
             <div class="prep-class-info">
               <span class="prep-class-name">${cls.title}</span>
-              <span class="prep-class-meta">সেশন/সাল: ${cls.year} • ফোকাস আর্কাইভ</span>
+              <span class="prep-class-meta">প্রকাশকাল: ${cls.year} • Focus University Admission Coaching</span>
             </div>
             <span class="prep-play-pill">▶ প্লে করুন</span>
           `;
