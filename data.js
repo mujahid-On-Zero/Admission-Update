@@ -57,7 +57,7 @@ const siteUpdates = [
     timestamp: "2026-11-25T20:40:00+06:00",
     changes: [
       { uni: "DU", text: "ঢাকা বিশ্ববিদ্যালয়ের অনলাইনে আবেদনের সময়সীমা ০৩ দিন বৃদ্ধি করে আগামী শনিবার, ২৮ নভেম্বর ২০২৬, রাত ১২:০০টা পর্যন্ত নির্ধারণ করা হয়েছে (পরীক্ষাসহ অন্যান্য সময়সূচি অপরিবর্তিত রয়েছে)।" },
-      { uni: "ALL", text: "‘বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি নিন’ সেকশনে রাবি, জবি, চবি, জাবি ও গুচ্ছ বিশ্ববিদ্যালয়ের বিষয়ভিত্তিক অনলাইন ক্লাস ও ইন-পেইজ ভিডিও প্লেয়ার যুক্ত করা হয়েছে।" }
+      { uni: "ALL", text: "‘বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি নিন’ সেকশনে রাবি, জবি, চবি, জাবি ও গুচ্ছ বিশ্ববিদ্যালয়ের ২০২৩ ও ২০২৫ সালের বিষয়ভিত্তিক অনলাইন ক্লাস ও ইন-পেইজ ভিডিও প্লেয়ার যুক্ত করা হয়েছে।" }
     ]
   },
   {
@@ -1658,7 +1658,7 @@ const sameDayClashes = [
   }
 ];
 
-/* বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি ক্লাস ডেটা (ফোকাস চ্যানেলের বিষয়ভিত্তিক ক্লাসসমূহ) */
+/* বিভিন্ন বিশ্ববিদ্যালয়ের প্রস্তুতি ক্লাস ডেটা (ফোকাস চ্যানেলের বিষয়ভিত্তিক ক্লাসসমূহ: ২০২৫ ও ২০২৩) */
 const prepCourseData = [
   {
     id: "ru",
@@ -1721,13 +1721,15 @@ const prepCourseData = [
       {
         subjectName: "বাংলা ক্লাস (MCQ)",
         classes: [
-          { title: "Chittagong University Admission Preparation | Bangla - বাংলা", year: "২০২৫", videoId: "OXaGc6el0is" }
+          { title: "Chittagong University Admission Preparation | Bangla - বাংলা", year: "২০২৫", videoId: "OXaGc6el0is" },
+          { title: "CU+GST Special Bangla Class || চবি+গুচ্ছ স্পেশাল বাংলা ক্লাস", year: "২০২৩", videoId: "6owDtnflZNY" }
         ]
       },
       {
         subjectName: "ইংরেজি ক্লাস (MCQ)",
         classes: [
-          { title: "Chittagong University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "zVt2-0VuzRs" }
+          { title: "Chittagong University Admission Preparation | English-ইংরেজি", year: "২০২৫", videoId: "zVt2-0VuzRs" },
+          { title: "CU+GST Special English Class || চবি+গুচ্ছ স্পেশাল ইংরেজি ক্লাস", year: "২০২৩", videoId: "qsqrUV6PizM" }
         ]
       },
       {
@@ -1779,14 +1781,16 @@ const prepCourseData = [
       {
         subjectName: "বাংলা ক্লাস (MCQ)",
         classes: [
-          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | Bangla-বাংলা | Special Guideline & Suggestion", year: "২০২৫", videoId: "8dvoxKaS2ag" }
+          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | Bangla-বাংলা | Special Guideline & Suggestion", year: "২০২৫", videoId: "8dvoxKaS2ag" },
+          { title: "CU+GST Special Bangla Class || চবি+গুচ্ছ স্পেশাল বাংলা ক্লাস", year: "২০২৩", videoId: "6owDtnflZNY" }
         ]
       },
       {
         subjectName: "ইংরেজি ক্লাস (MCQ)",
         classes: [
           { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Question Analysis Class", year: "২০২৫", videoId: "maZ-BiwdEXU" },
-          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Special Guideline & Suggestion", year: "২০২৫", videoId: "aNKzEOJ6RLc" }
+          { title: "GST-গুচ্ছ ভর্তি প্রস্তুতি | English-ইংরেজি | Special Guideline & Suggestion", year: "২০২৫", videoId: "aNKzEOJ6RLc" },
+          { title: "CU+GST Special English Class || চবি+গুচ্ছ স্পেশাল ইংরেজি ক্লাস", year: "২০২৩", videoId: "qsqrUV6PizM" }
         ]
       },
       {
